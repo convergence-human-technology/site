@@ -3,7 +3,9 @@ Website Convergenge / on Github Pages
 
 site + espace membres Auth0 :
 
-mon-site/
+```
+https://github.com/convergence-human-technology/site/...
+
 ├── index.html          ← Page publique (accueil)
 ├── membres.html        ← Page privée (espace membres)
 ├── callback.html       ← Page de retour Auth0 (obligatoire)
@@ -13,3 +15,4 @@ mon-site/
 │   └── auth.js         ← Toute la logique Auth0
 └── img/
     └── logo.png
+```
