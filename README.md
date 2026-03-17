@@ -3,6 +3,8 @@ Website Convergenge / on Github Pages
 
 site + space members Auth0 :
 
+. https://convergence-human-technology.github.io/site
+
 ```
 https://github.com/convergence-human-technology/site/...
 
