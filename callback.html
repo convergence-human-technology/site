@@ -1,1 +1,24 @@
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Connexion en cours...</title>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+</head>
+<body>
+  <p>Connexion en cours, veuillez patienter... ⏳</p>
+  <script>
+    (async () => {
+      const auth0 = await createAuth0Client({
+        domain: "convergence-tech.eu.auth0.com",
+        clientId: "0NtxpyovHGewr14669n3Qz8RJYot27AS",
+        authorizationParams: {
+          redirect_uri: "https://convergence-human-technology.github.io/site/callback.html"
+        }
+      });
+      await auth0.handleRedirectCallback();
+      window.location.replace("https://convergence-human-technology.github.io/site/membres.html");
+    })();
+  </script>
+</body>
+</html>
