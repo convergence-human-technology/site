@@ -27,7 +27,6 @@
     const REDIRECT_URI = "https://convergence-human-technology.github.io/site/callback.html";
     const BASE_URL = "https://convergence-human-technology.github.io/site";
 
-    // Vérifie si connecté via token stocké
     const token = sessionStorage.getItem("auth_token");
     if (token) {
       document.getElementById("btn-login").style.display = "none";
