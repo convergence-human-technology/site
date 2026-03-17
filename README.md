@@ -6,13 +6,13 @@ site + space members Auth0 :
 ```
 https://github.com/convergence-human-technology/site/...
 
-├── index.html          ← Page publique (accueil)
-├── membres.html        ← Page privée (espace membres)
-├── callback.html       ← Page de retour Auth0 (obligatoire)
+├── index.html          ← Public page (home)
+├── membres.html        ← Private page (members area)
+├── callback.html       ← Auth0 return page (required)
 ├── css/
 │   └── style.css
 ├── js/
-│   └── auth.js         ← Toute la logique Auth0
+│   └── auth.js         ← All the logic Auth0
 └── img/
     └── logo.png
 ```
