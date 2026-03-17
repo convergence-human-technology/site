@@ -23,7 +23,6 @@
     if (!token) {
       window.location.replace(BASE_URL + "/index.html");
     } else {
-      // Récupère les infos utilisateur depuis Auth0
       fetch(`https://${AUTH0_DOMAIN}/userinfo`, {
         headers: { Authorization: `Bearer ${token}` }
       })
