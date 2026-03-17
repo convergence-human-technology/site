@@ -6,17 +6,18 @@
 </head>
 <body>
   <p>Connexion en cours... ⏳</p>
-  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22.6/auth0-spa-js.production.js"></script>
   <script>
-    window.onload = async () => {
-      const auth0 = await createAuth0Client({
-        domain: "convergence-tech.eu.auth0.com",
-        client_id: "0NtxpyovHGewr14669n3Qz8RJYot27AS",
-        redirect_uri: "https://convergence-human-technology.github.io/site/callback.html"
-      });
-      await auth0.handleRedirectCallback();
+    // Récupère le token depuis l'URL (#access_token=...)
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    const token = params.get("access_token");
+
+    if (token) {
+      sessionStorage.setItem("auth_token", token);
       window.location.replace("https://convergence-human-technology.github.io/site/membres.html");
-    };
+    } else {
+      window.location.replace("https://convergence-human-technology.github.io/site/index.html");
+    }
   </script>
 </body>
 </html>
