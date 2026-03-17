@@ -2,9 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Espace Membres - Convergence</title>
-  <script src="https://unpkg.com/@auth0/auth0-spa-js@2.1.3/dist/auth0-spa-js.production.js"></script>
   <style>
     body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; text-align: center; }
     #user-card { background: #f4f4f4; border-radius: 10px; padding: 30px; margin: 20px auto; }
@@ -17,14 +15,13 @@
   <div id="user-card">Chargement...</div>
   <button id="btn-logout">🚪 Déconnexion</button>
 
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22.6/auth0-spa-js.production.js"></script>
   <script>
-    (async () => {
+    window.onload = async () => {
       const auth0 = await createAuth0Client({
         domain: "convergence-tech.eu.auth0.com",
-        clientId: "0NtxpyovHGewr14669n3Qz8RJYot27AS",
-        authorizationParams: {
-          redirect_uri: "https://convergence-human-technology.github.io/site/callback.html"
-        }
+        client_id: "0NtxpyovHGewr14669n3Qz8RJYot27AS",
+        redirect_uri: "https://convergence-human-technology.github.io/site/callback.html"
       });
 
       const isAuthenticated = await auth0.isAuthenticated();
@@ -38,15 +35,13 @@
         <img class="avatar" src="${user.picture}" alt="Avatar">
         <h2>Bonjour, <strong>${user.name}</strong> ! 👋</h2>
         <p>📧 ${user.email}</p>
-        <p>✅ Vous êtes bien connecté à l'espace membres.</p>
+        <p>✅ Vous êtes connecté à l'espace membres.</p>
       `;
 
       document.getElementById("btn-logout").onclick = () => {
-        auth0.logout({ logoutParams: {
-          returnTo: "https://convergence-human-technology.github.io/site/index.html"
-        }});
+        auth0.logout({ returnTo: "https://convergence-human-technology.github.io/site/index.html" });
       };
-    })();
+    };
   </script>
 </body>
 </html>
