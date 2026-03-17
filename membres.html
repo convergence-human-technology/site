@@ -6,7 +6,6 @@
   <style>
     body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; text-align: center; }
     #user-card { background: #f4f4f4; border-radius: 10px; padding: 30px; margin: 20px auto; }
-    img.avatar { border-radius: 50%; width: 80px; }
     button { padding: 10px 20px; background: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
   </style>
 </head>
@@ -15,32 +14,36 @@
   <div id="user-card">Chargement...</div>
   <button id="btn-logout">🚪 Déconnexion</button>
 
-  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22.6/auth0-spa-js.production.js"></script>
   <script>
-    window.onload = async () => {
-      const auth0 = await createAuth0Client({
-        domain: "convergence-tech.eu.auth0.com",
-        client_id: "0NtxpyovHGewr14669n3Qz8RJYot27AS",
-        redirect_uri: "https://convergence-human-technology.github.io/site/callback.html"
+    const AUTH0_DOMAIN = "convergence-tech.eu.auth0.com";
+    const CLIENT_ID = "0NtxpyovHGewr14669n3Qz8RJYot27AS";
+    const BASE_URL = "https://convergence-human-technology.github.io/site";
+
+    const token = sessionStorage.getItem("auth_token");
+    if (!token) {
+      window.location.replace(BASE_URL + "/index.html");
+    } else {
+      // Récupère les infos utilisateur depuis Auth0
+      fetch(`https://${AUTH0_DOMAIN}/userinfo`, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then(r => r.json())
+      .then(user => {
+        document.getElementById("user-card").innerHTML = `
+          <img src="${user.picture}" width="80" style="border-radius:50%"><br>
+          <h2>Bonjour <strong>${user.name}</strong> ! 👋</h2>
+          <p>📧 ${user.email}</p>
+          <p>✅ Vous êtes connecté à l'espace membres.</p>
+        `;
+      })
+      .catch(() => {
+        document.getElementById("user-card").innerHTML = "<p>✅ Vous êtes connecté !</p>";
       });
+    }
 
-      const isAuthenticated = await auth0.isAuthenticated();
-      if (!isAuthenticated) {
-        window.location.replace("https://convergence-human-technology.github.io/site/index.html");
-        return;
-      }
-
-      const user = await auth0.getUser();
-      document.getElementById("user-card").innerHTML = `
-        <img class="avatar" src="${user.picture}" alt="Avatar">
-        <h2>Bonjour, <strong>${user.name}</strong> ! 👋</h2>
-        <p>📧 ${user.email}</p>
-        <p>✅ Vous êtes connecté à l'espace membres.</p>
-      `;
-
-      document.getElementById("btn-logout").onclick = () => {
-        auth0.logout({ returnTo: "https://convergence-human-technology.github.io/site/index.html" });
-      };
+    document.getElementById("btn-logout").onclick = () => {
+      sessionStorage.clear();
+      window.location.href = `https://${AUTH0_DOMAIN}/v2/logout?returnTo=${encodeURIComponent(BASE_URL + "/index.html")}&client_id=${CLIENT_ID}`;
     };
   </script>
 </body>
