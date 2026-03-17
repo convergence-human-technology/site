@@ -6,10 +6,10 @@
   <title>Convergence - Accueil</title>
   <style>
     body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; text-align: center; }
-    button { padding: 10px 20px; margin: 10px; cursor: pointer; border-radius: 5px; border: none; font-size: 16px; }
-    #btn-login { background: #635DFF; color: white; }
-    #btn-membres { background: #28a745; color: white; }
-    #btn-logout { background: #dc3545; color: white; }
+    button { padding: 10px 20px; margin: 10px; cursor: pointer; border-radius: 5px; border: none; font-size: 16px; color: white; }
+    #btn-login { background: #635DFF; }
+    #btn-membres { background: #28a745; }
+    #btn-logout { background: #dc3545; }
   </style>
 </head>
 <body>
@@ -21,29 +21,34 @@
     <button id="btn-logout" style="display:none">🚪 Déconnexion</button>
   </div>
 
-  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22.6/auth0-spa-js.production.js"></script>
   <script>
-    window.onload = async () => {
-      const auth0 = await createAuth0Client({
-        domain: "convergence-tech.eu.auth0.com",
-        client_id: "0NtxpyovHGewr14669n3Qz8RJYot27AS",
-        redirect_uri: "https://convergence-human-technology.github.io/site/callback.html"
-      });
+    const AUTH0_DOMAIN = "convergence-tech.eu.auth0.com";
+    const CLIENT_ID = "0NtxpyovHGewr14669n3Qz8RJYot27AS";
+    const REDIRECT_URI = "https://convergence-human-technology.github.io/site/callback.html";
+    const BASE_URL = "https://convergence-human-technology.github.io/site";
 
-      const isAuthenticated = await auth0.isAuthenticated();
-      if (isAuthenticated) {
-        document.getElementById("btn-login").style.display = "none";
-        document.getElementById("btn-membres").style.display = "inline";
-        document.getElementById("btn-logout").style.display = "inline";
-      }
+    // Vérifie si connecté via token stocké
+    const token = sessionStorage.getItem("auth_token");
+    if (token) {
+      document.getElementById("btn-login").style.display = "none";
+      document.getElementById("btn-membres").style.display = "inline";
+      document.getElementById("btn-logout").style.display = "inline";
+    }
 
-      document.getElementById("btn-login").onclick = () => auth0.loginWithRedirect();
-      document.getElementById("btn-membres").onclick = () => {
-        window.location.href = "https://convergence-human-technology.github.io/site/membres.html";
-      };
-      document.getElementById("btn-logout").onclick = () => {
-        auth0.logout({ returnTo: "https://convergence-human-technology.github.io/site/index.html" });
-      };
+    document.getElementById("btn-login").onclick = () => {
+      const state = Math.random().toString(36).substring(2);
+      sessionStorage.setItem("auth_state", state);
+      const url = `https://${AUTH0_DOMAIN}/authorize?response_type=token&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=openid%20profile%20email&state=${state}`;
+      window.location.href = url;
+    };
+
+    document.getElementById("btn-membres").onclick = () => {
+      window.location.href = BASE_URL + "/membres.html";
+    };
+
+    document.getElementById("btn-logout").onclick = () => {
+      sessionStorage.clear();
+      window.location.href = `https://${AUTH0_DOMAIN}/v2/logout?returnTo=${encodeURIComponent(BASE_URL + "/index.html")}&client_id=${CLIENT_ID}`;
     };
   </script>
 </body>
