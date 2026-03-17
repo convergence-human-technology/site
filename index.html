@@ -2,9 +2,52 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Convergence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convergence - Accueil</title>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; text-align: center; }
+    button { padding: 10px 20px; margin: 10px; cursor: pointer; border-radius: 5px; border: none; font-size: 16px; }
+    #btn-login { background: #635DFF; color: white; }
+    #btn-membres { background: #28a745; color: white; }
+    #btn-logout { background: #dc3545; color: white; }
+  </style>
 </head>
 <body>
-  <h1>🚀 Mon site fonctionne !</h1>
+  <h1>🌐 Convergence Humaine & Technologique</h1>
+  <p>Bienvenue sur notre site.</p>
+
+  <div id="auth-buttons">
+    <button id="btn-login">🔐 Se connecter</button>
+    <button id="btn-membres" style="display:none">👥 Espace Membres</button>
+    <button id="btn-logout" style="display:none">🚪 Déconnexion</button>
+  </div>
+
+  <script>
+    (async () => {
+      const auth0 = await createAuth0Client({
+        domain: "convergence-tech.eu.auth0.com",
+        clientId: "0NtxpyovHGewr14669n3Qz8RJYot27AS",
+        authorizationParams: {
+          redirect_uri: "https://convergence-human-technology.github.io/site/callback.html"
+        }
+      });
+
+      const isAuthenticated = await auth0.isAuthenticated();
+      if (isAuthenticated) {
+        document.getElementById("btn-login").style.display = "none";
+        document.getElementById("btn-membres").style.display = "inline";
+        document.getElementById("btn-logout").style.display = "inline";
+      }
+
+      document.getElementById("btn-login").onclick = () => auth0.loginWithRedirect();
+      document.getElementById("btn-membres").onclick = () => {
+        window.location.href = "/site/membres.html";
+      };
+      document.getElementById("btn-logout").onclick = () => {
+        auth0.logout({ logoutParams: { returnTo: "https://convergence-human-technology.github.io/site/index.html" }});
+      };
+    })();
+  </script>
 </body>
 </html>
