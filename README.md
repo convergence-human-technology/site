@@ -1,7 +1,7 @@
 # site
 Website Convergenge / on Github Pages
 
-site + espace membres Auth0 :
+site + space members Auth0 :
 
 ```
 https://github.com/convergence-human-technology/site/...
