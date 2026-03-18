@@ -19,3 +19,41 @@ https://github.com/convergence-human-technology/site/...
 └── img/
     └── logo.png
 ```
+
+## Restricting access to paid members only
+
+By default, anyone can create an account. To restrict access to users who have
+both created an account and paid their membership fee, the following serverless
+workflow connects Stripe with Auth0 and GitHub Pages at zero cost.
+
+The problem : GitHub Pages serves static files only. Payment verification cannot
+happen server-side. A free intermediary between Stripe and Auth0 is required.
+
+The solution uses four components :
+```
+User
+    |
+    v
+Creates an account (Auth0) -- free
+    |
+    v
+Pays via Stripe Payment Link -- free to create
+    |
+    v
+Stripe sends a webhook to Pipedream -- free
+    |
+    v
+Pipedream marks the user as paid in Auth0 -- free
+    |
+    v
+membres.html checks the paid status in the token -- free
+```
+
+| Service | Role | Cost |
+|---|---|---|
+| GitHub Pages | Site hosting | Free forever |
+| Auth0 | Login and paid status | Free up to 25,000 users/month |
+| Stripe Payment Links | Payment collection | Free (commission on sales only) |
+| Pipedream | Receives Stripe webhook and updates Auth0 | Free |
+
+Stack used for payments : stripe.com
