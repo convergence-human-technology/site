@@ -22,14 +22,9 @@ https://github.com/convergence-human-technology/site/...
 
 ## Restricting access to paid members only
 
-By default, anyone can create an account. To restrict access to users who have
-both created an account and paid their membership fee, the following serverless
-workflow connects Stripe with Auth0 and GitHub Pages at zero cost.
-
-The problem : GitHub Pages serves static files only. Payment verification cannot
-happen server-side. A free intermediary between Stripe and Auth0 is required.
-
-The solution uses four components :
+By default, anyone can create an account. To restrict access to certain pages
+of the site for users who have not yet paid their Convergence membership fee,
+a serverless workflow connects Stripe with Auth0 and GitHub Pages at zero cost.
 ```
 User
     |
