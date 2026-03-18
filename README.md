@@ -185,3 +185,33 @@ Access is strictly reserved for users who have purchased a membership via a Stri
 
 
 
+
+# Summary: Complete System
+
+The full system works as follows :
+
+- A user makes a payment on Stripe.  
+- Pipedream updates Auth0 with :
+
+```json
+{ "paid": true }
+```
+
+members.html checks the user status and grants or denies access.
+
+Access Levels
+
+Standard User
+A user with a basic account can log in to the site but does not have access to premium content.
+
+VIP User (Paid Member)
+A user who has purchased a membership via Stripe gets full access to :
+
+. All products
+. Demo pages
+. Exclusive Convergence content
+
+Access is granted only if paid: true.
+
+
+
