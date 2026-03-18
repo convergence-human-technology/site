@@ -104,7 +104,7 @@ Convergence is a software company that designs PC applications and innovative IT
 
 Your membership gives you access to all presentation and demonstration pages of our exclusive products.
 
-Simple yet powerful tools, unlike anything else in the world — available only to Convergence members.
+Simple yet powerful tools, unlike anything else in the world, available only to Convergence members.
 
 
 
