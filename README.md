@@ -121,7 +121,7 @@ Step 2 : Create a New Workflow
 - Click **"Add Trigger"**
 - Search for **"Stripe"** in the list
 - Select :
-  - **"New Payment Intent"** OR
+  - **"New Payment Intent"** or
   - **"Checkout Session Completed"**
 
 Step 3 : Connect Your Stripe Account
