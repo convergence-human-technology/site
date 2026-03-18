@@ -19,6 +19,9 @@ https://github.com/convergence-human-technology/site/...
 └── img/
     └── logo.png
 ```
+@see tutorial : https://github.com/convergence-human-technology/github-pages-auth0-free-members-area
+
+#
 
 ## Restricting access to paid members only
 
