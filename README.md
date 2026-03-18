@@ -59,3 +59,25 @@ Stack used for payments : stripe.com
 #
 
 Stripe Payment Links works differently from Gumroad. Stripe is more powerful for collecting personalized information from future members before payment.
+
+#
+
+Let's start from the beginning, in logical order
+Here is the complete 4-step plan:
+
+. Step 1 : Stripe Payment Link (10 minutes)
+Create a payment link on stripe.com that corresponds to your "entry fee". No code needed. Stripe generates a URL like buy.stripe.com/xxxxx that you simply put on your site.
+
+. Step 2 : Pipedream receives the Stripe webhook (20 minutes)
+When someone pays, Stripe automatically sends a message to Pipedream. Pipedream is a free service that allows you to connect services together without a server.
+
+. Step 3 : Pipedream updates Auth0 (20 minutes)
+Pipedream calls the Auth0 API to add metadata to the user:
+```json
+{ "paid": true }
+```
+
+. Step 4 : members.html checks the paid status
+The members page reads this metadata and redirects to the paid content or displays a message "Access denied, please pay".
+
+
