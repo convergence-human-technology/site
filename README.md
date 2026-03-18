@@ -52,3 +52,7 @@ membres.html checks the paid status in the token -- free
 | Pipedream | Receives Stripe webhook and updates Auth0 | Free |
 
 Stack used for payments : stripe.com
+
+#
+
+Stripe Payment Links works differently from Gumroad. Stripe is more powerful for collecting personalized information from future members before payment.
