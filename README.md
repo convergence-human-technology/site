@@ -256,5 +256,5 @@ A fully functional and professional ecosystem completely free where :
 - Access rights are updated automatically
 - Premium content is securely restricted to paying members only
 
-
+We now have a 100% free website, with a complete professional system 100% free: - A site with Auth0 authentication - Stripe payments - A Pipedream automation - A secure member area - a domain name and free hosting via github page. The whole thing is 100% free
 
