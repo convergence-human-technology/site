@@ -82,7 +82,7 @@ The members page reads this metadata and redirects to the paid content or displa
 
 #
 
-# Convergence Membership – One-Time Payments (Stripe)
+# Convergence Membership - One-Time Payments (Stripe)
 
 Create 3 separate products in Stripe:
 Choose: **"One-time" (not recurring)**  
