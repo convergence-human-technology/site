@@ -159,7 +159,7 @@ When someone makes a payment on Stripe :
 { "paid": true }
 ```
 
-Next Step 4 : Create members.html
+Next Step : Create members.html
 
 Now you need to create the members.html page that :
 
