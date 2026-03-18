@@ -140,5 +140,48 @@ When a customer makes a payment, Stripe sends an event containing:
 
 Pipedream captures this event and triggers the next actions toward Auth0.
 
+#
+#
+#
+
+# Workflow is Live !
+
+The workflow is now in production !
+
+The **Stripe → Pipedream → Auth0** automation is fully active and operational.
+
+When someone makes a payment on Stripe :
+
+- Pipedream automatically detects the event
+- Auth0 is updated with:
+
+```json
+{ "paid": true }
+```
+
+Next Step 4 : Create members.html
+
+Now you need to create the members.html page that :
+
+Checks if the user has paid their membership (paid: true)
+
+Grants access to the protected content
+
+Access Logic
+
+If paid: true → Access granted
+
+If not → Display message: "Access denied, please pay"
+
+Members Content
+
+This page provides access to exclusive Convergence product content, including :
+
+- Product presentations
+
+- Demo pages
+
+Access is strictly reserved for users who have purchased a membership via a Stripe Payment Link.
+
 
 
