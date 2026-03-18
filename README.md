@@ -108,7 +108,7 @@ Simple yet powerful tools, unlike anything else in the world, available only to 
 
 #
 
-# Next Steps: Pipedream – Stripe Webhook Configuration
+# Next Steps : Pipedream – Stripe Webhook Configuration
 
 ## Step 1 : Create a Pipedream Account
 Go to pipedream.com → Sign Up → continue with GitHub (keeps everything consistent with your project).
@@ -118,7 +118,7 @@ Go to pipedream.com → Sign Up → continue with GitHub (keeps everything consi
 - Click **"New Project"** then **"New Workflow"**
 - Click **"Add Trigger"**
 - Search for **"Stripe"** in the list
-- Select:
+- Select :
   - **"New Payment Intent"** OR
   - **"Checkout Session Completed"**
 
