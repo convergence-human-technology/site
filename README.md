@@ -256,5 +256,57 @@ A fully functional and professional ecosystem completely free where :
 - Access rights are updated automatically
 - Premium content is securely restricted to paying members only
 
-We now have a 100% free website, with a complete professional system 100% free: - A site with Auth0 authentication - Stripe payments - A Pipedream automation - A secure member area - a domain name and free hosting via github page. The whole thing is 100% free
+We now have a 100% free website, with a complete professional system 100% free: - A site with Auth0 authentication - Stripe payments - A Pipedream automation - A secure member area - a domain name and free hosting via github page. The whole thing is 100% free.
+
+#
+#
+#
+
+# Improving GitHub Pages URLs
+
+With a GitHub Pages website, default URLs are not always very aesthetic.  
+Fortunately, there are simple, fast, and low-cost solutions to make them cleaner and more professional.
+
+# Custom Domain (Simplest Method)
+
+You can purchase a domain name like **visiontech.org** from providers such as :
+
+- OVH  
+- Namecheap  
+- Cloudflare  
+
+Then, in your GitHub repository :
+
+**Settings → Pages → Custom domain**  
+Enter your domain name.
+
+# Result
+
+Your site becomes accessible via a clean and professional URL like :
+
+`https://visiontech.com`  
+instead of a long and complex GitHub Pages URL.
+
+---
+
+# Cloudflare (Free, Fast, and Efficient)
+
+If you purchase your domain directly from **Cloudflare**, you also get :
+
+- Competitive domain pricing  
+- Automatic HTTPS certificate  
+- Clean URLs  
+- Very fast setup (just a few minutes)
+
+---
+
+# Recommendation
+
+I recommend using **Cloudflare** for your domain :
+
+- Easy integration with GitHub Pages  
+- Fast configuration  
+- Professional result  
+
+It’s one of the simplest ways to upgrade your site’s appearance and credibility.
 
