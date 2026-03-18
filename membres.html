@@ -13,11 +13,11 @@
   <h1>👥 Espace Membres</h1>
   <div id="user-card">Chargement...</div>
   <button id="btn-logout">🚪 Déconnexion</button>
-
   <script>
     const AUTH0_DOMAIN = "convergence-tech.eu.auth0.com";
     const CLIENT_ID = "ONtxpyovHGewrl4669n3Qz8RJYot27AS";
     const BASE_URL = "https://convergence-human-technology.github.io/site";
+    const PAID_CLAIM = "https://convergence-tech.eu.auth0.com/paid";
 
     const token = sessionStorage.getItem("auth_token");
     if (!token) {
@@ -28,15 +28,24 @@
       })
       .then(r => r.json())
       .then(user => {
-        document.getElementById("user-card").innerHTML = `
-          <img src="${user.picture}" width="80" style="border-radius:50%"><br>
-          <h2>Bonjour <strong>${user.name}</strong> ! 👋</h2>
-          <p>📧 ${user.email}</p>
-          <p>✅ Vous êtes connecté à l'espace membres.</p>
-        `;
+        const paid = user[PAID_CLAIM];
+        if (!paid) {
+          document.getElementById("user-card").innerHTML = `
+            <h2>🔒 Accès refusé</h2>
+            <p>Vous n'avez pas encore accès à l'espace membres.</p>
+            <a href="${BASE_URL}/index.html#pricing" style="background:#28a745;color:white;padding:10px 20px;border-radius:5px;text-decoration:none;">💳 Accéder aux offres</a>
+          `;
+        } else {
+          document.getElementById("user-card").innerHTML = `
+            <img src="${user.picture}" width="80" style="border-radius:50%"><br>
+            <h2>Bonjour <strong>${user.name}</strong> ! 👋</h2>
+            <p>📧 ${user.email}</p>
+            <p>✅ Vous avez accès à l'espace membres.</p>
+          `;
+        }
       })
       .catch(() => {
-        document.getElementById("user-card").innerHTML = "<p>✅ Vous êtes connecté !</p>";
+        document.getElementById("user-card").innerHTML = "<p>Erreur de chargement.</p>";
       });
     }
 
