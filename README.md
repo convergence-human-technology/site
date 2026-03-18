@@ -80,4 +80,31 @@ Pipedream calls the Auth0 API to add metadata to the user:
 . Step 4 : members.html checks the paid status
 The members page reads this metadata and redirects to the paid content or displays a message "Access denied, please pay".
 
+#
+
+# Convergence Membership – One-Time Payments (Stripe)
+
+Create 3 separate products in Stripe:
+Choose: **"One-time" (not recurring)**  
+Each membership is paid **in a single payment** for the full duration.
+
+## Products Setup
+
+| Product | Duration | Price / month | Total (one-time) |
+|--------|----------|---------------|------------------|
+| Membership – 1 Year | 12 months | €15 / month | €180 |
+| Membership – 3 Years | 36 months | €10 / month | €360 |
+| Membership – 5 Years | 60 months | €8 / month | €480 |
+
+## Convergence Membership
+
+The **Convergence Membership** provides access to product demos and presentation pages.
+
+Convergence is a software company that designs PC applications and innovative IT solutions based on unique concepts never explored elsewhere.
+
+Your membership gives you access to all presentation and demonstration pages of our exclusive products.
+
+Simple yet powerful tools, unlike anything else in the world — available only to Convergence members.
+
+
 
