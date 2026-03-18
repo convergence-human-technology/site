@@ -110,7 +110,7 @@ Simple yet powerful tools, unlike anything else in the world, available only to 
 #
 #
 
-# Next Steps : Pipedream – Stripe Webhook Configuration
+# Next Steps : Pipedream - Stripe Webhook Configuration
 
 Step 1 : Create a Pipedream Account
 Go to pipedream.com → Sign Up → continue with GitHub (keeps everything consistent with your project).
