@@ -186,7 +186,7 @@ Access is strictly reserved for users who have purchased a membership via a Stri
 
 
 
-# Summary: Complete System
+# Summary : Complete System
 
 The full system works as follows :
 
