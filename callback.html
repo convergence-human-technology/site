@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--
+  ══════════════════════════════════════════════════════════════════
+  callback.html — Page de traitement du retour Auth0
+  ══════════════════════════════════════════════════════════════════
+  Cette page est appelée par Auth0 après authentification.
+  Elle est visible moins d'une seconde (le temps du redirect).
+  
+  FONCTIONNEMENT :
+  1. Auth0 redirige ici avec le token dans le hash de l'URL
+     Ex : callback.html#access_token=...&token_type=Bearer&...
+  2. Le script extrait le token depuis window.location.hash
+  3. Le token est stocké dans sessionStorage("auth_token")
+  4. Redirection immédiate vers membres.html (si token ok)
+     ou vers index.html (si token absent ou invalide)
+  
+  IMPORTANT : le script ci-dessous est CRITIQUE.
+  Ne pas modifier les URLs de redirection ni la logique de stockage.
+  ══════════════════════════════════════════════════════════════════
+-->
+<!--[if IEMobile 7]><html class="iem7" lang="fr" dir="ltr"><![endif]-->
+<!--[if lte IE 6]><html class="lt-ie9 lt-ie8 lt-ie7" lang="fr" dir="ltr"><![endif]-->
+<!--[if (IE 7)&(!IEMobile)]><html class="lt-ie9 lt-ie8" lang="fr" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="fr" dir="ltr"><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html lang="fr"><!--<![endif]-->
+
+<head>
+  <!-- Encodage des caractères -->
+  <meta charset="UTF-8" />
+
+  <!-- Viewport responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Titre de l'onglet pendant la fraction de seconde de redirection -->
+  <title>Connexion en cours... | Convergence Human &amp; Technology</title>
+
+  <!-- ★★★ ROBOTS — noindex : page technique de redirection, pas à indexer ★★★ -->
+  <meta name="robots"    content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+
+  <!-- ══════════════════════════════════════════════════════════════
+       FEUILLE DE STYLE EXTERNE PARTAGÉE — shared.css
+       ══════════════════════════════════════════════════════════════
+       Intègre le dégradé radial cercle parfait de la charte.
+       Même si l'utilisateur ne voit cette page qu'une fraction de
+       seconde, le fond cohérent évite un "flash" blanc entre l'index
+       et l'espace membres.
+       shared.css est déjà dans le cache navigateur si l'utilisateur
+       vient de l'index → chargement instantané.
+       ══════════════════════════════════════════════════════════════ -->
+  <link rel="stylesheet" href="shared.css" />
+
+  <!-- ══════════════════════════════════════════════════════════════
+       CSS MINIMAL SPÉCIFIQUE À CALLBACK.HTML
+       ══════════════════════════════════════════════════════════════
+       Page de transition — contenu minimal, centré.
+       Pas de nav (inutile sur une page de redirection).
+       Pas de loader JS (la redirection est quasi instantanée).
+       ══════════════════════════════════════════════════════════════ -->
+  <style type="text/css">
+
+    /* ── Suppression des overrides body de l'original style ────────── */
+    /* shared.css gère le body (max-width:none, margin:0, etc.)         */
+    /* Cette règle n'est plus nécessaire ici car shared.css l'écrase    */
+
+    /* ── Centrage du message de connexion ──────────────────────────── */
+    /* Le message "Connexion en cours... ⏳" doit être centré           */
+    /* et lisible sur le fond bleu nuit du dégradé radial.             */
+    .callback-message {
+      position:      fixed;          /* Fixé : au centre même si page vide */
+      top:           50%;            /* Centre vertical depuis le haut */
+      left:          50%;            /* Centre horizontal depuis la gauche */
+      /* translate(-50%,-50%) décale de moitié pour centrage parfait */
+      -webkit-transform: translate(-50%, -50%);
+      transform:     translate(-50%, -50%);
+      text-align:    center;         /* Texte centré dans le bloc */
+
+      /* Style cohérent avec la charte Convergence */
+      color:         rgba(255, 255, 255, 0.85); /* Blanc légèrement transparent */
+      font-family:   'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size:     clamp(0.9rem, 1.5vw, 1.2rem); /* Responsive */
+      font-weight:   300;            /* Fin — style Convergence */
+      letter-spacing: 0.12em;       /* Espacement caractéristique de la charte */
+      text-transform: uppercase;     /* Majuscules */
+
+      /* Animation de clignotement pour indiquer une activité en cours */
+      -webkit-animation: callbackBlink 1.4s ease-in-out infinite;
+      animation:         callbackBlink 1.4s ease-in-out infinite;
+    }
+
+    /* Keyframes du clignotement du message */
+    @-webkit-keyframes callbackBlink {
+      0%, 100% { opacity: 0.55; } /* Atténué au départ et à la fin */
+      50%       { opacity: 1.00; } /* Pleine opacité au milieu */
+    }
+    @keyframes callbackBlink {
+      0%, 100% { opacity: 0.55; }
+      50%       { opacity: 1.00; }
+    }
+
+    /* ── Spinner de chargement réutilisé depuis shared.css ─────────── */
+    /* Le .loader-spinner est défini dans shared.css.                   */
+    /* On le positionne sous le texte de callback.                      */
+    .callback-spinner {
+      position:      fixed;
+      top:           calc(50% + 36px); /* 36px sous le centre = sous le texte */
+      left:          50%;
+      -webkit-transform: translateX(-50%);
+      transform:     translateX(-50%);
+      /* .loader-spinner a sa propre animation (loaderSpin) dans shared.css */
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       MESSAGE DE CONNEXION EN COURS
+       ════════════════════════════════════════════════════════════════
+       Visible pendant la fraction de seconde entre le retour d'Auth0
+       et la redirection vers membres.html ou index.html.
+       Le fond bleu nuit du dégradé radial (via shared.css) est déjà
+       visible à ce moment — on évite un flash blanc.
+       ════════════════════════════════════════════════════════════════ -->
+
+  <!-- Message texte centré -->
+  <p class="callback-message">Connexion en cours... ⏳</p>
+
+  <!-- Anneau tournant sous le message (style depuis shared.css) -->
+  <div class="callback-spinner loader-spinner" aria-hidden="true"></div>
+
+
+  <!-- ════════════════════════════════════════════════════════════════
+       ★★★ SCRIPT CALLBACK AUTH0 — ORIGINAL INCHANGÉ — NE PAS MODIFIER ★★★
+       ════════════════════════════════════════════════════════════════
+       FONCTIONNEMENT :
+       1. Extrait le hash de l'URL : window.location.hash.substring(1)
+          Ex : "access_token=eyJ...&token_type=Bearer&expires_in=86400"
+       2. Parse les paramètres avec URLSearchParams
+       3. Récupère le token : params.get("access_token")
+       4. Si token présent :
+          → Stocke dans sessionStorage("auth_token")
+          → Redirige vers membres.html (window.location.replace)
+       5. Si token absent :
+          → Redirige vers index.html (window.location.replace)
+       
+       window.location.replace (et non .href) efface l'entrée de
+       l'historique → le bouton retour ne revient pas sur callback.html
+       ════════════════════════════════════════════════════════════════ -->
+  <script>
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    const token = params.get("access_token");
+
+    if (token) {
+      sessionStorage.setItem("auth_token", token);
+      window.location.replace("https://convergence-human-technology.github.io/site/membres.html");
+    } else {
+      window.location.replace("https://convergence-human-technology.github.io/site/index.html");
+    }
+  </script>
+
+
+</body>
+</html>
