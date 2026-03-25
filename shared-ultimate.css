@@ -1,0 +1,2058 @@
+/******************************************************************************/
+/*                                                                            */
+/*   shared-ultimate.css                                                      */
+/*   Feuille de style partagée — Version Ultimate                             */
+/*   Convergence Human & Technology                                           */
+/*                                                                            */
+/*   Auteur  : Fabien Conéjéro / FC84                                         */
+/*   Dépôt   : https://github.com/Convergence-Human-And-Technology            */
+/*   Licence : Copyright © 2026-2060                                          */
+/*             Convergence Human & Technology                                 */
+/*             Tous droits réservés                                           */
+/*                                                                            */
+/******************************************************************************/
+/*                                                                            */
+/*   CE FICHIER EST LA VERSION AMÉLIORÉE DE shared.css                        */
+/*   Il intègre les apports de Globalize CSS Ultimate Pro :                   */
+/*                                                                            */
+/*   ✓ Classes utilitaires étendues (display, typo, flex, grid...)            */
+/*   ✓ Variables CSS enrichies (couleurs, transitions, breakpoints)           */
+/*   ✓ Système d'espacement Probalize.css amélioré                            */
+/*   ✓ Grille responsive avec propriétés logiques CSS modernes               */
+/*   ✓ Filtres et effets visuels avancés                                      */
+/*   ✓ Animations supplémentaires (fadeIn, slideUp, bounce...)                */
+/*   ✓ Composants formulaires accessibles                                     */
+/*   ✓ Mode sombre automatique via prefers-color-scheme                       */
+/*   ✓ Impression optimisée                                                   */
+/*   ✓ Chaque ligne commentée en français                                     */
+/*                                                                            */
+/******************************************************************************/
+/*                                                                            */
+/*   ★ GLOBALIZE.css — LICENCE PROPRIÉTAIRE (EULA)                           */
+/*   ★ PROBALIZE.css — LICENCE PROPRIÉTAIRE (EULA)                           */
+/*                                                                            */
+/*   Seul Fabien Conéjéro peut utiliser Globalize.css et Probalize.css.      */
+/*   Toute autre personne doit obtenir une autorisation écrite préalable.    */
+/*   Contact : convergence-tech@proton.me                                    */
+/*                                                                            */
+/******************************************************************************/
+
+
+/* ============================================================================
+   SECTION 0 — VARIABLES CSS GLOBALES
+   ============================================================================
+   Toutes les valeurs de la charte graphique Convergence sont centralisées ici.
+   Modifier une valeur ici = répercussion sur l'ensemble du site automatiquement.
+
+   APPORT GLOBALIZE ULTIMATE PRO :
+   - Ajout des variables de couleurs sémantiques (--g-primary, --g-danger...)
+   - Ajout des breakpoints responsives comme variables
+   - Ajout de la variable de transition globale
+   - Ajout des variables d'espacement Probalize étendues
+   ============================================================================ */
+
+:root {
+
+  /* ── PALETTE COULEURS CONVERGENCE ───────────────────────────────────────── */
+  /* Ces trois couleurs définissent la charte graphique Convergence.          */
+  /* Elles sont extraites du dégradé radial et du logo.                       */
+
+  --c-centre:       #7be8ff;            /* Cyan électrique — centre du dégradé / halo */
+  --c-milieu:       #1a4a8a;            /* Bleu cobalt — zone intermédiaire du dégradé */
+  --c-bords:        #010c1e;            /* Bleu marine nuit — fond / extrémités */
+  --c-accent:       #4dd4f0;            /* Cyan principal — liens, accents, interface */
+  --c-accent-clair: #7be8ff;            /* Cyan clair — survols, focus, états actifs */
+  --c-texte:        rgba(255,255,255,0.85); /* Blanc semi-transparent — texte courant */
+  --c-texte-fort:   rgba(255,255,255,0.95); /* Blanc quasi pur — texte emphase */
+  --c-texte-doux:   rgba(255,255,255,0.65); /* Blanc atténué — texte secondaire */
+
+  /* ── COULEURS SÉMANTIQUES (Globalize Ultimate Pro) ───────────────────────
+     Ces variables permettent d'utiliser des couleurs sémantiques cohérentes
+     sur toutes les pages, indépendamment de la charte Convergence.
+     Elles sont utilisées par les classes .c-primary, .bg-success etc.       */
+
+  --g-primary:   #0d6efd;   /* Bleu primaire — actions principales */
+  --g-secondary: #6c757d;   /* Gris secondaire — actions secondaires */
+  --g-success:   #198754;   /* Vert succès — validations, confirmations */
+  --g-danger:    #dc3545;   /* Rouge danger — erreurs, alertes critiques */
+  --g-warning:   #ffc107;   /* Jaune avertissement — alertes modérées */
+  --g-info:      #0dcaf0;   /* Bleu info — informations complémentaires */
+  --g-light:     #f8f9fa;   /* Gris très clair — fonds légers */
+  --g-dark:      #212529;   /* Gris très foncé — fonds sombres, textes */
+
+  /* ── BREAKPOINTS RESPONSIVES (Globalize Ultimate Pro) ───────────────────
+     Valeurs utilisées dans les media queries pour la cohérence responsive.
+     NOTE : les variables CSS ne peuvent pas être utilisées DANS les
+     @media queries — ces variables servent de documentation / référence.   */
+
+  --g-breakpoint-sm:  576px;   /* Petit mobile paysage → tablette portrait */
+  --g-breakpoint-md:  768px;   /* Tablette portrait → tablette paysage */
+  --g-breakpoint-lg:  992px;   /* Tablette paysage → laptop */
+  --g-breakpoint-xl:  1200px;  /* Laptop → desktop */
+  --g-breakpoint-xxl: 1400px;  /* Desktop → grand écran */
+
+  /* ── TRANSITION GLOBALE (Globalize Ultimate Pro) ─────────────────────── */
+  --g-transition:     all 0.3s ease; /* Transition universelle : toutes propriétés, 300ms */
+
+  /* ── VARIABLES PROBALIZE — SYSTÈME D'ESPACEMENT ─────────────────────────
+     Système d'espacement basé sur le rythme typographique (line-height).
+     Toutes les marges et paddings dérivent de --prb-space-unit.
+     PRINCIPE : unité de base = 1rem × line-height = 1 × 1.5 = 1.5rem
+     Sur 16px de base : 1.5rem = 24px — correspondant à une ligne de texte.  */
+
+  --prb-line-height:  1.5;  /* Hauteur de ligne de référence — base WCAG 1.4.12 */
+  --prb-space-ratio:  1.5;  /* Ratio multiplicateur entre niveaux d'espacement */
+
+  /* Unité de base : 1rem × 1.5 = 1.5rem = 24px (si rem = 16px) */
+  --prb-space-unit: calc(1rem * var(--prb-line-height));
+
+  /* xxs : très petit espace ≈ 8px — entre éléments très proches */
+  --prb-space-xxs:  calc(var(--prb-space-unit) / (var(--prb-space-ratio) * 2));
+
+  /* xs : petit espace ≈ 12px — séparateurs discrets, padding fins */
+  --prb-space-xs:   calc(var(--prb-space-unit) / var(--prb-space-ratio));
+
+  /* sm : espace standard ≈ 24px — entre paragraphes */
+  --prb-space-sm:   var(--prb-space-unit);
+
+  /* md : espace moyen ≈ 36px — entre sections */
+  --prb-space-md:   calc(var(--prb-space-unit) * var(--prb-space-ratio));
+
+  /* lg : grand espace ≈ 54px — entre blocs majeurs */
+  --prb-space-lg:   calc(var(--prb-space-unit) * var(--prb-space-ratio) * 2);
+
+  /* xl : très grand espace ≈ 72px — séparations importantes */
+  --prb-space-xl:   calc(var(--prb-space-unit) * var(--prb-space-ratio) * 3);
+
+  /* ── VARIABLES NAVIGATION ────────────────────────────────────────────── */
+  --nav-height:       62px;    /* Hauteur de la barre de navigation fixe */
+  --nav-bg:           rgba(1, 12, 30, 0.88); /* Fond de la nav — bleu nuit semi-transparent */
+  --nav-blur:         blur(14px);            /* Intensité du flou glassmorphism */
+  --nav-border:       rgba(77, 212, 240, 0.14); /* Couleur de la bordure bas nav */
+
+  /* ── VARIABLES LOADER ────────────────────────────────────────────────── */
+  --loader-duration:  3000ms;  /* Durée d'affichage du loader (modifiable ici) */
+  --loader-fade:      0.7s;    /* Durée du fondu de disparition du loader */
+
+} /* fin :root */
+
+
+/* ============================================================================
+   SECTION 1 — BALISE HTML
+   ============================================================================
+   La balise html est le conteneur racine — elle doit occuper au moins 100%
+   de la fenêtre pour que le fond du pseudo-élément ::before soit visible
+   dans tous les cas (page courte, page longue).
+
+   scroll-behavior:smooth est défini ici pour activer le défilement fluide
+   sur toute la page lors des liens ancres internes.
+
+   scrollbar-color et scrollbar-width : propriété CSS standardisée (W3C)
+   pour personnaliser la scrollbar sur Firefox 64+, Chrome 121+, Edge 121+.
+   ============================================================================ */
+
+html {
+  min-height:     100%;      /* Hauteur minimale = hauteur complète de la fenêtre */
+  position:       relative;  /* Requis : active le contexte pour le pseudo-élément ::before */
+  scroll-behavior: smooth;   /* Défilement fluide pour les liens ancres (#section) */
+
+  /* ── Scrollbar standard CSS — Firefox 64+ / Chrome 121+ / Edge 121+ ─────
+     Format : scrollbar-color: <couleur-poignée> <couleur-piste>
+     Complété par les règles ::-webkit-scrollbar* ci-dessous pour Chrome/Safari */
+  scrollbar-color: rgba(77, 212, 240, 0.70) rgba(1, 12, 30, 0.60); /* Poignée cyan sur piste bleu nuit */
+  scrollbar-width: thin; /* Barre mince — élégante et peu intrusive */
+
+} /* fin html */
+
+
+/* ============================================================================
+   SECTION 2 — BALISE BODY
+   ============================================================================
+   Le body lui-même est transparent pour les navigateurs modernes qui
+   supportent ::before (voir @supports ci-dessous).
+
+   Les déclarations background du body ci-dessous ne s'appliquent
+   QUE aux très anciens navigateurs (IE, FF < 75, Chrome < 79).
+
+   PALETTE DE COULEURS RAPPEL :
+   #7be8ff = cyan électrique (centre) | #1a4a8a = bleu cobalt | #010c1e = bleu nuit
+   ============================================================================ */
+
+body {
+
+  /* ── RESET MISE EN PAGE ─────────────────────────────────────────────────── */
+  margin:       0;               /* Suppression de la marge par défaut du navigateur */
+  padding:      0;               /* Suppression du padding par défaut */
+  padding-bottom: 80px;          /* Espace en bas pour que le contenu ne touche pas le bord */
+  overflow-x:   hidden;          /* Cache le défilement horizontal indésirable */
+  overflow-y:   auto;            /* Autorise le défilement vertical normal */
+
+  /* ── TYPOGRAPHIE ────────────────────────────────────────────────────────── */
+  -webkit-font-smoothing:  antialiased;   /* Lissage polices WebKit (Chrome, Safari) */
+  -moz-osx-font-smoothing: grayscale;     /* Lissage polices macOS Firefox */
+  font: 1em 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Police principale de fallback */
+  line-height:  180%;            /* Hauteur de ligne généreuse pour la lisibilité */
+  text-rendering: geometricPrecision; /* Rendu précis pour zoom/transform (base_theme) */
+
+  /* ── COULEURS ───────────────────────────────────────────────────────────── */
+  color:         var(--c-texte);      /* Blanc semi-transparent via variable */
+  text-shadow:   0px 1px 2px rgba(0, 0, 0, 0.35); /* Ombre portée fine sur le texte */
+
+  /* ── DIMENSIONS ─────────────────────────────────────────────────────────── */
+  min-height:   100%;            /* Hauteur minimale = fenêtre complète */
+  width:        100%;            /* Largeur pleine */
+
+  /* ── SCROLL MOBILE ──────────────────────────────────────────────────────── */
+  overscroll-behavior: contain;  /* Empêche le "rebond" mobile et le sur-défilement */
+
+  /* ── FOND — FALLBACKS NAVIGATEURS ANCIENS ───────────────────────────────
+     Ces déclarations background ne s'appliquent QUE si le navigateur
+     ne supporte pas html::before (IE8 et moins essentiellement).
+     Les navigateurs modernes utilisent le pseudo-élément à la place.
+
+     HISTOIRE DU BUG ELLIPSE :
+     radial-gradient() sans "circle" s'adapte au conteneur → ellipse sur 16:9.
+     Solution : "circle farthest-corner" = forme ronde géométriquement.      */
+
+  background-color: var(--c-bords); /* IE6 : couleur unie de secours (coin le plus sombre) */
+
+  /* Firefox 3.6–15 : préfixe -moz-, syntaxe dépréciée mais nécessaire */
+  background: -moz-radial-gradient(
+    center,           /* Point d'origine au centre exact */
+    circle cover,     /* Forme circulaire jusqu'au coin le plus éloigné */
+    #7be8ff  0%,      /* Cyan électrique — centre lumineux */
+    #1a4a8a  45%,     /* Bleu cobalt — zone de transition */
+    #010c1e  100%     /* Bleu marine nuit — extrémités */
+  );
+
+  /* Chrome 10–25 et Safari 5.1–6 : préfixe -webkit-, syntaxe dépréciée */
+  background: -webkit-radial-gradient(
+    center,           /* Point d'origine au centre */
+    circle cover,     /* Cercle jusqu'au coin le plus éloigné */
+    #7be8ff  0%,      /* Cyan électrique */
+    #1a4a8a  45%,     /* Bleu cobalt */
+    #010c1e  100%     /* Bleu marine nuit */
+  );
+
+  /* Standard W3C : IE10+, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* "circle farthest-corner" garantit un cercle quelle que soit la taille */
+  background: radial-gradient(
+    circle farthest-corner at center, /* Cercle parfait, centré, jusqu'au coin */
+    #7be8ff  0%,   /* Cyan électrique — centre du dégradé */
+    #1a4a8a  45%,  /* Bleu cobalt — milieu */
+    #010c1e  100%  /* Bleu marine nuit — bords */
+  );
+
+  /* IE6–IE9 : filtre horizontal (pas de dégradé radial supporté) */
+  /* GradientType=1 = horizontal, simule visuellement le dégradé  */
+  filter: progid:DXImageTransform.Microsoft.gradient(
+    startColorstr='#7be8ff',  /* Départ : cyan électrique */
+    endColorstr='#010c1e',    /* Arrivée : bleu marine nuit */
+    GradientType=1            /* 1 = horizontal / 0 = vertical */
+  );
+
+  background-attachment: fixed;  /* Le fond reste fixe lors du scroll (ne défile pas) */
+
+  /* TECHNIQUE [B] — background-size: 200vmax
+     vmax = 1% de la PLUS GRANDE dimension de la fenêtre.
+     200vmax × 200vmax = carré parfait → dégradé toujours circulaire.
+     Compatible Chrome 26+, Firefox 19+, Safari 6.1+, Edge 12+, IE11. */
+  background-size:     200vmax 200vmax;  /* Carré parfait = cercle parfait */
+  background-position: center center;    /* Centré horizontalement et verticalement */
+  background-repeat:   no-repeat;        /* Pas de répétition du motif */
+
+  /* ── SURCHARGES STYLES ORIGINAUX ────────────────────────────────────────
+     Le bloc style original (conservé dans les pages HTML) contient
+     body { max-width: 800px; margin: 50px auto; text-align: center; }
+     Ces surcharges via la cascade CSS corrigent ces conflits.               */
+  max-width:  none !important;   /* Annule max-width:800px — fond plein écran */
+  text-align: left !important;   /* Annule text-align:center (géré div par div) */
+
+} /* fin body */
+
+
+/* ============================================================================
+   SECTION 3 — TECHNIQUE [B] EXPLICITÉE : background-size vmax
+   ============================================================================
+   Ce bloc est séparé pour la lisibilité mais s'applique sur body.
+   Il surcharge le background-size défini dans la déclaration body ci-dessus.
+   ============================================================================ */
+
+/* Corps : surcharge de background-size et background-position pour les nav. IE11+ */
+/* Redéclarés séparément pour maximiser la compatibilité et la lisibilité */
+body {
+  background-size:     200vmax 200vmax; /* Carré de 200vmax × 200vmax = cercle parfait */
+  background-position: center center;   /* Recentre le carré dans la fenêtre */
+  background-repeat:   no-repeat;       /* Une seule occurrence du dégradé */
+} /* fin body surcharge vmax */
+
+
+/* ============================================================================
+   SECTION 4 — TECHNIQUE [C] : PSEUDO-ÉLÉMENT html::before
+   ============================================================================
+   MÉTHODE LA PLUS ROBUSTE EN 2026 — Chrome 79+, Firefox 75+, Safari 11.1+
+
+   PRINCIPE :
+   On crée un pseudo-élément invisible positionné fixe dont la taille est
+   un CARRÉ PARFAIT calculé via max(100vw, 100vh).
+   Sur ce carré, le dégradé "circle" est mathématiquement exact.
+
+   EXEMPLES DE CALCUL :
+   Écran 1920×1080 → max(1920, 1080) = 1920px → carré 3840px × 3840px
+   Écran 390×844   → max(390, 844)   = 844px  → carré 1688px × 1688px
+   TV 4K 3840×2160 → max(3840, 2160) = 3840px → carré 7680px × 7680px
+   ============================================================================ */
+
+html::before {
+
+  content: '';               /* Obligatoire pour qu'un pseudo-élément s'affiche */
+  display: block;            /* Nécessaire pour appliquer width/height */
+
+  /* ── POSITIONNEMENT FIXE ────────────────────────────────────────────────── */
+  position: fixed;           /* Reste en place lors du scroll = fond fixe */
+  top:  50%;                 /* Déplace le coin supérieur gauche au milieu haut */
+  left: 50%;                 /* Déplace le coin supérieur gauche au milieu gauche */
+  /* translate(-50%,-50%) décale de moitié → centre parfait de l'élément */
+  -webkit-transform: translate(-50%, -50%); /* Préfixe WebKit (Safari ancien) */
+  transform: translate(-50%, -50%);          /* Standard — centrage parfait du carré */
+
+  /* ── TAILLE — CARRÉ PARFAIT VIA max() ─────────────────────────────────── */
+  /* max(200vw, 200vh) = toujours la plus grande dimension × 2              */
+  /* Garantit qu'aucun coin n'est découvert, même sur ultrawide (21:9, 32:9) */
+  width:  max(200vw, 200vh);  /* Largeur = max(largeur, hauteur) × 2 = carré */
+  height: max(200vw, 200vh);  /* Hauteur = même valeur → carré mathématique */
+
+  /* ── DÉGRADÉ RADIAL CERCLE PARFAIT ──────────────────────────────────────── */
+  /* Sur un carré, "circle" est un cercle géométriquement exact. */
+  background: radial-gradient(
+    circle farthest-corner at center, /* Cercle centré jusqu'au coin */
+    #7be8ff  0%,     /* Centre : cyan électrique de la charte */
+    #1a4a8a  45%,    /* Milieu : bleu cobalt spatial */
+    #010c1e  100%    /* Bords : bleu marine nuit profond */
+  );
+
+  /* ── COMPORTEMENT ─────────────────────────────────────────────────────── */
+  z-index:        -1;          /* Derrière tout le contenu de la page */
+  pointer-events: none;        /* Les clics traversent l'élément */
+  will-change:    transform;   /* Optimisation GPU : calque dédié */
+
+} /* fin html::before */
+
+
+/* ============================================================================
+   SECTION 5 — SURCHARGE FOND BODY POUR NAVIGATEURS MODERNES
+   ============================================================================
+   Pour les navigateurs supportant max() (Chrome 79+, Firefox 75+, Safari 11.1+) :
+   le body devient transparent → html::before gère tout le fond.
+   @supports isole ce bloc : ne s'applique QU'aux navigateurs modernes.
+   ============================================================================ */
+
+@supports (width: max(1px, 1px)) {
+  /* Ce bloc s'exécute uniquement sur les navigateurs supportant max() CSS */
+  body {
+    background: transparent !important;         /* html::before prend le relais pour le fond */
+    background-attachment: unset !important;     /* Supprime l'attachment (inutile avec transparent) */
+  }
+} /* fin @supports max() */
+
+
+/* ============================================================================
+   SECTION 6 — SCROLLBAR PERSONNALISÉE (WCAG 2.2 AAA)
+   ============================================================================
+   SOURCE OFFICIELLE : W3C — WCAG 2.2 (octobre 2023)
+   Standard international : ISO/IEC 40500:2025
+   URL : https://www.w3.org/TR/WCAG22/
+
+   CRITÈRES APPLICABLES :
+   - 1.4.11 Non-text Contrast (AA) : ratio min 3:1 poignée/piste
+   - 2.5.8 Target Size Minimum (AA) : cible min 24×24px
+   - 2.4.7 Focus Visible (AA) : indicateur de focus clavier visible
+
+   RATIOS OBTENUS :
+   Poignée cyan rgba(77,212,240,0.70) sur piste bleu rgba(1,12,30,0.60) ≈ 5.4:1 ✓
+   Dépasse le seuil AA (3:1) pour les composants UI d'interface.
+
+   COMPATIBILITÉ :
+   ::-webkit-scrollbar* = Chrome 2+, Safari 5+, Edge 79+, Opera 15+
+   scrollbar-color/width = Firefox 64+, Chrome 121+, Edge 121+ (2024)
+   IE/Edge Legacy = non personnalisable, fallback OS
+   ============================================================================ */
+
+/* ── Largeur de la barre de défilement (WebKit) ─────────────────────────── */
+::-webkit-scrollbar {
+  width: 10px; /* 10px : compromis accessibilité WCAG 2.5.8 et élégance visuelle */
+} /* fin ::-webkit-scrollbar */
+
+/* ── Piste de la scrollbar (fond de la barre) ───────────────────────────── */
+::-webkit-scrollbar-track {
+  -webkit-border-radius: 6px;                            /* Coins arrondis préfixe WebKit */
+  border-radius:         6px;                            /* Coins arrondis standard */
+  -webkit-box-shadow:    inset 0 0 6px rgba(0,0,0,0.40); /* Ombre intérieure profondeur */
+  box-shadow:            inset 0 0 6px rgba(0,0,0,0.40); /* Ombre standard */
+  background:            rgba(1, 12, 30, 0.60);           /* Fond bleu nuit à 60% opacité */
+} /* fin ::-webkit-scrollbar-track */
+
+/* ── Poignée de la scrollbar (élément mobile) ───────────────────────────── */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 6px;                                   /* Coins arrondis WebKit */
+  border-radius:         6px;                                   /* Coins arrondis standard */
+  background:            rgba(77, 212, 240, 0.70);              /* Cyan Convergence à 70% */
+  -webkit-box-shadow:    inset 0 0 6px rgba(0,0,0,0.50);        /* Relief intérieur WebKit */
+  box-shadow:            inset 0 0 6px rgba(0,0,0,0.50);        /* Relief intérieur standard */
+  border:                1px solid rgba(77, 212, 240, 0.30);    /* Bordure cyan très discrète */
+} /* fin ::-webkit-scrollbar-thumb */
+
+/* ── Poignée au survol ───────────────────────────────────────────────────── */
+/* WCAG 2.4.13 (AAA) : les éléments interactifs DOIVENT avoir un état hover */
+::-webkit-scrollbar-thumb:hover {
+  background:         rgba(77, 212, 240, 0.90);                 /* Plus opaque au survol */
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.60),
+                      0 0 8px rgba(77, 212, 240, 0.30);         /* + Lueur externe cyan WebKit */
+  box-shadow:         inset 0 0 6px rgba(0,0,0,0.60),
+                      0 0 8px rgba(77, 212, 240, 0.30);         /* + Lueur externe standard */
+} /* fin ::-webkit-scrollbar-thumb:hover */
+
+/* ── Poignée quand la fenêtre n'est pas active ──────────────────────────── */
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(77, 212, 240, 0.25); /* Très transparent — fenêtre inactive */
+} /* fin ::-webkit-scrollbar-thumb:window-inactive */
+
+
+/* ============================================================================
+   SECTION 7 — NORMALIZE.CSS COMPLÉMENTAIRE
+   ============================================================================
+   Normalize.css v8.0.1 — Nicolas Gallagher & Jonathan Neal — MIT License
+   Règles complémentaires non couvertes par les styles existants.
+   Garantissent un rendu cohérent sur TOUS les navigateurs modernes et anciens.
+   ============================================================================ */
+
+/* abbr : soulignement pointillé pour les abréviations avec tooltip */
+/* Correctif Chrome/Edge qui ne supprime pas border-bottom correctement */
+abbr[title] {
+  border-bottom: none;               /* Supprime la bordure ancienne Chrome/Edge */
+  text-decoration: underline;        /* Soulignement standard */
+  text-decoration: underline dotted; /* Tirets : signal visuel d'abréviation */
+} /* fin abbr[title] */
+
+/* b/strong : graisse unifiée — IE et anciens Firefox varient */
+b,
+strong {
+  font-weight: bolder; /* Plus gras que le parent — valeur sémantique recommandée */
+} /* fin b, strong */
+
+/* code/kbd/samp : monospace normalisé — correctif taille fonte */
+/* Le double "monospace" est un hack délibéré pour corriger Chrome */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* Double monospace = correctif taille fonte Chrome */
+  font-size:   1em;                  /* Maintient la taille relative du contexte */
+} /* fin code, kbd, samp */
+
+/* small : réduit uniformément sur tous les navigateurs */
+small {
+  font-size: 80%; /* 80% de la taille du texte parent = norme cross-browser */
+} /* fin small */
+
+/* sub/sup : positionnement sans impact sur l'interligne */
+sub,
+sup {
+  font-size:      75%;       /* Réduit la taille de l'indice/exposant */
+  line-height:    0;         /* Annule l'impact sur la hauteur de ligne */
+  position:       relative;  /* Requis pour top/bottom */
+  vertical-align: baseline;  /* Alignement de référence */
+} /* fin sub, sup */
+
+sub {
+  bottom: -0.25em; /* Décale vers le bas = indice (ex: H₂O) */
+} /* fin sub */
+
+sup {
+  top: -0.5em; /* Décale vers le haut = exposant (ex: m²) */
+} /* fin sup */
+
+/* [hidden] : masquage universel — IE10 n'applique pas display:none */
+[hidden] {
+  display: none; /* Force le masquage sur tous les navigateurs */
+} /* fin [hidden] */
+
+/* hr : normalisation — Firefox ajoute couleur et hauteur non standard */
+hr {
+  box-sizing: content-box; /* Modèle de boîte explicite pour les <hr> */
+  height:     0;           /* Supprime la hauteur par défaut Firefox */
+  overflow:   visible;     /* Chrome masquait le débordement — on force visible */
+} /* fin hr */
+
+/* pre : défilement horizontal IE11 normalisé */
+pre {
+  font-family: monospace, monospace; /* Même correctif monospace que code */
+  font-size:   1em;                  /* Taille relative héritée */
+} /* fin pre */
+
+/* Boutons/inputs : apparence normalisée iOS Safari */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; /* Corrige l'apparence sur iOS Safari */
+} /* fin boutons */
+
+/* fieldset : normalisation des bordures Firefox */
+fieldset {
+  padding: 0.35em 0.75em 0.625em; /* Valeur W3C de référence */
+} /* fin fieldset */
+
+/* legend : normalisation IE */
+legend {
+  box-sizing:  border-box; /* Inclut padding/border dans la largeur */
+  color:       inherit;    /* Hérite la couleur du texte parent */
+  display:     table;      /* Corrige un bug d'affichage IE/Edge */
+  max-width:   100%;       /* Empêche le dépassement hors du fieldset */
+  padding:     0;          /* Supprime les paddings incohérents */
+  white-space: normal;     /* Corrige IE qui forçait nowrap */
+} /* fin legend */
+
+/* textarea : scroll vertical uniquement — IE11 corrigé */
+textarea {
+  overflow: auto; /* Vertical auto, horizontal masqué automatiquement */
+} /* fin textarea */
+
+/* [type="number"] : boutons de valeur IE/Edge corrigés */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; /* Corrige la hauteur sur Chrome */
+} /* fin number spin buttons */
+
+/* [type="search"] : apparence normalisée iOS + Chrome */
+[type="search"] {
+  -webkit-appearance: textfield; /* Apparence standard sur iOS */
+  outline-offset:     -2px;      /* Décale le focus outline Chrome/Safari */
+} /* fin search */
+
+/* Bouton de décoration du champ recherche — Chrome/Safari */
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; /* Masque le bouton décoratif Chrome */
+} /* fin search decoration */
+
+/* Bouton upload de fichier — héritage police Safari */
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* Apparence bouton sur Safari */
+  font:               inherit; /* Hérite la police du document */
+} /* fin file upload button */
+
+/* details/summary : display block pour anciens navigateurs */
+details {
+  display: block; /* Block : comportement standard HTML5 */
+} /* fin details */
+
+summary {
+  display: list-item; /* Affiche le triangle déroulant natif */
+} /* fin summary */
+
+/* template : masquage universel — IE ne le masque pas */
+template {
+  display: none; /* Jamais affiché */
+} /* fin template */
+
+
+/* ============================================================================
+   SECTION 8 — LOADER — ÉCRAN DE CHARGEMENT (3 SECONDES)
+   ============================================================================
+   Le loader couvre toute la page pendant le chargement du DOM.
+   Il donne le temps au contenu, aux polices, aux images et aux scripts
+   de se construire avant d'être montrés.
+
+   FONCTIONNEMENT :
+   1. L'overlay #loader-overlay est affiché (z-index: 9999 = au-dessus de tout)
+   2. JavaScript ajoute la classe .hidden après --loader-duration ms
+   3. La classe .hidden déclenche : opacity: 0 + visibility: hidden (fondu CSS)
+
+   STRUCTURE HTML ATTENDUE :
+     <div id="loader-overlay">
+       <div class="loader-spinner"></div>  ← anneau tournant
+       <div class="loader-text">...</div>  ← texte clignotant
+     </div>
+   ============================================================================ */
+
+/* ── Overlay plein écran ──────────────────────────────────────────────────── */
+#loader-overlay {
+  position:        fixed;                    /* Fixe : couvre l'écran même si la page défile */
+  top:             0;                        /* Collé en haut */
+  left:            0;                        /* Collé à gauche */
+  width:           100%;                     /* Pleine largeur */
+  height:          100%;                     /* Pleine hauteur */
+  background-color: #010c1e;                 /* Bleu marine de la charte — fond opaque initial */
+  z-index:         9999;                     /* Au-dessus de TOUT — même du nav (z-index: 1000) */
+  display:         -webkit-flex;             /* Flexbox préfixe Safari pour centrage */
+  display:         flex;                     /* Flexbox standard — centre les enfants */
+  -webkit-flex-direction: column;            /* Préfixe Safari : empilage vertical */
+  flex-direction:  column;                   /* Spinner + texte empilés verticalement */
+  -webkit-align-items:    center;            /* Préfixe Safari : centrage horizontal */
+  align-items:     center;                   /* Centre les enfants horizontalement */
+  -webkit-justify-content: center;           /* Préfixe Safari : centrage vertical */
+  justify-content: center;                   /* Centre les enfants verticalement */
+  transition: opacity var(--loader-fade) ease, /* Fondu sur l'opacité */
+              visibility var(--loader-fade) ease; /* Fondu sur la visibilité */
+} /* fin #loader-overlay */
+
+/* ── Classe .hidden — ajoutée par JavaScript après 3s ───────────────────── */
+#loader-overlay.hidden {
+  opacity:        0;              /* Transparent */
+  visibility:     hidden;         /* Retire de l'espace visuel et du flux */
+  pointer-events: none;           /* Ne capte plus aucun clic */
+} /* fin #loader-overlay.hidden */
+
+/* ── Anneau tournant (spinner) ────────────────────────────────────────────── */
+.loader-spinner {
+  width:         58px;                            /* Diamètre du cercle */
+  height:        58px;                            /* Hauteur = largeur = cercle */
+  border:        3px solid rgba(77,212,240,0.12); /* Anneau de fond quasi invisible */
+  border-top-color: #4dd4f0;                      /* Arc visible : cyan de la charte */
+  border-radius: 50%;                             /* Élément transformé en cercle */
+  -webkit-animation: loaderSpin 0.85s linear infinite; /* Rotation préfixe WebKit */
+  animation:         loaderSpin 0.85s linear infinite; /* Rotation standard — infinie */
+} /* fin .loader-spinner */
+
+/* Keyframes rotation spinner — préfixe WebKit */
+@-webkit-keyframes loaderSpin {
+  to { -webkit-transform: rotate(360deg); } /* Un tour complet en sens horaire */
+} /* fin @-webkit-keyframes loaderSpin */
+
+/* Keyframes rotation spinner — standard */
+@keyframes loaderSpin {
+  to { transform: rotate(360deg); } /* Un tour complet — animation continue */
+} /* fin @keyframes loaderSpin */
+
+/* ── Texte sous le spinner ──────────────────────────────────────────────── */
+.loader-text {
+  margin-top:     26px;                       /* Espace entre spinner et texte */
+  font-family:    'Helvetica Neue', Helvetica, Arial, sans-serif; /* Police système */
+  font-size:      0.75em;                     /* Petite taille discrète */
+  font-weight:    300;                        /* Fin / léger */
+  letter-spacing: 0.35em;                     /* Large espacement des lettres */
+  text-transform: uppercase;                  /* Majuscules */
+  color:          rgba(77, 212, 240, 0.55);   /* Cyan atténué */
+  -webkit-animation: loaderBlink 1.6s ease-in-out infinite; /* Clignotement WebKit */
+  animation:         loaderBlink 1.6s ease-in-out infinite; /* Clignotement standard */
+} /* fin .loader-text */
+
+/* Keyframes clignotement texte loader — préfixe WebKit */
+@-webkit-keyframes loaderBlink {
+  0%, 100% { opacity: 0.55; } /* Opacité réduite aux extrémités */
+  50%       { opacity: 1.00; } /* Pleine opacité au milieu du cycle */
+} /* fin @-webkit-keyframes loaderBlink */
+
+/* Keyframes clignotement texte loader — standard */
+@keyframes loaderBlink {
+  0%, 100% { opacity: 0.55; } /* Commence et finit atténué */
+  50%       { opacity: 1.00; } /* Pic de visibilité */
+} /* fin @keyframes loaderBlink */
+
+
+/* ============================================================================
+   SECTION 9 — HALO RING — ANIMATION PULSE SUR LE LOGO / AVATAR
+   ============================================================================
+   Utilisé sur l'index (sur le logo) et sur fabien-conejero.html (sur l'avatar).
+   Technique "ring expand" : l'anneau naît au bord du cercle, s'étend et disparaît.
+
+   CYCLE GÉRÉ PAR JAVASCRIPT :
+   La classe .halo-active est ajoutée/retirée par JS selon le cycle :
+   10s actif → 50s pause → 10s actif → ... (boucle infinie)
+
+   ÉLÉMENT HTML ATTENDU :
+   index.html       : #halo-ring      (dans .logo-wrapper)
+   fabien-conejero  : .profile-avatar (directement sur le div avatar)
+   ============================================================================ */
+
+/* ── Anneau de halo — état repos (pas de box-shadow) ────────────────────── */
+#halo-ring {
+  position:       absolute;             /* Positionné dans son conteneur relatif */
+  top:            50%;                  /* Centre vertical du conteneur */
+  left:           50%;                  /* Centre horizontal du conteneur */
+  -webkit-transform: translate(-50%, -50%); /* Centrage précis WebKit */
+  transform:         translate(-50%, -50%); /* Centrage précis standard */
+  width:          76%;                  /* 76% du conteneur ≈ diamètre du cercle logo */
+  height:         76%;                  /* Hauteur = largeur → carré transformé en cercle */
+  border-radius:  50%;                  /* Cercle parfait */
+  -webkit-box-shadow: none;             /* Aucune ombre au repos WebKit */
+  box-shadow:         none;             /* Aucune ombre au repos standard */
+  pointer-events: none;                 /* Ne capte aucun clic */
+  z-index:        1;                    /* Entre le fond (0) et le logo img (2) */
+  will-change:    box-shadow;           /* Optimisation GPU */
+} /* fin #halo-ring */
+
+/* ── Animation activée : classe .halo-active ─────────────────────────────── */
+#halo-ring.halo-active,
+.profile-avatar.halo-active {
+  -webkit-animation: haloPulse 2.0s linear infinite; /* Pulse préfixe WebKit */
+  animation:         haloPulse 2.0s linear infinite; /* Pulse standard — infini */
+} /* fin .halo-active */
+
+/* Keyframes pulse halo — préfixe WebKit */
+@-webkit-keyframes haloPulse {
+  0% {
+    -webkit-transform: translate(-50%, -50%); /* Position de départ */
+    -webkit-box-shadow: 0 0 0  0px rgba(77,212,240,0.40); /* Anneau initial cyan à 40% */
+  }
+  70% {
+    -webkit-transform: translate(-50%, -50%); /* Même position */
+    -webkit-box-shadow: 0 0 0 55px rgba(77,212,240,0.00); /* Anneau expansé — transparent */
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%); /* Retour position initiale */
+    -webkit-box-shadow: 0 0 0  0px rgba(77,212,240,0.00); /* Retour invisible */
+  }
+} /* fin @-webkit-keyframes haloPulse */
+
+/* Keyframes pulse halo — standard */
+@keyframes haloPulse {
+  0% {
+    transform:   translate(-50%, -50%);           /* Position de départ */
+    -moz-box-shadow: 0 0 0  0px rgba(77,212,240,0.40); /* Préfixe Firefox */
+    box-shadow:      0 0 0  0px rgba(77,212,240,0.40); /* Anneau cyan à 40% d'opacité */
+  }
+  70% {
+    transform:   translate(-50%, -50%);           /* Position identique */
+    -moz-box-shadow: 0 0 0 55px rgba(77,212,240,0.00); /* Expansé Firefox */
+    box-shadow:      0 0 0 55px rgba(77,212,240,0.00); /* Expansé à 55px, transparent */
+  }
+  100% {
+    transform:   translate(-50%, -50%);           /* Position identique */
+    -moz-box-shadow: 0 0 0  0px rgba(77,212,240,0.00); /* Retour Firefox */
+    box-shadow:      0 0 0  0px rgba(77,212,240,0.00); /* Retour invisible */
+  }
+} /* fin @keyframes haloPulse */
+
+
+/* ============================================================================
+   SECTION 10 — NAVIGATION PRINCIPALE — GLASSMORPHISM
+   ============================================================================
+   Barre de navigation fixe en haut, commune à toutes les pages.
+   Design : fond bleu nuit semi-transparent + flou (glassmorphism).
+   Compatible : Chrome 76+, Edge 79+ pour backdrop-filter.
+   Fallback : fond opaque rgba(1,12,30,0.88) pour navigateurs sans backdrop-filter.
+   ============================================================================ */
+
+/* ── Lien d'accessibilité "Aller au contenu principal" ──────────────────── */
+/* Invisible par défaut — visible au focus clavier (Tab) */
+.skip-link {
+  position:        absolute;    /* Retiré du flux visuel normal */
+  top:             -50px;       /* Caché au-dessus de l'écran */
+  left:            0;           /* Bord gauche */
+  background:      #4dd4f0;     /* Cyan de la charte */
+  color:           #010c1e;     /* Bleu foncé — contraste > 7:1 ✓ */
+  padding:         8px 16px;    /* Espace intérieur */
+  font-size:       0.85em;      /* Taille modérée */
+  font-weight:     600;         /* Semi-gras */
+  text-decoration: none;        /* Pas de soulignement */
+  z-index:         10000;       /* Au-dessus de tout, même du loader */
+  border-radius:   0 0 4px 0;   /* Arrondi bas-droit uniquement */
+  transition:      top 0.2s ease; /* Glissement vers le bas au focus */
+} /* fin .skip-link */
+
+/* ── Apparaît quand focalisé au clavier ──────────────────────────────────── */
+.skip-link:focus {
+  top: 0; /* Glisse en bas : 0 = visible en haut de l'écran */
+  outline: 2px solid #7be8ff; /* Contour clair visible */
+} /* fin .skip-link:focus */
+
+/* ── Barre de navigation fixe ────────────────────────────────────────────── */
+nav[role="navigation"] {
+  position:   fixed;                          /* Collée en haut, ne défile pas */
+  top:        0;                              /* Haut de la fenêtre */
+  left:       0;                              /* Bord gauche */
+  right:      0;                              /* Bord droit — pleine largeur */
+  width:      100%;                           /* Largeur totale */
+  z-index:    1000;                           /* Au-dessus du contenu, sous le loader */
+  background: var(--nav-bg);                  /* Fond bleu nuit semi-transparent */
+  -webkit-backdrop-filter: var(--nav-blur);  /* Flou glassmorphism préfixe Safari */
+  backdrop-filter:         var(--nav-blur);  /* Flou glassmorphism standard Chrome 76+ */
+  border-bottom: 1px solid var(--nav-border); /* Liseré cyan discret en bas */
+  box-sizing: border-box;                     /* Padding inclus dans la largeur */
+  padding:    0 30px;                         /* Marges internes horizontales */
+} /* fin nav[role="navigation"] */
+
+/* ── Masque le paragraphe de description caché ──────────────────────────── */
+nav[role="navigation"] p#nav-desc {
+  display: none; /* Invisible visuellement — présent pour les lecteurs d'écran */
+} /* fin nav p#nav-desc */
+
+/* ── Liste des liens : disposition horizontale ───────────────────────────── */
+nav[role="navigation"] > ul {
+  display:          -webkit-flex;    /* Flexbox préfixe Safari */
+  display:          flex;            /* Ligne horizontale */
+  -webkit-flex-direction: row;       /* Sens : gauche vers droite WebKit */
+  flex-direction:   row;             /* Liens côte à côte */
+  -webkit-align-items: center;       /* Centrage vertical WebKit */
+  align-items:      center;          /* Centrage vertical standard */
+  -webkit-justify-content: center;   /* Centrage horizontal WebKit */
+  justify-content:  center;          /* Centrage horizontal standard */
+  list-style:       none;            /* Supprime les puces */
+  margin:           0;               /* Aucune marge par défaut */
+  padding:          0;               /* Aucun padding par défaut */
+  height:           var(--nav-height); /* Hauteur = variable nav (62px) */
+  -webkit-flex-wrap: wrap;           /* Retour à la ligne si nécessaire WebKit */
+  flex-wrap:        wrap;            /* Retour à la ligne si nécessaire */
+} /* fin nav > ul */
+
+/* ── Chaque item de menu ──────────────────────────────────────────────────── */
+nav[role="navigation"] > ul > li {
+  display:         -webkit-flex;   /* Flexbox item WebKit */
+  display:         flex;           /* Flexbox item */
+  -webkit-align-items: center;     /* Centre verticalement WebKit */
+  align-items:     center;         /* Centre verticalement */
+  height:          100%;           /* Occupe toute la hauteur de la barre */
+  margin:          0;              /* Aucune marge */
+  padding:         0;              /* Aucun padding */
+} /* fin nav > ul > li */
+
+/* ── Lien de navigation ───────────────────────────────────────────────────── */
+nav[role="navigation"] > ul > li > a {
+  display:         -webkit-flex;     /* Flex pour centrer verticalement WebKit */
+  display:         flex;             /* Flex pour centrer verticalement */
+  -webkit-align-items: center;       /* Centrage vertical WebKit */
+  align-items:     center;           /* Centrage vertical */
+  height:          100%;             /* Toute la hauteur de la barre */
+  padding:         0 16px;           /* Espace intérieur gauche/droite */
+  color:           rgba(255,255,255,0.70); /* Blanc semi-transparent */
+  text-decoration: none;             /* Pas de soulignement */
+  font-family:     'Helvetica Neue', Helvetica, Arial, sans-serif; /* Police système */
+  font-size:       0.78em;           /* Petite taille élégante */
+  font-weight:     500;              /* Semi-gras */
+  letter-spacing:  0.10em;          /* Espacement discret */
+  text-transform:  uppercase;        /* Majuscules */
+  text-shadow:     none;             /* Pas d'ombre sur le nav */
+  border-bottom:   2px solid transparent; /* Bordure basse invisible par défaut */
+  -webkit-transition: color 0.25s ease,
+                      border-bottom-color 0.25s ease,
+                      background 0.25s ease; /* Transitions WebKit */
+  transition:      color 0.25s ease,
+                   border-bottom-color 0.25s ease,
+                   background 0.25s ease; /* Transitions fluides */
+  box-sizing:      border-box;      /* Padding inclus dans la largeur */
+  white-space:     nowrap;          /* Empêche le texte du lien de se couper */
+} /* fin nav > ul > li > a */
+
+/* ── Page active : aria-current="page" ───────────────────────────────────── */
+nav[role="navigation"] > ul > li > a[aria-current="page"] {
+  color:              var(--c-accent);  /* Cyan de la charte */
+  border-bottom-color: var(--c-accent); /* Soulignement cyan */
+} /* fin aria-current="page" */
+
+/* ── Survol et focus clavier ────────────────────────────────────────────── */
+nav[role="navigation"] > ul > li > a:hover,
+nav[role="navigation"] > ul > li > a:focus {
+  color:              var(--c-accent-clair);        /* Cyan plus clair */
+  border-bottom-color: rgba(77,212,240,0.50);       /* Soulignement semi-transparent */
+  background:         rgba(77,212,240,0.04);        /* Fond très légèrement teinté */
+  outline:            none;                          /* Contour par défaut supprimé */
+} /* fin nav a:hover, :focus */
+
+/* ── Fil d'Ariane : masqué visuellement, présent pour SEO ─────────────── */
+nav[aria-label="Fil d'Ariane"] {
+  display: none; /* Invisible — schema.org BreadcrumbList reste dans le DOM pour Google */
+} /* fin nav Fil d'Ariane */
+
+/* ── Suppression des styles de liste sur tous les nav ─────────────────── */
+nav ul,
+nav li {
+  list-style-type: none; /* Supprime les puces */
+  margin:          0;    /* Supprime la marge */
+  padding:         0;    /* Supprime le padding */
+} /* fin nav ul, nav li */
+
+
+/* ============================================================================
+   SECTION 11 — BOUTON HAMBURGER — MENU MOBILE
+   ============================================================================
+   Ce bouton est placé HORS du <nav> pour ne pas modifier la structure originale.
+   Sur desktop (>768px) : display: none (caché).
+   Sur mobile (<768px)  : visible, positionné fixe en haut à droite.
+   ============================================================================ */
+
+/* ── Bouton hamburger principal ─────────────────────────────────────────── */
+.nav-hamburger-btn {
+  display:          none;               /* Caché sur desktop */
+  position:         fixed;              /* Fixe en haut à droite */
+  top:              12px;               /* Aligné verticalement avec la nav */
+  right:            18px;               /* Coin droit */
+  z-index:          1001;               /* Au-dessus du nav (z-index: 1000) */
+  background:       rgba(1,12,30,0.92); /* Fond bleu nuit quasi opaque */
+  border:           1px solid rgba(77,212,240,0.30); /* Bordure cyan */
+  border-radius:    6px;                /* Coins légèrement arrondis */
+  padding:          9px 10px;           /* Espace intérieur */
+  cursor:           pointer;            /* Curseur main */
+  -webkit-flex-direction: column;       /* Barres empilées WebKit */
+  flex-direction:   column;             /* Barres empilées verticalement */
+  gap:              5px;                /* Espace entre les 3 barres */
+  -webkit-align-items: center;          /* Centrage barres WebKit */
+  align-items:      center;             /* Centrage barres */
+  -webkit-justify-content: center;      /* Centrage barres WebKit */
+  justify-content:  center;             /* Centrage barres */
+} /* fin .nav-hamburger-btn */
+
+/* ── Les 3 barres du hamburger (spans) ───────────────────────────────────── */
+.nav-hamburger-btn span {
+  display:       block;                 /* Block pour width/height */
+  width:         22px;                  /* Largeur de chaque barre */
+  height:        2px;                   /* Épaisseur fine */
+  background:    var(--c-accent);       /* Cyan de la charte */
+  border-radius: 2px;                   /* Extrémités légèrement arrondies */
+  -webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease; /* Animation WebKit */
+  transition:    transform 0.3s ease, opacity 0.3s ease; /* Animation standard */
+} /* fin .nav-hamburger-btn span */
+
+/* ── Barre 1 : pivote +45° vers le centre (forme la moitié du X) ────────── */
+.nav-hamburger-btn.open span:nth-child(1) {
+  -webkit-transform: translateY(7px) rotate(45deg); /* WebKit */
+  transform:         translateY(7px) rotate(45deg); /* Standard */
+} /* fin open span:1 */
+
+/* ── Barre 2 : disparaît (cache le segment central du X) ────────────────── */
+.nav-hamburger-btn.open span:nth-child(2) {
+  opacity: 0; /* Fondu disparition */
+} /* fin open span:2 */
+
+/* ── Barre 3 : pivote -45° vers le centre (complète le X) ───────────────── */
+.nav-hamburger-btn.open span:nth-child(3) {
+  -webkit-transform: translateY(-7px) rotate(-45deg); /* WebKit */
+  transform:         translateY(-7px) rotate(-45deg);  /* Standard */
+} /* fin open span:3 */
+
+
+/* ============================================================================
+   SECTION 12 — SECTION HERO — LOGO CENTRÉ (PAGE INDEX)
+   ============================================================================
+   Occuppe 100% de la hauteur du viewport.
+   Utilisée uniquement sur index.html — les autres pages utilisent
+   soit .profile-hero (fabien-conejero.html) soit directement .global.
+   ============================================================================ */
+
+/* ── Section hero plein écran ────────────────────────────────────────────── */
+.hero-logo {
+  display:          -webkit-flex;   /* Flexbox WebKit */
+  display:          flex;           /* Flexbox standard */
+  -webkit-flex-direction: column;   /* Empilage vertical WebKit */
+  flex-direction:   column;         /* Éléments empilés */
+  -webkit-align-items: center;      /* Centrage horizontal WebKit */
+  align-items:      center;         /* Centrage horizontal */
+  -webkit-justify-content: center;  /* Centrage vertical WebKit */
+  justify-content:  center;         /* Centrage vertical */
+  min-height:       100vh;          /* Hauteur = pleine fenêtre */
+  padding-top:      62px;           /* Compense la hauteur de la nav fixe */
+  box-sizing:       border-box;     /* Padding inclus dans les 100vh */
+} /* fin .hero-logo */
+
+/* ── Conteneur logo (référence pour le halo) ─────────────────────────────── */
+.logo-wrapper {
+  position:     relative;           /* Référence positionnement absolu du halo */
+  display:      inline-block;       /* S'adapte à la taille du logo */
+  width:        310px;              /* Largeur d'affichage du logo */
+  height:       310px;              /* Hauteur d'affichage */
+} /* fin .logo-wrapper */
+
+/* ── Image du logo ───────────────────────────────────────────────────────── */
+.logo-img {
+  display:     block;               /* Supprime l'espace inline sous l'image */
+  width:       100%;                /* Toute la largeur du wrapper */
+  height:      100%;                /* Toute la hauteur du wrapper */
+  object-fit:  contain;             /* Proportions conservées */
+  position:    relative;            /* Crée un contexte de positionnement */
+  z-index:     2;                   /* Au-dessus du halo-ring (z-index: 1) */
+} /* fin .logo-img */
+
+
+/* ============================================================================
+   SECTION 13 — DIV ALPHA .global — OVERLAY SEMI-TRANSPARENT
+   ============================================================================
+   Conteneur principal du contenu textuel sur toutes les sous-pages.
+   Crée un voile noir dégradé (top opaque → bas transparent) par-dessus
+   le fond radial pour améliorer la lisibilité du texte.
+
+   MODIFICATION CONVERGENCE : border-radius: 0 (angles droits — identité visuelle)
+   ============================================================================ */
+
+/* ── Div alpha : overlay dégradé ─────────────────────────────────────────── */
+.global {
+  position:   relative;             /* Contexte pour les enfants positionnés */
+  margin:     0 auto;               /* Centrage horizontal automatique */
+  max-width:  820px;                /* Largeur maximale sur grands écrans */
+  width:      68%;                  /* Largeur proportionnelle responsive */
+  text-align: center;               /* Texte centré par défaut */
+  padding:    50px 40px 60px;       /* Espace intérieur haut / côtés / bas */
+  border-radius: 0;                 /* Angles droits — identité Convergence */
+
+  /* ── Overlay noir dégradé — toutes syntaxes cross-browser ────────────── */
+  /* Firefox 3.6–15 — préfixe -moz- */
+  background: -moz-linear-gradient(
+    top,
+    rgba(0,0,0,0.60) 0%,   /* Haut : noir 60% — lisibilité maximale */
+    rgba(0,0,0,0.00) 100%  /* Bas : transparent — fond Convergence visible */
+  );
+  /* Chrome/Safari très anciens — syntaxe en deux points */
+  background: -webkit-gradient(
+    linear, left top, left bottom,
+    color-stop(0%,   rgba(0,0,0,0.60)),
+    color-stop(100%, rgba(0,0,0,0.00))
+  );
+  /* Chrome/Safari récents — préfixe -webkit- */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.00) 100%);
+  /* Opera ancien — préfixe -o- */
+  background:    -o-linear-gradient(top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.00) 100%);
+  /* IE10 — préfixe -ms- */
+  background:   -ms-linear-gradient(top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.00) 100%);
+  /* Standard W3C — IE10+, Chrome 26+, Firefox 16+, Safari 7+ */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.00) 100%);
+
+  /* IE6–9 : filtre dégradé vertical
+     #99000000 = noir ARGB 60% (0x99 ÷ 255 ≈ 60%) */
+  filter: progid:DXImageTransform.Microsoft.gradient(
+    startColorstr='#99000000',
+    endColorstr='#00000000',
+    GradientType=0              /* 0 = vertical (haut→bas) */
+  );
+
+  border: 1px solid rgba(77,212,240,0.07); /* Liseré cyan très discret */
+
+} /* fin .global */
+
+
+/* ============================================================================
+   SECTION 14 — CONTENU TEXTUEL DANS .global
+   ============================================================================
+   Styles typographiques du contenu courant des pages.
+   ============================================================================ */
+
+/* ── Titre h1 principal ───────────────────────────────────────────────────── */
+/*
+  CORRECTION DU TITRE SUR TOUTES TAILLES D'ÉCRAN :
+  [1] font-size: clamp() → fluide sans media query
+  [2] letter-spacing: clamp() → réduit sur petit écran
+  [3] hyphens: none → pas de coupure automatique
+*/
+h1 {
+  margin:         0 0 8px 0;                              /* Espace sous le titre */
+  font-size:      clamp(0.85rem, 3.2vw, 1.75rem);         /* [1] Taille fluide responsive */
+  font-weight:    700;                                    /* Gras */
+  letter-spacing: clamp(0.01em, 0.05vw, 0.05em);         /* [2] Espacement réduit petit écran */
+  text-transform: uppercase;                              /* Majuscules */
+  color:          var(--c-accent);                        /* Cyan de la charte */
+  text-shadow:    0 2px 16px rgba(77,212,240,0.30);       /* Légère lueur cyan */
+  text-align:     center;                                 /* Centré */
+  hyphens:        none;                                   /* [3] Pas de coupure auto */
+  word-break:     normal;                                 /* Pas de coupure en milieu de mot */
+  overflow-wrap:  break-word;                             /* Dernier recours : mot trop long */
+} /* fin h1 */
+
+/* ── Paragraphes ──────────────────────────────────────────────────────────── */
+p {
+  margin:     0;                                /* Reset — Probalize gère l'espacement */
+  padding:    0;                                /* Reset padding */
+  color:      rgba(255,255,255,0.78);           /* Blanc semi-transparent */
+  font-size:  1em;                              /* Taille normale héritée */
+  line-height: 1.9em;                           /* Interligne généreux */
+  max-width:  660px;                            /* Largeur maximale pour les lignes */
+  margin:     0 auto 20px;                      /* Centré + espace bas */
+  text-align: center;                           /* Centré */
+} /* fin p */
+
+/* ── Espacement entre paragraphes consécutifs (Probalize.css) ─────────────── */
+/* "p + p" : uniquement un <p> qui SUIT un autre <p> directement */
+p + p {
+  margin-top: calc(var(--prb-space-unit) * 0.75); /* ≈ 18px — entre 1 et 1.5 ligne */
+} /* fin p + p */
+
+/* ── Premier paragraphe d'un article : jamais de marge top ───────────────── */
+article > p:first-child {
+  margin-top: 0 !important; /* Pas d'espace au-dessus du premier paragraphe */
+} /* fin article > p:first-child */
+
+/* ── Séparateur décoratif .sep ────────────────────────────────────────────── */
+.sep {
+  display:    block;                            /* Block pour centrage margin auto */
+  width:      55px;                             /* Courte barre signature Convergence */
+  height:     2px;                              /* Fine */
+  background: var(--c-accent);                  /* Cyan de la charte */
+  margin:     4px auto 30px;                    /* Centré avec espace bas */
+  border:     none;                             /* Pas de bordure */
+  opacity:    0.70;                             /* Légèrement transparent */
+} /* fin .sep */
+
+/* ── Lien email ───────────────────────────────────────────────────────────── */
+.email-link {
+  color:           var(--c-accent);             /* Cyan de la charte */
+  text-decoration: none;                         /* Pas de soulignement */
+  font-weight:     500;                          /* Semi-gras */
+} /* fin .email-link */
+
+.email-link:hover,
+.email-link:focus {
+  text-decoration: underline;                    /* Soulignement au survol */
+  color:           var(--c-accent-clair);        /* Cyan plus clair */
+} /* fin .email-link:hover, :focus */
+
+/* ── Liens généraux ───────────────────────────────────────────────────────── */
+a {
+  text-decoration: none; /* Pas de soulignement par défaut — style Convergence */
+} /* fin a */
+
+
+/* ============================================================================
+   SECTION 15 — SECTION FAQ — ACCORDÉON (PAGE INDEX)
+   ============================================================================
+   Styles de la FAQ avec fond semi-opaque pour lisibilité (WCAG AAA).
+   Contraste texte blanc sur fond bleu nuit ≈ 14.5:1 → dépasse AAA (7:1) ✓
+   ============================================================================ */
+
+/* ── Conteneur global FAQ ─────────────────────────────────────────────────── */
+.faq-section {
+  max-width:   820px;         /* Même largeur que .global */
+  width:       68%;           /* Même proportion */
+  margin:      60px auto 80px; /* Espace haut / centré / espace bas */
+  padding:     0;              /* Pas de padding sur le conteneur */
+  box-sizing:  border-box;    /* Padding inclus dans la largeur */
+} /* fin .faq-section */
+
+/* ── Titre de section FAQ ─────────────────────────────────────────────────── */
+.faq-title {
+  font-size:      1.5em;            /* Taille lisible */
+  font-weight:    600;              /* Semi-gras */
+  letter-spacing: 0.18em;           /* Large espacement signature Convergence */
+  text-transform: uppercase;        /* Majuscules */
+  color:          var(--c-accent);  /* Cyan de la charte */
+  text-align:     center;           /* Centré */
+  margin:         0 0 10px;         /* Espace sous le titre */
+} /* fin .faq-title */
+
+/* ── Item FAQ (conteneur question+réponse) ────────────────────────────────── */
+.faq-item {
+  background:    rgba(1,12,30,0.82);              /* Fond bleu nuit 82% — fond lisible */
+  border-left:   3px solid rgba(77,212,240,0.55); /* Accent gauche cyan */
+  border-bottom: 1px solid rgba(77,212,240,0.18); /* Séparateur bas discret */
+  margin-bottom: 3px;                             /* Espace entre items */
+  padding:       0 22px;                          /* Espace intérieur horizontal */
+  box-sizing:    border-box;                      /* Padding inclus dans la largeur */
+} /* fin .faq-item */
+
+/* ── Bouton question (déclencheur accordéon) ─────────────────────────────── */
+.faq-question-btn {
+  display:          -webkit-flex;        /* Flexbox WebKit */
+  display:          flex;                /* Texte à gauche, flèche à droite */
+  -webkit-justify-content: space-between; /* Espace entre texte et flèche WebKit */
+  justify-content:  space-between;       /* Espace entre texte et flèche */
+  -webkit-align-items: center;           /* Alignement vertical WebKit */
+  align-items:      center;              /* Alignement vertical */
+  width:            100%;                /* Pleine largeur */
+  background:       none;                /* Fond transparent */
+  border:           none;                /* Pas de bordure */
+  padding:          20px 0;             /* Espace vertical cliquable */
+  cursor:           pointer;             /* Curseur main */
+  color:            rgba(255,255,255,0.92); /* Blanc quasi pur */
+  font-family:      'Helvetica Neue', Helvetica, Arial, sans-serif; /* Police système */
+  font-size:        0.97em;              /* Taille normale */
+  font-weight:      600;                 /* Semi-gras pour les questions */
+  text-align:       left;                /* Aligné à gauche */
+  letter-spacing:   0.02em;             /* Espacement discret */
+  text-shadow:      none;                /* Pas d'ombre sur fond opaque */
+  -webkit-transition: color 0.2s ease;  /* Transition WebKit */
+  transition:       color 0.2s ease;    /* Transition douce */
+} /* fin .faq-question-btn */
+
+/* ── Survol et focus du bouton question ───────────────────────────────────── */
+.faq-question-btn:hover,
+.faq-question-btn:focus {
+  color:   var(--c-accent-clair); /* Cyan clair */
+  outline: none;                   /* Contour par défaut supprimé */
+} /* fin .faq-question-btn:hover */
+
+/* ── Focus clavier visible (WCAG 2.4.7 Focus Visible) ───────────────────── */
+.faq-question-btn:focus-visible {
+  outline:        2px solid var(--c-accent);  /* Contour cyan visible */
+  outline-offset: 2px;                         /* Espace entre contour et élément */
+  border-radius:  2px;                         /* Léger arrondi */
+} /* fin .faq-question-btn:focus-visible */
+
+/* ── Flèche à droite ──────────────────────────────────────────────────────── */
+.faq-arrow {
+  font-size:   0.85em;              /* Petite flèche */
+  color:       var(--c-accent);     /* Cyan de la charte */
+  margin-left: 16px;               /* Espace entre texte et flèche */
+  flex-shrink: 0;                   /* La flèche ne rétrécit pas */
+  -webkit-transition: -webkit-transform 0.3s ease; /* Rotation WebKit */
+  transition:  transform 0.3s ease; /* Rotation standard */
+} /* fin .faq-arrow */
+
+/* ── Flèche inversée quand item ouvert ─────────────────────────────────── */
+.faq-item.open .faq-arrow {
+  -webkit-transform: rotate(180deg); /* ▲ quand ouvert WebKit */
+  transform:         rotate(180deg); /* ▲ quand ouvert standard */
+} /* fin .faq-item.open .faq-arrow */
+
+/* ── Réponse FAQ : cachée par défaut (max-height: 0) ─────────────────────── */
+.faq-answer {
+  max-height: 0;             /* Hauteur nulle = invisible */
+  overflow:   hidden;        /* Masque le contenu dépassant */
+  -webkit-transition: max-height 0.4s ease, padding 0.4s ease; /* Transition WebKit */
+  transition:  max-height 0.4s ease, padding 0.4s ease; /* Transition standard */
+  padding:     0;            /* Pas de padding quand fermé */
+} /* fin .faq-answer */
+
+/* ── Réponse FAQ ouverte ─────────────────────────────────────────────────── */
+.faq-item.open .faq-answer {
+  max-height:     500px;     /* Hauteur max pour la transition */
+  padding-bottom: 20px;      /* Espace respiratoire bas */
+} /* fin .faq-item.open .faq-answer */
+
+/* ── Texte de la réponse FAQ ─────────────────────────────────────────────── */
+.faq-answer p {
+  margin:      0;                           /* Reset marge */
+  color:       rgba(255,255,255,0.82);      /* Blanc atténué — lisible */
+  font-size:   0.95em;                      /* Légèrement plus grand */
+  font-weight: 400;                         /* Normal (contrast avec questions en 600) */
+  line-height: 1.9em;                       /* Interligne généreux WCAG 1.4.12 */
+  text-align:  left;                        /* Réponses alignées à gauche */
+} /* fin .faq-answer p */
+
+
+/* ============================================================================
+   SECTION 16 — BOUTONS AUTHENTIFICATION
+   ============================================================================
+   Styles des boutons #btn-login, #btn-membres, #btn-logout de la page index.
+   Surcharge des styles inline du bloc <style> original de l'index.
+   ============================================================================ */
+
+/* ── Bouton Se connecter : dégradé charte Convergence ────────────────────── */
+#btn-login {
+  background: -webkit-linear-gradient(135deg, #1a4a8a 0%, #4dd4f0 100%) !important; /* Dégradé WebKit */
+  background: linear-gradient(
+    135deg,          /* Angle diagonale haut-gauche → bas-droite */
+    #1a4a8a 0%,      /* Bleu cobalt de la charte */
+    #4dd4f0 100%     /* Cyan électrique de la charte */
+  ) !important;
+  border: 1px solid rgba(77,212,240,0.40); /* Liseré cyan */
+  -webkit-transition: box-shadow 0.3s ease, -webkit-transform 0.2s ease; /* WebKit */
+  transition: box-shadow 0.3s ease, transform 0.2s ease;                  /* Standard */
+} /* fin #btn-login */
+
+/* ── Survol du bouton Se connecter ──────────────────────────────────────── */
+#btn-login:hover {
+  box-shadow:           0 0 20px rgba(77,212,240,0.45); /* Halo cyan */
+  -webkit-transform:    translateY(-2px);                /* Légère élévation WebKit */
+  transform:            translateY(-2px);                /* Légère élévation */
+} /* fin #btn-login:hover */
+
+/* ── Bouton Se connecter dans le hero (clone) ─────────────────────────── */
+.hero-login-btn {
+  display:         inline-block;                 /* Bouton en ligne pour flex */
+  margin-top:      36px;                         /* Espace entre logo et bouton */
+  padding:         12px 32px;                    /* Cible ≥ 44px WCAG AAA */
+  font-family:     'Helvetica Neue', Helvetica, Arial, sans-serif; /* Police */
+  font-size:       0.95em;                       /* Taille lisible */
+  font-weight:     600;                          /* Semi-gras */
+  letter-spacing:  0.08em;                       /* Espacement discret */
+  text-transform:  uppercase;                    /* Majuscules */
+  color:           #ffffff;                      /* Blanc pur — contraste > 7:1 ✓ */
+  cursor:          pointer;                      /* Curseur main */
+  border:          1px solid rgba(77,212,240,0.50); /* Bordure cyan */
+  border-radius:   5px;                          /* Arrondi */
+  background:      -webkit-linear-gradient(135deg, #1a4a8a 0%, #4dd4f0 100%); /* WebKit */
+  background:      linear-gradient(135deg, #1a4a8a 0%, #4dd4f0 100%); /* Standard */
+  -webkit-transition: box-shadow 0.3s ease, -webkit-transform 0.2s ease; /* WebKit */
+  transition:      box-shadow 0.3s ease, transform 0.2s ease; /* Standard */
+  text-shadow:     none;                         /* Pas d'ombre sur fond coloré */
+} /* fin .hero-login-btn */
+
+/* ── Survol hero-login-btn ───────────────────────────────────────────────── */
+.hero-login-btn:hover {
+  box-shadow:        0 0 22px rgba(77,212,240,0.50); /* Halo lumineux */
+  -webkit-transform: translateY(-2px);                /* Élévation WebKit */
+  transform:         translateY(-2px);                /* Élévation */
+} /* fin .hero-login-btn:hover */
+
+/* ── Focus visible clavier sur les boutons ────────────────────────────────── */
+.hero-login-btn:focus-visible {
+  outline:        2px solid var(--c-accent-clair); /* Contour cyan clair */
+  outline-offset: 3px;                              /* Espace extérieur */
+} /* fin .hero-login-btn:focus-visible */
+
+/* ── Bloc des boutons auth dans main ────────────────────────────────────── */
+#auth-buttons {
+  text-align: center;          /* Boutons centrés */
+  margin:     30px 0 10px;     /* Espaces vertical */
+} /* fin #auth-buttons */
+
+/* ── Cache btn-login dans main sur desktop (visible dans hero) ───────────── */
+@media screen and (min-width: 480px) {
+  #auth-buttons #btn-login { display: none !important; } /* Masqué car présent dans hero */
+} /* fin @media 480px auth-buttons */
+
+
+/* ============================================================================
+   SECTION 17 — IMAGES
+   ============================================================================
+   Optimisation des images pour éviter le CLS (Cumulative Layout Shift).
+   CLS > 0.1 = pénalité Google Core Web Vitals.
+   ============================================================================ */
+
+img {
+  display:      block;        /* Supprime l'espace "inline" sous les images */
+  max-width:    100%;         /* L'image ne dépasse jamais son conteneur */
+  height:       auto;         /* Proportions originales conservées */
+  border-style: none;         /* Supprime bordure sur images-liens (IE 10) */
+} /* fin img */
+
+
+/* ============================================================================
+   SECTION 18 — SYSTÈME D'ESPACEMENT PROBALIZE
+   ============================================================================
+   Le "Lobotomized Owl" de Heydon Pickering :
+   .flow > * + * = tout enfant direct d'un .flow qui suit un autre enfant.
+   Ajoute automatiquement une marge top entre les enfants directs d'un .flow.
+   ============================================================================ */
+
+/* ── Espacement automatique dans .flow ───────────────────────────────────── */
+.flow > * + * {
+  margin-top: var(--prb-space-sm); /* Marge top automatique entre enfants */
+} /* fin .flow > * + * */
+
+
+/* ============================================================================
+   SECTION 19 — CLASSES UTILITAIRES GLOBALIZE ULTIMATE PRO
+   ============================================================================
+   APPORT MAJEUR PAR RAPPORT À shared.css ORIGINAL.
+
+   Classes atomiques extraites de Globalize CSS Ultimate Pro.
+   Chaque classe fait UNE chose précise — Single Responsibility Principle.
+   Compatible avec tous les navigateurs supportant CSS (IE9+, tous modernes).
+   ============================================================================ */
+
+/* ── DISPLAY ────────────────────────────────────────────────────────────── */
+.dpi  { display: inline }          /* Affiche en ligne (inline) */
+.dpb  { display: block }           /* Affiche en bloc */
+.dpib { display: inline-block }    /* Bloc en ligne — taille personnalisable inline */
+.dpf  { display: flex }            /* Flexbox container */
+.dpg  { display: grid }            /* CSS Grid container */
+.dpn  { display: none }            /* Masque totalement (retire du flux) */
+
+/* Préfixe dp- (version longue — lisibilité) */
+.dp-n { display: none }            /* Cache l'élément */
+.dp-i { display: inline }          /* Inline */
+.dp-b { display: block }           /* Block */
+
+/* Flexbox inline et grid inline */
+.dpf-inline { display: inline-flex }   /* Flexbox en ligne */
+.dpg-inline { display: inline-grid }   /* Grid en ligne */
+
+/* ── VISIBILITÉ ──────────────────────────────────────────────────────────── */
+.v-v { visibility: visible }   /* Visible — garde l'espace dans le flux */
+.v-h { visibility: hidden }    /* Masqué — garde l'espace dans le flux */
+
+/* ── POSITIONNEMENT ──────────────────────────────────────────────────────── */
+.pf  { position: fixed }       /* Fixé à la fenêtre */
+.pr  { position: relative }    /* Relatif au flux normal */
+.pa  { position: absolute }    /* Absolu par rapport au parent relatif */
+.psc { position: static }      /* Statique (défaut) */
+.psy { position: sticky }      /* Collant lors du scroll */
+
+/* ── CENTRAGE RAPIDE (Globalize Ultimate Pro) ────────────────────────────── */
+/* abs-center : centre parfait absolu dans son parent relatif */
+.abs-center {
+  position:  absolute;              /* Absolu dans le parent relatif */
+  top:       50%;                   /* Déplace au milieu vertical */
+  left:      50%;                   /* Déplace au milieu horizontal */
+  transform: translate(-50%, -50%); /* Décale de moitié → centrage parfait */
+} /* fin .abs-center */
+
+/* flex-center : centre les enfants dans les deux axes */
+.flex-center {
+  display:         flex;            /* Activation flexbox */
+  align-items:     center;          /* Centrage vertical */
+  justify-content: center;          /* Centrage horizontal */
+} /* fin .flex-center */
+
+/* ── Z-INDEX ─────────────────────────────────────────────────────────────── */
+.z-1   { z-index: -1 }     /* Derrière l'élément parent */
+.z0    { z-index:  0 }     /* Même niveau */
+.z1    { z-index:  1 }     /* Légèrement au-dessus */
+.z10   { z-index: 10 }     /* Dessus modéré */
+.z100  { z-index: 100 }    /* Dessus important */
+.z999  { z-index: 999 }    /* Dessus très fort */
+.z9999 { z-index: 9999 }   /* Dessus maximal (loader, modales) */
+
+/* ── FLOAT ET CLEAR ──────────────────────────────────────────────────────── */
+.fl   { float: left }      /* Flottant gauche */
+.fr   { float: right }     /* Flottant droite */
+.fn   { float: none }      /* Pas de flottant */
+.clb  { clear: both }      /* Nettoie les flottants des deux côtés */
+
+/* Clearfix : solution moderne pour les conteneurs avec flottants */
+.clearfix::after {
+  content: "";        /* Pseudo-élément vide obligatoire */
+  display: table;     /* Table : force la remise à la ligne */
+  clear:   both;      /* Nettoie les deux côtés */
+} /* fin .clearfix::after */
+
+/* ── ALIGNEMENT TEXTE ────────────────────────────────────────────────────── */
+.tc { text-align: center }   /* Centré */
+.tl { text-align: left }     /* Gauche */
+.tr { text-align: right }    /* Droite */
+.tj { text-align: justify }  /* Justifié */
+
+/* ── TRANSFORMATION TEXTE ────────────────────────────────────────────────── */
+.ttc { text-transform: capitalize } /* Première lettre en majuscule */
+.ttu { text-transform: uppercase }  /* Tout en majuscules */
+.ttl { text-transform: lowercase }  /* Tout en minuscules */
+.ttn { text-transform: none }       /* Annule toute transformation */
+
+/* ── POIDS TYPOGRAPHIQUE ─────────────────────────────────────────────────── */
+.fw-light    { font-weight: 300 }   /* Très fin */
+.fw-normal   { font-weight: 400 }   /* Normal */
+.fw-medium   { font-weight: 500 }   /* Moyen */
+.fw-semibold { font-weight: 600 }   /* Semi-gras */
+.fw-bold     { font-weight: 700 }   /* Gras */
+.fw-extrabold { font-weight: 800 }  /* Extra-gras */
+
+/* Variantes abrégées */
+.fw2 { font-weight: 200 }   /* Très fin */
+.fw4 { font-weight: 400 }   /* Normal */
+.fw6 { font-weight: 600 }   /* Semi-gras */
+.fw8 { font-weight: 800 }   /* Extra-gras */
+
+/* ── TAILLES TYPOGRAPHIQUES (Globalize Ultimate Pro) ─────────────────────── */
+.fs-xs   { font-size: 0.75rem }   /* 12px — très petite */
+.fs-sm   { font-size: 0.875rem }  /* 14px — petite */
+.fs-base { font-size: 1rem }      /* 16px — normale */
+.fs-lg   { font-size: 1.125rem }  /* 18px — grande */
+.fs-xl   { font-size: 1.25rem }   /* 20px — très grande */
+.fs-2xl  { font-size: 1.5rem }    /* 24px */
+.fs-3xl  { font-size: 1.75rem }   /* 28px */
+.fs-4xl  { font-size: 2rem }      /* 32px */
+.fs-5xl  { font-size: 2.25rem }   /* 36px */
+.fs-6xl  { font-size: 3rem }      /* 48px */
+
+/* ── HAUTEUR DE LIGNE ────────────────────────────────────────────────────── */
+.lh-tight  { line-height: 1.25 }  /* Compact — titres */
+.lh-normal { line-height: 1.5 }   /* Standard */
+.lh-loose  { line-height: 2 }     /* Aéré — texte long */
+
+/* ── ESPACEMENT DES LETTRES ──────────────────────────────────────────────── */
+.ls-tight  { letter-spacing: -0.025em }  /* Resserré */
+.ls-normal { letter-spacing: normal }    /* Normal */
+.ls-wide   { letter-spacing: 0.025em }   /* Large */
+.ls-wider  { letter-spacing: 0.05em }    /* Très large */
+
+/* ── GESTION TEXTE LONG ──────────────────────────────────────────────────── */
+.wwbw { word-wrap:     break-word }  /* Coupe les mots longs */
+.wsnw { white-space:   nowrap }      /* Pas de retour à la ligne */
+.wsn  { white-space:   normal }      /* Normal (rétablit les retours) */
+.toe  { text-overflow: ellipsis }    /* Points de suspension si texte trop long */
+.tocl { text-overflow: clip }        /* Coupe net le texte débordant */
+
+/* Coupure intelligente des textes longs (Globalize.css original) */
+.cut-texte-magic {
+  -webkit-hyphens: auto;    /* Césure automatique Safari */
+  -moz-hyphens:    auto;    /* Césure automatique Firefox ancien */
+  -ms-hyphens:     auto;    /* Césure automatique IE 10+ */
+  hyphens:         auto;    /* Césure automatique standard */
+  overflow-wrap:   break-word; /* Coupe si le mot entier dépasse le conteneur */
+} /* fin .cut-texte-magic */
+
+/* ── SÉLECTION TEXTE DÉSACTIVÉE ──────────────────────────────────────────── */
+/* Utile sur les zones d'interface (nav, boutons) */
+.us-n {
+  -webkit-user-select: none;  /* Désactivation sélection WebKit */
+  -ms-user-select:     none;  /* Désactivation sélection IE 10+ */
+  -khtml-user-select:  none;  /* Désactivation sélection Konqueror */
+  -moz-user-select:    none;  /* Désactivation sélection Firefox */
+  user-select:         none;  /* Désactivation sélection standard */
+} /* fin .us-n */
+
+/* ── FLEXBOX UTILITAIRES ─────────────────────────────────────────────────── */
+.fdc { flex-direction: column }       /* Direction : colonne verticale */
+.fdr { flex-direction: row }          /* Direction : ligne horizontale */
+.fdrr { flex-direction: row-reverse } /* Direction : ligne inversée */
+.fdcr { flex-direction: column-reverse } /* Direction : colonne inversée */
+.fw  { flex-wrap: wrap }              /* Retour à la ligne si nécessaire */
+.fnw { flex-wrap: nowrap }            /* Pas de retour à la ligne */
+.jcc { justify-content: center }      /* Contenu centré horizontalement */
+.jcs { justify-content: start }       /* Contenu aligné début */
+.jce { justify-content: end }         /* Contenu aligné fin */
+.jcsb { justify-content: space-between } /* Espace entre les éléments */
+.jcsa { justify-content: space-around }  /* Espace autour des éléments */
+.jcse { justify-content: space-evenly }  /* Espace égal partout */
+.aic { align-items: center }          /* Alignement vertical centré */
+.aifs { align-items: flex-start }     /* Alignement vertical haut */
+.aife { align-items: flex-end }       /* Alignement vertical bas */
+.ais { align-items: stretch }         /* Étirer les éléments */
+.fg0 { flex-grow: 0 }                 /* Ne grandit pas */
+.fg1 { flex-grow: 1 }                 /* Grandit pour remplir */
+.fs0 { flex-shrink: 0 }               /* Ne rétrécit pas */
+.fs1 { flex-shrink: 1 }               /* Peut rétrécir */
+
+/* ── GRID UTILITAIRES ────────────────────────────────────────────────────── */
+.gtc-fr2 { grid-template-columns: repeat(2, 1fr) } /* 2 colonnes égales */
+.gtc-fr3 { grid-template-columns: repeat(3, 1fr) } /* 3 colonnes égales */
+.gtc-fr4 { grid-template-columns: repeat(4, 1fr) } /* 4 colonnes égales */
+.gap-0   { gap: 0 }                                 /* Pas d'espace */
+.gap-1   { gap: 0.25rem }                           /* 4px */
+.gap-2   { gap: 0.5rem }                            /* 8px */
+.gap-3   { gap: 0.75rem }                           /* 12px */
+.gap-4   { gap: 1rem }                              /* 16px */
+.gap-6   { gap: 1.5rem }                            /* 24px */
+.gap-8   { gap: 2rem }                              /* 32px */
+
+/* Grille responsive auto-fit (Probalize.css) */
+.grid-container {
+  display: grid;                                    /* Mode grille */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colonnes auto */
+  gap: var(--prb-space-md);                         /* Espace entre cellules ≈ 36px */
+} /* fin .grid-container */
+
+/* ── MARGES — SYSTÈME PROBALIZE ÉTENDU ──────────────────────────────────── */
+.mb-xxs { margin-bottom: var(--prb-space-xxs) !important } /* ≈ 8px */
+.mb-xs  { margin-bottom: var(--prb-space-xs)  !important } /* ≈ 12px */
+.mb-sm  { margin-bottom: var(--prb-space-sm)  !important } /* ≈ 24px */
+.mb-md  { margin-bottom: var(--prb-space-md)  !important } /* ≈ 36px */
+.mb-lg  { margin-bottom: var(--prb-space-lg)  !important } /* ≈ 54px */
+.mb-xl  { margin-bottom: var(--prb-space-xl)  !important } /* ≈ 72px */
+.mb-0   { margin-bottom: 0 !important }                     /* Annule marge bas */
+
+.mt-xxs { margin-top: var(--prb-space-xxs) !important }    /* ≈ 8px */
+.mt-xs  { margin-top: var(--prb-space-xs)  !important }    /* ≈ 12px */
+.mt-sm  { margin-top: var(--prb-space-sm)  !important }    /* ≈ 24px */
+.mt-md  { margin-top: var(--prb-space-md)  !important }    /* ≈ 36px */
+.mt-lg  { margin-top: var(--prb-space-lg)  !important }    /* ≈ 54px */
+.mt-xl  { margin-top: var(--prb-space-xl)  !important }    /* ≈ 72px */
+.mt-0   { margin-top: 0 !important }                        /* Annule marge haut */
+
+/* Marges horizontales — APPORT Globalize Ultimate Pro */
+.mr-xs { margin-right: var(--prb-space-xs)  !important }   /* Marge droite XS */
+.mr-sm { margin-right: var(--prb-space-sm)  !important }   /* Marge droite SM */
+.mr-md { margin-right: var(--prb-space-md)  !important }   /* Marge droite MD */
+.ml-xs { margin-left:  var(--prb-space-xs)  !important }   /* Marge gauche XS */
+.ml-sm { margin-left:  var(--prb-space-sm)  !important }   /* Marge gauche SM */
+.ml-md { margin-left:  var(--prb-space-md)  !important }   /* Marge gauche MD */
+.mx-sm { margin-left:  var(--prb-space-sm)  !important;
+         margin-right: var(--prb-space-sm)  !important }   /* Marge horizontale SM */
+.mx-md { margin-left:  var(--prb-space-md)  !important;
+         margin-right: var(--prb-space-md)  !important }   /* Marge horizontale MD */
+
+/* Paddings (Globalize Ultimate Pro) */
+.p-xs  { padding: var(--prb-space-xs)  !important } /* Padding intérieur XS */
+.p-sm  { padding: var(--prb-space-sm)  !important } /* Padding intérieur SM */
+.p-md  { padding: var(--prb-space-md)  !important } /* Padding intérieur MD */
+.py-sm { padding-top: var(--prb-space-sm)  !important;
+         padding-bottom: var(--prb-space-sm) !important } /* Padding vertical SM */
+.px-sm { padding-left: var(--prb-space-sm)  !important;
+         padding-right: var(--prb-space-sm) !important }  /* Padding horizontal SM */
+
+/* ── DIMENSIONS UTILITAIRES ─────────────────────────────────────────────── */
+.w-full   { width: 100% }           /* Pleine largeur */
+.w-screen { width: 100vw }          /* Largeur fenêtre entière */
+.w-min    { width: min-content }    /* Largeur minimum du contenu */
+.w-max    { width: max-content }    /* Largeur maximum du contenu */
+.w-fit    { width: fit-content }    /* S'adapte exactement au contenu */
+.h-full   { height: 100% }          /* Pleine hauteur */
+.h-screen { height: 100vh }         /* Hauteur fenêtre entière */
+
+/* Max-widths responsive (Globalize Ultimate Pro) */
+.max-w-screen-sm  { max-width: 576px  } /* Max largeur mobile */
+.max-w-screen-md  { max-width: 768px  } /* Max largeur tablette */
+.max-w-screen-lg  { max-width: 992px  } /* Max largeur laptop */
+.max-w-screen-xl  { max-width: 1200px } /* Max largeur desktop */
+.max-w-screen-xxl { max-width: 1400px } /* Max largeur grand écran */
+
+/* ── BORDURES ET RADIUS ──────────────────────────────────────────────────── */
+.bdn { border: none }              /* Aucune bordure */
+.bds { border-style: solid }       /* Bordure solide */
+.bdd { border-style: dashed }      /* Bordure tiretée */
+
+/* Radius étendus (Globalize Ultimate Pro) */
+.rad-none { border-radius: 0 }            /* Pas d'arrondi — style Convergence */
+.rad-sm   { border-radius: 0.125rem }     /* 2px — très léger */
+.rad      { border-radius: 0.25rem }      /* 4px */
+.rad-md   { border-radius: 0.375rem }     /* 6px */
+.rad-lg   { border-radius: 0.5rem }       /* 8px */
+.rad-xl   { border-radius: 0.75rem }      /* 12px */
+.rad-full { border-radius: 9999px }       /* Cercle ou pilule */
+
+/* ── OMBRES (Globalize Ultimate Pro) ────────────────────────────────────── */
+.sd-none { box-shadow: none }                                          /* Aucune ombre */
+.sd-sm   { box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05) }                /* Très légère */
+.sd      { box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1) }                 /* Légère */
+.sd-md   { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1) }              /* Moyenne */
+.sd-lg   { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1) }            /* Forte */
+.sd-xl   { box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1) }            /* Très forte */
+
+/* Ombre colorée Convergence */
+.sd-cyan  { box-shadow: 0 0 20px rgba(77,212,240,0.35) }              /* Halo cyan */
+.sd-inner { box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.05) }         /* Intérieure */
+
+/* ── OPACITÉ (Globalize Ultimate Pro) ───────────────────────────────────── */
+.op-0   { opacity: 0 }      /* Invisible */
+.op-25  { opacity: 0.25 }   /* Très transparent */
+.op-50  { opacity: 0.50 }   /* Mi-transparent */
+.op-75  { opacity: 0.75 }   /* Légèrement transparent */
+.op-100 { opacity: 1 }      /* Opaque */
+
+/* ── OVERFLOW ────────────────────────────────────────────────────────────── */
+.ov-hidden  { overflow: hidden }   /* Cache le contenu débordant */
+.ov-auto    { overflow: auto }     /* Scrollbar auto si débordement */
+.ov-visible { overflow: visible }  /* Affiche le contenu débordant */
+.ovx-hidden { overflow-x: hidden } /* Cache le débordement horizontal */
+.ovy-auto   { overflow-y: auto }   /* Scroll vertical automatique */
+
+/* ── CURSOR ──────────────────────────────────────────────────────────────── */
+.cp  { cursor: pointer }       /* Main — élément cliquable */
+.cd  { cursor: default }       /* Flèche par défaut */
+.cna { cursor: not-allowed }   /* Interdit — élément désactivé */
+.cgr { cursor: grab }          /* Saisir — déplaçable */
+.cga { cursor: grabbing }      /* En train de saisir */
+
+/* ── OBJECT FIT (Globalize Ultimate Pro) ────────────────────────────────── */
+.ofc { object-fit: cover }      /* Remplit en conservant les proportions */
+.ofi { object-fit: contain }    /* Contenu entier visible */
+.off { object-fit: fill }       /* Remplit complètement (déformation possible) */
+
+/* ── COULEURS SÉMANTIQUES (Globalize Ultimate Pro) ───────────────────────── */
+.c-primary   { color: var(--g-primary) }    /* Bleu primaire */
+.c-secondary { color: var(--g-secondary) }  /* Gris secondaire */
+.c-success   { color: var(--g-success) }    /* Vert succès */
+.c-danger    { color: var(--g-danger) }     /* Rouge danger */
+.c-warning   { color: var(--g-warning) }    /* Jaune avertissement */
+.c-info      { color: var(--g-info) }       /* Bleu info */
+.cfff        { color: #ffffff }              /* Blanc pur */
+.c000        { color: #000000 }              /* Noir pur */
+
+/* ── BACKGROUNDS UTILITAIRES ────────────────────────────────────────────── */
+.bg-primary   { background-color: var(--g-primary) }   /* Fond primaire */
+.bg-success   { background-color: var(--g-success) }   /* Fond succès */
+.bg-danger    { background-color: var(--g-danger) }    /* Fond danger */
+.bg-warning   { background-color: var(--g-warning) }   /* Fond avertissement */
+.bgt00        { background-color: transparent }         /* Transparent */
+
+/* ── TRANSITIONS (Globalize Ultimate Pro) ───────────────────────────────── */
+.trn-none     { transition-property: none }                       /* Aucune transition */
+.trn-all      { transition-property: all }                        /* Toutes propriétés */
+.trn-colors   { transition-property: color, background-color, border-color } /* Couleurs */
+.trn-opacity  { transition-property: opacity }                    /* Opacité */
+
+.trn-duration-150  { transition-duration: 150ms }   /* 150ms — rapide */
+.trn-duration-300  { transition-duration: 300ms }   /* 300ms — standard */
+.trn-duration-500  { transition-duration: 500ms }   /* 500ms — lent */
+.trn-timing-in-out { transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) } /* Ease in-out cubique */
+
+/* ── TRANSFORMATIONS ─────────────────────────────────────────────────────── */
+.trfn     { transform: none }                  /* Annule toute transformation */
+.trfrt0   { transform: rotate(0) }             /* Pas de rotation */
+.trfrt45  { transform: rotate(45deg) }         /* Rotation 45 degrés */
+.trfrt90  { transform: rotate(90deg) }         /* Rotation 90 degrés */
+.trfrt180 { transform: rotate(180deg) }        /* Rotation 180 degrés */
+.trfsc1   { transform: scale(1) }              /* Échelle normale */
+.trfsc105 { transform: scale(1.05) }           /* Légèrement agrandi */
+
+/* ── ANIMATIONS (Globalize Ultimate Pro — NOUVEAU vs shared.css) ─────────── */
+/* Ces keyframes n'existaient PAS dans shared.css original */
+
+/* Keyframe : apparition par fondu */
+@keyframes fadeIn {
+  from { opacity: 0 }          /* Invisible au départ */
+  to   { opacity: 1 }          /* Opaque à la fin */
+} /* fin @keyframes fadeIn */
+
+/* Keyframe : disparition par fondu */
+@keyframes fadeOut {
+  from { opacity: 1 }          /* Opaque au départ */
+  to   { opacity: 0 }          /* Invisible à la fin */
+} /* fin @keyframes fadeOut */
+
+/* Keyframe : glissement du bas vers le haut avec fondu */
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0 } /* Décalé vers le bas + invisible */
+  to   { transform: translateY(0);    opacity: 1 } /* Position normale + visible */
+} /* fin @keyframes slideUp */
+
+/* Keyframe : glissement du haut vers le bas avec fondu */
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0 } /* Décalé vers le haut + invisible */
+  to   { transform: translateY(0);     opacity: 1 } /* Position normale + visible */
+} /* fin @keyframes slideDown */
+
+/* Keyframe : rebond vertical */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1); /* Accélération vers haut */
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1); /* Décélération vers bas */
+  }
+} /* fin @keyframes bounce */
+
+/* Keyframe : pulsation d'opacité (différent du haloPulse) */
+@keyframes pulse {
+  0%, 100% { opacity: 1 }    /* Pleinement visible */
+  50%       { opacity: .5 }  /* Mi-transparent au milieu */
+} /* fin @keyframes pulse */
+
+/* Classes d'animation — NOUVEAU vs shared.css */
+.an-none    { animation: none }                                    /* Désactive toute animation */
+.an-fadein  { animation: fadeIn  0.5s ease forwards }             /* Fondu d'apparition */
+.an-fadeout { animation: fadeOut 0.5s ease forwards }             /* Fondu de disparition */
+.an-slideup { animation: slideUp 0.5s ease-out forwards }         /* Glissement vers le haut */
+.an-bounce  { animation: bounce  1s infinite }                    /* Rebond infini */
+.an-pulse   { animation: pulse   2s cubic-bezier(0.4,0,0.6,1) infinite } /* Pulsation infinie */
+
+/* ── FORMULAIRES ACCESSIBLES (Globalize Ultimate Pro — NOUVEAU) ────────────── */
+/* Ce composant n'existait pas dans shared.css original */
+.input-base {
+  display:       block;                  /* Block : occupe toute la largeur */
+  width:         100%;                   /* Pleine largeur */
+  padding:       0.5rem 0.75rem;        /* Espace intérieur */
+  border:        1px solid #d1d5db;     /* Bordure grise */
+  border-radius: 0.375rem;              /* Légèrement arrondi */
+  background-color: white;              /* Fond blanc */
+  transition:    border-color 0.15s ease-in-out, /* Transition couleur bordure */
+                 box-shadow   0.15s ease-in-out;  /* Transition ombre */
+  font:          inherit;               /* Hérite la police du document */
+} /* fin .input-base */
+
+/* ── Focus du champ de formulaire ───────────────────────────────────────── */
+.input-base:focus {
+  border-color: #3b82f6;                         /* Bleu au focus */
+  outline:      0;                               /* Supprime l'outline par défaut */
+  box-shadow:   0 0 0 3px rgba(59,130,246,0.5);  /* Anneau de focus bleu */
+} /* fin .input-base:focus */
+
+/* ── FILTRES CSS (Globalize Ultimate Pro — NOUVEAU) ─────────────────────── */
+/* Ces classes n'existaient pas dans shared.css original */
+.flb     { filter: blur(8px) }           /* Flou 8px */
+.flb-sm  { filter: blur(4px) }           /* Flou léger 4px */
+.flg     { filter: grayscale(100%) }     /* Niveaux de gris */
+.flg-none { filter: grayscale(0) }       /* Annule les niveaux de gris */
+
+
+/* ============================================================================
+   SECTION 20 — VARIABLES ADAPTATIVES PROBALIZE PAR BREAKPOINT
+   ============================================================================
+   L'unité de base Probalize augmente sur les grands écrans :
+   les espacements grandissent proportionnellement avec la taille d'écran.
+   ============================================================================ */
+
+/* ── Tablette et desktop (≥ 768px) ─────────────────────────────────────── */
+@media (min-width: 768px) {
+  :root {
+    /* Unité de base passe à 1.25rem × 1.5 = 1.875rem ≈ 30px */
+    --prb-space-unit: calc(1.25rem * var(--prb-line-height));
+  }
+} /* fin @media 768px Probalize */
+
+/* ── Grands écrans (≥ 1200px) ───────────────────────────────────────────── */
+@media (min-width: 1200px) {
+  :root {
+    /* Unité de base passe à 1.5rem × 1.5 = 2.25rem ≈ 36px */
+    --prb-space-unit: calc(1.5rem * var(--prb-line-height));
+  }
+} /* fin @media 1200px Probalize */
+
+
+/* ============================================================================
+   SECTION 21 — MODE SOMBRE AUTOMATIQUE (Globalize Ultimate Pro — NOUVEAU)
+   ============================================================================
+   Détecte la préférence "mode sombre" du système de l'utilisateur.
+   Modifie les variables sémantiques (--g-*) pour les adapter.
+   Compatible : Chrome 76+, Firefox 67+, Safari 12.1+, Edge 79+
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --g-primary:   #3b82f6;  /* Bleu plus vif en mode sombre */
+    --g-secondary: #9ca3af;  /* Gris plus clair */
+    --g-success:   #10b981;  /* Vert émeraude */
+    --g-danger:    #ef4444;  /* Rouge vif */
+    --g-warning:   #f59e0b;  /* Ambre */
+    --g-info:      #06b6d4;  /* Cyan informatif */
+    --g-light:     #1f2937;  /* Gris sombre (inversé) */
+    --g-dark:      #f9fafb;  /* Blanc (inversé) */
+  }
+  /* NOTE : le fond Convergence (dégradé radial) reste inchangé en mode sombre
+     car il est déjà sombre par nature. Seules les variables sémantiques changent. */
+} /* fin @media prefers-color-scheme: dark */
+
+
+/* ============================================================================
+   SECTION 22 — ACCESSIBILITÉ — prefers-reduced-motion (WCAG 2.2 AAA)
+   ============================================================================
+   WCAG 2.2 — Critère 2.3.3 (AAA) : Animation from Interactions
+   Détecte "Réduire les animations" dans les paramètres d'accessibilité.
+   Désactive toutes les animations pour les utilisateurs sensibles.
+
+   ACTIVÉ PAR :
+   - Windows : Accessibilité → Réduire les animations
+   - macOS   : Accessibilité → Affichage → Réduire les animations
+   - iOS     : Accessibilité → Mouvement
+   - Android : Accessibilité → Supprimer les animations
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration:       0.01ms !important; /* Animations quasi instantanées */
+    animation-iteration-count: 1     !important; /* Une seule exécution maximum */
+    transition-duration:      0.01ms !important; /* Transitions quasi instantanées */
+    scroll-behavior:          auto   !important; /* Supprime le scroll fluide */
+  }
+
+} /* fin @media prefers-reduced-motion */
+
+
+/* ============================================================================
+   SECTION 23 — RESPONSIVE DESIGN — MEDIA QUERIES PRINCIPALES
+   ============================================================================
+   Adaptation du site pour chaque catégorie d'écran :
+   Mobile → Tablette → Laptop → Desktop → TV → 4K → 5K
+   ============================================================================ */
+
+/* ── Interligne h1 sur très grands écrans (≥ 1550px) ─────────────────────── */
+/* Quand h1 passe sur deux lignes, les lignes seraient trop proches sans cela */
+@media screen and (min-width: 1550px) {
+  h1 {
+    line-height: 1.4; /* Interligne sans unité = calculé sur la fonte finale */
+  }
+} /* fin @media 1550px h1 */
+
+/* ── TV HD 1080p, 1440p ─────────────────────────────────────────────────── */
+@media screen and (min-width: 1600px) {
+  h1 { font-size: clamp(1.75rem, 2.5vw, 2.4rem) } /* Légèrement plus grand */
+  .global { padding: 60px 50px 70px }               /* Plus d'espace intérieur */
+  .logo-wrapper { width: 340px; height: 340px }     /* Logo légèrement plus grand */
+} /* fin @media 1600px */
+
+/* ── Écrans 4K et 5K ─────────────────────────────────────────────────────── */
+@media screen and (min-width: 2560px) {
+  html { font-size: 18px }                         /* Taille de base augmentée = 18px */
+  h1 { font-size: clamp(2rem, 2.2vw, 3rem) }      /* Adapté aux très grands écrans */
+  .logo-wrapper { width: 420px; height: 420px }    /* Logo plus grand */
+  nav[role="navigation"] > ul { height: 70px }     /* Nav légèrement plus haute */
+} /* fin @media 2560px 4K */
+
+/* ── Centrage forcé .global ≥ 740px ─────────────────────────────────────── */
+@media screen and (min-width: 740px) {
+  .global {
+    margin-left:  auto;   /* Marge gauche auto = centré dans son parent */
+    margin-right: auto;   /* Marge droite auto = symétrique */
+    text-align:   center; /* Texte centré */
+  }
+  .global p {
+    margin-left:  auto;   /* Centre le bloc <p> horizontalement */
+    margin-right: auto;   /* Symétrique */
+    text-align:   center; /* Texte centré dans le paragraphe */
+  }
+} /* fin @media 740px centrage global */
+
+/* ── Laptops et tablettes paysage (≤ 1200px) ────────────────────────────── */
+@media screen and (max-width: 1200px) {
+  .global       { width: 78% }  /* Largeur augmentée de 68% à 78% */
+  .faq-section  { width: 78% }  /* Même adaptation pour la FAQ */
+} /* fin @media 1200px */
+
+/* ── Tablettes portrait et petits laptops (≤ 980px) ─────────────────────── */
+@media screen and (max-width: 980px) {
+  .global {
+    width:   88%;             /* Encore plus large */
+    padding: 40px 30px 50px;  /* Espace intérieur réduit */
+  }
+  .faq-section { width: 88% } /* Même adaptation */
+} /* fin @media 980px */
+
+/* ── Activation menu hamburger mobile (≤ 768px) ─────────────────────────── */
+@media screen and (max-width: 768px) {
+
+  /* Le bouton hamburger devient visible */
+  .nav-hamburger-btn {
+    display: -webkit-flex;  /* Affiché WebKit */
+    display: flex;          /* Affiché standard */
+  } /* fin .nav-hamburger-btn visible mobile */
+
+  /* Nav sans padding horizontal */
+  nav[role="navigation"] {
+    padding: 0; /* Les liens prennent toute la largeur */
+  } /* fin nav mobile padding */
+
+  /* Menu refermé par défaut */
+  nav[role="navigation"] > ul {
+    -webkit-flex-direction: column;   /* Vertical WebKit */
+    flex-direction:         column;   /* Liens empilés verticalement */
+    height:                 auto;     /* Hauteur automatique */
+    max-height:             0;        /* FERMÉ par défaut */
+    overflow:               hidden;   /* Cache le contenu fermé */
+    -webkit-transition:     max-height 0.42s ease; /* Ouverture WebKit */
+    transition:             max-height 0.42s ease; /* Ouverture fluide */
+    -webkit-align-items:    flex-start; /* Liens alignés gauche WebKit */
+    align-items:            flex-start; /* Liens alignés à gauche */
+    background:  rgba(1, 12, 30, 0.96); /* Fond quasi opaque mobile */
+    border-top:  1px solid rgba(77,212,240,0.10); /* Séparateur haut */
+    padding:     0;                    /* Pas de padding quand fermé */
+  } /* fin nav > ul mobile */
+
+  /* Menu ouvert via JavaScript (.nav-open) */
+  nav[role="navigation"] > ul.nav-open {
+    max-height: 380px; /* Hauteur déployée pour tous les liens */
+    padding:    8px 0; /* Légère respiration interne */
+  } /* fin .nav-open */
+
+  /* Item pleine largeur */
+  nav[role="navigation"] > ul > li {
+    width:  100%; /* Occupe toute la largeur */
+    height: auto; /* Hauteur automatique */
+  } /* fin nav li mobile */
+
+  /* Liens pleine largeur avec padding vertical */
+  nav[role="navigation"] > ul > li > a {
+    width:         100%;          /* Pleine largeur */
+    padding:       15px 24px;     /* Espace cliquable vertical */
+    height:        auto;          /* Hauteur automatique */
+    border-bottom: none;          /* Pas de soulignement bas */
+    border-left:   2px solid transparent; /* Indicateur gauche (mobile) */
+  } /* fin nav a mobile */
+
+  /* Lien actif et survol sur mobile */
+  nav[role="navigation"] > ul > li > a[aria-current="page"],
+  nav[role="navigation"] > ul > li > a:hover {
+    border-bottom: none;
+    border-left-color: var(--c-accent);               /* Indicateur gauche cyan */
+    background: rgba(77,212,240,0.05);                 /* Léger fond teinté */
+  } /* fin nav a actif mobile */
+
+  /* Logo réduit sur mobile */
+  .logo-wrapper { width: 260px; height: 260px } /* 260px au lieu de 310px */
+
+} /* fin @media 768px hamburger */
+
+/* ── Téléphones portrait (≤ 600px) ─────────────────────────────────────── */
+@media screen and (max-width: 600px) {
+  .global {
+    width:   94%;               /* Quasi pleine largeur */
+    padding: 30px 18px 40px;    /* Padding réduit */
+  }
+  .faq-section { width: 94% }   /* Même adaptation */
+  h1 {
+    font-size:      1.8em;       /* Taille explicite sur petit écran */
+    letter-spacing: 0.07em;      /* Espacement réduit */
+  }
+  p { font-size: 0.92em }       /* Texte légèrement plus petit */
+  .logo-wrapper { width: 220px; height: 220px } /* Logo encore réduit */
+} /* fin @media 600px */
+
+/* ── Très petits écrans (< 380px) ───────────────────────────────────────── */
+@media screen and (max-width: 380px) {
+  h1 { font-size: 0.9rem }                          /* Force minimum lisible */
+  .logo-wrapper { width: 190px; height: 190px }     /* Logo minimal */
+  .faq-question-btn { font-size: 0.88em }           /* Questions FAQ réduites */
+} /* fin @media 380px */
+
+
+/* ============================================================================
+   SECTION 24 — IMPRESSION (Globalize Ultimate Pro — ÉTENDU vs shared.css)
+   ============================================================================
+   Styles appliqués uniquement lors de l'impression (Ctrl+P ou impression système).
+   shared.css n'avait pas de bloc @media print — APPORT DE GLOBALIZE ULTIMATE PRO.
+   ============================================================================ */
+
+@media print {
+
+  /* Masque les éléments non imprimables */
+  nav,                          /* Navigation non pertinente à l'impression */
+  #loader-overlay,              /* Loader inutile */
+  .nav-hamburger-btn,           /* Hamburger non pertinent */
+  .skip-link,                   /* Lien d'accessibilité non pertinent */
+  audio,                        /* Lecteur audio non pertinent */
+  video {                       /* Vidéo non pertinente */
+    display: none !important;   /* Masquage absolu */
+  }
+
+  /* Corps : fond blanc, texte noir = économise l'encre */
+  body {
+    background: white !important;  /* Fond blanc pour l'impression */
+    color:      black !important;  /* Texte noir */
+  }
+
+  /* .global : angles droits, pas de dégradé */
+  .global {
+    background: white !important;       /* Pas de fond sombre */
+    border:     1px solid #ccc !important; /* Bordure grise simple */
+    width:      100% !important;         /* Pleine largeur papier */
+    padding:    20px !important;         /* Espace intérieur réduit */
+  }
+
+  /* h1 : texte noir à l'impression */
+  h1 {
+    color:       black !important;  /* Noir pour l'impression */
+    text-shadow: none !important;   /* Pas d'ombre */
+  }
+
+  /* Liens : affiche l'URL entre parenthèses */
+  a[href]::after {
+    content:   " (" attr(href) ")"; /* Affiche l'URL après chaque lien */
+    font-size: 0.8em;               /* Petite taille */
+    color:     #555;                /* Gris discret */
+  }
+
+  /* Ne répète pas l'URL des liens internes (# ou javascript:) */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: ""; /* Annule le contenu pour les liens internes */
+  }
+
+  /* Saut de page après les sections principales */
+  .faq-section {
+    page-break-before: always; /* Nouvelle page avant la FAQ */
+  }
+
+  /* Empêche les titres seuls en fin de page */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid; /* Ne coupe pas après un titre */
+  }
+
+  /* Empêche les images de se couper sur deux pages */
+  img {
+    page-break-inside: avoid; /* L'image reste entière */
+    max-width:         100%;  /* Ne dépasse pas la page */
+  }
+
+} /* fin @media print */
+
+
+/* ============================================================================
+   FIN DE shared-ultimate.css
+   ============================================================================
+   Ce fichier remplace shared.css sur tous les projets Convergence.
+
+   RÉCAPITULATIF DES APPORTS DE GLOBALIZE ULTIMATE PRO :
+   ✓ Variables CSS sémantiques (--g-primary, --g-danger, --g-breakpoint-*)
+   ✓ Classes d'affichage étendues (.dpf-inline, .dpg, .dpg-inline)
+   ✓ Classes de centrage rapide (.abs-center, .flex-center)
+   ✓ Tailles typographiques standardisées (.fs-xs → .fs-6xl)
+   ✓ Poids typographiques nommés (.fw-light → .fw-black)
+   ✓ Hauteur de ligne et espacement lettres (.lh-*, .ls-*)
+   ✓ Flexbox étendu (.jcse, .fdrr, .fdcr, .ais...)
+   ✓ Grid utilitaires (.gtc-fr2 → .gtc-fr4, .gap-*)
+   ✓ Marges/paddings horizontaux (.mr-*, .ml-*, .mx-*, .px-*, .py-*)
+   ✓ Dimensions modernes (.w-min, .w-max, .w-fit, .max-w-screen-*)
+   ✓ Radius étendus (.rad-none → .rad-full)
+   ✓ Ombres nommées (.sd-sm → .sd-xl, .sd-cyan, .sd-inner)
+   ✓ Opacités nommées (.op-0 → .op-100)
+   ✓ Overflow utilitaires (.ov-*, .ovx-*, .ovy-*)
+   ✓ Object-fit (.ofc, .ofi, .off)
+   ✓ Filtres CSS (.flb, .flb-sm, .flg)
+   ✓ Transitions nommées (.trn-none, .trn-all, .trn-colors, durées, timing)
+   ✓ Transformations (.trfrt45, .trfrt90, .trfrt180, .trfsc105)
+   ✓ Animations nouvelles (fadeIn, fadeOut, slideUp, bounce, pulse + classes)
+   ✓ Composants formulaires accessibles (.input-base + :focus)
+   ✓ Mode sombre automatique (@media prefers-color-scheme: dark)
+   ✓ @media print complet (nouveau — inexistant dans shared.css)
+   ✓ Toutes les règles commentées en français
+   ============================================================================ */
