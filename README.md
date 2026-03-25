@@ -218,6 +218,52 @@ A user who has purchased a membership via Stripe gets full access to :
 
 Access is granted only if paid: true.
 
+#
+
+## Authentication Setup
+
+### Auth0 Configuration
+
+| Parameter | Value |
+|---|---|
+| Auth0 Domain | convergence-tech.eu.auth0.com |
+| Dashboard | manage.auth0.com/dashboard/eu/convergence-tech/ |
+| Date | March 20, 2026 |
+
+### Google OAuth2 Integration
+
+A Google OAuth2 client was created via Google Cloud Platform using the madjeek.agency Gmail account, on behalf of the Convergence project hosted on GitHub Pages.
+
+| Parameter | Value |
+|---|---|
+| Client ID | [your client ID].apps.googleusercontent.com |
+| Client Secret | GO[...] |
+| Created | March 20, 2026 |
+| Status | Enabled |
+
+The OAuth consent screen is configured for external users and is set to production mode, meaning all users can authenticate without restriction.
+
+The default Auth0 developer keys for Google have been replaced with the project's own Google OAuth2 credentials. This makes the authentication layer fully independent.
+
+### Payment Automation
+
+When a user completes a payment on Stripe, the following sequence runs automatically :
+
+| Step | Service | Action |
+|---|---|---|
+| 1 | Stripe | Detects the completed payment |
+| 2 | Pipedream | Receives the Stripe webhook event |
+| 3 | Auth0 | User app_metadata is updated with paid : true |
+| 4 | membres.html | Reads the metadata and grants or denies access |
+
+### Access Control Logic
+
+The members page checks the custom claim injected into the Auth0 token at login via a Post Login Action. If the claim is present and set to true, access is granted. If not, the user is redirected to the pricing section.
+
+### Notes
+
+The Pipedream workflow is deployed and active in production. The Auth0 Post Login Action named "Add paid claim" is attached to the login trigger and runs on every authentication.
+
 
 #
 #
