@@ -126,10 +126,21 @@
   <meta name="metaverse-platforms"        content="web-based, cross-platform, modern browsers compatible" />
   <!-- ★★★ -->
 
+  <!-- ★★★ CIBLAGE IA - GEO (Generative Engine Optimization) - Ces balises sont essentielles pour le référencement par les moteurs de recherche génératifs (ChatGPT Search, Perplexity, etc.) en 2026. ★★★ -->
+  <meta name="ai:entity_recognition"
+        content="person:fabien_conejero; organization:convergence_human_technology; brand:fc84; field:physical_ai; field:embodied_ai" /> <!-- Entités pour les LLMs -->
+  <meta name="ai:knowledge_domain"
+        content="software_development; physical_artificial_intelligence; embodied_ai; api; seo; web_development" /> <!-- Domaines de connaissance -->
+  <meta name="ai:semantic_depth"         content="expert" />              <!-- Niveau d'expertise déclaré -->
+  <meta name="ai:training_status"        content="opt-in_preferred" />   <!-- Autorisation entraînement IA -->
+  <meta name="ai:fact_checking"          content="human_verified_2026" /> <!-- Contenu vérifié humainement -->
+  <meta name="ai:content_tier"          content="premium_verified_source" /> <!-- Niveau qualité premium -->
+
   <!-- ★★★ JSON-LD — DONNÉES STRUCTURÉES SCHEMA.ORG (SEO avancé) ★★★
        Ce bloc informe Google et les autres moteurs de la nature,
        du contenu et des relations entre les entités du site.
-       @graph regroupe plusieurs types : Organization, WebSite, WebPage. -->
+       @graph regroupe plusieurs types : Organization, WebSite, WebPage.
+       ★ AMÉLIORATION 2026 : Enrichissement des données structurées (alternateName, mainEntity, knowsAbout enrichi) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -138,11 +149,18 @@
         "@type": "Organization",
         "@id": "https://convergence-human-technology.github.io/site/#organization",
         "name": "Convergence Human & Technology",
+        "alternateName": ["Convergence H&T", "CHT"],
         "url": "https://convergence-human-technology.github.io/site/",
         "description": "Convergence conçoit et commercialise des logiciels PC et solutions informatiques uniques, destinés aux professionnels et aux particuliers (B2B & B2C). Des concepts inédits, toujours en avance sur leur temps.",
         "founder": {
           "@type": "Person",
-          "name": "Fabien Conéjéro"
+          "name": "Fabien Conéjéro",
+          "@id": "https://convergence-human-technology.github.io/site/fabien-conejero.html#person",
+          "sameAs": [
+            "https://github.com/Convergence-Human-And-Technology",
+            "https://www.linkedin.com/company/convergence-organization",
+            "https://www.facebook.com/people/Convergence-Human-And-Technology/61578483081894"
+          ]
         },
         "foundingDate": "2026",
         "email": "convergence-tech@proton.me",
@@ -152,7 +170,9 @@
           "Solutions informatiques",
           "Développement logiciel",
           "IT B2B",
-          "IT B2C"
+          "IT B2C",
+          "IA Physique",
+          "Embodied AI"
         ],
         "sameAs": [
           "https://github.com/Convergence-Human-And-Technology",
@@ -171,7 +191,7 @@
           "@id": "https://convergence-human-technology.github.io/site/#organization"
         },
         "datePublished": "2026-03-18",
-        "dateModified": "2026-03-19",
+        "dateModified": "2026-03-28",
         "copyrightYear": "2026",
         "copyrightHolder": {
           "@id": "https://convergence-human-technology.github.io/site/#organization"
@@ -190,8 +210,11 @@
         "about": {
           "@id": "https://convergence-human-technology.github.io/site/#organization"
         },
+        "mainEntity": {
+          "@id": "https://convergence-human-technology.github.io/site/#organization"
+        },
         "datePublished": "2026-03-18",
-        "dateModified": "2026-03-19"
+        "dateModified": "2026-03-28"
       }
     ]
   }
@@ -683,20 +706,6 @@
       <p>
         Son génie ? Matérialiser des idées d'une <strong>évidente simplicité</strong>...
         mais auxquelles personne n'avait pensé pour en faire de véritables outils du quotidien.
-      </p>
-
-      <p>
-        ✉ Email :&nbsp;
-        <!-- .email-link = style cyan + hover (CSS existant)                      -->
-        <!-- .cut-texte-magic = Globalize.css : hyphens:auto + overflow-wrap      -->
-        <!-- Très judicieux ici : une adresse email peut déborder sur mobile.      -->
-        <!-- cut-texte-magic force le retour à la ligne proprement si l'email      -->
-        <!-- est trop long pour tenir sur une ligne (ex: iPhone SE = 320px wide)  -->
-        <a href="mailto:convergence-tech@proton.me"
-           class="email-link cut-texte-magic"
-           aria-label="Envoyer un email à Convergence Human and Technology">
-          convergence-tech@proton.me
-        </a>
       </p>
 
       <!-- ── Texte original index.html — INCHANGÉ ────────────────── -->
