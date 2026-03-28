@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
   ══════════════════════════════════════════════════════════════════
-  Compatibilité navigateurs anciens — Commentaires conditionnels IE
+  Compatibilité navigateurs anciens - Commentaires conditionnels IE
   iem7 = IE Mobile 7 | lt-ie9 = IE<9 | lt-ie8 = IE<8 | lt-ie7 = IE6
   ══════════════════════════════════════════════════════════════════
 -->
@@ -9,7 +9,7 @@
 <!--[if lte IE 6]><html class="lt-ie9 lt-ie8 lt-ie7" lang="fr" dir="ltr"><![endif]-->
 <!--[if (IE 7)&(!IEMobile)]><html class="lt-ie9 lt-ie8" lang="fr" dir="ltr"><![endif]-->
 <!--[if IE 8]><html class="lt-ie9" lang="fr" dir="ltr"><![endif]-->
-<!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html lang="fr"><!--<![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html lang="fr-FR" dir="ltr" itemscope itemtype="https://schema.org/WebPage" prefix="og: https://ogp.me/ns# schema: https://schema.org/ dc: http://purl.org/dc/terms/"><!--<![endif]-->
 
 <head>
 
@@ -133,7 +133,7 @@
         "@id": "https://convergence-human-technology.github.io/site/#website",
         "url": "https://convergence-human-technology.github.io/site/",
         "name": "Convergence Human & Technology",
-        "description": "Éditeur de logiciels PC et solutions informatiques uniques — B2B & B2C.",
+        "description": "Éditeur de logiciels PC et solutions informatiques uniques - B2B & B2C.",
         "inLanguage": "fr-FR",
         "publisher": {
           "@id": "https://convergence-human-technology.github.io/site/#organization"
@@ -214,7 +214,7 @@
       document.createElement('main');
     </script>
   <![endif]-->
-  <!-- ★★★ BLOC STYLE ORIGINAL DE L'INDEX — CONSERVÉ INTÉGRALEMENT ★★★
+  <!-- ★★★ BLOC STYLE ORIGINAL DE L'INDEX - CONSERVÉ INTÉGRALEMENT ★★★
        Boutons de base + body defaults (surchargés par le bloc CSS principal) -->
   <style>
     body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; text-align: center; }
@@ -225,7 +225,7 @@
   </style>
 
     <!-- ══════════════════════════════════════════════════
-       FEUILLE DE STYLE EXTERNE PARTAGÉE — shared.css
+       FEUILLE DE STYLE EXTERNE PARTAGÉE - shared.css
        Chargée depuis le cache navigateur (toutes pages).
        ══════════════════════════════════════════════════ -->
   <link rel="stylesheet" href="shared.css" />
@@ -346,26 +346,26 @@
 
 
   <!-- ════════════════════════════════════════════════════════════════
-       ★ LOADER — ÉCRAN DE CHARGEMENT (3 SECONDES) ★
+       ★ LOADER - ÉCRAN DE CHARGEMENT (3 SECONDES) ★
        ════════════════════════════════════════════════════════════════
        Couvre toute la page pendant le chargement du DOM.
        Masqué par JavaScript après 3 secondes.
        ════════════════════════════════════════════════════════════════ -->
   <div id="loader-overlay" role="status" aria-live="polite" aria-label="Chargement en cours">
-    <!-- Anneau tournant — indicateur visuel de chargement -->
+    <!-- Anneau tournant - indicateur visuel de chargement -->
     <div class="loader-spinner" aria-hidden="true"></div>
     <!-- .ttu = Globalize.css : text-transform:uppercase -->
     <div class="loader-text ttu">Chargement</div>
   </div><!-- fin #loader-overlay -->
 
-  <!-- ★ SKIP LINK — accessibilité clavier / lecteurs d'écran ★ -->
+  <!-- ★ SKIP LINK - accessibilité clavier / lecteurs d'écran ★ -->
   <a href="#main-content" class="skip-link" accesskey="s">Aller au contenu principal</a>
 
   <!-- ★ MÉTADONNÉES D'ACCESSIBILITÉ CACHÉES ★ -->
   <div hidden
        itemscope
        itemtype="https://schema.org/WebPageElement"
-       data-dev-note="Métadonnées accessibilité — lecteurs d'écran et moteurs de recherche">
+       data-dev-note="Métadonnées accessibilité - lecteurs d'écran et moteurs de recherche">
     <meta itemprop="accessibilityFeature"  content="highContrastDisplay" />
     <meta itemprop="accessibilityFeature"  content="largePrint" />
     <meta itemprop="accessibilityFeature"  content="keyboardNavigation" />
@@ -376,7 +376,7 @@
   </div>
 
   <!-- ════════════════════════════════════════════════════════════════
-       ★ BOUTON HAMBURGER — MENU MOBILE ★
+       ★ BOUTON HAMBURGER - MENU MOBILE ★
        ════════════════════════════════════════════════════════════════
        Placé HORS du <nav> pour ne pas modifier la structure originale.
        JavaScript gère l'ouverture/fermeture. 3 spans = 3 barres.
@@ -398,14 +398,14 @@
      itemscope
      itemtype="https://schema.org/SiteNavigationElement">
 
-  <p id="nav-desc" hidden>Menu de navigation — Convergence Human &amp; Technology.</p>
+  <p id="nav-desc" hidden>Menu de navigation - Convergence Human &amp; Technology.</p>
 
   <ul role="list" id="nav-main-list" aria-label="Liens de navigation" itemscope itemtype="https://schema.org/BreadcrumbList">
 
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
       <a itemprop="item" href="index.html"
          title="Retour à la page d'accueil"
-         aria-label="Accueil — Convergence Human and Technology">
+         aria-label="Accueil - Convergence Human and Technology">
         <span itemprop="name">Accueil</span>
       </a>
       <meta itemprop="position" content="1" />
@@ -413,8 +413,8 @@
 
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
       <a itemprop="item" href="tarifs.html"
-         title="Abonnement VIP et Tarifs — page actuelle"
-         aria-label="Abonnement VIP et Tarifs — page actuelle"
+         title="Abonnement VIP et Tarifs - page actuelle"
+         aria-label="Abonnement VIP et Tarifs - page actuelle"
          aria-current="page">
         <span itemprop="name">Abonnement VIP &amp; Tarifs</span>
       </a>
@@ -442,8 +442,8 @@
 
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
       <a itemprop="item" href="membres.html"
-         title="Espace membres — Accès restreint"
-         aria-label="Espace membres — connexion requise">
+         title="Espace membres - Accès restreint"
+         aria-label="Espace membres - connexion requise">
         <span itemprop="name">Espace Membres</span>
       </a>
       <meta itemprop="position" content="5" />
@@ -465,7 +465,7 @@
 
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
       <a itemprop="item" href="tarifs.html"
-         aria-label="Abonnement VIP et Tarifs — page actuelle"
+         aria-label="Abonnement VIP et Tarifs - page actuelle"
          aria-current="page">
         <span itemprop="name">Abonnement VIP &amp; Tarifs</span>
       </a>
@@ -478,9 +478,9 @@
 <main id="main-content" role="main" aria-label="Contenu principal">
 
   <!-- ══════════════════════════════════════════════════════════════
-       .global — Overlay semi-transparent sur le dégradé radial.
+       .global - Overlay semi-transparent sur le dégradé radial.
        Angles droits (border-radius:0). Hérité de l'index.
-       .flow — Probalize.css : espacement automatique entre enfants.
+       .flow - Probalize.css : espacement automatique entre enfants.
        ══════════════════════════════════════════════════════════════ -->
   <div class="global flow">
 
@@ -489,12 +489,12 @@
 
   <hr>
 
-  <h2>1. Pourquoi un abonnement VIP ?</h2>
+  <h2>Pourquoi un abonnement VIP ?</h2>
   <p>Convergence imagine des logiciels uniques, des concepts inédits que personne n'avait pensé à concrétiser. L'abonnement VIP vous donne un accès privilégié à cet univers : logiciels en avant-première, mises à jour prioritaires, support dédié et accès à l'espace membres exclusif.</p>
 
   <hr>
 
-  <h2>2. Nos offres</h2>
+  <h2>Nos offres</h2>
 
   <h3>Offre Découverte Gratuite</h3>
   <ul>
@@ -510,9 +510,8 @@
     <li>Accès à l'espace membres</li>
     <li>Support par e-mail</li>
   </ul>
-  <p><em>Tarif : nous contacter — <a href="mailto:convergence-tech@proton.me" class="email-link cut-texte-magic">convergence-tech@proton.me</a></em></p>
 
-  <h3>Offre Pro — Professionnels &amp; Entreprises (B2B)</h3>
+  <h3>Offre Pro - Professionnels &amp; Entreprises (B2B)</h3>
   <ul>
     <li>Licence professionnelle multi-postes</li>
     <li>Accès prioritaire aux nouvelles versions</li>
@@ -520,9 +519,8 @@
     <li>Solutions IT sur mesure disponibles</li>
     <li>Accès complet à l'espace membres VIP</li>
   </ul>
-  <p><em>Tarif : nous contacter — <a href="mailto:convergence-tech@proton.me" class="email-link cut-texte-magic">convergence-tech@proton.me</a></em></p>
 
-  <h3>Offre VIP — Accès Exclusif</h3>
+  <h3>Offre VIP - Accès Exclusif</h3>
   <ul>
     <li>Tout ce que comprend l'offre Pro</li>
     <li>Accès anticipé aux logiciels en développement</li>
@@ -530,26 +528,24 @@
     <li>Communication directe avec le fondateur</li>
     <li>Tarification préférentielle sur les futurs produits</li>
   </ul>
-  <p><em>Tarif : nous contacter — <a href="mailto:convergence-tech@proton.me" class="email-link cut-texte-magic">convergence-tech@proton.me</a></em></p>
 
   <hr>
 
-  <h2>3. Comment souscrire ?</h2>
-  <p>Pour souscrire à l'une de nos offres ou obtenir un devis personnalisé, contactez-nous directement par e-mail à <strong><a href="mailto:convergence-tech@proton.me" class="email-link cut-texte-magic">convergence-tech@proton.me</a></strong>.</p>
+  <h2>Comment souscrire ?</h2>
+  <p>Pour souscrire à l'une de nos offres ou obtenir un devis personnalisé, contactez-nous directement</p>
   <p>Nous vous répondrons dans les meilleurs délais avec toutes les informations nécessaires.</p>
 
   <hr>
 
-  <h2>4. Conditions générales</h2>
+  <h2>Conditions générales</h2>
   <p>Les abonnements sont soumis aux conditions générales de vente de Convergence Human &amp; Technology. Tout abonnement est personnel et non transmissible sauf mention contraire dans l'offre souscrite.</p>
   <p>Les tarifs sont indiqués en euros, hors taxes applicable selon la réglementation en vigueur.</p>
   <p>Convergence se réserve le droit de modifier ses offres et tarifs à tout moment, avec notification préalable aux abonnés en cours.</p>
 
   <hr>
 
-  <h2>5. Contact</h2>
-  <p>Pour toute question relative à nos offres et tarifs :</p>
-  <p><strong>E-mail :</strong> <a href="mailto:convergence-tech@proton.me" class="email-link cut-texte-magic">convergence-tech@proton.me</a></p>
+  <h2>Contact</h2>
+  <p>Pour toute question relative à nos offres et tarifs contactez-nous</p>
 
   </div><!-- fin .global -->
 
@@ -557,7 +553,7 @@
 
 
   <!-- ════════════════════════════════════════════════════════════════
-       ★ SCRIPTS — LOADER + HAMBURGER ★
+       ★ SCRIPTS - LOADER + HAMBURGER ★
        ════════════════════════════════════════════════════════════════
        Ce bloc gère :
        1. LOADER    : masque l'écran de chargement après 3 secondes
@@ -569,7 +565,7 @@
   <script>
 
     /* ================================================================
-       1. LOADER — Masquage après 3 secondes
+       1. LOADER - Masquage après 3 secondes
        ================================================================
        DOMContentLoaded attend que tout le HTML soit parsé.
        Après 3000ms, la classe .hidden est ajoutée sur #loader-overlay.
@@ -589,7 +585,7 @@
 
 
       /* ================================================================
-         2. HAMBURGER MENU — Ouverture/Fermeture sur mobile
+         2. HAMBURGER MENU - Ouverture/Fermeture sur mobile
          ================================================================
          Au clic sur #hamburger-btn :
          - Classe .open sur le bouton → animation barres → croix
