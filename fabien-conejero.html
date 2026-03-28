@@ -180,11 +180,22 @@
 
   <!-- ★★★ JSON-LD SCHEMA.ORG - DONNÉES STRUCTURÉES ★★★ -->
   <!--
-    Ces données structurées sont lues par :
-    - Google (rich results, knowledge graph)
-    - Bing, DuckDuckGo
-    - Les LLMs (ChatGPT, Claude, Gemini...) pour la vérification factuelle
-    - Les assistants vocaux (Siri, Alexa, Google Assistant)
+    ═══════════════════════════════════════════════════════════════════════════
+    ★ AMÉLIORATION 2026 : Ce bloc de données structurées est lu par :
+      - Google (rich results, knowledge graph, panel de connaissances)
+      - Bing, DuckDuckGo, Yahoo (enrichissement des résultats de recherche)
+      - Les LLMs (ChatGPT, Claude, Gemini, Mistral, DeepSeek) pour la vérification
+        factuelle et l’intégration dans les réponses génératives (GEO)
+      - Les assistants vocaux (Siri, Alexa, Google Assistant)
+      - Les agrégateurs de données et les moissonneurs académiques
+    ═══════════════════════════════════════════════════════════════════════════
+    La structure @graph regroupe quatre entités :
+      1. Person   → Fabien Conéjéro (fondateur, profil professionnel)
+      2. Organization → Convergence Human & Technology (société)
+      3. ProfilePage → La page de profil elle-même (métadonnées de la page)
+      4. WebSite → Le site dans son ensemble
+    Les relations entre ces entités sont explicitées via les propriétés worksFor,
+    founder, isPartOf, mainEntity, publisher, etc.
   -->
   <script type="application/ld+json">
   {
@@ -242,7 +253,11 @@
           "Intelligence Artificielle",
           "IA Physique",
           "Développement logiciel"
-        ]
+        ],
+        "copyrightYear": "2026",
+        "copyrightHolder": {
+          "@id": "https://convergence-human-technology.github.io/site/#organization"
+        }
       },
       {
         "@type": "ProfilePage",
