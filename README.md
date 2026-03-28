@@ -361,3 +361,24 @@ I recommend using **Cloudflare** for your domain :
 
 It’s one of the simplest ways to upgrade your site’s appearance and credibility.
 
+#
+#
+#
+
+# ABOUT INFOS : 
+
+GitHub Pages is not suitable for all projects :
+
+"GitHub Pages is neither designed nor authorized to be used as a free web hosting service to manage your online business, your e-commerce site, or any other website whose primary purpose is to facilitate commercial transactions or to provide commercial software as a service (SaaS)."
+
+Recommendations :
+For certain projects, consider these free or very low-cost alternatives :
+
+- Netlify (generous free plan, designed for commercial static sites)
+
+- Vercel (same)
+
+- Cloudflare Pages (free, fast, no commercial restrictions)
+
+These three platforms explicitly allow commercial sites, are faster than GitHub Pages, and support Auth0 + Stripe without issue.
+Migrating from GitHub Pages to one of these platforms takes about 30 minutes, and the HTML/CSS/JS code remains identical only the hosting changes.
