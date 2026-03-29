@@ -229,76 +229,21 @@
     }
 
 
-    /* Styles pour les nouvelles cartes membres */
-.members-card {
-    background: rgba(1, 12, 30, 0.75);
-    border: 1px solid rgba(77, 212, 240, 0.15);
-    border-left: 3px solid rgba(77, 212, 240, 0.60);
-    border-radius: 0;
-    padding: 20px;
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.card-image-area {
-    text-align: center;
-    width: 100%;
-}
-
-.members-card-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-.card-content-area p {
-    color: rgba(255, 255, 255, 0.78);
-    font-size: 1em;
-    line-height: 1.6;
-    text-align: left;
-    margin-bottom: 15px;
-}
+/* Styles pour les nouvelles cartes membres */
+.members-card {background: rgba(1, 12, 30, 0.75); border: 1px solid rgba(77, 212, 240, 0.15); border-left: 3px solid rgba(77, 212, 240, 0.60); border-radius: 0; padding: 20px; margin-bottom: 30px; display: flex; flex-direction: column; gap: 20px; width: 100%; box-sizing: border-box;}
+.card-image-area {text-align: center; width: 100%;}
+.members-card-img {max-width: 100%; height: auto; display: block; margin: 0 auto;}
+.card-content-area p {color: rgba(255, 255, 255, 0.78); font-size: 1em; line-height: 1.6; text-align: left; margin-bottom: 15px;}
 
 /* Styles pour le nouveau bouton (comme page tarifs) */
-.offer-button {
-    display: inline-block;
-    text-align: center;
-    padding: 10px 16px;
-    background: rgba(77, 212, 240, 0.10);
-    border: 1px solid rgba(77, 212, 240, 0.40);
-    color: #4dd4f0;
-    font-family: var(--font-display, 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    border-radius: 0;
-    cursor: pointer;
-    width: auto;
-    box-sizing: border-box;
-}
-.offer-button:hover {
-    background: rgba(77, 212, 240, 0.25);
-    border-color: #4dd4f0;
-    color: #7be8ff;
-    box-shadow: 0 0 12px rgba(77, 212, 240, 0.20);
-}
+.offer-button {display: inline-block; text-align: center; padding: 10px 16px; background: rgba(77, 212, 240, 0.10); border: 1px solid rgba(77, 212, 240, 0.40); color: #4dd4f0; font-family: var(--font-display, 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif); font-size: 0.75rem; font-weight: 500;
+letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: all 0.25s ease; border-radius: 0; cursor: pointer; width: auto; box-sizing: border-box;}
+.offer-button:hover {background: rgba(77, 212, 240, 0.25); border-color: #4dd4f0; color: #7be8ff; box-shadow: 0 0 12px rgba(77, 212, 240, 0.20);}
 
 /* Responsive pour l'espacement entre les cartes */
-@media screen and (max-width: 768px) {
-    .members-card {
-        margin-bottom: 25px;
-    }
-}
+@media screen and (max-width: 768px) {.members-card {margin-bottom: 25px;}}
 
-  </style>
+</style>
 
 </head>
 
@@ -388,7 +333,7 @@
       <meta itemprop="position" content="1" />
     </li>
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="membres.html" aria-label="Espace membres — page actuelle" aria-current="page">
+      <a itemprop="item" href="membres.html" aria-label="Espace membres - page actuelle" aria-current="page">
         <span itemprop="name">Espace Membres</span>
       </a>
       <meta itemprop="position" content="2" />
@@ -401,9 +346,9 @@
   <main id="main-content" role="main" aria-label="Contenu principal">
 
     <!-- ══════════════════════════════════════════════════════════════
-         .global — Overlay semi-transparent sur le dégradé radial.
+         .global - Overlay semi-transparent sur le dégradé radial.
          Angles droits (border-radius:0). Hérité de l'index.
-         .flow — Probalize.css : espacement automatique entre enfants.
+         .flow - Probalize.css : espacement automatique entre enfants.
          ══════════════════════════════════════════════════════════════ -->
     <div class="global flow">
 
@@ -412,23 +357,24 @@
 <!-- NOUVELLES CARTES (x2) -->
 <div class="members-card">
     <div class="card-image-area">
-        <!-- Image 1 (remplacer par votre propre URL) -->
-        <img src="votre-image-1.jpg" alt="Description de l'image 1" class="members-card-img">
+        <!-- Image 1 -->
+        <img src="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/Aether-Suite-cover-05.png" alt="Aether Suite : 9 applications Android open source par Convergence Human and Technology" class="members-card-img" width="" height="" loading="eager" />
+      <!-- loading="eager" : chargement immédiat (au-dessus de la ligne de flottaison) -->
     </div>
     <div class="card-content-area">
-        <p>......</p>
-        <p>.......</p>
+        <p>Aether Suite</p>
+        <p>Création 2026 par Convergence Human and Technology : 9 applications Android open source pour remplacer toutes les applications par défaut de votre téléphone. Pas de publicité. Aucun suivi. Aucun compte nécessaire. Vos données restent toujours sur votre téléphone.</p>
     </div>
 </div>
 
 <div class="members-card">
     <div class="card-image-area">
-        <!-- Image 2 (remplacer par votre propre URL) -->
-        <img src="votre-image-2.jpg" alt="Description de l'image 2" class="members-card-img">
+        <!-- Image 2 -->
+        <img src="https://github.com/charlotte-otoole/the-mirror/raw/main/the-mirror-convergence-cover-1.jpg" alt="the mirror by : Convergence Human And Technology" width="100%" height="100%" class="members-card-img" loading="eager">
     </div>
     <div class="card-content-area">
-        <p>......</p>
-        <p>......</p>
+        <p>Le Miroir</p>
+        <p>Solution logicielle révolutionnaire qui transforme la façon dont vous interagissez avec votre espace de travail numérique. Une technologie développée par Convergence. Disponible en SaaS.</p>
     </div>
 </div>
 
