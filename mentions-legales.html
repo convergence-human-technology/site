@@ -416,9 +416,20 @@ JavaScript gère l'ouverture/fermeture. 3 spans = 3 barres.
       <!-- id="nav-login-link" : référencé dans le script JS ci-dessous    -->
       <!-- href="#" : la navigation est gérée par JavaScript (Auth0)       -->
       <!-- Masqué automatiquement par JS si l'utilisateur est déjà connecté -->
+      <!-- Lien Connexion -->
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a itemprop="item" id="nav-login-link" href="#" title="Se connecter à votre espace Convergence Human &amp; Technology" aria-label="Connexion - Se connecter à votre espace membres"><span itemprop="name">Connexion</span></a>
+        <a itemprop="item" id="nav-login-link" href="#" ...>
+          <span itemprop="name">Connexion</span>
+        </a>
         <meta itemprop="position" content="6" />
+      </li>
+
+      <!-- Lien Déconnexion (caché par défaut) -->
+      <li id="nav-logout-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="display: none;">
+        <a itemprop="item" id="nav-logout-link" href="#" ...>
+          <span itemprop="name">Déconnexion</span>
+        </a>
+        <meta itemprop="position" content="7" />
       </li>
   </ul>
 </nav>
@@ -583,64 +594,78 @@ JavaScript gère l'ouverture/fermeture. 3 spans = 3 barres.
       } /* fin if hamburgerBtn && navList */
 
     }); /* fin DOMContentLoaded */
-
+    
 
     /* ================================================================
-       3. LIEN CONNEXION DANS LE MENU — liaison avec Auth0
+       3. LIEN CONNEXION DANS LE MENU — version autonome
        ================================================================
-       CONTEXTE :
-       Le script Auth0 original (inchangé) gère #btn-login dans main.
-       Le lien Connexion du menu (#nav-login-link) est le déclencheur
-       visible de la connexion. Il doit déclencher EXACTEMENT la même
-       action Auth0 que #btn-login — sans toucher au script original.
-
-       TECHNIQUE :
-       On attend que le DOM soit chargé (DOMContentLoaded).
-       On récupère #nav-login-link et, au clic, on simule un clic
-       sur #btn-login (le bouton Auth0 original dans main).
-       e.preventDefault() empêche le # de modifier l'URL.
-       Cela déclenche l'onclick Auth0 déjà défini sur #btn-login
-       par le script original — sans duplication de code Auth0.
-
-       SYNCHRONISATION ÉTAT CONNECTÉ :
-       Si un token est présent en sessionStorage, l'utilisateur est
-       déjà connecté. On masque alors le lien Connexion ET son <li>
-       parent (pour ne laisser aucune trace dans la nav).
-       Le script Auth0 masque déjà #btn-login dans main — cohérence.
+       Ce script gère le lien Connexion dans le menu sans dépendre
+       du bouton #btn-login (qui n'existe pas sur cette page).
        ================================================================ */
     document.addEventListener('DOMContentLoaded', function() {
 
-      /* Récupère le lien Connexion dans le menu de navigation */
       var navLoginLink = document.getElementById('nav-login-link');
 
-      /* Récupère le bouton Auth0 original dans main (script inchangé) */
-      var originalBtnLogin = document.getElementById('btn-login');
+      if (navLoginLink) {
 
-      /* Sécurité : vérifie que les deux éléments existent dans le DOM */
-      if (navLoginLink && originalBtnLogin) {
-
-        /* Au clic sur le lien Connexion, on simule un clic sur #btn-login */
-        /* Cela déclenche l'onclick Auth0 défini dans le script original */
         navLoginLink.addEventListener('click', function(e) {
-          e.preventDefault(); /* Empêche le # de modifier l'URL du navigateur */
-          originalBtnLogin.click(); /* Déclenche l'authentification Auth0 */
-        }); /* fin addEventListener clic nav-login-link */
+          e.preventDefault();
 
-        /* Synchronisation état connecté → masque le lien Connexion */
-        /* Si l'utilisateur est déjà connecté (token présent en session), */
-        /* on masque le lien ET son <li> parent pour nettoyer le menu */
+          /* Code Auth0 de connexion */
+          const AUTH0_DOMAIN = "convergence-tech.eu.auth0.com";
+          const CLIENT_ID = "ONtxpyovHGewrl4669n3Qz8RJYot27AS";
+          const REDIRECT_URI = "https://convergence-human-technology.github.io/site/callback.html";
+
+          const state = Math.random().toString(36).substring(2);
+          sessionStorage.setItem("auth_state", state);
+          const url = `https://${AUTH0_DOMAIN}/authorize?response_type=token&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=openid%20profile%20email&state=${state}`;
+          window.location.href = url;
+        });
+
+        /* Masque le lien Connexion si l'utilisateur est déjà connecté */
         var token = sessionStorage.getItem('auth_token');
         if (token) {
-          /* Masque le <li> parent pour ne pas laisser un item vide dans le menu */
           var liParent = navLoginLink.parentElement;
-          if (liParent) {
-            liParent.style.display = 'none';
-          }
+          if (liParent) liParent.style.display = 'none';
         }
 
-      } /* fin if navLoginLink && originalBtnLogin */
+      }
 
-    }); /* fin DOMContentLoaded — lien Connexion menu */
+    });
+
+
+
+
+
+    /* ================================================================
+       4. LIEN DÉCONNEXION DANS LE MENU — version autonome
+       ================================================================
+       Ce script gère le lien Déconnexion dans le menu.
+       ================================================================ */
+    document.addEventListener('DOMContentLoaded', function() {
+
+      var navLogoutLink = document.getElementById('nav-logout-link');
+
+      if (navLogoutLink) {
+
+        navLogoutLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          sessionStorage.clear();
+          window.location.href = `https://convergence-tech.eu.auth0.com/v2/logout?returnTo=${encodeURIComponent(window.location.origin + "/site/index.html")}&client_id=ONtxpyovHGewrl4669n3Qz8RJYot27AS`;
+        });
+
+        /* Synchronisation état connecté → affiche/masque le lien Déconnexion */
+        var token = sessionStorage.getItem('auth_token');
+        var liParent = navLogoutLink.parentElement;
+        if (token) {
+          if (liParent) liParent.style.display = 'flex';
+        } else {
+          if (liParent) liParent.style.display = 'none';
+        }
+
+      }
+
+    });
 
   </script>
 
