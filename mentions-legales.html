@@ -364,108 +364,76 @@
   <!-- ★ SKIP LINK — accessibilité clavier / lecteurs d'écran ★ -->
   <a href="#main-content" class="skip-link" accesskey="s">Aller au contenu principal</a>
 
-  <!-- ★ MÉTADONNÉES D'ACCESSIBILITÉ CACHÉES ★ -->
-  <div hidden
-       itemscope
-       itemtype="https://schema.org/WebPageElement"
-       data-dev-note="Métadonnées accessibilité — lecteurs d'écran et moteurs de recherche">
-    <meta itemprop="accessibilityFeature"  content="highContrastDisplay" />
-    <meta itemprop="accessibilityFeature"  content="largePrint" />
-    <meta itemprop="accessibilityFeature"  content="keyboardNavigation" />
-    <meta itemprop="accessibilityFeature"  content="screenReaderSupport" />
-    <meta itemprop="accessibilityControl"  content="fullKeyboardControl" />
-    <meta itemprop="accessibilityHazard"   content="noFlashingHazard" />
-    <meta itemprop="accessibilityAPI"      content="ARIA" />
-  </div>
+<!-- ★ MÉTADONNÉES D'ACCESSIBILITÉ CACHÉES ★ -->
+<div hidden itemscope itemtype="https://schema.org/WebPageElement" data-dev-note="Métadonnées accessibilité — lecteurs d'écran et moteurs de recherche">
+<meta itemprop="accessibilityFeature"  content="highContrastDisplay" />
+<meta itemprop="accessibilityFeature"  content="largePrint" />
+<meta itemprop="accessibilityFeature"  content="keyboardNavigation" />
+<meta itemprop="accessibilityFeature"  content="screenReaderSupport" />
+<meta itemprop="accessibilityControl"  content="fullKeyboardControl" />
+<meta itemprop="accessibilityHazard"   content="noFlashingHazard" />
+<meta itemprop="accessibilityAPI"      content="ARIA" />
+</div>
 
-  <!-- ════════════════════════════════════════════════════════════════
-       ★ BOUTON HAMBURGER — MENU MOBILE ★
-       ════════════════════════════════════════════════════════════════
-       Placé HORS du <nav> pour ne pas modifier la structure originale.
-       JavaScript gère l'ouverture/fermeture. 3 spans = 3 barres.
-       ════════════════════════════════════════════════════════════════ -->
-  <button class="nav-hamburger-btn"
-          id="hamburger-btn"
-          type="button"
-          aria-label="Ouvrir ou fermer le menu de navigation"
-          aria-expanded="false"
-          aria-controls="nav-main-list">
-    <span aria-hidden="true"></span><!-- Barre haut -->
-    <span aria-hidden="true"></span><!-- Barre milieu -->
-    <span aria-hidden="true"></span><!-- Barre bas -->
-  </button>
+<!-- ════════════════════════════════════════════════════════════════
+★ BOUTON HAMBURGER — MENU MOBILE ★
+════════════════════════════════════════════════════════════════
+Placé HORS du <nav> pour ne pas modifier la structure originale.
+JavaScript gère l'ouverture/fermeture. 3 spans = 3 barres.
+════════════════════════════════════════════════════════════════ -->
+<button class="nav-hamburger-btn" id="hamburger-btn" type="button" aria-label="Ouvrir ou fermer le menu de navigation" aria-expanded="false" aria-controls="nav-main-list">
+  <span aria-hidden="true"></span><!-- Barre haut -->
+  <span aria-hidden="true"></span><!-- Barre milieu -->
+  <span aria-hidden="true"></span><!-- Barre bas -->
+</button>
 
-<nav role="navigation"
-     aria-label="Navigation principale du site Convergence Human & Technology"
-     aria-describedby="nav-desc"
-     itemscope itemtype="https://schema.org/SiteNavigationElement">
-
-  <p id="nav-desc" hidden>Menu de navigation — Convergence Human &amp; Technology.</p>
-
+<nav role="navigation" aria-label="Navigation principale du site Convergence Human & Technology" aria-describedby="nav-desc" itemscope itemtype="https://schema.org/SiteNavigationElement">
+<p id="nav-desc" hidden>Menu de navigation — Convergence Human &amp; Technology. 6 sections disponibles : Accueil, Abonnement VIP et Tarifs, Contact, Mentions légales, Espace membres, Connexion.</p>
   <ul role="list" id="nav-main-list" aria-label="Liens de navigation" itemscope itemtype="https://schema.org/BreadcrumbList">
-
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="index.html" title="Accueil" aria-label="Accueil — Convergence Human and Technology">
-        <span itemprop="name">Accueil</span>
-      </a>
+      <a itemprop="item" href="index.html" title="Accueil" aria-label="Accueil - Convergence Human and Technology"><span itemprop="name">Accueil</span></a>
       <meta itemprop="position" content="1" />
     </li>
-
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="tarifs.html" title="Abonnement VIP et Tarifs" aria-label="Abonnement VIP et Tarifs">
-        <span itemprop="name">Abonnement VIP &amp; Tarifs</span>
-      </a>
+      <a itemprop="item" href="tarifs.html" title="Abonnement VIP et Tarifs" aria-label="Abonnement VIP et Tarifs"><span itemprop="name">Abonnement VIP &amp; Tarifs</span></a>
       <meta itemprop="position" content="2" />
     </li>
-
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="contact.html" title="Contact" aria-label="Page de contact">
-        <span itemprop="name">Contact</span>
-      </a>
+      <a itemprop="item" href="contact.html" title="Contact" aria-label="Page de contact"><span itemprop="name">Contact</span></a>
       <meta itemprop="position" content="3" />
     </li>
-
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="mentions-legales.html"
-         title="Mentions légales — page actuelle"
-         rel="license"
-         aria-label="Mentions légales — page actuelle"
-         aria-current="page">
-        <span itemprop="name">Mentions légales</span>
-      </a>
+      <a itemprop="item" href="mentions-legales.html" title="Mentions légales - page actuelle" rel="license" aria-label="Mentions légales - page actuelle" aria-current="page"><span itemprop="name">Mentions légales</span></a>
       <meta itemprop="position" content="4" />
     </li>
-
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="membres.html" title="Espace membres" aria-label="Espace membres — connexion requise">
+      <a itemprop="item" href="membres.html" title="Espace membres" aria-label="Espace membres - connexion requise">
         <span itemprop="name">Espace Membres</span>
       </a>
       <meta itemprop="position" content="5" />
     </li>
-
+    <!-- Lien Connexion - déclenche l'authentification Auth0 -->
+      <!-- id="nav-login-link" : référencé dans le script JS ci-dessous    -->
+      <!-- href="#" : la navigation est gérée par JavaScript (Auth0)       -->
+      <!-- Masqué automatiquement par JS si l'utilisateur est déjà connecté -->
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" id="nav-login-link" href="#" title="Se connecter à votre espace Convergence Human &amp; Technology" aria-label="Connexion - Se connecter à votre espace membres"><span itemprop="name">Connexion</span></a>
+        <meta itemprop="position" content="6" />
+      </li>
   </ul>
 </nav>
 
 <nav role="navigation" aria-label="Fil d'Ariane" aria-describedby="breadcrumb-desc">
   <p id="breadcrumb-desc" hidden>Vous êtes ici : position actuelle dans la hiérarchie du site.</p>
   <ol itemscope itemtype="https://schema.org/BreadcrumbList" aria-label="Chemin de navigation">
-
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="index.html" aria-label="Accueil">
-        <span itemprop="name">Accueil</span>
-      </a>
+      <a itemprop="item" href="index.html" aria-label="Accueil"><span itemprop="name">Accueil</span></a>
       <meta itemprop="position" content="1" />
     </li>
-
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="mentions-legales.html"
-         aria-label="Mentions légales — page actuelle"
-         aria-current="page">
-        <span itemprop="name">Mentions légales</span>
-      </a>
+      <a itemprop="item" href="mentions-legales.html" aria-label="Mentions légales - page actuelle" aria-current="page"><span itemprop="name">Mentions légales</span></a>
       <meta itemprop="position" content="2" />
     </li>
-
   </ol>
 </nav>
 
@@ -615,6 +583,64 @@
       } /* fin if hamburgerBtn && navList */
 
     }); /* fin DOMContentLoaded */
+
+
+    /* ================================================================
+       3. LIEN CONNEXION DANS LE MENU — liaison avec Auth0
+       ================================================================
+       CONTEXTE :
+       Le script Auth0 original (inchangé) gère #btn-login dans main.
+       Le lien Connexion du menu (#nav-login-link) est le déclencheur
+       visible de la connexion. Il doit déclencher EXACTEMENT la même
+       action Auth0 que #btn-login — sans toucher au script original.
+
+       TECHNIQUE :
+       On attend que le DOM soit chargé (DOMContentLoaded).
+       On récupère #nav-login-link et, au clic, on simule un clic
+       sur #btn-login (le bouton Auth0 original dans main).
+       e.preventDefault() empêche le # de modifier l'URL.
+       Cela déclenche l'onclick Auth0 déjà défini sur #btn-login
+       par le script original — sans duplication de code Auth0.
+
+       SYNCHRONISATION ÉTAT CONNECTÉ :
+       Si un token est présent en sessionStorage, l'utilisateur est
+       déjà connecté. On masque alors le lien Connexion ET son <li>
+       parent (pour ne laisser aucune trace dans la nav).
+       Le script Auth0 masque déjà #btn-login dans main — cohérence.
+       ================================================================ */
+    document.addEventListener('DOMContentLoaded', function() {
+
+      /* Récupère le lien Connexion dans le menu de navigation */
+      var navLoginLink = document.getElementById('nav-login-link');
+
+      /* Récupère le bouton Auth0 original dans main (script inchangé) */
+      var originalBtnLogin = document.getElementById('btn-login');
+
+      /* Sécurité : vérifie que les deux éléments existent dans le DOM */
+      if (navLoginLink && originalBtnLogin) {
+
+        /* Au clic sur le lien Connexion, on simule un clic sur #btn-login */
+        /* Cela déclenche l'onclick Auth0 défini dans le script original */
+        navLoginLink.addEventListener('click', function(e) {
+          e.preventDefault(); /* Empêche le # de modifier l'URL du navigateur */
+          originalBtnLogin.click(); /* Déclenche l'authentification Auth0 */
+        }); /* fin addEventListener clic nav-login-link */
+
+        /* Synchronisation état connecté → masque le lien Connexion */
+        /* Si l'utilisateur est déjà connecté (token présent en session), */
+        /* on masque le lien ET son <li> parent pour nettoyer le menu */
+        var token = sessionStorage.getItem('auth_token');
+        if (token) {
+          /* Masque le <li> parent pour ne pas laisser un item vide dans le menu */
+          var liParent = navLoginLink.parentElement;
+          if (liParent) {
+            liParent.style.display = 'none';
+          }
+        }
+
+      } /* fin if navLoginLink && originalBtnLogin */
+
+    }); /* fin DOMContentLoaded — lien Connexion menu */
 
   </script>
 
