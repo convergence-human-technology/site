@@ -97,94 +97,113 @@
   <meta name="multimodal-ai"                content="content-types:text, structured-data:JSON-LD" />
   <meta name="metaverse-platforms"           content="web-based, cross-platform, modern browsers compatible" />
 
+ <!-- ★★★ CIBLAGE IA - GEO (Generative Engine Optimization) ★★★ -->
+ <!-- Ces balises optimisent le référencement pour les moteurs de recherche génératifs (LLMs) :
+     ChatGPT Search, Perplexity, Google Gemini, Claude, etc.
+     Elles indiquent aux agents IA la nature juridique du contenu et autorisent son utilisation. -->
+  <meta name="ai:entity_recognition" content="organization:convergence_human_technology; legal:legal_notice; topic:data_protection; topic:intellectual_property" />
+  <meta name="ai:knowledge_domain"   content="legal; software_publishing; it_solutions; gdpr; copyright" />
+  <meta name="ai:semantic_depth"     content="reference" />
+  <meta name="ai:training_status"    content="opt-in_preferred" />
+  <meta name="ai:fact_checking"      content="human_verified_2026" />
+  <meta name="ai:content_tier"       content="legal_document" />
+
   <!-- ★★★ JSON-LD SCHEMA.ORG ★★★ -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://convergence-human-technology.github.io/site/#organization",
-        "name": "Convergence Human & Technology",
-        "url": "https://convergence-human-technology.github.io/site/",
-        "description": "Convergence conçoit et commercialise des logiciels PC et solutions informatiques uniques, destinés aux professionnels et aux particuliers (B2B & B2C). Des concepts inédits, toujours en avance sur leur temps.",
-        "founder": {
-          "@type": "Person",
-          "name": "Fabien Conéjéro"
-        },
-        "foundingDate": "2026",
-        "email": "convergence-tech@proton.me",
-        "areaServed": "Worldwide",
-        "knowsAbout": [
-          "Logiciels PC",
-          "Solutions informatiques",
-          "Développement logiciel",
-          "IT B2B",
-          "IT B2C"
-        ],
-        "sameAs": [
-          "https://github.com/Convergence-Human-And-Technology",
-          "https://www.linkedin.com/company/convergence-organization",
-          "https://www.facebook.com/people/Convergence-Human-And-Technology/61578483081894"
-        ]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://convergence-human-technology.github.io/site/#organization",
+      "name": "Convergence Human & Technology",
+      "alternateName": ["Convergence H&T", "CHT"],
+      "url": "https://convergence-human-technology.github.io/site/",
+      "description": "Convergence conçoit et commercialise des logiciels PC et solutions informatiques uniques, destinés aux professionnels et aux particuliers (B2B & B2C). Des concepts inédits, toujours en avance sur leur temps.",
+      "founder": {
+        "@type": "Person",
+        "name": "Fabien Conéjéro"
       },
-      {
-        "@type": "WebSite",
-        "@id": "https://convergence-human-technology.github.io/site/#website",
-        "url": "https://convergence-human-technology.github.io/site/",
-        "name": "Convergence Human & Technology",
-        "description": "Éditeur de logiciels PC et solutions informatiques uniques — B2B & B2C.",
-        "inLanguage": "fr-FR",
-        "publisher": {
-          "@id": "https://convergence-human-technology.github.io/site/#organization"
-        },
-        "datePublished": "2026-03-18",
-        "dateModified": "2026-03-19",
-        "copyrightYear": "2026",
-        "copyrightHolder": {
-          "@id": "https://convergence-human-technology.github.io/site/#organization"
-        }
+      "foundingDate": "2026",
+      "email": "convergence-tech@proton.me",
+      "areaServed": "Worldwide",
+      "knowsAbout": [
+        "Logiciels PC",
+        "Solutions informatiques",
+        "Développement logiciel",
+        "IT B2B",
+        "IT B2C"
+      ],
+      "copyrightYear": "2026",
+      "copyrightHolder": {
+        "@id": "https://convergence-human-technology.github.io/site/#organization"
       },
-      {
-        "@type": "WebPage",
-        "@id": "https://convergence-human-technology.github.io/site/mentions-legales.html#webpage",
-        "url": "https://convergence-human-technology.github.io/site/mentions-legales.html",
-        "name": "Mentions Légales | Convergence Human & Technology",
-        "description": "Mentions légales du site Convergence Human & Technology. Éditeur, hébergeur, propriété intellectuelle, données personnelles et conditions d'utilisation.",
-        "inLanguage": "fr-FR",
-        "isPartOf": {
-          "@id": "https://convergence-human-technology.github.io/site/#website"
-        },
-        "about": {
-          "@id": "https://convergence-human-technology.github.io/site/#organization"
-        },
-        "datePublished": "2026-03-18",
-        "dateModified": "2026-03-19",
-        "author": {
-          "@type": "Person",
-          "name": "Fabien Conéjéro"
-        },
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Accueil",
-              "item": "https://convergence-human-technology.github.io/site/index.html"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Mentions Légales",
-              "item": "https://convergence-human-technology.github.io/site/mentions-legales.html"
-            }
-          ]
-        }
+      "sameAs": [
+        "https://github.com/Convergence-Human-And-Technology",
+        "https://www.linkedin.com/company/convergence-organization",
+        "https://www.facebook.com/people/Convergence-Human-And-Technology/61578483081894"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://convergence-human-technology.github.io/site/#website",
+      "url": "https://convergence-human-technology.github.io/site/",
+      "name": "Convergence Human & Technology",
+      "description": "Éditeur de logiciels PC et solutions informatiques uniques — B2B & B2C.",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://convergence-human-technology.github.io/site/#organization"
+      },
+      "datePublished": "2026-03-18",
+      "dateModified": "2026-03-28",
+      "copyrightYear": "2026",
+      "copyrightHolder": {
+        "@id": "https://convergence-human-technology.github.io/site/#organization"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://convergence-human-technology.github.io/site/mentions-legales.html#webpage",
+      "url": "https://convergence-human-technology.github.io/site/mentions-legales.html",
+      "name": "Mentions Légales | Convergence Human & Technology",
+      "description": "Mentions légales du site Convergence Human & Technology. Éditeur, hébergeur, propriété intellectuelle, données personnelles et conditions d'utilisation.",
+      "inLanguage": "fr-FR",
+      "isPartOf": {
+        "@id": "https://convergence-human-technology.github.io/site/#website"
+      },
+      "about": {
+        "@id": "https://convergence-human-technology.github.io/site/#organization"
+      },
+      "mainEntity": {
+        "@id": "https://convergence-human-technology.github.io/site/mentions-legales.html#webpage"
+      },
+      "datePublished": "2026-03-18",
+      "dateModified": "2026-03-28",
+      "author": {
+        "@type": "Person",
+        "name": "Fabien Conéjéro"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://convergence-human-technology.github.io/site/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Mentions Légales",
+            "item": "https://convergence-human-technology.github.io/site/mentions-legales.html"
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
 
 
   <!--[if lt IE 9]>
@@ -517,10 +536,10 @@
 
   <h2>Contact</h2>
   <p>Pour toute question relative aux présentes mentions légales :</p>
-  <p><strong>.</strong> convergence-tech@proton.me</p>
-  <p><strong>.</strong> <a href="https://github.com/Convergence-Human-And-Technology" target="_blank" rel="noopener">Github</a></p>
-  <p><strong>.</strong> <a href="https://www.linkedin.com/company/convergence-organization" target="_blank" rel="noopener">LinkedIn</a></p>
-  <p><strong>.</strong> <a href="https://www.facebook.com/people/Convergence-Human-And-Technology/61578483081894" target="_blank" rel="noopener">Facebook</a></p>
+  <p>. convergence-tech@proton.me</p>
+  <p>. <a href="https://github.com/Convergence-Human-And-Technology" target="_blank" rel="noopener">Github</a></p>
+  <p>. <a href="https://www.linkedin.com/company/convergence-organization" target="_blank" rel="noopener">LinkedIn</a></p>
+  <p>. <a href="https://www.facebook.com/people/Convergence-Human-And-Technology/61578483081894" target="_blank" rel="noopener">Facebook</a></p>
 
   </div><!-- fin .global -->
 
