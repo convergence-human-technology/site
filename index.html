@@ -1022,38 +1022,21 @@ Les 3 <span> forment les 3 barres de l'icône hamburger.
 
 
     /* ================================================================
-       6. LIEN DÉCONNEXION DANS LE MENU - liaison avec Auth0
+       6. LIEN DÉCONNEXION DANS LE MENU — version autonome
        ================================================================
-       CONTEXTE :
-       Le script Auth0 original (inchangé) gère #btn-logout dans main.
-       Le lien Déconnexion du menu (#nav-logout-link) doit déclencher
-       EXACTEMENT la même action Auth0 que #btn-logout.
-
-       TECHNIQUE :
-       On récupère #nav-logout-link et, au clic, on simule un clic
-       sur #btn-logout (le bouton Auth0 original dans main).
-       e.preventDefault() empêche le # de modifier l'URL.
-
-       SYNCHRONISATION ÉTAT CONNECTÉ :
-       Si un token est présent en sessionStorage, l'utilisateur est
-       connecté → on affiche le lien Déconnexion.
-       Sinon → on le masque.
+       Ce script gère le lien Déconnexion dans le menu sans dépendre
+       du bouton #btn-logout (qui a été supprimé).
        ================================================================ */
     document.addEventListener('DOMContentLoaded', function() {
 
-      /* Récupère le lien Déconnexion dans le menu de navigation */
       var navLogoutLink = document.getElementById('nav-logout-link');
 
-      /* Récupère le bouton Auth0 original dans main */
-      var originalBtnLogout = document.getElementById('btn-logout');
+      if (navLogoutLink) {
 
-      /* Sécurité : vérifie que les deux éléments existent dans le DOM */
-      if (navLogoutLink && originalBtnLogout) {
-
-        /* Au clic sur le lien Déconnexion, on simule un clic sur #btn-logout */
         navLogoutLink.addEventListener('click', function(e) {
           e.preventDefault();
-          originalBtnLogout.click();
+          sessionStorage.clear();
+          window.location.href = `https://convergence-tech.eu.auth0.com/v2/logout?returnTo=${encodeURIComponent(window.location.origin + "/site/index.html")}&client_id=ONtxpyovHGewrl4669n3Qz8RJYot27AS`;
         });
 
         /* Synchronisation état connecté → affiche/masque le lien Déconnexion */
@@ -1065,9 +1048,9 @@ Les 3 <span> forment les 3 barres de l'icône hamburger.
           if (liParent) liParent.style.display = 'none';
         }
 
-      } /* fin if navLogoutLink && originalBtnLogout */
+      }
 
-    }); /* fin DOMContentLoaded — lien Déconnexion menu */
+    });
 
 
   </script>
