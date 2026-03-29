@@ -405,19 +405,12 @@
   <!-- ★ SKIP LINK — accessibilité clavier / lecteurs d'écran ★ -->
   <!-- Ce lien permet aux utilisateurs de clavier de sauter la navigation -->
   <!-- et d'aller directement au contenu principal en appuyant sur Tab -->
-  <a href="#main-content" 
-     class="skip-link"
-     accesskey="s">
-    Aller au contenu principal
-  </a>
+  <a href="#main-content" class="skip-link" accesskey="s">Aller au contenu principal</a>
 
   <!-- ★ MÉTADONNÉES D'ACCESSIBILITÉ CACHÉES ★ -->
   <!-- Ces balises sont lues par les lecteurs d'écran et moteurs de recherche -->
   <!-- Elles décrivent les fonctionnalités d'accessibilité de la page -->
-  <div hidden 
-       itemscope 
-       itemtype="https://schema.org/WebPageElement"
-       data-dev-note="Métadonnées accessibilité — lecteurs d'écran et moteurs de recherche">
+  <div hidden itemscope itemtype="https://schema.org/WebPageElement" data-dev-note="Métadonnées accessibilité — lecteurs d'écran et moteurs de recherche">
     <meta itemprop="accessibilityFeature"  content="highContrastDisplay" />
     <meta itemprop="accessibilityFeature"  content="largePrint" />
     <meta itemprop="accessibilityFeature"  content="keyboardNavigation" />
@@ -428,20 +421,15 @@
   </div>
 
 
-  <!-- ════════════════════════════════════════════════════════════════
-       ★ BOUTON HAMBURGER — MENU MOBILE ★ (NOUVEAU — hors du nav)
-       ════════════════════════════════════════════════════════════════
-       Élément AJOUTÉ pour le menu responsive mobile.
-       Placé HORS du <nav> original pour ne pas modifier sa structure.
-       JavaScript gère l'ouverture/fermeture du menu au clic.
-       Les 3 <span> forment les 3 barres de l'icône hamburger.
-       ════════════════════════════════════════════════════════════════ -->
-  <button class="nav-hamburger-btn"
-          id="hamburger-btn"
-          type="button"
-          aria-label="Ouvrir ou fermer le menu de navigation"
-          aria-expanded="false"
-          aria-controls="nav-main-list">
+<!-- ════════════════════════════════════════════════════════════════
+★ BOUTON HAMBURGER — MENU MOBILE ★ (NOUVEAU — hors du nav)
+════════════════════════════════════════════════════════════════
+Élément AJOUTÉ pour le menu responsive mobile.
+Placé HORS du <nav> original pour ne pas modifier sa structure.
+JavaScript gère l'ouverture/fermeture du menu au clic.
+Les 3 <span> forment les 3 barres de l'icône hamburger.
+════════════════════════════════════════════════════════════════ -->
+  <button class="nav-hamburger-btn" id="hamburger-btn" type="button" aria-label="Ouvrir ou fermer le menu de navigation" aria-expanded="false" aria-controls="nav-main-list">
     <span aria-hidden="true"></span>  <!-- Barre du haut -->
     <span aria-hidden="true"></span>  <!-- Barre du milieu -->
     <span aria-hidden="true"></span>  <!-- Barre du bas -->
@@ -451,140 +439,63 @@
   <!-- ★ NAVIGATION PRINCIPALE ★ -->
   <!-- Structure HTML originale conservée INTÉGRALEMENT -->
   <!-- CSS professionnel appliqué via les sélecteurs du bloc style ci-dessus -->
-  <nav role="navigation"
-       aria-label="Navigation principale du site Convergence Human & Technology"
-       aria-describedby="nav-desc"
-       itemscope
-       itemtype="https://schema.org/SiteNavigationElement">
-
+  <nav role="navigation" aria-label="Navigation principale du site Convergence Human & Technology" aria-describedby="nav-desc" itemscope itemtype="https://schema.org/SiteNavigationElement">
     <!-- Description du menu pour les lecteurs d'écran — cachée visuellement -->
     <!-- MODIF : ajout de "Connexion" dans la liste des sections disponibles -->
-    <p id="nav-desc" hidden>
-      Menu de navigation du site Convergence Human &amp; Technology. 
-      6 sections disponibles : Accueil, Abonnement VIP et Tarifs, Contact, Mentions légales, Espace membres, Connexion.
-    </p>
-
+    <p id="nav-desc" hidden>Menu de navigation du site Convergence Human &amp; Technology. 6 sections disponibles : Accueil, Abonnement VIP et Tarifs, Contact, Mentions légales, Espace membres, Connexion.</p>
     <!-- Liste des liens — id ajouté pour aria-controls du hamburger -->
-    <ul role="list"
-        id="nav-main-list"
-        aria-label="Liens de navigation"
-        itemscope
-        itemtype="https://schema.org/BreadcrumbList">
-
+    <ul role="list" id="nav-main-list" aria-label="Liens de navigation" itemscope itemtype="https://schema.org/BreadcrumbList">
       <!-- Lien Accueil — aria-current="page" indique la page active -->
-      <li itemprop="itemListElement" 
-          itemscope 
-          itemtype="https://schema.org/ListItem">
-        <a itemprop="item"
-           href="index.html"
-           title="Retour à la page d'accueil - Convergence Human &amp; Technology"
-           aria-label="Accueil — Convergence Human and Technology"
-           aria-current="page">
-          <span itemprop="name">Accueil</span>
-        </a>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="index.html" title="Retour à la page d'accueil - Convergence Human &amp; Technology" aria-label="Accueil — Convergence Human and Technology" aria-current="page"><span itemprop="name">Accueil</span></a>
         <meta itemprop="position" content="1" />
       </li>
-
       <!-- Lien Abonnement VIP & Tarifs -->
-      <li itemprop="itemListElement" 
-          itemscope 
-          itemtype="https://schema.org/ListItem">
-        <a itemprop="item"
-           href="tarifs.html"
-           title="Abonnement VIP et Tarifs - Découvrez nos offres"
-           aria-label="Abonnement VIP et Tarifs">
-          <span itemprop="name">Abonnement VIP &amp; Tarifs</span>
-        </a>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="tarifs.html" title="Abonnement VIP et Tarifs - Découvrez nos offres" aria-label="Abonnement VIP et Tarifs"><span itemprop="name">Abonnement VIP &amp; Tarifs</span></a>
         <meta itemprop="position" content="2" />
       </li>
-
       <!-- Lien Contact -->
-      <li itemprop="itemListElement" 
-          itemscope 
-          itemtype="https://schema.org/ListItem">
-        <a itemprop="item"
-           href="contact.html"
-           title="Nous contacter - Convergence Human &amp; Technology"
-           aria-label="Page de contact">
-          <span itemprop="name">Contact</span>
-        </a>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="contact.html" title="Nous contacter - Convergence Human &amp; Technology" aria-label="Page de contact"><span itemprop="name">Contact</span></a>
         <meta itemprop="position" content="3" />
       </li>
-
       <!-- Lien Mentions légales -->
-      <li itemprop="itemListElement" 
-          itemscope 
-          itemtype="https://schema.org/ListItem">
-        <a itemprop="item"
-           href="mentions-legales.html"
-           title="Mentions légales - Informations légales et RGPD"
-           rel="license"
-           aria-label="Mentions légales">
-          <span itemprop="name">Mentions légales</span>
-        </a>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="mentions-legales.html" title="Mentions légales - Informations légales et RGPD" rel="license" aria-label="Mentions légales"><span itemprop="name">Mentions légales</span></a>
         <meta itemprop="position" content="4" />
       </li>
-
       <!-- Lien Espace Membres -->
-      <li itemprop="itemListElement" 
-          itemscope 
-          itemtype="https://schema.org/ListItem">
-        <a itemprop="item"
-           href="membres.html"
-           title="Espace membres - Accès réservé aux membres"
-           aria-label="Espace membres - Accès restreint, connexion requise">
-          <span itemprop="name">Espace Membres</span>
-        </a>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="membres.html" title="Espace membres - Accès réservé aux membres" aria-label="Espace membres - Accès restreint, connexion requise"><span itemprop="name">Espace Membres</span></a>
         <meta itemprop="position" content="5" />
       </li>
-
       <!-- Lien Connexion — déclenche l'authentification Auth0 -->
       <!-- id="nav-login-link" : référencé dans le script JS ci-dessous    -->
       <!-- href="#" : la navigation est gérée par JavaScript (Auth0)       -->
       <!-- Masqué automatiquement par JS si l'utilisateur est déjà connecté -->
-      <li itemprop="itemListElement"
-          itemscope
-          itemtype="https://schema.org/ListItem">
-        <a itemprop="item"
-           id="nav-login-link"
-           href="#"
-           title="Se connecter à votre espace Convergence Human &amp; Technology"
-           aria-label="Connexion - Se connecter à votre espace membres">
-          <span itemprop="name">Connexion</span>
-        </a>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" id="nav-login-link" href="#" title="Se connecter à votre espace Convergence Human &amp; Technology" aria-label="Connexion - Se connecter à votre espace membres"><span itemprop="name">Connexion</span></a>
         <meta itemprop="position" content="6" />
       </li>
-
+      <!-- Lien Déconnexion — visible uniquement si connecté (géré par JS) -->
+      <li id="nav-logout-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="display: none;">
+        <a itemprop="item" id="nav-logout-link" href="#" title="Se déconnecter de Convergence Human &amp; Technology" aria-label="Déconnexion"><span itemprop="name">Déconnexion</span></a>
+        <meta itemprop="position" content="7" />
+      </li>
     </ul>
   </nav>
 
 
   <!-- ★ FIL D'ARIANE (Breadcrumb) ★ -->
   <!-- Masqué visuellement (CSS: display:none) mais présent pour SEO/accessibilité -->
-  <nav role="navigation"
-       aria-label="Fil d'Ariane"
-       aria-describedby="breadcrumb-desc">
-
-    <p id="breadcrumb-desc" hidden>
-      Vous êtes ici : position actuelle dans la hiérarchie du site.
-    </p>
-
-    <ol itemscope 
-        itemtype="https://schema.org/BreadcrumbList"
-        aria-label="Chemin de navigation">
-
-      <li itemprop="itemListElement" 
-          itemscope 
-          itemtype="https://schema.org/ListItem">
-        <a itemprop="item"
-           href="index.html"
-           aria-label="Accueil - page actuelle"
-           aria-current="page">
-          <span itemprop="name">Accueil</span>
-        </a>
+  <nav role="navigation" aria-label="Fil d'Ariane" aria-describedby="breadcrumb-desc">
+    <p id="breadcrumb-desc" hidden>Vous êtes ici : position actuelle dans la hiérarchie du site.</p>
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList" aria-label="Chemin de navigation">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="index.html" aria-label="Accueil - page actuelle" aria-current="page"><span itemprop="name">Accueil</span></a>
         <meta itemprop="position" content="1" />
       </li>
-
     </ol>
   </nav>
 
@@ -615,13 +526,8 @@
            alt = texte alternatif pour l'accessibilité et le SEO.
            z-index: 2 → au-dessus du halo (z-index: 1)
       ─────────────────────────────────────────────────────────────── -->
-      <img src="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence.png"
-           alt="Logo Convergence Human and Technology — Silhouette humaine entourée de connexions neurales dans un cercle lumineux"
-           class="logo-img"
-           width="310"
-           height="310"
-           loading="eager" />
-           <!-- loading="eager" : chargement immédiat (au-dessus de la ligne de flottaison) -->
+      <img src="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence.png" alt="Logo Convergence Human and Technology — Silhouette humaine entourée de connexions neurales dans un cercle lumineux" class="logo-img" width="310" height="310" loading="eager" />
+      <!-- loading="eager" : chargement immédiat (au-dessus de la ligne de flottaison) -->
 
     </div><!-- fin .logo-wrapper -->
 
@@ -647,9 +553,7 @@
        est conservé mot pour mot, sans aucune modification.
        La div.global est un AJOUT — elle enveloppe le contenu existant.
        ════════════════════════════════════════════════════════════════ -->
-  <main id="main-content" 
-        role="main"
-        aria-label="Contenu principal">
+  <main id="main-content" role="main" aria-label="Contenu principal">
 
 
     <!-- ════════════════════════════════════════════════════════════
@@ -690,43 +594,13 @@
 
       <!-- ── Description de l'entreprise (remplace le texte de
            démonstration de la page cercle-parfait) ─────────────── -->
-      <p>
-        Convergence est une société de logiciels qui conçoit et commercialise
-        des <strong>applications PC de bureau privées et payantes</strong>
-        et des solutions informatiques, destinées aussi bien aux professionnels qu'aux particuliers :
-        <strong>B2B &amp; B2C</strong>.
-      </p>
+      <p>Convergence est une société de logiciels qui conçoit et commercialise des <strong>applications PC de bureau privées et payantes</strong> et des solutions informatiques, destinées aussi bien aux professionnels qu'aux particuliers : <strong>B2B &amp; B2C</strong>.</p>
+      <p>Sa particularité ? Proposer des <strong>concepts uniques, jamais explorés auparavant</strong>. Loin des évolutions classiques, Convergence imagine des solutions futuristes et ingénieuses, toujours en avance sur son temps.</p>
 
-      <p>
-        Sa particularité ? Proposer des <strong>concepts uniques, jamais explorés auparavant</strong>.
-        Loin des évolutions classiques, Convergence imagine des solutions futuristes et ingénieuses,
-        toujours en avance sur son temps.
-      </p>
-
-      <p>
-        Son génie ? Matérialiser des idées d'une <strong>évidente simplicité</strong>...
-        mais auxquelles personne n'avait pensé pour en faire de véritables outils du quotidien.
-      </p>
+      <p>Son génie ? Matérialiser des idées d'une <strong>évidente simplicité</strong>... mais auxquelles personne n'avait pensé pour en faire de véritables outils du quotidien.</p>
 
       <!-- ── Texte original index.html — INCHANGÉ ────────────────── -->
-      <p>Site en construction...<br /><br />
-      Nous préparons quelque chose de formidable pour vous !
-      Revenez très bientôt découvrir notre nouveau site.
-      Merci pour votre compréhension.</p>
-
-      <!-- ── Boutons d'authentification Auth0 — INCHANGÉS ────────── -->
-      <!-- CRITIQUE : ces id sont référencés dans le script Auth0 ci-dessous -->
-      <!-- Ne PAS renommer, ne PAS déplacer ces boutons -->
-      <!-- .t-c = Globalize.css : text-align:center — rend l'intention explicite -->
-      <!-- dans le HTML (CSS applique déjà text-align:center via #auth-buttons) -->
-      <div id="auth-buttons" class="t-c">
-        <!-- Bouton Se connecter — Auth0 -->
-        <button id="btn-login">🔐 Se connecter</button>
-        <!-- Bouton Espace Membres — visible seulement si connecté -->
-        <button id="btn-membres" style="display:none">👥 Espace Membres</button>
-        <!-- Bouton Déconnexion — visible seulement si connecté -->
-        <button id="btn-logout" style="display:none">🚪 Déconnexion</button>
-      </div><!-- fin #auth-buttons -->
+      <p>Site en construction...<br /><br />Nous préparons quelque chose de formidable pour vous ! Revenez très bientôt découvrir notre nouveau site. Merci pour votre compréhension.</p>
 
 
     </div><!-- fin .global -->
@@ -742,11 +616,7 @@
        Implémente un accordéon : clic sur la question pour voir la réponse.
        JavaScript gère l'ouverture/fermeture via la classe .open.
        ════════════════════════════════════════════════════════════════ -->
-  <section class="faq-section"
-           id="faq"
-           aria-label="Foire aux questions — Convergence Human and Technology"
-           itemscope
-           itemtype="https://schema.org/FAQPage">
+  <section class="faq-section" id="faq" aria-label="Foire aux questions — Convergence Human and Technology" itemscope itemtype="https://schema.org/FAQPage">
 
     <!-- Titre de la section FAQ -->
     <!-- .faq-title = style CSS spécifique (couleur, taille, espacement)    -->
@@ -760,16 +630,10 @@
 
 
     <!-- ── Question 1 ─────────────────────────────────────────────── -->
-    <div class="faq-item"
-         itemscope
-         itemprop="mainEntity"
-         itemtype="https://schema.org/Question">
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
 
       <!-- Bouton cliquable pour ouvrir/fermer la réponse -->
-      <button class="faq-question-btn"
-              type="button"
-              aria-expanded="false"
-              aria-controls="faq-answer-1">
+      <button class="faq-question-btn" type="button" aria-expanded="false" aria-controls="faq-answer-1">
         <span itemprop="name">Qu'est-ce que Convergence Human &amp; Technology ?</span>
         <span class="faq-arrow" aria-hidden="true">▼</span>
       </button>
@@ -779,17 +643,9 @@
       <!-- .flow = Probalize.css : si plusieurs <p> sont ajoutés dans la réponse -->
       <!--         plus tard, .flow gérera automatiquement leur espacement.      -->
       <!--         Avec un seul <p> actuel = aucun effet visible, mais préparé. -->
-      <div class="faq-answer flow"
-           id="faq-answer-1"
-           itemscope
-           itemprop="acceptedAnswer"
-           itemtype="https://schema.org/Answer">
-        <p itemprop="text">
-          Convergence Human &amp; Technology est une société de logiciels qui conçoit et
-          commercialise des applications PC de bureau privées et payantes, ainsi que des solutions
-          informatiques, destinées aussi bien aux professionnels qu'aux particuliers. B2B &amp; B2C.
-          Sa particularité est de proposer des concepts uniques, jamais explorés auparavant,
-          toujours en avance sur son temps.
+      <div class="faq-answer flow" id="faq-answer-1" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Convergence Human &amp; Technology est une société de logiciels qui conçoit et commercialise des applications PC de bureau privées et payantes, ainsi que des solutions informatiques, destinées aussi bien aux professionnels qu'aux particuliers. B2B &amp; B2C. 
+          Sa particularité est de proposer des concepts uniques, jamais explorés auparavant, toujours en avance sur son temps.
         </p>
       </div>
 
@@ -797,123 +653,68 @@
 
 
     <!-- ── Question 2 ─────────────────────────────────────────────── -->
-    <div class="faq-item"
-         itemscope
-         itemprop="mainEntity"
-         itemtype="https://schema.org/Question">
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
 
-      <button class="faq-question-btn"
-              type="button"
-              aria-expanded="false"
-              aria-controls="faq-answer-2">
+      <button class="faq-question-btn" type="button" aria-expanded="false" aria-controls="faq-answer-2">
         <span itemprop="name">Quels types de logiciels Convergence développe-t-elle ?</span>
         <span class="faq-arrow" aria-hidden="true">▼</span>
       </button>
 
       <!-- .faq-answer = accordéon CSS (animation max-height:0 → ouvert)       -->
       <!-- .flow = Probalize.css : espace automatique si plusieurs <p> un jour -->
-      <div class="faq-answer flow"
-           id="faq-answer-2"
-           itemscope
-           itemprop="acceptedAnswer"
-           itemtype="https://schema.org/Answer">
-        <p itemprop="text">
-          Convergence développe des applications PC de bureau et des solutions informatiques.
-          Ses produits sont privés et payants, conçus autour de concepts innovants et
-          futuristes auxquels personne n'avait pensé pour en faire
-          de véritables outils du quotidien.
-        </p>
+      <div class="faq-answer flow" id="faq-answer-2" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Convergence développe des applications PC de bureau et des solutions informatiques. Ses produits sont privés et payants, conçus autour de concepts innovants et futuristes auxquels personne n'avait pensé pour en faire de véritables outils du quotidien.</p>
       </div>
 
     </div><!-- fin faq-item 2 -->
 
 
     <!-- ── Question 3 ─────────────────────────────────────────────── -->
-    <div class="faq-item"
-         itemscope
-         itemprop="mainEntity"
-         itemtype="https://schema.org/Question">
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
 
-      <button class="faq-question-btn"
-              type="button"
-              aria-expanded="false"
-              aria-controls="faq-answer-3">
+      <button class="faq-question-btn" type="button" aria-expanded="false" aria-controls="faq-answer-3">
         <span itemprop="name">À qui s'adressent les produits de Convergence ?</span>
         <span class="faq-arrow" aria-hidden="true">▼</span>
       </button>
 
       <!-- .faq-answer = accordéon CSS (animation max-height:0 → ouvert)       -->
       <!-- .flow = Probalize.css : espace automatique si plusieurs <p> un jour -->
-      <div class="faq-answer flow"
-           id="faq-answer-3"
-           itemscope
-           itemprop="acceptedAnswer"
-           itemtype="https://schema.org/Answer">
-        <p itemprop="text">
-          Convergence s'adresse aussi bien au marché B2B (entreprises et professionnels IT)
-          qu'au marché B2C (particuliers). Ses solutions sont conçues pour s'adapter
-          aux besoins d'un large éventail d'utilisateurs dans le monde entier.
-        </p>
+      <div class="faq-answer flow" id="faq-answer-3" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Convergence s'adresse aussi bien au marché B2B (entreprises et professionnels IT) qu'au marché B2C (particuliers). Ses solutions sont conçues pour s'adapter aux besoins d'un large éventail d'utilisateurs dans le monde entier.</p>
       </div>
 
     </div><!-- fin faq-item 3 -->
 
 
     <!-- ── Question 4 ─────────────────────────────────────────────── -->
-    <div class="faq-item"
-         itemscope
-         itemprop="mainEntity"
-         itemtype="https://schema.org/Question">
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
 
-      <button class="faq-question-btn"
-              type="button"
-              aria-expanded="false"
-              aria-controls="faq-answer-4">
+      <button class="faq-question-btn" type="button" aria-expanded="false" aria-controls="faq-answer-4">
         <span itemprop="name">Qu'est-ce qui rend Convergence unique par rapport aux autres éditeurs de logiciels ?</span>
         <span class="faq-arrow" aria-hidden="true">▼</span>
       </button>
 
       <!-- .faq-answer = accordéon CSS (animation max-height:0 → ouvert)       -->
       <!-- .flow = Probalize.css : espace automatique si plusieurs <p> un jour -->
-      <div class="faq-answer flow"
-           id="faq-answer-4"
-           itemscope
-           itemprop="acceptedAnswer"
-           itemtype="https://schema.org/Answer">
-        <p itemprop="text">
-          Le génie de Convergence est de matérialiser des idées d'une évidente simplicité,
-          mais auxquelles personne n'avait pensé pour en faire de véritables outils du quotidien.
-          Loin des évolutions classiques, Convergence imagine des solutions futuristes et
-          ingénieuses, toujours en avance sur leur temps.
-        </p>
+      <div class="faq-answer flow" id="faq-answer-4" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Le génie de Convergence est de matérialiser des idées d'une évidente simplicité, mais auxquelles personne n'avait pensé pour en faire de véritables outils du quotidien. Loin des évolutions classiques, Convergence imagine des solutions futuristes et ingénieuses, toujours en avance sur leur temps.</p>
       </div>
 
     </div><!-- fin faq-item 4 -->
 
 
     <!-- ── Question 5 ─────────────────────────────────────────────── -->
-    <div class="faq-item"
-         itemscope
-         itemprop="mainEntity"
-         itemtype="https://schema.org/Question">
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
 
-      <button class="faq-question-btn"
-              type="button"
-              aria-expanded="false"
-              aria-controls="faq-answer-5">
+      <button class="faq-question-btn" type="button" aria-expanded="false" aria-controls="faq-answer-5">
         <span itemprop="name">Comment contacter Convergence Human &amp; Technology ?</span>
         <span class="faq-arrow" aria-hidden="true">▼</span>
       </button>
 
       <!-- .faq-answer = accordéon CSS (animation max-height:0 → ouvert)       -->
       <!-- .flow = Probalize.css : espace automatique si plusieurs <p> un jour -->
-      <div class="faq-answer flow"
-           id="faq-answer-5"
-           itemscope
-           itemprop="acceptedAnswer"
-           itemtype="https://schema.org/Answer">
-        <p itemprop="text">
-          Vous pouvez contacter Convergence Human &amp; Technology par e-mail à l'adresse : 
+      <div class="faq-answer flow" id="faq-answer-5" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Vous pouvez contacter Convergence Human &amp; Technology par e-mail à l'adresse : 
           <!-- .cut-texte-magic = Globalize.css : empêche le débordement de l'email sur mobile -->
           <em class="email-link cut-texte-magic">convergence-tech@proton.me</em>
         </p>
@@ -923,63 +724,34 @@
 
 
     <!-- ── Question 6 ─────────────────────────────────────────────── -->
-    <div class="faq-item"
-         itemscope
-         itemprop="mainEntity"
-         itemtype="https://schema.org/Question">
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
 
-      <button class="faq-question-btn"
-              type="button"
-              aria-expanded="false"
-              aria-controls="faq-answer-6">
+      <button class="faq-question-btn" type="button" aria-expanded="false" aria-controls="faq-answer-6">
         <span itemprop="name">Qu'est-ce que l'abonnement VIP Convergence ?</span>
         <span class="faq-arrow" aria-hidden="true">▼</span>
       </button>
 
       <!-- .faq-answer = accordéon CSS (animation max-height:0 → ouvert)       -->
       <!-- .flow = Probalize.css : espace automatique si plusieurs <p> un jour -->
-      <div class="faq-answer flow"
-           id="faq-answer-6"
-           itemscope
-           itemprop="acceptedAnswer"
-           itemtype="https://schema.org/Answer">
-        <p itemprop="text">
-          L'abonnement VIP Convergence donne aux abonnés un accès exclusif aux
-          applications logicielles payantes de Convergence et aux solutions IT premium.
-          Les détails des offres et des tarifs sont disponibles sur la page
-          Abonnement VIP &amp; Tarifs.
-        </p>
+      <div class="faq-answer flow" id="faq-answer-6" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">L'abonnement VIP Convergence donne aux abonnés un accès exclusif aux applications logicielles payantes de Convergence et aux solutions IT premium. Les détails des offres et des tarifs sont disponibles sur la page Abonnement VIP &amp; Tarifs.</p>
       </div>
 
     </div><!-- fin faq-item 6 -->
 
 
     <!-- ── Question 7 ─────────────────────────────────────────────── -->
-    <div class="faq-item"
-         itemscope
-         itemprop="mainEntity"
-         itemtype="https://schema.org/Question">
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
 
-      <button class="faq-question-btn"
-              type="button"
-              aria-expanded="false"
-              aria-controls="faq-answer-7">
+      <button class="faq-question-btn" type="button" aria-expanded="false" aria-controls="faq-answer-7">
         <span itemprop="name">Convergence est-elle disponible à l'international ?</span>
         <span class="faq-arrow" aria-hidden="true">▼</span>
       </button>
 
       <!-- .faq-answer = accordéon CSS (animation max-height:0 → ouvert)       -->
       <!-- .flow = Probalize.css : espace automatique si plusieurs <p> un jour -->
-      <div class="faq-answer flow"
-           id="faq-answer-7"
-           itemscope
-           itemprop="acceptedAnswer"
-           itemtype="https://schema.org/Answer">
-        <p itemprop="text">
-          Oui, Convergence Human &amp; Technology sert des clients dans le monde entier.
-          Ses produits logiciels et ses solutions informatiques sont accessibles à l'international,
-          aussi bien pour les professionnels (B2B) que pour les particuliers (B2C).
-        </p>
+      <div class="faq-answer flow" id="faq-answer-7" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Oui, Convergence Human &amp; Technology sert des clients dans le monde entier. Ses produits logiciels et ses solutions informatiques sont accessibles à l'international, aussi bien pour les professionnels (B2B) que pour les particuliers (B2C).</p>
       </div>
 
     </div><!-- fin faq-item 7 -->
@@ -988,48 +760,7 @@
   </section><!-- fin .faq-section -->
 
 
-  <!-- ════════════════════════════════════════════════════════════════
-       ★★★ SCRIPT AUTH0 — ORIGINAL INCHANGÉ — NE PAS MODIFIER ★★★
-       ════════════════════════════════════════════════════════════════
-       Ce script gère l'authentification Auth0 :
-       - Vérifie si un token est présent en sessionStorage
-       - Affiche/cache les boutons selon l'état de connexion
-       - Redirige vers Auth0 pour la connexion (btn-login)
-       - Redirige vers l'espace membres (btn-membres)
-       - Déconnecte et efface la session (btn-logout)
-
-       CRITIQUE : les IDs btn-login, btn-membres, btn-logout DOIVENT
-       correspondre exactement aux id des boutons HTML ci-dessus.
-       ════════════════════════════════════════════════════════════════ -->
-  <script>
-    const AUTH0_DOMAIN = "convergence-tech.eu.auth0.com";
-    const CLIENT_ID = "ONtxpyovHGewrl4669n3Qz8RJYot27AS";
-    const REDIRECT_URI = "https://convergence-human-technology.github.io/site/callback.html";
-    const BASE_URL = "https://convergence-human-technology.github.io/site";
-
-    const token = sessionStorage.getItem("auth_token");
-    if (token) {
-      document.getElementById("btn-login").style.display = "none";
-      document.getElementById("btn-membres").style.display = "inline";
-      document.getElementById("btn-logout").style.display = "inline";
-    }
-
-    document.getElementById("btn-login").onclick = () => {
-      const state = Math.random().toString(36).substring(2);
-      sessionStorage.setItem("auth_state", state);
-      const url = `https://${AUTH0_DOMAIN}/authorize?response_type=token&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=openid%20profile%20email&state=${state}`;
-      window.location.href = url;
-    };
-
-    document.getElementById("btn-membres").onclick = () => {
-      window.location.href = BASE_URL + "/membres.html";
-    };
-
-    document.getElementById("btn-logout").onclick = () => {
-      sessionStorage.clear();
-      window.location.href = `https://${AUTH0_DOMAIN}/v2/logout?returnTo=${encodeURIComponent(BASE_URL + "/index.html")}&client_id=${CLIENT_ID}`;
-    };
-  </script>
+  
 
 
   <!-- ════════════════════════════════════════════════════════════════
@@ -1253,61 +984,90 @@
 
 
     /* ================================================================
-       5. LIEN CONNEXION DANS LE MENU — liaison avec Auth0
+       5. LIEN CONNEXION DANS LE MENU — version autonome
        ================================================================
-       CONTEXTE :
-       Le script Auth0 original (inchangé) gère #btn-login dans main.
-       Le lien Connexion du menu (#nav-login-link) est le déclencheur
-       visible de la connexion. Il doit déclencher EXACTEMENT la même
-       action Auth0 que #btn-login — sans toucher au script original.
-
-       TECHNIQUE :
-       On attend que le DOM soit chargé (DOMContentLoaded).
-       On récupère #nav-login-link et, au clic, on simule un clic
-       sur #btn-login (le bouton Auth0 original dans main).
-       e.preventDefault() empêche le # de modifier l'URL.
-       Cela déclenche l'onclick Auth0 déjà défini sur #btn-login
-       par le script original — sans duplication de code Auth0.
-
-       SYNCHRONISATION ÉTAT CONNECTÉ :
-       Si un token est présent en sessionStorage, l'utilisateur est
-       déjà connecté. On masque alors le lien Connexion ET son <li>
-       parent (pour ne laisser aucune trace dans la nav).
-       Le script Auth0 masque déjà #btn-login dans main — cohérence.
+       Ce script gère le lien Connexion dans le menu sans dépendre
+       du bouton #btn-login (qui a été supprimé).
        ================================================================ */
     document.addEventListener('DOMContentLoaded', function() {
 
-      /* Récupère le lien Connexion dans le menu de navigation */
       var navLoginLink = document.getElementById('nav-login-link');
 
-      /* Récupère le bouton Auth0 original dans main (script inchangé) */
-      var originalBtnLogin = document.getElementById('btn-login');
+      if (navLoginLink) {
 
-      /* Sécurité : vérifie que les deux éléments existent dans le DOM */
-      if (navLoginLink && originalBtnLogin) {
-
-        /* Au clic sur le lien Connexion, on simule un clic sur #btn-login */
-        /* Cela déclenche l'onclick Auth0 défini dans le script original */
         navLoginLink.addEventListener('click', function(e) {
-          e.preventDefault(); /* Empêche le # de modifier l'URL du navigateur */
-          originalBtnLogin.click(); /* Déclenche l'authentification Auth0 */
-        }); /* fin addEventListener clic nav-login-link */
+          e.preventDefault();
 
-        /* Synchronisation état connecté → masque le lien Connexion */
-        /* Si l'utilisateur est déjà connecté (token présent en session), */
-        /* on masque le lien ET son <li> parent pour nettoyer le menu */
+          /* Code Auth0 de connexion (identique à l'original) */
+          const AUTH0_DOMAIN = "convergence-tech.eu.auth0.com";
+          const CLIENT_ID = "ONtxpyovHGewrl4669n3Qz8RJYot27AS";
+          const REDIRECT_URI = "https://convergence-human-technology.github.io/site/callback.html";
+
+          const state = Math.random().toString(36).substring(2);
+          sessionStorage.setItem("auth_state", state);
+          const url = `https://${AUTH0_DOMAIN}/authorize?response_type=token&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=openid%20profile%20email&state=${state}`;
+          window.location.href = url;
+        });
+
+        /* Masque le lien Connexion si l'utilisateur est déjà connecté */
         var token = sessionStorage.getItem('auth_token');
         if (token) {
-          /* Masque le <li> parent pour ne pas laisser un item vide dans le menu */
           var liParent = navLoginLink.parentElement;
-          if (liParent) {
-            liParent.style.display = 'none';
-          }
+          if (liParent) liParent.style.display = 'none';
         }
 
-      } /* fin if navLoginLink && originalBtnLogin */
+      }
 
-    }); /* fin DOMContentLoaded — lien Connexion menu */
+    });
+
+
+    /* ================================================================
+       6. LIEN DÉCONNEXION DANS LE MENU - liaison avec Auth0
+       ================================================================
+       CONTEXTE :
+       Le script Auth0 original (inchangé) gère #btn-logout dans main.
+       Le lien Déconnexion du menu (#nav-logout-link) doit déclencher
+       EXACTEMENT la même action Auth0 que #btn-logout.
+
+       TECHNIQUE :
+       On récupère #nav-logout-link et, au clic, on simule un clic
+       sur #btn-logout (le bouton Auth0 original dans main).
+       e.preventDefault() empêche le # de modifier l'URL.
+
+       SYNCHRONISATION ÉTAT CONNECTÉ :
+       Si un token est présent en sessionStorage, l'utilisateur est
+       connecté → on affiche le lien Déconnexion.
+       Sinon → on le masque.
+       ================================================================ */
+    document.addEventListener('DOMContentLoaded', function() {
+
+      /* Récupère le lien Déconnexion dans le menu de navigation */
+      var navLogoutLink = document.getElementById('nav-logout-link');
+
+      /* Récupère le bouton Auth0 original dans main */
+      var originalBtnLogout = document.getElementById('btn-logout');
+
+      /* Sécurité : vérifie que les deux éléments existent dans le DOM */
+      if (navLogoutLink && originalBtnLogout) {
+
+        /* Au clic sur le lien Déconnexion, on simule un clic sur #btn-logout */
+        navLogoutLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          originalBtnLogout.click();
+        });
+
+        /* Synchronisation état connecté → affiche/masque le lien Déconnexion */
+        var token = sessionStorage.getItem('auth_token');
+        var liParent = navLogoutLink.parentElement;
+        if (token) {
+          if (liParent) liParent.style.display = 'flex';
+        } else {
+          if (liParent) liParent.style.display = 'none';
+        }
+
+      } /* fin if navLogoutLink && originalBtnLogout */
+
+    }); /* fin DOMContentLoaded — lien Déconnexion menu */
 
 
   </script>
