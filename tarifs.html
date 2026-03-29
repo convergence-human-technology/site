@@ -382,6 +382,188 @@ Ces balises aident les LLMs (ChatGPT, Perplexity, etc.) à comprendre que cette 
       }
     }
 
+
+    /* ════════════════════════════════════════════════════════════════
+       CARTES OFFRES — STYLE IDENTIQUE À fabien-conejero.html
+       ════════════════════════════════════════════════════════════════
+       Ces styles reproduisent exactement l'apparence des cartes de
+       compétences de la page profil (Software Development, IA Physique,
+       API & Intégrations). Les trois offres sont présentées en colonnes
+       responsives (ordre : 1 an → 3 ans → 5 ans), avec un lien cliquable
+       pour l'adhésion.
+       ★ CORRECTION 2026 : Résolution des problèmes de chevauchement
+         sur mobile, tablette et grands écrans.
+    ════════════════════════════════════════════════════════════════ */
+
+    /* Conteneur des trois offres — grille responsive */
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);  /* 3 colonnes fixes sur desktop */
+      gap: 24px;
+      margin-top: 32px;
+      margin-bottom: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Carte individuelle — identique à .skill-card de fabien-conejero */
+    .offer-card {
+      background: rgba(1, 12, 30, 0.75);
+      border: 1px solid rgba(77, 212, 240, 0.15);
+      border-left: 3px solid rgba(77, 212, 240, 0.60);
+      border-radius: 0;
+      padding: 24px 20px;
+      text-align: left;
+      transition: border-left-color 0.3s ease,
+                  background 0.3s ease,
+                  box-shadow 0.3s ease;
+      height: auto;          /* Hauteur automatique, pas fixe */
+      min-height: 100%;      /* Hauteur minimale pour l'alignement */
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      box-sizing: border-box;
+      overflow-wrap: break-word;  /* Force la coupure des mots longs */
+      word-break: break-word;     /* Casse les mots trop longs */
+    }
+
+    /* Survol des cartes — identique à .skill-card:hover */
+    .offer-card:hover {
+      background: rgba(1, 12, 30, 0.92);
+      border-left-color: #4dd4f0;
+      box-shadow: 0 0 20px rgba(77, 212, 240, 0.12);
+    }
+
+    /* Titre de l'offre — identique à .skill-card-title */
+    .offer-title {
+      font-family: var(--font-display, 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif);
+      font-size: clamp(0.85rem, 3vw, 0.95rem);  /* Taille fluide */
+      font-weight: 600;
+      color: #4dd4f0;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(77, 212, 240, 0.25);
+      padding-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    /* Description de l'offre — identique à .skill-card-desc */
+    .offer-description {
+      font-size: clamp(0.8rem, 2.5vw, 0.88rem);  /* Taille fluide */
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.55;
+      margin-bottom: 20px;
+      flex-grow: 1;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    /* Lien de paiement — bouton élégant dans la charte */
+    .offer-button {
+      display: inline-block;
+      text-align: center;
+      padding: 10px 16px;
+      background: rgba(77, 212, 240, 0.10);
+      border: 1px solid rgba(77, 212, 240, 0.40);
+      color: #4dd4f0;
+      font-family: var(--font-display, 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif);
+      font-size: clamp(0.7rem, 2.2vw, 0.75rem);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border-radius: 0;
+      cursor: pointer;
+      width: 100%;
+      box-sizing: border-box;
+      white-space: nowrap;           /* Empêche le texte du bouton de passer à la ligne */
+    }
+
+    /* Adaptation pour petits écrans : le texte du bouton peut passer à la ligne */
+    @media screen and (max-width: 480px) {
+      .offer-button {
+        white-space: normal;         /* Autorise le retour à la ligne sur très petits écrans */
+        padding: 10px 12px;
+        font-size: 0.7rem;
+      }
+    }
+
+    .offer-button:hover,
+    .offer-button:focus {
+      background: rgba(77, 212, 240, 0.25);
+      border-color: #4dd4f0;
+      color: #7be8ff;
+      box-shadow: 0 0 12px rgba(77, 212, 240, 0.20);
+      text-decoration: none;
+    }
+
+    /* Focus visible clavier — WCAG 2.4.7 (AA) */
+    .offer-button:focus-visible {
+      outline: 2px solid #4dd4f0;
+      outline-offset: 3px;
+    }
+
+    /* ================================================================
+       RESPONSIVE : tablette (768px - 1024px)
+       ================================================================ */
+    @media screen and (max-width: 1024px) and (min-width: 769px) {
+      .offers-grid {
+        gap: 20px;                    /* Réduction de l'espace entre cartes */
+      }
+      .offer-card {
+        padding: 20px 16px;
+      }
+      .offer-title {
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+      }
+      .offer-description {
+        font-size: 0.8rem;
+        line-height: 1.5;
+      }
+    }
+
+    /* ================================================================
+       RESPONSIVE : mobile (≤ 768px) — passage en colonne unique
+       ================================================================ */
+    @media screen and (max-width: 768px) {
+      .offers-grid {
+        grid-template-columns: 1fr;   /* Une seule colonne sur mobile */
+        gap: 28px;                    /* Espace vertical suffisant */
+      }
+      .offer-card {
+        padding: 20px 18px;
+      }
+      .offer-title {
+        font-size: 0.9rem;
+      }
+      .offer-description {
+        font-size: 0.85rem;
+      }
+    }
+
+    /* ================================================================
+       RESPONSIVE : très petits écrans (≤ 480px)
+       ================================================================ */
+    @media screen and (max-width: 480px) {
+      .offers-grid {
+        gap: 24px;
+      }
+      .offer-card {
+        padding: 18px 14px;
+      }
+      .offer-title {
+        font-size: 0.85rem;
+        letter-spacing: 0.04em;
+      }
+      .offer-description {
+        font-size: 0.8rem;
+        line-height: 1.5;
+      }
+    }
+
   </style>
 
 </head>
@@ -539,52 +721,69 @@ Ces balises aident les LLMs (ChatGPT, Perplexity, etc.) à comprendre que cette 
   <hr>
 
   <h2>Nos offres</h2>
+  <p>Convergence propose trois formules d'adhésion. Chaque offre vous donne accès à des concepts uniques, jamais explorés ailleurs, que personne d'autre ne possède au monde. Plus la durée d'adhésion est longue, plus le tarif annuel est dégressif.</p>
 
-  <h3>Offre Découverte Gratuite</h3>
-  <ul>
-    <li>Accès aux informations publiques du site</li>
-    <li>Présentation des logiciels disponibles</li>
-    <li>Contact par e-mail</li>
-  </ul>
+  <!-- Grille des trois offres — style identique aux cartes de fabien-conejero -->
+  <div class="offers-grid">
 
-  <h3>Offre Standard Particuliers (B2C)</h3>
-  <ul>
-    <li>Licence d'utilisation personnelle des logiciels Convergence</li>
-    <li>Mises à jour incluses pendant la durée de l'abonnement</li>
-    <li>Accès à l'espace membres</li>
-    <li>Support par e-mail</li>
-  </ul>
+    <!-- Offre 1 : 1 an (durée la plus courte) -->
+    <article class="offer-card" role="listitem" aria-label="Adhésion 1 an">
+      <h3 class="offer-title">1 an</h3>
+      <div class="offer-description">
+        <p style="margin-bottom: 12px; font-weight: 500; color: rgba(255,255,255,0.85);">Accès Démos et Présentation Produit - Durée : 1 an</p>
+        <p>Accès illimité à tous les produits Convergence. Accès aux démos 24h/24 et 7j/7. Concepts uniques et exclusifs, non disponibles ailleurs.</p>
+      </div>
+      <a href="https://buy.stripe.com/8x29ATc2y2BI3CF2cZgEg01"
+         class="offer-button"
+         target="_blank"
+         rel="noopener noreferrer"
+         title="Souscrire à l'adhésion 1 an - ouverture dans un nouvel onglet sécurisé"
+         aria-label="Souscrire à l'adhésion Convergence 1 an - paiement sécurisé Stripe">
+        Adhérer - 1 an
+      </a>
+    </article>
 
-  <h3>Offre Pro - Professionnels &amp; Entreprises (B2B)</h3>
-  <ul>
-    <li>Licence professionnelle multi-postes</li>
-    <li>Accès prioritaire aux nouvelles versions</li>
-    <li>Support dédié et réponse sous 48h</li>
-    <li>Solutions IT sur mesure disponibles</li>
-    <li>Accès complet à l'espace membres VIP</li>
-  </ul>
+    <!-- Offre 2 : 3 ans -->
+    <article class="offer-card" role="listitem" aria-label="Adhésion 3 ans">
+      <h3 class="offer-title">3 ans</h3>
+      <div class="offer-description">
+        <p style="margin-bottom: 12px; font-weight: 500; color: rgba(255,255,255,0.85);">Accès Démos et Présentation Produit - Durée : 3 ans</p>
+        <p>Accès illimité à tous les produits Convergence. Accès aux démos 24h/24 et 7j/7. Accès à l'ensemble des pages de présentation et de démonstration de nos produits. Des outils simples de génie.</p>
+      </div>
+      <a href="https://buy.stripe.com/9B69AT7Mi2BIc9baJvgEg02"
+         class="offer-button"
+         target="_blank"
+         rel="noopener noreferrer"
+         title="Souscrire à l'adhésion 3 ans - ouverture dans un nouvel onglet sécurisé"
+         aria-label="Souscrire à l'adhésion Convergence 3 ans - paiement sécurisé Stripe">
+        Adhérer - 3 ans
+      </a>
+    </article>
 
-  <h3>Offre VIP - Accès Exclusif</h3>
-  <ul>
-    <li>Tout ce que comprend l'offre Pro</li>
-    <li>Accès anticipé aux logiciels en développement</li>
-    <li>Participation aux tests bêta exclusifs</li>
-    <li>Communication directe avec le fondateur</li>
-    <li>Tarification préférentielle sur les futurs produits</li>
-  </ul>
+    <!-- Offre 3 : 5 ans (durée la plus longue) -->
+    <article class="offer-card" role="listitem" aria-label="Adhésion 5 ans">
+      <h3 class="offer-title">5 ans</h3>
+      <div class="offer-description">
+        <p style="margin-bottom: 12px; font-weight: 500; color: rgba(255,255,255,0.85);">Accès Démos et Présentation Produit - Durée : 5 ans</p>
+        <p>Accès illimité à tous les produits Convergence. Accès aux démos 24h/24 et 7j/7. Votre adhésion vous donne accès à toutes les pages de présentation et de démonstration de nos produits exclusifs.</p>
+      </div>
+      <a href="https://buy.stripe.com/5kQ4gz0jQgsy0qt18VgEg03"
+         class="offer-button"
+         target="_blank"
+         rel="noopener noreferrer"
+         title="Souscrire à l'adhésion 5 ans - ouverture dans un nouvel onglet sécurisé"
+         aria-label="Souscrire à l'adhésion Convergence 5 ans - paiement sécurisé Stripe">
+        Adhérer - 5 ans
+      </a>
+    </article>
+
+  </div><!-- fin .offers-grid -->
 
   <hr>
 
-  <h4>Comment souscrire ?</h4>
-  <p>Pour souscrire à l'une de nos offres ou obtenir un devis personnalisé, contactez-nous directement</p>
-  <p>Nous vous répondrons dans les meilleurs délais avec toutes les informations nécessaires.</p>
-
-  <hr>
 
   <h4>Conditions générales</h4>
   <p>Les abonnements sont soumis aux conditions générales de vente de Convergence Human &amp; Technology. Tout abonnement est personnel et non transmissible sauf mention contraire dans l'offre souscrite.</p>
-  <p>Les tarifs sont indiqués en euros, hors taxes applicable selon la réglementation en vigueur.</p>
-  <p>Convergence se réserve le droit de modifier ses offres et tarifs à tout moment, avec notification préalable aux abonnés en cours.</p>
 
   <hr>
 
