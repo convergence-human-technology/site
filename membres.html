@@ -236,6 +236,76 @@
       }
     }
 
+
+    /* Styles pour les nouvelles cartes membres */
+.members-card {
+    background: rgba(1, 12, 30, 0.75);
+    border: 1px solid rgba(77, 212, 240, 0.15);
+    border-left: 3px solid rgba(77, 212, 240, 0.60);
+    border-radius: 0;
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.card-image-area {
+    text-align: center;
+    width: 100%;
+}
+
+.members-card-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.card-content-area p {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 1em;
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* Styles pour le nouveau bouton (comme page tarifs) */
+.offer-button {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 16px;
+    background: rgba(77, 212, 240, 0.10);
+    border: 1px solid rgba(77, 212, 240, 0.40);
+    color: #4dd4f0;
+    font-family: var(--font-display, 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    border-radius: 0;
+    cursor: pointer;
+    width: auto;
+    box-sizing: border-box;
+}
+.offer-button:hover {
+    background: rgba(77, 212, 240, 0.25);
+    border-color: #4dd4f0;
+    color: #7be8ff;
+    box-shadow: 0 0 12px rgba(77, 212, 240, 0.20);
+}
+
+/* Responsive pour l'espacement entre les cartes */
+@media screen and (max-width: 768px) {
+    .members-card {
+        margin-bottom: 25px;
+    }
+}
+
   </style>
 
 </head>
@@ -378,9 +448,33 @@
          ══════════════════════════════════════════════════════════════ -->
     <div class="global flow">
 
-<h1>👥 Espace Membres</h1>
+<h1>Espace Membres</h1>
+
+<!-- NOUVELLES CARTES (x2) -->
+<div class="members-card">
+    <div class="card-image-area">
+        <!-- Image 1 (remplacer par votre propre URL) -->
+        <img src="votre-image-1.jpg" alt="Description de l'image 1" class="members-card-img">
+    </div>
+    <div class="card-content-area">
+        <p>......</p>
+        <p>.......</p>
+    </div>
+</div>
+
+<div class="members-card">
+    <div class="card-image-area">
+        <!-- Image 2 (remplacer par votre propre URL) -->
+        <img src="votre-image-2.jpg" alt="Description de l'image 2" class="members-card-img">
+    </div>
+    <div class="card-content-area">
+        <p>......</p>
+        <p>......</p>
+    </div>
+</div>
+
   <div id="user-card">Chargement...</div>
-  <button id="btn-logout">🚪 Déconnexion</button>
+  <button id="btn-logout">Déconnexion</button>
 
     </div><!-- fin .global -->
 
