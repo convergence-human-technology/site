@@ -106,7 +106,7 @@ Ces balises aident les LLMs (ChatGPT, Perplexity, etc.) à comprendre que cette 
 <meta name="ai:fact_checking"      content="human_verified_2026" />
 <meta name="ai:content_tier"       content="commercial_information" />
 
- <!-- ★★★ JSON-LD SCHEMA.ORG - DONNÉES STRUCTURÉES ★★★ -->
+   <!-- ★★★ JSON-LD SCHEMA.ORG - DONNÉES STRUCTURÉES ★★★ -->
   <!--
     ═══════════════════════════════════════════════════════════════════════════
     ★ AMÉLIORATION 2026 : Ce bloc de données structurées est lu par :
@@ -116,11 +116,12 @@ Ces balises aident les LLMs (ChatGPT, Perplexity, etc.) à comprendre que cette 
         factuelle et l’intégration dans les réponses génératives (GEO)
       - Les assistants vocaux (Siri, Alexa, Google Assistant)
     ═══════════════════════════════════════════════════════════════════════════
-    La structure @graph regroupe quatre entités :
+    La structure @graph regroupe cinq entités :
       1. Organization → Convergence Human & Technology (société)
       2. WebSite → Le site dans son ensemble
       3. WebPage → La page des tarifs (métadonnées de la page)
-      4. Offer → L’offre commerciale d’abonnement VIP
+      4. ItemList → Liste des trois offres d'adhésion (1 an, 3 ans, 5 ans)
+      5. Offer → Chaque offre individuelle (dans ItemList)
     Les relations entre ces entités sont explicitées via les propriétés publisher,
     isPartOf, about, mainEntity, seller, etc.
   -->
@@ -190,7 +191,7 @@ Ces balises aident les LLMs (ChatGPT, Perplexity, etc.) à comprendre que cette 
           "@id": "https://convergence-human-technology.github.io/site/#organization"
         },
         "mainEntity": {
-          "@id": "https://convergence-human-technology.github.io/site/tarifs.html#offer-vip"
+          "@id": "https://convergence-human-technology.github.io/site/tarifs.html#offers"
         },
         "datePublished": "2026-03-18",
         "dateModified": "2026-03-28",
@@ -217,31 +218,106 @@ Ces balises aident les LLMs (ChatGPT, Perplexity, etc.) à comprendre que cette 
         }
       },
       {
-        "@type": "Offer",
-        "@id": "https://convergence-human-technology.github.io/site/tarifs.html#offer-vip",
-        "name": "Abonnement VIP Convergence",
-        "description": "Accès complet aux logiciels et solutions IT de Convergence Human & Technology. Contenu exclusif, mises à jour prioritaires et support dédié.",
-        "url": "https://convergence-human-technology.github.io/site/tarifs.html",
-        "seller": {
-          "@id": "https://convergence-human-technology.github.io/site/#organization"
-        },
-        "availability": "https://schema.org/OnlineOnly",
-        "availabilityStarts": "2026-03-18",
-        "priceCurrency": "EUR",
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "priceType": "https://schema.org/ContactForPrice",
-          "eligibleQuantity": {
-            "@type": "QuantitativeValue",
-            "value": "1",
-            "unitText": "subscription"
+        "@type": "ItemList",
+        "@id": "https://convergence-human-technology.github.io/site/tarifs.html#offers",
+        "name": "Offres d'adhésion Convergence",
+        "description": "Trois formules d'adhésion pour accéder aux démos et présentations des produits Convergence. Plus la durée d'adhésion est longue, plus le tarif annuel est dégressif.",
+        "numberOfItems": 3,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Offer",
+              "@id": "https://convergence-human-technology.github.io/site/tarifs.html#offer-1an",
+              "name": "Adhésion Convergence — 1 an",
+              "description": "Accès illimité à tous les produits Convergence. Accès aux démos 24h/24 et 7j/7. Concepts uniques et exclusifs, non disponibles ailleurs.",
+              "url": "https://buy.stripe.com/8x29ATc2y2BI3CF2cZgEg01",
+              "seller": {
+                "@id": "https://convergence-human-technology.github.io/site/#organization"
+              },
+              "availability": "https://schema.org/OnlineOnly",
+              "availabilityStarts": "2026-03-18",
+              "priceCurrency": "EUR",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceType": "https://schema.org/ContactForPrice",
+                "eligibleQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "1",
+                  "unitText": "subscription"
+                }
+              },
+              "eligibleRegion": {
+                "@type": "Place",
+                "name": "Worldwide"
+              },
+              "termsOfService": "https://convergence-human-technology.github.io/site/mentions-legales.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Offer",
+              "@id": "https://convergence-human-technology.github.io/site/tarifs.html#offer-3ans",
+              "name": "Adhésion Convergence — 3 ans",
+              "description": "Accès illimité à tous les produits Convergence. Accès aux démos 24h/24 et 7j/7. Accès à l'ensemble des pages de présentation et de démonstration de nos produits. Des outils simples de génie.",
+              "url": "https://buy.stripe.com/9B69AT7Mi2BIc9baJvgEg02",
+              "seller": {
+                "@id": "https://convergence-human-technology.github.io/site/#organization"
+              },
+              "availability": "https://schema.org/OnlineOnly",
+              "availabilityStarts": "2026-03-18",
+              "priceCurrency": "EUR",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceType": "https://schema.org/ContactForPrice",
+                "eligibleQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "1",
+                  "unitText": "subscription"
+                }
+              },
+              "eligibleRegion": {
+                "@type": "Place",
+                "name": "Worldwide"
+              },
+              "termsOfService": "https://convergence-human-technology.github.io/site/mentions-legales.html"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Offer",
+              "@id": "https://convergence-human-technology.github.io/site/tarifs.html#offer-5ans",
+              "name": "Adhésion Convergence — 5 ans",
+              "description": "Accès illimité à tous les produits Convergence. Accès aux démos 24h/24 et 7j/7. Accès à toutes les pages de présentation et de démonstration de nos produits exclusifs.",
+              "url": "https://buy.stripe.com/5kQ4gz0jQgsy0qt18VgEg03",
+              "seller": {
+                "@id": "https://convergence-human-technology.github.io/site/#organization"
+              },
+              "availability": "https://schema.org/OnlineOnly",
+              "availabilityStarts": "2026-03-18",
+              "priceCurrency": "EUR",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceType": "https://schema.org/ContactForPrice",
+                "eligibleQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "1",
+                  "unitText": "subscription"
+                }
+              },
+              "eligibleRegion": {
+                "@type": "Place",
+                "name": "Worldwide"
+              },
+              "termsOfService": "https://convergence-human-technology.github.io/site/mentions-legales.html"
+            }
           }
-        },
-        "eligibleRegion": {
-          "@type": "Place",
-          "name": "Worldwide"
-        },
-        "termsOfService": "https://convergence-human-technology.github.io/site/mentions-legales.html"
+        ]
       }
     ]
   }
