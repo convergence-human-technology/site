@@ -13,15 +13,8 @@
 
 <head>
 <meta charset="UTF-8">
-  
-
-
-
-
 
 <title>Espace Membres | Convergence Human & Technology</title>
-
-
 
 <!-- ★★★ BASE ★★★ -->
 <meta name="title"       content="Espace Membres | Convergence Human & Technology" />
@@ -198,11 +191,10 @@
       transform: translateY(-2px);
     }
 
-    /* ── h1 Espace Membres — adapté (emoji + texte) ─────────────────── */
-    /* Le h1 contient "👥 Espace Membres" avec un emoji.                  */
-    /* On désactive text-transform:uppercase pour que l'emoji reste lisible */
+/* ── h1 Espace Membres — désactivation de text-transform ───────── */
+/* On désactive text-transform:uppercase hérité pour garder la casse normale */
     .global h1 {
-      text-transform: none; /* Garde la casse normale (l'emoji ne doit pas être forcé) */
+      text-transform: none;
     }
 
     /* ── Titres h2 dans .global ──────────────────────────────────────── */
@@ -330,10 +322,7 @@
   <a href="#main-content" class="skip-link" accesskey="s">Aller au contenu principal</a>
 
   <!-- ★ MÉTADONNÉES D'ACCESSIBILITÉ CACHÉES ★ -->
-  <div hidden
-       itemscope
-       itemtype="https://schema.org/WebPageElement"
-       data-dev-note="Métadonnées accessibilité — lecteurs d'écran et moteurs de recherche">
+  <div hidden itemscope itemtype="https://schema.org/WebPageElement" data-dev-note="Métadonnées accessibilité — lecteurs d'écran et moteurs de recherche">
     <meta itemprop="accessibilityFeature"  content="highContrastDisplay" />
     <meta itemprop="accessibilityFeature"  content="largePrint" />
     <meta itemprop="accessibilityFeature"  content="keyboardNavigation" />
@@ -351,12 +340,7 @@
        JavaScript (ci-dessous) gère l'ouverture/fermeture.
        3 <span> = 3 barres → animation en croix quand ouvert.
        ════════════════════════════════════════════════════════════════ -->
-  <button class="nav-hamburger-btn"
-          id="hamburger-btn"
-          type="button"
-          aria-label="Ouvrir ou fermer le menu de navigation"
-          aria-expanded="false"
-          aria-controls="nav-main-list">
+  <button class="nav-hamburger-btn" id="hamburger-btn" type="button" aria-label="Ouvrir ou fermer le menu de navigation" aria-expanded="false" aria-controls="nav-main-list">
     <span aria-hidden="true"></span><!-- Barre haut -->
     <span aria-hidden="true"></span><!-- Barre milieu -->
     <span aria-hidden="true"></span><!-- Barre bas -->
@@ -364,76 +348,51 @@
 
 
   <!-- ★ NAVIGATION PRINCIPALE — structure originale conservée ★ -->
-  <nav role="navigation"
-     aria-label="Navigation principale du site Convergence Human & Technology"
-     aria-describedby="nav-desc"
-     itemscope itemtype="https://schema.org/SiteNavigationElement">
+  <nav role="navigation" aria-label="Navigation principale du site Convergence Human & Technology" aria-describedby="nav-desc" itemscope itemtype="https://schema.org/SiteNavigationElement">
 
-  <p id="nav-desc" hidden>Menu de navigation — Convergence Human &amp; Technology.</p>
+  <p id="nav-desc" hidden>Menu de navigation - Convergence Human &amp; Technology.</p>
 
   <ul role="list" id="nav-main-list" aria-label="Liens de navigation" itemscope itemtype="https://schema.org/BreadcrumbList">
-
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="index.html" title="Accueil" aria-label="Accueil — Convergence Human and Technology">
-        <span itemprop="name">Accueil</span>
-      </a>
+      <a itemprop="item" href="index.html" title="Accueil" aria-label="Accueil - Convergence Human and Technology"><span itemprop="name">Accueil</span></a>
       <meta itemprop="position" content="1" />
     </li>
-
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="tarifs.html" title="Abonnement VIP et Tarifs" aria-label="Abonnement VIP et Tarifs">
-        <span itemprop="name">Abonnement VIP &amp; Tarifs</span>
-      </a>
+      <a itemprop="item" href="tarifs.html" title="Abonnement VIP et Tarifs" aria-label="Abonnement VIP et Tarifs"><span itemprop="name">Abonnement VIP &amp; Tarifs</span></a>
       <meta itemprop="position" content="2" />
     </li>
-
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="contact.html" title="Contact" aria-label="Page de contact">
-        <span itemprop="name">Contact</span>
-      </a>
+      <a itemprop="item" href="contact.html" title="Contact" aria-label="Page de contact"><span itemprop="name">Contact</span></a>
       <meta itemprop="position" content="3" />
     </li>
-
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="mentions-legales.html" title="Mentions légales" rel="license" aria-label="Mentions légales">
-        <span itemprop="name">Mentions légales</span>
-      </a>
+      <a itemprop="item" href="mentions-legales.html" title="Mentions légales" rel="license" aria-label="Mentions légales"><span itemprop="name">Mentions légales</span></a>
       <meta itemprop="position" content="4" />
     </li>
-
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="membres.html"
-         title="Espace membres — page actuelle"
-         aria-label="Espace membres — page actuelle, accès restreint"
-         aria-current="page">
-        <span itemprop="name">Espace Membres</span>
-      </a>
+      <a itemprop="item" href="membres.html" title="Espace membres - page actuelle" aria-label="Espace membres - page actuelle, accès restreint" aria-current="page"><span itemprop="name">Espace Membres</span></a>
       <meta itemprop="position" content="5" />
     </li>
-
+    <li id="nav-logout-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="display: none;">
+      <a itemprop="item" id="nav-logout-link" href="#" title="Se déconnecter de Convergence Human & Technology" aria-label="Déconnexion"><span itemprop="name">Déconnexion</span></a>
+    <meta itemprop="position" content="6" />
+    </li>
   </ul>
 </nav>
 
 <nav role="navigation" aria-label="Fil d'Ariane" aria-describedby="breadcrumb-desc">
   <p id="breadcrumb-desc" hidden>Vous êtes ici : position actuelle dans la hiérarchie du site.</p>
   <ol itemscope itemtype="https://schema.org/BreadcrumbList" aria-label="Chemin de navigation">
-
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="index.html" aria-label="Accueil">
-        <span itemprop="name">Accueil</span>
-      </a>
+      <a itemprop="item" href="index.html" aria-label="Accueil"><span itemprop="name">Accueil</span></a>
       <meta itemprop="position" content="1" />
     </li>
-
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a itemprop="item" href="membres.html"
-         aria-label="Espace membres — page actuelle"
-         aria-current="page">
+      <a itemprop="item" href="membres.html" aria-label="Espace membres — page actuelle" aria-current="page">
         <span itemprop="name">Espace Membres</span>
       </a>
       <meta itemprop="position" content="2" />
     </li>
-
   </ol>
 </nav>
 
@@ -482,15 +441,15 @@
 
 
   <!-- ════════════════════════════════════════════════════════════════
-       ★★★ SCRIPT AUTH0 — ORIGINAL INCHANGÉ — NE PAS MODIFIER ★★★
+       ★★★ SCRIPT AUTH0 — ESPACE MEMBRES (VERSION 2026) ★★★
        ════════════════════════════════════════════════════════════════
        Ce script gère l'espace membres :
        - Vérifie la présence du token en sessionStorage
        - Redirige vers index.html si non authentifié
        - Appelle /userinfo pour récupérer le profil utilisateur
-       - Vérifie le claim "paid" pour l'accès au contenu
-       - Bouton de déconnexion Auth0
-       CRITIQUE : ne pas modifier les constantes ni la logique.
+       - Vérifie le claim "paid" pour l'accès au contenu (gratuit vs payant)
+       - Gère l'affichage du lien "Déconnexion" dans le menu de navigation
+       - La déconnexion se fait désormais via le lien dans le menu
        ════════════════════════════════════════════════════════════════ -->
   <script>
     const AUTH0_DOMAIN = "convergence-tech.eu.auth0.com";
@@ -499,40 +458,58 @@
     const PAID_CLAIM = "https://convergence-tech.eu.auth0.com/paid";
 
     const token = sessionStorage.getItem("auth_token");
+    const navLogoutItem = document.getElementById('nav-logout-item');
+
+    // Gestion de l'affichage du bouton Déconnexion dans le menu
+    const showLogoutInNav = () => {
+        if(navLogoutItem) navLogoutItem.style.display = 'flex';
+    };
+    const hideLogoutInNav = () => {
+        if(navLogoutItem) navLogoutItem.style.display = 'none';
+    };
+
     if (!token) {
-      window.location.replace(BASE_URL + "/index.html");
+        window.location.replace(BASE_URL + "/index.html");
     } else {
-      fetch(`https://${AUTH0_DOMAIN}/userinfo`, {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-      .then(r => r.json())
-      .then(user => {
-        const paid = user[PAID_CLAIM];
-        if (!paid) {
-          document.getElementById("user-card").innerHTML = `
-            <h2>🚀 Découvrez nos produits</h2>
-            <p>Vous souhaitez découvrir nos logiciels en intégralité et accéder aux démos pour pouvoir les tester ? Devenez membre VIP et profitez d'un accès exclusif à tout l'univers Convergence.</p>
-            <a href="${BASE_URL}/tarifs.html" style="background:#28a745;color:white;padding:12px 24px;border-radius:5px;text-decoration:none;display:inline-block;margin-top:10px;font-weight:600;letter-spacing:0.05em;">💳 Découvrir nos offres</a>
-          `;
-        } else {
-          document.getElementById("user-card").innerHTML = `
-            <img src="${user.picture}" width="80" style="border-radius:50%"><br>
-            <h2>Bonjour <strong>${user.name}</strong> ! 👋</h2>
-            <p>📧 ${user.email}</p>
-            <p>✅ Vous avez accès à l'espace membres.</p>
-          `;
-        }
-      })
-      .catch(() => {
-        document.getElementById("user-card").innerHTML = "<p>Erreur de chargement.</p>";
-      });
+        showLogoutInNav();
+        fetch(`https://${AUTH0_DOMAIN}/userinfo`, {
+            headers: { Authorization: `Bearer ${token}` }
+        })
+        .then(r => r.json())
+        .then(user => {
+            const paid = user[PAID_CLAIM];
+            const container = document.getElementById("user-card");
+            if (!paid) {
+                container.innerHTML = `
+                    <h2>Découvrez nos produits</h2>
+                    <p>Vous souhaitez découvrir nos logiciels en intégralité et accéder aux démos pour pouvoir les tester ? Devenez membre VIP et profitez d'un accès exclusif à tout l'univers Convergence.</p>
+                    <a href="${BASE_URL}/tarifs.html" class="offer-button" style="margin-top:10px;">Découvrir nos offres</a>
+                `;
+            } else {
+                container.innerHTML = `
+                    <img src="${user.picture}" width="80" style="border-radius:50%"><br>
+                    <h2>Bonjour <strong>${user.name}</strong> !</h2>
+                    <p>📧 ${user.email}</p>
+                    <p>✅ Vous avez accès à l'espace membres.</p>
+                `;
+            }
+        })
+        .catch(() => {
+            document.getElementById("user-card").innerHTML = "<p>Erreur de chargement.</p>";
+        });
     }
 
-    document.getElementById("btn-logout").onclick = () => {
-      sessionStorage.clear();
-      window.location.href = `https://${AUTH0_DOMAIN}/v2/logout?returnTo=${encodeURIComponent(BASE_URL + "/index.html")}&client_id=${CLIENT_ID}`;
-    };
-  </script>
+    // Gestion de la déconnexion via le lien dans le menu
+    const navLogoutLink = document.getElementById('nav-logout-link');
+    if (navLogoutLink) {
+        navLogoutLink.onclick = (e) => {
+            e.preventDefault();
+            sessionStorage.clear();
+            hideLogoutInNav();
+            window.location.href = `https://${AUTH0_DOMAIN}/v2/logout?returnTo=${encodeURIComponent(BASE_URL + "/index.html")}&client_id=${CLIENT_ID}`;
+        };
+    }
+</script>
 
 
   <!-- ════════════════════════════════════════════════════════════════
