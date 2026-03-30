@@ -352,301 +352,96 @@ Ces balises aident les LLMs (ChatGPT, Perplexity, etc.) à comprendre que cette 
 
   <style type="text/css">
 
-    /* ════════════════════════════════════════════════════════════════
-       STYLES SPÉCIFIQUES AUX SOUS-PAGES (contact, tarifs, mentions)
-       ════════════════════════════════════════════════════════════════
-       Ces règles s'appliquent au contenu textuel des pages secondaires.
-       Elles complètent les styles partagés de index.html.
-       ════════════════════════════════════════════════════════════════ */
-
-    /* ── Padding-top du .global sur sous-pages ───────────────────────
-       Sur index : .global est précédé de la section hero (100vh).
-       Sur les sous-pages : .global est le premier élément après la nav.
-       On ajoute un padding-top supplémentaire pour compenser la barre
-       de navigation fixe (62px) et laisser de l'air au-dessus du contenu. */
-    .global {
-      margin-top:  80px;    /* Espace au-dessus : compense nav fixe (62px) + marge */
-      margin-bottom: 60px;  /* Espace en bas de la div alpha */
-    }
-
-    /* ── Titres h2 dans le contenu ────────────────────────────────────
-       Sur index h2 n'existe que dans la FAQ.
-       Sur les sous-pages les h2 sont des sous-titres de contenu. */
-    .global h2, h4 {
-      font-size:      clamp(1rem, 2vw, 1.4rem); /* Responsive comme h1 */
-      font-weight:    600;                       /* Semi-gras */
-      color:          rgba(255, 255, 255, 0.90); /* Blanc quasi pur */
-      text-align:     center;                    /* Centré comme les autres */
-      letter-spacing: 0.06em;                    /* Espacement léger */
-      text-transform: uppercase;                 /* Majuscules */
-      margin:         0 0 6px 0;
-      padding-top:    20px;                      /* Espace avant chaque section */
-    }
-
-    /* ── Titres h3 ─────────────────────────────────────────────────── */
-    .global h3 {
-      font-size:   clamp(0.9rem, 1.5vw, 1.15rem); /* Légèrement plus petit que h2 */
-      font-weight: 600;
-      color:       #4dd4f0;                         /* Cyan de la charte */
-      text-align:  center;
-      margin:      16px 0 4px;
-    }
-
-    /* ── Listes ul/ol dans le contenu ────────────────────────────────
-       Les listes des sous-pages (ul/ol dans .global) doivent être
-       centrées et lisibles sur le fond semi-transparent. */
-    .global ul,
-    .global ol {
-      display:        inline-block;  /* Permet le centrage via text-align:center parent */
-      text-align:     left;          /* Texte des items aligné à gauche */
-      padding-left:   1.5em;         /* Indentation standard des puces */
-      margin:         8px auto 16px; /* Centré, espace bas */
-      color:          rgba(255, 255, 255, 0.78); /* Blanc semi-transparent */
-      font-size:      0.97em;
-      line-height:    1.9em;         /* Interligne généreux */
-    }
-
-    /* ── Items de liste ──────────────────────────────────────────────
-       Chaque li reçoit un espace bas pour respirer. */
-    .global li {
-      margin-bottom: 4px;  /* Léger espace entre chaque item */
-    }
-
-    /* ── Séparateur <hr> dans le contenu ─────────────────────────────
-       Les <hr> séparent les sections dans contact/tarifs/mentions.
-       On les rend discrets et dans la charte. */
-    .global hr {
-      border:       none;                              /* Supprime la bordure par défaut */
-      border-top:   1px solid rgba(77, 212, 240, 0.20); /* Liseré cyan très discret */
-      margin:       24px auto;                          /* Centré, espace vertical */
-      width:        80%;                                /* Pas pleine largeur */
-    }
-
-    /* ── Liens dans le contenu ───────────────────────────────────────
-       Les liens (GitHub, LinkedIn, email...) doivent être visibles. */
-    .global a:not(.email-link) {
-      color:           #4dd4f0;      /* Cyan de la charte */
-      text-decoration: none;         /* Pas de soulignement par défaut */
-      word-break:      break-all;    /* Les URLs longues reviennent à la ligne */
-    }
-    .global a:not(.email-link):hover,
-    .global a:not(.email-link):focus {
-      text-decoration: underline;    /* Soulignement au survol */
-      color:           #7be8ff;      /* Cyan plus clair */
-    }
-
-    /* ── strong dans le contenu ──────────────────────────────────────
-       Les <strong> servent à mettre en valeur des noms, titres, labels. */
-    .global strong {
-      color:       rgba(255, 255, 255, 0.95); /* Presque blanc pur */
-      font-weight: 600;                        /* Semi-gras */
-    }
-
-    /* ── em / italic ─────────────────────────────────────────────────
-       Les <em> (tarifs "sur demande") restent lisibles. */
-    .global em {
-      color:       rgba(255, 255, 255, 0.65); /* Légèrement atténué */
-      font-style:  italic;
-    }
-
-    /* ── Ajustement responsive .global sur sous-pages ────────────────
-       Sur mobile (<600px) : moins de padding pour les sous-pages */
-    @media screen and (max-width: 600px) {
-      .global {
-        margin-top: 70px;       /* Légèrement moins de marge top sur mobile */
-        padding:    24px 16px 32px; /* Moins d'espace intérieur */
-      }
-    }
+/* ════════════════════════════════════════════════════════════════
+STYLES SPÉCIFIQUES AUX SOUS-PAGES (contact, tarifs, mentions)
+════════════════════════════════════════════════════════════════
+Ces règles s'appliquent au contenu textuel des pages secondaires. Elles complètent les styles partagés de index.html.
+════════════════════════════════════════════════════════════════ */
+/* ── Padding-top du .global sur sous-pages ───────────────────────
+Sur index : .global est précédé de la section hero (100vh). Sur les sous-pages : .global est le premier élément après la nav.
+On ajoute un padding-top supplémentaire pour compenser la barre 
+de navigation fixe (62px) et laisser de l'air au-dessus du contenu. */
+.global {margin-top:  80px; /* Espace au-dessus : compense nav fixe (62px) + marge */ margin-bottom: 60px; /* Espace en bas de la div alpha */}
+/* ── Titres h2 dans le contenu ────────────────────────────────────
+Sur index h2 n'existe que dans la FAQ. Sur les sous-pages les h2 sont des sous-titres de contenu. */
+.global h2, h4 {font-size: clamp(1rem, 2vw, 1.4rem); /* Responsive comme h1 */ font-weight: 600; /* Semi-gras */ color: rgba(255, 255, 255, 0.90); /* Blanc quasi pur */
+text-align: center; /* Centré comme les autres */ letter-spacing: 0.06em; /* Espacement léger */ text-transform: uppercase; /* Majuscules */ margin: 0 0 6px 0;
+padding-top: 20px; /* Espace avant chaque section */}
+/* ── Titres h3 ─────────────────────────────────────────────────── */
+.global h3 {font-size:   clamp(0.9rem, 1.5vw, 1.15rem); /* Légèrement plus petit que h2 */ font-weight: 600; color: #4dd4f0; /* Cyan de la charte */ text-align: center; margin: 16px 0 4px;}
+/* ── Listes ul/ol dans le contenu ────────────────────────────────
+Les listes des sous-pages (ul/ol dans .global) doivent être
+centrées et lisibles sur le fond semi-transparent. */
+.global ul, .global ol {display: inline-block; /* Permet le centrage via text-align:center parent */ text-align: left; /* Texte des items aligné à gauche */ padding-left: 1.5em; /* Indentation standard des puces */
+margin: 8px auto 16px; /* Centré, espace bas */ color: rgba(255, 255, 255, 0.78); /* Blanc semi-transparent */ font-size: 0.97em; line-height: 1.9em; /* Interligne généreux */}
+/* ── Items de liste ──────────────────────────────────────────────
+Chaque li reçoit un espace bas pour respirer. */
+.global li {margin-bottom: 4px; /* Léger espace entre chaque item */}
+/* ── Séparateur <hr> dans le contenu ─────────────────────────────
+Les <hr> séparent les sections dans contact/tarifs/mentions.
+On les rend discrets et dans la charte. */
+.global hr {border: none; /* Supprime la bordure par défaut */ border-top: 1px solid rgba(77, 212, 240, 0.20); /* Liseré cyan très discret */ margin: 24px auto; /* Centré, espace vertical */ width: 80%; /* Pas pleine largeur */}
+/* ── Liens dans le contenu ───────────────────────────────────────
+Les liens (GitHub, LinkedIn, email...) doivent être visibles. */
+.global a:not(.email-link) {color: #4dd4f0; /* Cyan de la charte */ text-decoration: none; /* Pas de soulignement par défaut */ word-break: break-all; /* Les URLs longues reviennent à la ligne */}
+.global a:not(.email-link):hover, .global a:not(.email-link):focus {text-decoration: underline; /* Soulignement au survol */ color: #7be8ff; /* Cyan plus clair */}
+/* ── strong dans le contenu ──────────────────────────────────────
+Les <strong> servent à mettre en valeur des noms, titres, labels. */
+.global strong {color: rgba(255, 255, 255, 0.95); /* Presque blanc pur */ font-weight: 600; /* Semi-gras */}
+/* ── em / italic ─────────────────────────────────────────────────
+Les <em> (tarifs "sur demande") restent lisibles. */
+.global em {color: rgba(255, 255, 255, 0.65); /* Légèrement atténué */ font-style: italic;}
+/* ── Ajustement responsive .global sur sous-pages ────────────────
+Sur mobile (<600px) : moins de padding pour les sous-pages */
+@media screen and (max-width: 600px) {.global {margin-top: 70px; /* Légèrement moins de marge top sur mobile */ padding: 24px 16px 32px; /* Moins d'espace intérieur */}}
 
 
-    /* ════════════════════════════════════════════════════════════════
-       CARTES OFFRES — STYLE IDENTIQUE À fabien-conejero.html
-       ════════════════════════════════════════════════════════════════
-       Ces styles reproduisent exactement l'apparence des cartes de
-       compétences de la page profil (Software Development, IA Physique,
-       API & Intégrations). Les trois offres sont présentées en colonnes
-       responsives (ordre : 1 an → 3 ans → 5 ans), avec un lien cliquable
-       pour l'adhésion.
-       ★ CORRECTION 2026 : Résolution des problèmes de chevauchement
-         sur mobile, tablette et grands écrans.
-    ════════════════════════════════════════════════════════════════ */
+/* ════════════════════════════════════════════════════════════════
+CARTES OFFRES — STYLE IDENTIQUE À fabien-conejero.html
+════════════════════════════════════════════════════════════════
+Ces styles reproduisent exactement l'apparence des cartes de compétences de la page profil (Software Development, IA Physique, API & Intégrations). Les trois offres sont présentées en colonnes
+responsives (ordre : 1 an → 3 ans → 5 ans), avec un lien cliquable pour l'adhésion. ★ CORRECTION 2026 : Résolution des problèmes de chevauchement sur mobile, tablette et grands écrans.
+════════════════════════════════════════════════════════════════ */
+/* Conteneur des trois offres — grille responsive */
+.offers-grid {display: grid; grid-template-columns: repeat(3, 1fr); /* 3 colonnes fixes sur desktop */ gap: 24px; margin-top: 32px; margin-bottom: 16px; width: 100%; box-sizing: border-box;}
+/* Carte individuelle — identique à .skill-card de fabien-conejero */
+.offer-card { background: rgba(1, 12, 30, 0.75); border: 1px solid rgba(77, 212, 240, 0.15); border-left: 3px solid rgba(77, 212, 240, 0.60); border-radius: 0; padding: 24px 20px; text-align: left; 
+transition: border-left-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; height: auto; /* Hauteur automatique, pas fixe */ min-height: 100%; /* Hauteur minimale pour l'alignement */
+display: flex; flex-direction: column; width: 100%; box-sizing: border-box; overflow-wrap: break-word; /* Force la coupure des mots longs */ word-break: break-word; /* Casse les mots trop longs */}
+/* Survol des cartes — identique à .skill-card:hover */ .offer-card:hover {background: rgba(1, 12, 30, 0.92); border-left-color: #4dd4f0; box-shadow: 0 0 20px rgba(77, 212, 240, 0.12);}
+/* Titre de l'offre — identique à .skill-card-title */ .offer-title {font-family: var(--font-display, 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif); font-size: clamp(0.85rem, 3vw, 0.95rem); /* Taille fluide */
+font-weight: 600; color: #4dd4f0; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; border-bottom: 1px solid rgba(77, 212, 240, 0.25); padding-bottom: 10px; line-height: 1.3;}
+/* Description de l'offre — identique à .skill-card-desc */
+.offer-description {font-size: clamp(0.8rem, 2.5vw, 0.88rem); /* Taille fluide */ color: rgba(255, 255, 255, 0.72); line-height: 1.55; margin-bottom: 20px; flex-grow: 1; overflow-wrap: break-word; word-break: break-word;}
+/* Lien de paiement — bouton élégant dans la charte */
+.offer-button {display: inline-block; text-align: center; padding: 10px 16px; background: rgba(77, 212, 240, 0.10); border: 1px solid rgba(77, 212, 240, 0.40); color: #4dd4f0;
+font-family: var(--font-display, 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif); font-size: clamp(0.7rem, 2.2vw, 0.75rem); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+transition: all 0.25s ease; border-radius: 0; cursor: pointer; width: 100%; box-sizing: border-box; white-space: nowrap; /* Empêche le texte du bouton de passer à la ligne */}
+/* Adaptation pour petits écrans : le texte du bouton peut passer à la ligne */
+@media screen and (max-width: 480px) {.offer-button {white-space: normal; /* Autorise le retour à la ligne sur très petits écrans */ padding: 10px 12px; font-size: 0.7rem;}}
+.offer-button:hover, .offer-button:focus {background: rgba(77, 212, 240, 0.25); border-color: #4dd4f0; color: #7be8ff; box-shadow: 0 0 12px rgba(77, 212, 240, 0.20); text-decoration: none;}
+/* Focus visible clavier — WCAG 2.4.7 (AA) */
+.offer-button:focus-visible {outline: 2px solid #4dd4f0; outline-offset: 3px;}
+/* ================================================================
+RESPONSIVE : tablette (768px - 1024px)
+================================================================ */
+@media screen and (max-width: 1024px) and (min-width: 769px) {.offers-grid {gap: 20px; /* Réduction de l'espace entre cartes */}
+.offer-card {padding: 20px 16px;} .offer-title {font-size: 0.85rem;letter-spacing: 0.05em;} .offer-description {font-size: 0.8rem; line-height: 1.5;}}
+/* ================================================================
+RESPONSIVE : mobile (≤ 768px) — passage en colonne unique
+================================================================ */
+@media screen and (max-width: 768px) {.offers-grid {grid-template-columns: 1fr; /* Une seule colonne sur mobile */ gap: 28px; /* Espace vertical suffisant */}
+.offer-card {padding: 20px 18px;} .offer-title {font-size: 0.9rem;} .offer-description {font-size: 0.85rem;}}
+/* ================================================================
+RESPONSIVE : très petits écrans (≤ 480px)
+================================================================ */
+@media screen and (max-width: 480px) {.offers-grid {gap: 24px;} .offer-card {padding: 18px 14px;} .offer-title {font-size: 0.85rem; letter-spacing: 0.04em;} .offer-description {font-size: 0.8rem; line-height: 1.5;}}
 
-    /* Conteneur des trois offres — grille responsive */
-    .offers-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);  /* 3 colonnes fixes sur desktop */
-      gap: 24px;
-      margin-top: 32px;
-      margin-bottom: 16px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    /* Carte individuelle — identique à .skill-card de fabien-conejero */
-    .offer-card {
-      background: rgba(1, 12, 30, 0.75);
-      border: 1px solid rgba(77, 212, 240, 0.15);
-      border-left: 3px solid rgba(77, 212, 240, 0.60);
-      border-radius: 0;
-      padding: 24px 20px;
-      text-align: left;
-      transition: border-left-color 0.3s ease,
-                  background 0.3s ease,
-                  box-shadow 0.3s ease;
-      height: auto;          /* Hauteur automatique, pas fixe */
-      min-height: 100%;      /* Hauteur minimale pour l'alignement */
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      box-sizing: border-box;
-      overflow-wrap: break-word;  /* Force la coupure des mots longs */
-      word-break: break-word;     /* Casse les mots trop longs */
-    }
-
-    /* Survol des cartes — identique à .skill-card:hover */
-    .offer-card:hover {
-      background: rgba(1, 12, 30, 0.92);
-      border-left-color: #4dd4f0;
-      box-shadow: 0 0 20px rgba(77, 212, 240, 0.12);
-    }
-
-    /* Titre de l'offre — identique à .skill-card-title */
-    .offer-title {
-      font-family: var(--font-display, 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif);
-      font-size: clamp(0.85rem, 3vw, 0.95rem);  /* Taille fluide */
-      font-weight: 600;
-      color: #4dd4f0;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 12px;
-      border-bottom: 1px solid rgba(77, 212, 240, 0.25);
-      padding-bottom: 10px;
-      line-height: 1.3;
-    }
-
-    /* Description de l'offre — identique à .skill-card-desc */
-    .offer-description {
-      font-size: clamp(0.8rem, 2.5vw, 0.88rem);  /* Taille fluide */
-      color: rgba(255, 255, 255, 0.72);
-      line-height: 1.55;
-      margin-bottom: 20px;
-      flex-grow: 1;
-      overflow-wrap: break-word;
-      word-break: break-word;
-    }
-
-    /* Lien de paiement — bouton élégant dans la charte */
-    .offer-button {
-      display: inline-block;
-      text-align: center;
-      padding: 10px 16px;
-      background: rgba(77, 212, 240, 0.10);
-      border: 1px solid rgba(77, 212, 240, 0.40);
-      color: #4dd4f0;
-      font-family: var(--font-display, 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif);
-      font-size: clamp(0.7rem, 2.2vw, 0.75rem);
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      border-radius: 0;
-      cursor: pointer;
-      width: 100%;
-      box-sizing: border-box;
-      white-space: nowrap;           /* Empêche le texte du bouton de passer à la ligne */
-    }
-
-    /* Adaptation pour petits écrans : le texte du bouton peut passer à la ligne */
-    @media screen and (max-width: 480px) {
-      .offer-button {
-        white-space: normal;         /* Autorise le retour à la ligne sur très petits écrans */
-        padding: 10px 12px;
-        font-size: 0.7rem;
-      }
-    }
-
-    .offer-button:hover,
-    .offer-button:focus {
-      background: rgba(77, 212, 240, 0.25);
-      border-color: #4dd4f0;
-      color: #7be8ff;
-      box-shadow: 0 0 12px rgba(77, 212, 240, 0.20);
-      text-decoration: none;
-    }
-
-    /* Focus visible clavier — WCAG 2.4.7 (AA) */
-    .offer-button:focus-visible {
-      outline: 2px solid #4dd4f0;
-      outline-offset: 3px;
-    }
-
-    /* ================================================================
-       RESPONSIVE : tablette (768px - 1024px)
-       ================================================================ */
-    @media screen and (max-width: 1024px) and (min-width: 769px) {
-      .offers-grid {
-        gap: 20px;                    /* Réduction de l'espace entre cartes */
-      }
-      .offer-card {
-        padding: 20px 16px;
-      }
-      .offer-title {
-        font-size: 0.85rem;
-        letter-spacing: 0.05em;
-      }
-      .offer-description {
-        font-size: 0.8rem;
-        line-height: 1.5;
-      }
-    }
-
-    /* ================================================================
-       RESPONSIVE : mobile (≤ 768px) — passage en colonne unique
-       ================================================================ */
-    @media screen and (max-width: 768px) {
-      .offers-grid {
-        grid-template-columns: 1fr;   /* Une seule colonne sur mobile */
-        gap: 28px;                    /* Espace vertical suffisant */
-      }
-      .offer-card {
-        padding: 20px 18px;
-      }
-      .offer-title {
-        font-size: 0.9rem;
-      }
-      .offer-description {
-        font-size: 0.85rem;
-      }
-    }
-
-    /* ================================================================
-       RESPONSIVE : très petits écrans (≤ 480px)
-       ================================================================ */
-    @media screen and (max-width: 480px) {
-      .offers-grid {
-        gap: 24px;
-      }
-      .offer-card {
-        padding: 18px 14px;
-      }
-      .offer-title {
-        font-size: 0.85rem;
-        letter-spacing: 0.04em;
-      }
-      .offer-description {
-        font-size: 0.8rem;
-        line-height: 1.5;
-      }
-    }
-
-  </style>
+</style>
 
 </head>
 
 <body>
-
-
   <!-- ════════════════════════════════════════════════════════════════
        ★ LOADER - ÉCRAN DE CHARGEMENT (3 SECONDES) ★
        ════════════════════════════════════════════════════════════════
@@ -654,10 +449,8 @@ Ces balises aident les LLMs (ChatGPT, Perplexity, etc.) à comprendre que cette 
        Masqué par JavaScript après 3 secondes.
        ════════════════════════════════════════════════════════════════ -->
   <div id="loader-overlay" role="status" aria-live="polite" aria-label="Chargement en cours">
-    <!-- Anneau tournant - indicateur visuel de chargement -->
-    <div class="loader-spinner" aria-hidden="true"></div>
-    <!-- .ttu = Globalize.css : text-transform:uppercase -->
-    <div class="loader-text ttu">Chargement</div>
+    <!-- Anneau tournant - indicateur visuel de chargement --><div class="loader-spinner" aria-hidden="true"></div>
+    <!-- .ttu = Globalize.css : text-transform:uppercase --><div class="loader-text ttu">Chargement</div>
   </div><!-- fin #loader-overlay -->
 
   <!-- ★ SKIP LINK - accessibilité clavier / lecteurs d'écran ★ -->
@@ -665,13 +458,8 @@ Ces balises aident les LLMs (ChatGPT, Perplexity, etc.) à comprendre que cette 
 
 <!-- ★ MÉTADONNÉES D'ACCESSIBILITÉ CACHÉES ★ -->
 <div hidden itemscope itemtype="https://schema.org/WebPageElement" data-dev-note="Métadonnées accessibilité - lecteurs d'écran et moteurs de recherche">
-<meta itemprop="accessibilityFeature"  content="highContrastDisplay" />
-<meta itemprop="accessibilityFeature"  content="largePrint" />
-<meta itemprop="accessibilityFeature"  content="keyboardNavigation" />
-<meta itemprop="accessibilityFeature"  content="screenReaderSupport" />
-<meta itemprop="accessibilityControl"  content="fullKeyboardControl" />
-<meta itemprop="accessibilityHazard"   content="noFlashingHazard" />
-<meta itemprop="accessibilityAPI"      content="ARIA" />
+<meta itemprop="accessibilityFeature" content="highContrastDisplay" /><meta itemprop="accessibilityFeature" content="largePrint" /><meta itemprop="accessibilityFeature" content="keyboardNavigation" />
+<meta itemprop="accessibilityFeature" content="screenReaderSupport" /><meta itemprop="accessibilityControl" content="fullKeyboardControl" /><meta itemprop="accessibilityHazard" content="noFlashingHazard" /><meta itemprop="accessibilityAPI" content="ARIA" />
 </div>
 
 <!-- ════════════════════════════════════════════════════════════════
@@ -681,9 +469,7 @@ Placé HORS du <nav> pour ne pas modifier la structure originale.
 JavaScript gère l'ouverture/fermeture. 3 spans = 3 barres.
 ════════════════════════════════════════════════════════════════ -->
 <button class="nav-hamburger-btn" id="hamburger-btn" type="button" aria-label="Ouvrir ou fermer le menu de navigation" aria-expanded="false" aria-controls="nav-main-list">
-  <span aria-hidden="true"></span><!-- Barre haut -->
-  <span aria-hidden="true"></span><!-- Barre milieu -->
-  <span aria-hidden="true"></span><!-- Barre bas -->
+  <span aria-hidden="true"></span><!-- Barre haut --> <span aria-hidden="true"></span><!-- Barre milieu --> <span aria-hidden="true"></span><!-- Barre bas -->
 </button>
 
 <nav role="navigation" aria-label="Navigation principale du site Convergence Human & Technology" aria-describedby="nav-desc" itemscope itemtype="https://schema.org/SiteNavigationElement">
@@ -720,7 +506,6 @@ JavaScript gère l'ouverture/fermeture. 3 spans = 3 barres.
         </a>
         <meta itemprop="position" content="6" />
       </li>
-
       <!-- Lien Déconnexion (caché par défaut) -->
       <li id="nav-logout-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="display: none;">
         <a itemprop="item" id="nav-logout-link" href="#" ...>
@@ -755,13 +540,13 @@ Angles droits (border-radius:0). Hérité de l'index.
   <div class="global flow">
 
   <h1>Abonnement VIP &amp; Tarifs</h1>
-  <p>Bienvenue sur la page des offres de <strong>Convergence Human &amp; Technology</strong>. Retrouvez ici nos différentes formules d'accès à nos logiciels et solutions informatiques, conçues pour les professionnels comme pour les particuliers.</p>
+  <p>Bienvenue sur la page des offres de <strong>Convergence Human &amp; Technology</strong>. Retrouvez ici nos différentes formules d'ouvertures à nos logiciels et solutions informatiques, conçues pour les professionnels comme pour les particuliers.</p>
   <hr>
   <h2>Pourquoi un abonnement VIP ?</h2>
-  <p>Convergence imagine des logiciels uniques, des concepts inédits que personne n'avait pensé à concrétiser. L'abonnement VIP vous donne un accès privilégié à cet univers : logiciels en avant-première, mises à jour prioritaires, support dédié et accès à l'espace membres exclusif.</p>
+  <p>Convergence imagine des programmes uniques, des concepts inédits que personne n'avait pensé à concrétiser. L'abonnement VIP vous donne un accès privilégié à cet univers : software en avant-première, mises à jour prioritaires, support dédié et accès à l'espace membres exclusif.</p>
   <hr>
   <h2>Nos offres</h2>
-  <p>Convergence propose trois formules d'adhésion. Chaque offre vous donne accès à des concepts uniques, jamais explorés ailleurs, que personne d'autre ne possède au monde. Plus la durée d'adhésion est longue, plus le tarif annuel est dégressif.</p>
+  <p>Convergence propose trois niveaux d'adhésion. Chaque offre vous donne accès à des conceptions jamais explorées ailleurs, que personne d'autre ne possède au monde. Plus la persistance d'adhésion est longue, plus le tarif annuel est dégressif.</p>
 
   <!-- Grille des trois offres — style identique aux cartes de fabien-conejero -->
   <div class="offers-grid">
@@ -769,8 +554,8 @@ Angles droits (border-radius:0). Hérité de l'index.
     <article class="offer-card" role="listitem" aria-label="Adhésion 1 an">
       <h3 class="offer-title">1 an</h3>
       <div class="offer-description">
-        <p style="margin-bottom: 12px; font-weight: 500; color: rgba(255,255,255,0.85);">Accès Démos et Présentation Produit - Durée : 1 an</p>
-        <p>Accès illimité à tous les produits Convergence. Accès aux démos 24h/24 et 7j/7. Concepts uniques et exclusifs, non disponibles ailleurs.</p>
+        <p style="margin-bottom: 12px; font-weight: 500; color: rgba(255,255,255,0.85);">Accueil Maquettes et Artéfacts - Durée : 1 an</p>
+        <p>Portes Ouvertes aux articles. Infos démos 24h/24 et 7j/7. Concepts exceptionnels.</p>
       </div>
       <a href="https://buy.stripe.com/8x29ATc2y2BI3CF2cZgEg01" class="offer-button" target="_blank" rel="noopener noreferrer" title="Souscrire à l'adhésion 1 an - ouverture dans un nouvel onglet sécurisé" aria-label="Souscrire à l'adhésion Convergence 1 an - paiement sécurisé Stripe">Adhérer - 1 an</a>
     </article>
@@ -778,8 +563,8 @@ Angles droits (border-radius:0). Hérité de l'index.
     <article class="offer-card" role="listitem" aria-label="Adhésion 3 ans">
       <h3 class="offer-title">3 ans</h3>
       <div class="offer-description">
-        <p style="margin-bottom: 12px; font-weight: 500; color: rgba(255,255,255,0.85);">Accès Démos et Présentation Produit - Durée : 3 ans</p>
-        <p>Accès illimité à tous les produits Convergence. Accès aux démos 24h/24 et 7j/7. Accès à l'ensemble des pages de présentation et de démonstration de nos produits. Des outils simples de génie.</p>
+        <p style="margin-bottom: 12px; font-weight: 500; color: rgba(255,255,255,0.85);">Entrées et Exhibitions Produit - Durée : 3 ans</p>
+        <p>Chemin Complet vers nos objets. Visions Interactives 24h/24 et 7j/7. Accédez aux extraits de présentation et d'échantillons. Des outils simples de génie.</p>
       </div>
       <a href="https://buy.stripe.com/9B69AT7Mi2BIc9baJvgEg02" class="offer-button" target="_blank" rel="noopener noreferrer" title="Souscrire à l'adhésion 3 ans - ouverture dans un nouvel onglet sécurisé" aria-label="Souscrire à l'adhésion Convergence 3 ans - paiement sécurisé Stripe">Adhérer - 3 ans</a>
     </article>
@@ -787,8 +572,8 @@ Angles droits (border-radius:0). Hérité de l'index.
     <article class="offer-card" role="listitem" aria-label="Adhésion 5 ans">
       <h3 class="offer-title">5 ans</h3>
       <div class="offer-description">
-        <p style="margin-bottom: 12px; font-weight: 500; color: rgba(255,255,255,0.85);">Accès Démos et Présentation Produit - Durée : 5 ans</p>
-        <p>Accès illimité à tous les produits Convergence. Accès aux démos 24h/24 et 7j/7. Votre adhésion vous donne accès à toutes les pages de présentation et de démonstration de nos produits exclusifs.</p>
+        <p style="margin-bottom: 12px; font-weight: 500; color: rgba(255,255,255,0.85);">Accès Démos et Productions - Durée : 5 ans</p>
+        <p>Espace illimité sur tous les produits Convergence. Tests des fonctionnalités 24h/24 et 7j/7. Votre adhésion vous ouvre toutes les pages de présentation et d'actions utilisateurs de nos objets spécifiques.</p>
       </div>
       <a href="https://buy.stripe.com/5kQ4gz0jQgsy0qt18VgEg03" class="offer-button" target="_blank" rel="noopener noreferrer" title="Souscrire à l'adhésion 5 ans - ouverture dans un nouvel onglet sécurisé" aria-label="Souscrire à l'adhésion Convergence 5 ans - paiement sécurisé Stripe">Adhérer - 5 ans</a>
     </article>
@@ -797,10 +582,10 @@ Angles droits (border-radius:0). Hérité de l'index.
   <hr>
 
 <h4>Conditions générales</h4>
-<p>Les abonnements sont soumis aux conditions générales de vente de Convergence Human &amp; Technology. Tout abonnement est personnel et non transmissible sauf mention contraire dans l'offre souscrite.</p>
+<p>Les abonnements sont soumis aux conditions générales de vente de Convergence Human &amp; Technology. Tout forfait est personnel et non transmissible sauf mention contraire dans l'offre souscrite.</p>
 <hr>
 <h4>Contact</h4>
-<p>Pour toute question relative à nos offres et tarifs contactez-nous</p>
+<p>Pour toute question relative sur nos offres et tarifs contactez-nous</p>
 
   </div><!-- fin .global -->
 
@@ -910,9 +695,6 @@ Angles droits (border-radius:0). Hérité de l'index.
       }
 
     });
-
-
-
 
 
     /* ================================================================
