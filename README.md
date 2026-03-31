@@ -5,7 +5,7 @@
 
 # CONVERGENCE Web Site
 
-Website Convergenge / on Github Pages
+Website Convergence / on Github Pages
 
 site + space members Auth0 :
 
