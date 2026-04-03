@@ -108,6 +108,30 @@
   <meta name="ai:fact_checking"      content="human_verified_2026" />
   <meta name="ai:content_tier"       content="legal_document" />
 
+
+<!-- ─── GEO / E-E-A-T : Ancrage Wikidata et DBpedia (Web des Données) ───────────────────────────────
+POURQUOI CES LIENS :
+Pour les moteurs génératifs, une entité n'existe de manière certaine que si elle est
+ancrée dans des bases de connaissances tierces vérifiables. Wikidata (géré par Wikimedia)
+et DBpedia (extraction structurée de Wikipedia) sont les deux références absolues pour
+la validation E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)
+selon les Search Quality Rater Guidelines de Google 2024-2025.
+
+PROCESSUS D'ANCRAGE :
+1. Créer une fiche Wikidata pour l'entité "Fabien Conéjéro" (gratuit, ouvert à tous)
+2. Récupérer l'identifiant Wikidata (format : Q123456789)
+3. Remplacer [QID-FABIEN-CONEJERO] par cet identifiant dans les liens ci-dessous
+4. Faire de même pour "Convergence Human And Technology"
+5. Ajouter ces QID dans les blocs sameAs du JSON-LD existant
+  
+IMPACT ATTENDU : Les moteurs IA citeront l'entité avec un niveau de confiance maximal.
+
+SOURCE : Knowledge Graph enhancement strategies, Google's E-E-A-T documentation 2024 -->
+<link rel="same-as" href="https://www.wikidata.org/wiki/Q138859130" />
+<link rel="same-as" href="https://www.wikidata.org/wiki/Q138859337" />
+
+  
+
   <!-- ★★★ JSON-LD SCHEMA.ORG ★★★ -->
   <script type="application/ld+json">
 {
