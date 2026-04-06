@@ -10,6 +10,10 @@
   <img src="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence.png" alt="logo convergence png" width="100%" height="100%">
 </p>
 
+<p align="center">
+  <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
+</p>
+
 
 # CONVERGENCE Web Site
 
