@@ -3,6 +3,10 @@
 </p>
 
 <p align="center">
+  <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
+</p>
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence.png" alt="logo convergence png" width="100%" height="100%">
 </p>
 
@@ -30,7 +34,9 @@ https://github.com/convergence-human-technology/site/...
 ```
 @see tutorial : https://github.com/convergence-human-technology/github-pages-auth0-free-members-area
 
-#
+<p align="center">
+  <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
+</p>
 
 ## Restricting access to paid members only
 
@@ -65,11 +71,15 @@ membres.html checks the paid status in the token -- free
 
 Stack used for payments : stripe.com
 
-#
+<p align="center">
+  <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
+</p>
 
 Stripe Payment Links works differently from Gumroad. Stripe is more powerful for collecting personalized information from future members before payment.
 
-#
+<p align="center">
+  <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
+</p>
 
 Let's start from the beginning, in logical order
 Here is the complete 4-step plan:
@@ -89,7 +99,9 @@ Pipedream calls the Auth0 API to add metadata to the user:
 . Step 4 : members.html checks the paid status
 The members page reads this metadata and redirects to the paid content or displays a message "Access denied, please pay".
 
-#
+<p align="center">
+  <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
+</p>
 
 # Convergence Membership - One-Time Payments (Stripe)
 
@@ -115,9 +127,9 @@ Your membership gives you access to all presentation and demonstration pages of 
 
 Simple yet powerful tools, unlike anything else in the world, available only to Convergence members.
 
-#
-#
-#
+<p align="center">
+  <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
+</p>
 
 # Next Steps : Pipedream - Stripe Webhook Configuration
 
@@ -149,9 +161,9 @@ When a customer makes a payment, Stripe sends an event containing:
 
 Pipedream captures this event and triggers the next actions toward Auth0.
 
-#
-#
-#
+<p align="center">
+  <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
+</p>
 
 # Workflow is Live !
 
@@ -222,7 +234,9 @@ A user who has purchased a membership via Stripe gets full access to :
 
 Access is granted only if paid: true.
 
-#
+<p align="center">
+  <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
+</p>
 
 ## Authentication Setup
 
@@ -269,9 +283,9 @@ The members page checks the custom claim injected into the Auth0 token at login 
 The Pipedream workflow is deployed and active in production. The Auth0 Post Login Action named "Add paid claim" is attached to the login trigger and runs on every authentication.
 
 
-#
-#
-#
+<p align="center">
+  <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
+</p>
 
 
 # System Status: Fully Operational
@@ -290,7 +304,9 @@ The complete system is working:
 
 This ensures that only paying members can access Convergence’s exclusive products and demo content.
 
-#
+<p align="center">
+  <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
+</p>
 
 # 100% Free Professional System
 
@@ -313,9 +329,9 @@ A fully functional and professional ecosystem completely free where :
 
 We now have a 100% free website, with a complete professional system 100% free: - A site with Auth0 authentication - Stripe payments - A Pipedream automation - A secure member area - a domain name and free hosting via github page. The whole thing is 100% free.
 
-#
-#
-#
+<p align="center">
+  <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
+</p>
 
 # Improving GitHub Pages URLs
 
@@ -342,7 +358,9 @@ Your site becomes accessible via a clean and professional URL like :
 `https://visiontech.com`  
 instead of a long and complex GitHub Pages URL.
 
----
+<p align="center">
+  <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
+</p>
 
 # Cloudflare (Free, Fast, and Efficient)
 
@@ -353,7 +371,9 @@ If you purchase your domain directly from **Cloudflare**, you also get :
 - Clean URLs  
 - Very fast setup (just a few minutes)
 
----
+<p align="center">
+  <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
+</p>
 
 # Recommendation
 
@@ -365,9 +385,9 @@ I recommend using **Cloudflare** for your domain :
 
 It’s one of the simplest ways to upgrade your site’s appearance and credibility.
 
-#
-#
-#
+<p align="center">
+  <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
+</p>
 
 # ABOUT INFOS : 
 
@@ -386,3 +406,7 @@ For certain projects, consider these free or very low-cost alternatives :
 
 These three platforms explicitly allow commercial sites, are faster than GitHub Pages, and support Auth0 + Stripe without issue.
 Migrating from GitHub Pages to one of these platforms takes about 30 minutes, and the HTML/CSS/JS code remains identical only the hosting changes.
+
+<p align="center">
+  <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
+</p>
