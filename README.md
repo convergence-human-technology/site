@@ -137,6 +137,8 @@ Simple yet powerful tools, unlike anything else in the world, available only to 
   <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
 </p>
 
+![Convergence Cover](https://raw.githubusercontent.com/convergence-human-technology/site/main/img/cover_HT_step.jpg)
+
 # Next Steps : Pipedream - Stripe Webhook Configuration
 
 Step 1 : Create a Pipedream Account
