@@ -42,6 +42,8 @@ https://github.com/convergence-human-technology/site/...
   <img src="https://github.com/madjeek-web/about/raw/main/hr.png" alt="separator" width="300" height="3">
 </p>
 
+![Convergence Cover](https://github.com/convergence-human-technology/site/img/cover_HT_membership.jpg)
+
 ## Restricting access to paid members only
 
 By default, anyone can create an account. To restrict access to certain pages
