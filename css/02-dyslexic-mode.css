@@ -1,0 +1,303 @@
+/************************************************
+ *                                              *
+ *   02-dyslexic-mode.css — Police optionnelle  *
+ *   OpenDyslexic pour troubles DYS             *
+ *   Convergence Human & Technology             *
+ *                                              *
+ *   Auteur  : Fabien Conéjéro / FC84           *
+ *   Dépôt   : https://github.com/              *
+ *             convergence-human-technology     *
+ *   Licence : Copyright © 2026-2060            *
+ *             Convergence Human & Technology   *
+ *             Tous droits réservés             *
+ *                                              *
+ ************************************************
+ *                                              *
+ *   RÔLE DE CE FICHIER :                       *
+ *   Définir la police OpenDyslexic en OPTION   *
+ *   (activée uniquement si l'utilisateur       *
+ *   clique sur le bouton "Mode DYS")           *
+ *                                              *
+ *   CE FICHIER EST CHARGÉ PAR :                *
+ *   <link rel="stylesheet"                     *
+ *    href="css/02-dyslexic-mode.css">          *
+ *                                              *
+ *   IL EST CHARGÉ MAIS NE S'APPLIQUE PAS       *
+ *   TANT QUE LA CLASSE .mode-dyslexie          *
+ *   N'EST PAS PRÉSENTE SUR LE <body>           *
+ *                                              *
+ ************************************************/
+
+/*FONT FAMILY OpenDyslexic - Converting TTF to WOFF otf svg... : https://convertio.co/fr/ttf-svg/ - https://www.fontsquirrel.com/tools/webfont-generator 
+other site : transfonter : http://transfonter.org/ Github : https://github.com/fonttools/fonttools
+
+OpenDyslexic :
+
+Système	   Écriture latine
+Type	      Sans-serif
+Variante	   OpenDyslexic-Alta
+Historique
+Typographe	Abelardo Gonzalez
+Basé sur	   Polices DejaVu
+Création	   Décembre 2011
+Licence	   Bitstream Vera
+
+La police de caractères OpenDyslexic a été créée par le développeur d'applications Abelardo Gonzalez. 
+Origine : Elle a été créée vers 2011, après qu'Abelardo Gonzalez a constaté l'absence de polices gratuites conçues spécifiquement pour les besoins des personnes dyslexiques.
+Objectif : Elle vise à atténuer certaines erreurs de lecture courantes liées à la dyslexie, en utilisant des traits plus lourds à la base des lettres pour améliorer la reconnaissance.
+Licence : C'est une police libre, gratuite et open-source. 
+Liens web : https://opendyslexic.org/ - https://fr.globalvoices.org/2014/01/28/160845/#:~:text=Quand%20Abelardo%20Gonzalez%20a%20appris%20en%202011,gratuite)%20avec%20ceci%20%C3%A0%20l'esprit%20:%20OpenDyslexic. - https://fr.wikipedia.org/wiki/OpenDyslexic 
+https://fr.wikipedia.org/wiki/Dyslexie - https://fr.wikipedia.org/wiki/Dyslexie_(police_de_caract%C3%A8res) - https://github.com/madjeek-web/open-dyslexic/tree/main
+
+
+Quand Abelardo Gonzalez a appris en 2011 qu'il n'existait pas de police de caractères conçue pour les besoins des personnes dyslexiques, le jeune développeur d'applications s'est mis au travail et en a créé une (libre et gratuite) avec ceci à l'esprit : OpenDyslexic. Grâce à lui, l'internet est un peu plus accessible désormais aux lecteurs qui souffrent 
+de ce handicap.
+Environ 10% de la population mondiale souffre de dyslexie. Ce trouble neurologique entraîne des difficultés à lire, écrire et épeler. Des travaux de recherche récents laissent penser que les dyslexiques ont des difficultés à reconnaître et identifier les sons dans les mots, ce qui les empêche d'associer des sons à des lettres. Souvent, la dyslexie n'est 
+pas diagnostiquée et ceux qui en sont affectés luttent à contre-courant durant toute leur scolarité, alors qu'ils sont dotés d'une intelligence normale voire supérieure. Une prise en charge adaptée et des outils tels que OpenDyslexic peuvent aider les étudiants à surmonter leur handicap. 
+Abelardo a travaillé en testant les caractères sur lui même, son épouse et des amis, en les adaptant chemin faisant. “Il n'y avait pas beaucoup d'études disponibles sur des lettrages spécifiques pour les dyslexiques, mais il y en avait sur les différentes caractéristiques qui pouvaient aider les lecteurs dyslexiques : des espaces plus larges, un crénage 
+adapté, etc.” dit-il. “J'ai essayé d'en faire la synthèse”. La communauté des internautes concernés a aussi collaboré en faisant remonter de précieuses remarques et commentaires sur l'élaboration des lettres. La police est d'ailleurs sans cesse remaniée pour y intégrer les remarques des dyslexiques. 
+La réaction des utilisateurs a été extraordinairement positive. Les visiteurs du site Public OpenDyslexic peuvent lire des dizaines de  témoignages sur Facebook de personnes dyslexiques qui ont bénéficié de la nouvelle police de caractères,
+OpenDyslexic soulage certains des symptômes de la dyslexie par des espaces plus larges et un dessin particulier des lettres. Les parties inférieures plus grasses des lettres aident l’œil à s'orienter, pour que les dyslexiques identifient plus rapidement de quelle lettre ils s'agit et pour que les lettres leur paraissent moins se mélanger en désordre. 
+Le développeur assure aussi que ces formes uniques des lettres diminuent l'impression de confusion.
+Weighted bottoms help orient readers' eyes, say the font developers. Source: OpenDyslexic.
+Des pourtours pleins et gras des lettres permettent à l’œil des lecteurs de mieux s'orienter, selon le développeur de la police de caractères. Source: OpenDyslexic.
+OpenDyslexic a été créée avec Glyphs, un éditeur de polices de caractères utilisé pour produire et modifier des nouvelles polices. Ce projet est entièrement ouvert et libre. D'autres développeurs peuvent donc contribuer au code sur le site GitHub ; les lecteurs peuvent de leur côté signaler des bugs ou soumettre des requêtes spécifiques. 
+Plusieurs développeurs ont choisi d'utiliser cette police de caractère dans leurs propres projets. Par exemple, Dyslite, un  plug-in qui convertit n'importe quelle page internet en police OpenDyslexic, pour que les dyslexiques puissent surfer plus facilement. Beeline Reader propose également une version en OpenDyslexic, comme la liseuse Kobo. 
+OpenDyslexic a récemment sorti une version pour iOS 7, qui permet aux utilisateurs de ce système d'exploitation de télécharger la police sur leurs tablettes et mobiles.  
+Des éditeurs impriment des livres avec cette police. Strawberry Classics a publié certains classiques au format poche en anglais, dont Moby Dick, Oliver Twist, The Scarlet Letter, et Pride and Prejudice à l'intention des lecteurs dyslexiques.  
+A l'avenir, Abelardo espère continuer à améliorer la police et y ajouter des caractères pour d'autres langues. Les réactions sont positives aux Etats Unis, mais Abelardo reconnait que l'accueil a été encore meilleur à l'étranger, où “la dyslexie semble être prise plus au sérieux.” Il souhaite que les internautes l'aident pour que sa police soit 
+adaptée à d'autres langues.  
+
+_______
+
+OpenDyslexic est une police de caractères gratuite conçue pour atténuer certaines des erreurs de lecture causées par la dyslexie. Cependant, son efficacité est remise en question par des études scientifiques. 
+La police a été conçue par Abelardo Gonzalez et publiée par sous licence SIL Open Font License. Sa conception est basée sur la police Bitstream Vera Sans.
+Elle inclut les styles regular, gras, italique, gras-italique et monospace.
+Historique :
+La première version stable d'OpenDyslexic est publiée en décembre 2011.
+La deuxième version est disponible en juin 2013. De nombreux ajustements sont faits, ainsi que l'ajout de la variante OpenDyslexic-Alta incluant le « a » de style arrondi et la version monospace (à chasse fixe).
+Utilisations :
+OpenDyslexic est libre et gratuite et peut être utilisée sur les systèmes d'exploitation Windows, Mac OS et Linux dont PrimTux. Des extensions pour navigateur permettent de l'utiliser dans Chrome, Firefox, Opera et Safari. 
+Elle est disponible sur différents sites web et services comme Wikipédia, Instapaper, ainsi que des liseuses comme le Kobo eReader, ou l'Amazon Kindle depuis février 2016.
+Études scientifiques :
+Deux études ont porté sur les effets de l'utilisation de polices spécialisées avec des apprenants souffrant de dyslexie.
+Rello et Baeza-Yates (2013) ont enregistré les mouvements oculaires de lecteurs espagnols dyslexiques âgés de 11 à 50 ans et ont conclu qu'OpenDyslexic n'améliorait pas significativement le temps de lecture ni n'écourtait les points fixes des yeux.
+Dans son rapport de master (master thesis), Leeuw (2010) a comparé les polices Arial et Dyslexie sur 21 étudiants hollandais dyslexiques et a conclu que Dyslexie n'améliorait pas la vitesse de lecture mais pouvait aider sur des erreurs liées à la dyslexie
+
+_______
+
+WRITE FONT - font-display:swap; / font-display: fallback; - Generated by Font Squirrel (https://www.fontsquirrel.com)
+www.fontsquirrel.com - FREE fonts for graphic designers - Ethan Dunham - https://fonts.adobe.com/foundries/fonthead - https://www.fontspring.com/foundry/fonthead-design
+	  _
+	_|_  _  ._  _|_  _  _.     o ._ ._  _  |    _  _  ._ _
+	 |  (_) | |  |_ _> (_| |_| | |  |  (/_ | o (_ (_) | | |
+	                     |
+@see: https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display and DOC. @see: https://drafts.csswg.org/css-fonts-4/#font-display-desc 
+@see: https://www.chromestatus.com/feature/5636954674692096 @see: https://developer.mozilla.org/fr/docs/Web/CSS/@font-feature-values 
+ALTERNATIVE SIMILAR : https://fr.wikipedia.org/wiki/Dyslexie_(police_de_caract%C3%A8res) 
+
+/* FOR OPTIMIZE ALL web browsers Respect the next order (position css) : 1- EOT, 2- WOFF2, 3- WOFF, 4- TTF, 5- SVG
+
+_______ */
+
+
+/* ====================================================================
+   POURQUOI OPEN DYSLEXIC EN OPTION ?
+   ====================================================================
+   
+   La science est très claire :
+   - Aucune étude rigoureuse ne prouve qu'OpenDyslexic améliore
+     significativement la vitesse ou la compréhension par rapport
+     à des polices comme Verdana ou Arial.
+   
+   - Certaines études montrent même que les polices spécialisées
+     peuvent être MOINS performantes que les polices standard.
+   
+   Cependant, 10 à 30% des utilisateurs dyslexiques rapportent
+   un confort subjectif supérieur avec OpenDyslexic.
+   
+   La meilleure approche est donc :
+   - Police par défaut = Verdana (validée scientifiquement)
+   - Option activable = OpenDyslexic (pour ceux qui la préfèrent)
+   - L'utilisateur choisit ce qui lui convient le mieux
+   
+   ==================================================================== */
+
+
+/* ====================================================================
+   DÉCLARATION DE LA POLICE OPENDYSLEXIC
+   ====================================================================
+   OpenDyslexic est une police gratuite sous licence SIL-OFL.
+   Vous pouvez l'utiliser librement à des fins personnelles,
+   professionnelles, éducatives, commerciales.
+   
+   Version : OpenDyslexic V. 29 novembre 2025
+   Source : https://github.com/madjeek-web/open-dyslexic
+   
+   Ordre des formats (compatibilité maximale) :
+   1. EOT   → Internet Explorer (anciennes versions)
+   2. WOFF2 → Navigateurs modernes (le plus compressé)
+   3. WOFF  → Bonne compatibilité
+   4. TTF   → Fallback large
+   5. SVG   → Très vieux Safari iOS
+   
+   font-display: swap → affiche la police de secours (Verdana)
+   pendant le téléchargement, puis remplace par OpenDyslexic.
+   ==================================================================== */
+
+/* Regular (normal) */
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-regular-webfont.eot') format('embedded-opentype'),
+         url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-regular-webfont.woff2') format('woff2'),
+         url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-regular-webfont.woff') format('woff'),
+         url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-regular-webfont.ttf') format('truetype'),
+         url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-regular-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;  /* Évite le Flash of Invisible Text (FOIT) */
+}
+
+/* Bold (gras) */
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-bold-webfont.eot') format('embedded-opentype'),
+         url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-bold-webfont.woff2') format('woff2'),
+         url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-bold-webfont.woff') format('woff'),
+         url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-bold-webfont.ttf') format('truetype'),
+         url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-bold-webfont.svg') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Italic (italique) */
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-italic-webfont.eot') format('embedded-opentype'),
+         url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-italic-webfont.woff2') format('woff2'),
+         url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-italic-webfont.woff') format('woff'),
+         url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-italic-webfont.ttf') format('truetype'),
+         url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-italic-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Bold Italic (gras + italique) */
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-bolditalic-webfont.eot') format('embedded-opentype'),
+         url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-bolditalic-webfont.woff2') format('woff2'),
+         url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-bolditalic-webfont.woff') format('woff'),
+         url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-bolditalic-webfont.ttf') format('truetype'),
+         url('https://convergence-human-technology.github.io/site/fonts/OpenDyslexic-V-2025/opendyslexic-bolditalic-webfont.svg') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+/* ====================================================================
+   CLASSE D'ACTIVATION DU MODE DYS
+   ====================================================================
+   Cette classe est ajoutée au <body> par JavaScript lorsque
+   l'utilisateur clique sur le bouton "Mode DYS".
+   
+   Pourquoi cette approche ?
+   - La police n'est PAS utilisée par défaut
+   - Le navigateur ne la télécharge PAS tant que la classe n'est pas présente
+   - Quand l'utilisateur active le mode, la classe est ajoutée
+   - Le navigateur détecte soudain qu'OpenDyslexic est utilisée
+   - Il commence à télécharger la police (grâce à @font-face)
+   - Pendant le téléchargement, Verdana (fallback) reste visible
+   - Une fois téléchargée, OpenDyslexic remplace Verdana automatiquement
+   
+   AVANTAGES :
+   - Pas de téléchargement inutile pour 95% des utilisateurs
+   - Transition transparente (pas de saut visuel)
+   - L'utilisateur garde le contrôle (activation/désactivation)
+   - Le choix est sauvegardé (localStorage) pour les visites suivantes
+   ==================================================================== */
+
+.mode-dyslexie {
+  /* OpenDyslexic en premier, puis fallback Verdana (déjà chargée) */
+  font-family: 'OpenDyslexic', 'Verdana', 'Tahoma', sans-serif !important;
+  
+  /* OpenDyslexic bénéficie d'un espacement légèrement plus grand */
+  /* Cela améliore encore la lisibilité pour les DYS */
+  letter-spacing: 0.08em !important;
+  
+  /* Espacement des mots également augmenté */
+  word-spacing: 0.2em !important;
+}
+
+
+/* ====================================================================
+   COMPATIBILITÉ AVEC L'ANCIENNE CLASSE
+   ====================================================================
+   Pour compatibilité ascendante, on garde également la classe .dys-mode
+   (ancien nom utilisé dans certaines versions).
+   Le script JavaScript utilise désormais .mode-dyslexie, mais si un
+   ancien script ou un test manuel ajoute .dys-mode, cela fonctionnera.
+   ==================================================================== */
+
+.dys-mode {
+  font-family: 'OpenDyslexic', 'Verdana', 'Tahoma', sans-serif !important;
+  letter-spacing: 0.08em !important;
+  word-spacing: 0.2em !important;
+}
+
+
+/* ====================================================================
+   NOTE SUR LE TÉLÉCHARGEMENT
+   ====================================================================
+   Pour vérifier que la police se charge correctement :
+   1. Ouvrez les outils développeur (F12)
+   2. Onglet "Network" (Réseau)
+   3. Filtrez par "fonts"
+   4. Activez le mode DYS
+   5. Vous devez voir les fichiers .woff2 apparaître avec un statut 200
+   
+   Si les fichiers ne se chargent pas :
+   - Vérifiez les chemins dans les @font-face
+   - Vérifiez que les fichiers existent sur le serveur
+   - Vérifiez les permissions CORS (normalement OK sur GitHub Pages)
+   ==================================================================== */
+
+
+/* ====================================================================
+   RÉSUMÉ DE L'ARCHITECTURE TYPOGRAPHIQUE COMPLÈTE
+   ====================================================================
+   
+   Notre site utilise 3 fichiers CSS pour la typographie :
+   
+   1. 01-base.css
+      - Définit Verdana comme police par défaut
+      - Contient toutes les règles WCAG (espacement, suppression italique)
+      - S'applique à TOUS les utilisateurs
+      - Se charge immédiatement (pas de téléchargement de police)
+   
+   2. 02-dyslexic-mode.css (ce fichier)
+      - Définit OpenDyslexic en police optionnelle
+      - Contient la classe .mode-dyslexie
+      - Ne S'APPLIQUE PAS tant que la classe n'est pas présente
+      - Les @font-face existent mais ne déclenchent PAS de téléchargement
+   
+   3. shared.css
+      - Contient les styles visuels (dégradé, menu, loader, halo, FAQ)
+      - Ne contient PLUS de règles typographiques
+      - Chargé APRÈS 01-base.css pour la cascade CSS
+   
+   ORDRE DE CHARGEMENT DANS index.html :
+   <link rel="stylesheet" href="css/01-base.css">        ← Typo par défaut
+   <link rel="stylesheet" href="css/02-dyslexic-mode.css"> ← Option DYS
+   <link rel="stylesheet" href="shared.css">             ← Styles visuels
+   <link rel="stylesheet" href="old-ie.css">             ← IE6/7/8
+   
+   CETTE ARCHITECTURE GARANTIT :
+   - Performance maximale (pas de téléchargement inutile)
+   - Accessibilité AAA (Verdana + règles WCAG)
+   - Option DYS disponible à la demande
+   - Compatibilité IE6 (old-ie.css avec Georgia)
+   ==================================================================== */
