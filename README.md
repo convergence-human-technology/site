@@ -20,9 +20,7 @@
 
 Website Convergence / on Github Pages
 
-site + space members Auth0 :
-
-. https://convergence-human-technology.github.io/site 
+. site + space members Auth0 : https://convergence-human-technology.github.io/site 
 
 . OpenDyslexic Fonts & Resources : https://github.com/madjeek-web/open-dyslexic/tree/main
 
