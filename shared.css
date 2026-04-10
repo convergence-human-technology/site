@@ -1208,6 +1208,13 @@ i, em, cite, dfn {
       );
 
 }
+/* Écrans ≥ 1600px : largeur 1450px */
+@media screen and (min-width: 1600px) {
+  .global {
+    max-width: 1450px;
+    width: 1450px;
+  }
+}
 
 /* La carte blanche : C'est votre div-white-articles optimisée */
 .article-card {
@@ -1299,12 +1306,6 @@ i, em, cite, dfn {
 @media (prefers-color-scheme: dark) {
     /* Optionnel : si vous gérez un thème dark, mais votre fond est déjà blanc */
 }
-
-
-
-
-
-
 
 
 
@@ -1886,13 +1887,7 @@ i, em, cite, dfn {
 
 
   /* ── b / strong : Mon propre style pour le site ──────── */
-    b,
-    strong {
-      font-weight: normal;           
-    }
-
-
-
+    b, strong {font-weight: normal; }
 
 
 
