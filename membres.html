@@ -106,36 +106,10 @@
 <meta name="voice-assistant-compatibility" content="no" />
 
 <!-- ★★★ JSON-LD SCHEMA.ORG ★★★ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "https://convergence-human-technology.github.io/site/membres.html#webpage",
-  "url": "https://convergence-human-technology.github.io/site/membres.html",
-  "name": "Espace Membres | Convergence Human & Technology",
-  "description": "Espace membres privé réservé aux utilisateurs authentifiés de Convergence Human & Technology.",
-  "inLanguage": "fr-FR",
-  "isPartOf": {
-    "@id": "https://convergence-human-technology.github.io/site/#website"
-  },
-  "about": {
-    "@id": "https://convergence-human-technology.github.io/site/#organization"
-  },
-  "accessMode": "textual",
-  "accessibilityControl": "fullKeyboardControl",
-  "isAccessibleForFree": false,
-  "datePublished": "2026-03-18",
-  "dateModified": "2026-03-19",
-  "author": {
-    "@type": "Person",
-    "name": "Fabien Conéjéro"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Convergence Human & Technology",
-    "url": "https://convergence-human-technology.github.io/site/"
-  }
-}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://convergence-human-technology.github.io/site/membres.html#webpage","url":"https://convergence-human-technology.github.io/site/membres.html","name":"Espace Membres | Convergence Human & Technology",
+"description":"Espace membres privé réservé aux utilisateurs authentifiés de Convergence Human & Technology.","inLanguage":"fr-FR","isPartOf":{"@id":"https://convergence-human-technology.github.io/site/#website"},"about":{"@id":"https://convergence-human-technology.github.io/site/#organization"},
+"accessMode":"textual","accessibilityControl":"fullKeyboardControl","isAccessibleForFree":false,"datePublished":"2026-03-18","dateModified":"2026-03-19","author":{"@type":"Person","name":"Fabien Conéjéro"},"publisher":{"@type":"Organization","name":"Convergence Human & Technology",
+"url":"https://convergence-human-technology.github.io/site/"}}
 </script>
 
 <!--[if lt IE 9]>
@@ -251,6 +225,12 @@ Règles qui complètent shared.css pour cette page :
     padding: 24px 16px 32px;
   }
 }
+/* ── Réinitialisation pour les écrans < 755px ──────────────────── */
+@media screen and (min-width: 755px) {
+  .global {
+    margin-top: 250px;   /* Alternative sans position: relative */
+  }
+}
 
 /* Styles pour les nouvelles cartes membres */
 .members-card {
@@ -352,16 +332,11 @@ Règles qui complètent shared.css pour cette page :
   <!-- ★ SKIP LINK — accessibilité clavier / lecteurs d'écran ★ -->
   <a href="#main-content" class="skip-link" accesskey="s">Aller au contenu principal</a>
 
-  <!-- ★ MÉTADONNÉES D'ACCESSIBILITÉ CACHÉES ★ -->
-  <div hidden itemscope itemtype="https://schema.org/WebPageElement" data-dev-note="Métadonnées accessibilité - lecteurs d'écran et moteurs de recherche">
-    <meta itemprop="accessibilityFeature"  content="highContrastDisplay" />
-    <meta itemprop="accessibilityFeature"  content="largePrint" />
-    <meta itemprop="accessibilityFeature"  content="keyboardNavigation" />
-    <meta itemprop="accessibilityFeature"  content="screenReaderSupport" />
-    <meta itemprop="accessibilityControl"  content="fullKeyboardControl" />
-    <meta itemprop="accessibilityHazard"   content="noFlashingHazard" />
-    <meta itemprop="accessibilityAPI"      content="ARIA" />
-  </div>
+<!-- ★ MÉTADONNÉES D'ACCESSIBILITÉ CACHÉES ★ -->
+<div hidden itemscope itemtype="https://schema.org/WebPageElement" data-dev-note="Métadonnées accessibilité - lecteurs d'écran et moteurs de recherche">
+<meta itemprop="accessibilityFeature" content="highContrastDisplay" /><meta itemprop="accessibilityFeature"  content="largePrint" /><meta itemprop="accessibilityFeature"  content="keyboardNavigation" /><meta itemprop="accessibilityFeature" content="screenReaderSupport" />
+<meta itemprop="accessibilityControl" content="fullKeyboardControl" /><meta itemprop="accessibilityHazard" content="noFlashingHazard" /><meta itemprop="accessibilityAPI" content="ARIA" />
+</div>
 
 
   <!-- ════════════════════════════════════════════════════════════════
