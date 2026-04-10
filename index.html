@@ -600,6 +600,25 @@ Avantages : - Chargement en cache pour toutes les pages du site - Un seul endroi
 <!-- 4. Corrections pour vieux IE (ne s'applique qu'aux classes old-ie) -->
 <link rel="stylesheet" href="old-ie.css" type='text/css' data-infos="typographie Web Safe Fonts : typographies sécurisées pour le Web. Ces polices sont pré-installées sur la quasi-totalité des systèmes d'exploitation (Windows, macOS, iOS, Android)" />
 
+<style>
+/* ======================================================================
+STYLES ACCESSIBILITÉ (WCAG 2.2) - LOGO CONVERGENCE - IMGs / Pictues 
+SECTION HERO - LOGO 
+@see : DOCUMENTATION-ALL-IMG-SITE-CONVERGENCE.txt
+====================================================================== */
+/* Cache visuellement mais garde accessible aux lecteurs d'écran */
+.visually-hidden {position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;}
+/* Focus visible pour navigation clavier (WCAG 2.2 Focus Appearance)
+Doit être très visible, pas masqué par d'autres éléments */
+.logo-img:focus-visible, .logo-img img:focus-visible {outline: 3px solid #4dd4f0; outline-offset: 4px; border-radius: 8px;}
+/* Optionnel : animation de focus pour meilleure accessibilité cognitive */
+.logo-img:focus-visible {transition: outline 0.1s ease;}
+/* Gestion du prefers-reduced-motion (WCAG 2.2)
+Si l'utilisateur demande peu d'animations, on désactive */
+@media (prefers-reduced-motion: reduce) {.logo-img:focus-visible {transition: none;}}
+/* Version data réduite pour mobile ou connexion lente */
+@media (prefers-reduced-data: reduce) {.logo-img img {max-width: 310px; height: auto;}}
+</style>
 
 
 <!-- Balise pour activer le contrôle de pré-résolution DNS. Cela indique au navigateur que le préchargement DNS est autorisé, ce qui peut améliorer la  vitesse de chargement des ressources en résolvant les noms de domaine en adresses IP avant qu'ils ne soient nécessaires. -->
@@ -674,30 +693,18 @@ aient été utiles à une époque où IE dominait le paysage des navigateurs, el
 navigateurs modernes qui respectent mieux les normes. Aujourd'hui, il est souvent conseillé de se concentrer sur des pratiques de développement responsive et de qualité, 
 plutôt que de passer du temps sur des solutions dédiées aux anciens navigateurs. -->
 
-<!--[if lt IE 4]>
-    <p class="oldIE4" role="alert" aria-live="assertive">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/"> upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
 
-<!--[if lt IE 5]>
-    <p class="oldIE5" role="alert" aria-live="assertive">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/"> upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
+
+<!--[if lt IE 4]><p class="oldIE4" role="alert" aria-live="assertive">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/"> upgrade your browser</a> to improve your experience.</p><![endif]-->
+<!--[if lt IE 5]><p class="oldIE5" role="alert" aria-live="assertive">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/"> upgrade your browser</a> to improve your experience.</p><![endif]-->
 
 <!-- Enable png transparency in IE6 -->
-<!--[if lt IE 7]> 
-    <script type="text/javascript" src="j/jquery.ifixpng.js"></script> 
-    <script type="text/javascript">jQuery(document).ready(function(){ jQuery("img[src$='png']").ifixpng(); });</script> 
-<![endif]-->
+ <!--[if lt IE 7]> <script type="text/javascript" src="j/jquery.ifixpng.js"></script><script type="text/javascript">jQuery(document).ready(function(){ jQuery("img[src$='png']").ifixpng(); });</script><![endif]-->
 
 <!-- MESSAGES POUR NAVIGATEURS TRÈS ANCIENS -->
-<!--[if lt IE 5]>
-<div class="oldIE4" role="alert" aria-live="assertive" style="background:red;color:white;padding:10px;">
-<strong>Attention :</strong> Votre navigateur est obsolète. <a href="https://browsehappy.com/" style="color:white;">Mettez-le à jour</a> pour une meilleure expérience.</div>
-<![endif]-->
+<!--[if lt IE 5]><div class="oldIE4" role="alert" aria-live="assertive" style="background:red;color:white;padding:10px;"><strong>Attention :</strong> Votre navigateur est obsolète. <a href="https://browsehappy.com/" style="color:white;">Mettez-le à jour</a> pour une meilleure expérience.</div><![endif]-->
     
-<!--[if lt IE 7]>
-<script type="text/javascript" src="j/jquery.ifixpng.js"></script>
-<script type="text/javascript">jQuery(document).ready(function(){ jQuery("img[src$='png']").ifixpng(); });</script>
-<![endif]-->
+<!--[if lt IE 7]><script type="text/javascript" src="j/jquery.ifixpng.js"></script><script type="text/javascript">jQuery(document).ready(function(){ jQuery("img[src$='png']").ifixpng(); });</script><![endif]-->
 
 
 <!-- ════════════════════════════════════════════════════════════════
@@ -796,29 +803,49 @@ Couvre toute la page pendant le chargement complet du DOM, des images et des scr
 
 <!-- ════════════════════════════════════════════════════════════════
 ★ SECTION HERO - LOGO CENTRÉ HORIZONTALEMENT ET VERTICALEMENT ★
-════════════════════════════════════════════════════════════════
-Cette section occupe 100% de la hauteur de la fenêtre (100vh). Le logo est centré en son milieu grâce au flexbox. Le halo animé (anneau lumineux) entoure le cercle du logo.
+   @see : DOCUMENTATION-ALL-IMG-SITE-CONVERGENCE.txt
 ════════════════════════════════════════════════════════════════ -->
 <section class="hero-logo" aria-label="Logo Convergence Human and Technology">
+<div class="logo-wrapper" itemprop="name" itemscope itemtype="https://schema.org/brand" typeof="foaf:logo">
+<div id="halo-ring" aria-hidden="true"></div>
 
-    <!-- Wrapper relatif : référence pour le positionnement absolu du halo -->
-    <div class="logo-wrapper" itemprop="name" itemscope itemtype="https://schema.org/brand" typeof="foaf:logo">
+<!-- ── Logo Convergence ─────────────────────────────────────── -->
+<picture class="logo-img" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+<meta itemprop="name" content="Convergence Human & Technology - Logotype officiel">
+<meta itemprop="width" content="620"><meta itemprop="height" content="620">
+<meta itemprop="contentUrl" content="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-620px.png">
+<meta itemprop="description" content="Logo représentant une silhouette humaine stylisée entourée de connexions neurales lumineuses formant un cercle. Symbolise la convergence entre l'humain et la technologie. Fond sombre, traits cyan et blancs.">
 
-      <!-- ── Anneau de halo animé ────────────────────────────────────
-           Positionné en absolu, centré sur le logo. Invisible par défaut (box-shadow:none au repos). JavaScript ajoute la classe .halo-active après 3 secondes (fin du loader) pour déclencher l'animation pulse. Cycle : 10s actif → 50s pause → 10s actif → ...
-      ─────────────────────────────────────────────────────────────── -->
-      <div id="halo-ring" aria-hidden="true"></div>
-
-<!-- ── Logo Convergence ───────────────────────────────────────
-Image PNG du logo (logo-convergence.png dans le même dossier). alt = texte alternatif pour l'accessibilité et le SEO. z-index: 2 → au-dessus du halo (z-index: 1)
-─────────────────────────────────────────────────────────────── -->
-<picture>
-<img src="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence.png" title="logotype Convergence Human & Technology - png - index / FR" type="image/png" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject" typeof="foaf:Image" 
-alt="Logo Convergence Human and Technology - Silhouette humaine entourée de connexions neurales dans un cercle lumineux" class="logo-img" width="310" height="310" loading="eager" />
-<!-- loading="eager" : chargement immédiat (au-dessus de la ligne de flottaison) -->
+<source srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-310px.jxl 310w, 
+                https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-620px.jxl 620w,
+                https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-1240px.jxl 1240w" sizes="(min-width: 6000px) and (min-height: 6000px) 620px, 310px" type="image/jxl" media="(prefers-reduced-data: no-preference)">
+<source srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-310px.jxl" type="image/jxl" media="(prefers-reduced-data: reduce)">
+<source srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-310px.avif 310w, 
+                https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-620px.avif 620w,
+                https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-1240px.avif 1240w" sizes="(min-width: 6000px) and (min-height: 6000px) 620px, 310px" type="image/avif">
+<source srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-310px.webp 310w,
+                https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-620px.webp 620w,
+                https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-1240px.webp 1240w" sizes="(min-width: 6000px) and (min-height: 6000px) 620px, 310px" type="image/webp">
+<source srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-310px.png 310w,
+                https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-620px.png 620w,
+                https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-1240px.png 1240w" sizes="(min-width: 6000px) and (min-height: 6000px) 620px, 310px" type="image/png">
+<img src="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-620px.jpg" 
+     srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-310px.jpg 310w,
+             https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-620px.jpg 620w,
+             https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-1240px.jpg 1240w" sizes="(min-width: 6000px) and (min-height: 6000px) 620px, 310px" type="image/jpg" role="img" aria-labelledby="logo-caption" aria-describedby="logo-description"
+     title="logotype Convergence Human & Technology - png - index / FR" alt="Logo Convergence Human and Technology - Silhouette humaine stylisée entourée de connexions neurales lumineuses dans un cercle. Symbole de la convergence entre l'humain et la technologie." width="310" height="310" loading="eager" typeof="foaf:Image" tabindex="0" lang="fr">
 </picture>
 
+<div id="logo-caption" class="visually-hidden">Convergence Human & Technology - Logotype officiel</div>
+<div id="logo-description" class="visually-hidden">Le logo de Convergence Human & Technology représente une silhouette humaine stylisée, entourée de connexions neurales lumineuses formant un anneau. Les couleurs utilisées sont le cyan et le blanc sur fond sombre. 
+Le cercle symbolise l'unité et la complétude. Les liaisons fonctionnelles et structurelles (synapses, réseaux neuronaux, interconnexions cérébrales) entre neurones permettant la transmission de l'information représentent la technologie et l'intelligence artificielle. L'ensemble exprime la convergence harmonieuse entre l'humain et la technologie.
+</div>
+
+
 </div><!-- fin .logo-wrapper -->
+
+
+
 
 <!-- ═══════════════════════════════════════════════════════
 TAGLINE - Courte phrase centrée sous le logo
