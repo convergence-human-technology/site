@@ -2483,7 +2483,7 @@ i, em, cite, dfn {
       /* peut être plus grand sans risque de débordement.                  */
       h1 { font-size: clamp(1.25rem, 1.6vw, 1.75rem); } /* Légèrement plus grand sur TV */
       .global { padding: 60px 50px 70px; }
-      .logo-wrapper { width: 340px; height: 340px; } /* Logo légèrement plus grand */
+      .logo-wrapper { width: 310px; height: 310px; } /* Logo légèrement plus grand */
     }
 
 
