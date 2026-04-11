@@ -2500,6 +2500,14 @@ i, em, cite, dfn {
     text-align: center !important;
   }
 }
+/* HACK MANUEL - Position pour hero-tagline à partir de 1500px */
+@media screen and (min-width: 1500px) {
+  .hero-tagline {
+    position: relative !important;
+    bottom: -260px !important;  /* Descend de 260px vers le bas */
+    text-align: center !important;
+  }
+}
 
 
 
