@@ -2485,6 +2485,17 @@ i, em, cite, dfn {
       .global { padding: 60px 50px 70px; }
       .logo-wrapper { width: 310px; height: 310px; } /* Logo légèrement plus grand */
     }
+/* HACK MANUEL - Correction centrage logo pour grands écrans */
+@media screen and (min-width: 1600px) {
+  .logo-wrapper {
+    transform: translate(26px, 60px) !important;
+  }
+}
+
+
+
+
+
 
 
     /* ── Écrans 4K (3840×2160) et 5K (5120×2880) ── */
