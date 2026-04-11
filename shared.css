@@ -2487,8 +2487,17 @@ i, em, cite, dfn {
     }
 /* HACK MANUEL - Correction centrage logo pour grands écrans */
 @media screen and (min-width: 1600px) {
+  .hero-logo {
+    position: relative !important;
+  }
+  
   .logo-wrapper {
-    transform: translate(26px, 60px) !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(calc(-50% + 26px), calc(-50% + 60px)) !important;
+    margin: 0 !important;
+    text-align: center !important;
   }
 }
 
