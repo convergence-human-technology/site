@@ -2628,24 +2628,38 @@ sans aucune dépendance externe (sauf le bouton DYS optionnel qui charge OpenDys
 
 
 
-/* CORRECTION CENTRAGE LOGO - SOLUTION ROBUSTE */
+/* CORRECTION FORCÉE CENTRAGE LOGO */
 .hero-logo {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
-  padding-top: 0 !important;  /* ← Temporaire pour tester */
+  width: 100% !important;
+  text-align: center !important;
 }
 
 .logo-wrapper {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 310px !important;
   margin: 0 auto !important;
-  text-align: center !important;
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
 }
 
 picture.logo-img {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+/* Force le centrage sur l'image elle-même */
+picture.logo-img img {
   display: block !important;
   margin: 0 auto !important;
-  text-align: center !important;
 }
 
 
