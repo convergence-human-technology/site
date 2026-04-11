@@ -2481,10 +2481,12 @@ i, em, cite, dfn {
       /* Sur TV et grands écrans, le clamp() a plafonné à 1.75rem.         */
       /* On autorise un peu plus ici : le contenant est large, le texte    */
       /* peut être plus grand sans risque de débordement.                  */
-      h1 { font-size: clamp(1.25rem, 1.6vw, 1.75rem); } /* Légèrement plus grand sur TV */
-      .global { padding: 60px 50px 70px; }
-      .logo-wrapper { width: 340px; height: 340px; } /* Logo légèrement plus grand */
-    }
+
+  h1 { font-size: clamp(1.25rem, 1.6vw, 1.75rem); } /* Légèrement plus grand sur TV */
+  .global { padding: 60px 50px 70px; }
+  /* .logo-wrapper { width: 340px; height: 340px; } /* Logo légèrement plus grand */ /* ← COMMENTEZ CETTE LIGNE */
+}
+
 
     /* ── Écrans 4K (3840×2160) et 5K (5120×2880) ── */
     @media screen and (min-width: 2560px) {
