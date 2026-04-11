@@ -2540,8 +2540,8 @@ i, em, cite, dfn {
       /* h1 : à 980px, 3.2vw = 31.4px → dans les limites du clamp — pas d'override nécessaire */
     }
 
-    /* ── Menu mobile + téléphones horizontaux (jusqu'à 768px) ── */
-    @media screen and (max-width: 768px) {
+    /* ── Menu mobile + téléphones horizontaux (jusqu'à 1400px) ── */
+    @media screen and (max-width: 1400px) {
 
       /* Le bouton hamburger devient visible */
       .nav-hamburger-btn {
