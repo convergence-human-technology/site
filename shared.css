@@ -2481,11 +2481,10 @@ i, em, cite, dfn {
       /* Sur TV et grands écrans, le clamp() a plafonné à 1.75rem.         */
       /* On autorise un peu plus ici : le contenant est large, le texte    */
       /* peut être plus grand sans risque de débordement.                  */
-
-  h1 { font-size: clamp(1.25rem, 1.6vw, 1.75rem); } /* Légèrement plus grand sur TV */
-  .global { padding: 60px 50px 70px; }
-  /* .logo-wrapper { width: 340px; height: 340px; } /* Logo légèrement plus grand */ /* ← COMMENTEZ CETTE LIGNE */
-}
+      h1 { font-size: clamp(1.25rem, 1.6vw, 1.75rem); } /* Légèrement plus grand sur TV */
+      .global { padding: 60px 50px 70px; }
+      .logo-wrapper { width: 340px; height: 340px; } /* Logo légèrement plus grand */
+    }
 
 
     /* ── Écrans 4K (3840×2160) et 5K (5120×2880) ── */
@@ -2622,27 +2621,6 @@ sans aucune dépendance externe (sauf le bouton DYS optionnel qui charge OpenDys
 @supports (font-variation-settings: normal) {body {font-family: "Verdana", "Tahoma", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;   font-weight: 450; /* Entre normal et bold : idéal DYS */}}
 
 
-
-
-
-
-
-
-/* ═══════════════════════════════════════════════════
-   CORRECTION DÉFINITIVE — CENTRAGE LOGO
-   align-self sur le flex item = plus fiable que
-   align-items sur le parent
-   ═══════════════════════════════════════════════════ */
-.hero-logo {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-.logo-wrapper {
-  align-self: center !important;
-}
 
 
 /* ====================================================================
