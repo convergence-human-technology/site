@@ -478,35 +478,6 @@ intégrations sociales. -->
 
 
 <body>
-<!-- ══════════════════════════════════════════════════════════════════════
-BODY - Corps de la page Contient dans l'ordre :
-1. Loader plein écran (3s) - 2. Skip link accessibilité - 3. Métadonnées accessibilité - 4. Bouton hamburger mobile (séparé du nav) - 5. Navigation principale 
-- 6. Fil d'Ariane - 7. Section hero avec logo - 8. Contenu principal (main) + .global ajouté - 9. Section FAQ - 10. Script Auth0 - 11. Scripts JS loader + hamburger + halo
-══════════════════════════════════════════════════════════════════════ -->
-
-<!-- Commentaires conditionnels pour cibler différentes versions d'Internet Explorer (IE).
-1. Commentaires Conditionnels
-Les commentaires conditionnels sont une méthode utilisée principalement par Internet Explorer pour appliquer des styles ou du contenu différent en fonction de la version 
-du navigateur. Ils permettent de s'assurer que le code s'affiche correctement sur des versions spécifiques d'IE, qui ont souvent des comportements différents des autres 
-navigateurs.
- - A. Alerte pour les navigateurs obsolètes (IE < 4 et IE < 5) [if lt IE 4] [if lt IE 5]
-Cible : Ces deux blocs s'adressent aux utilisateurs de versions d'IE 4 et 5 ou inférieures.
-Contenu : Ils affichent un message d'alerte indiquant que l'utilisateur utilise un navigateur obsolète et lui suggèrent de le mettre à jour pour améliorer son expérience.
-Accessibilité : Les attributs role="alert" et aria-live="assertive" assurent que le message est accessible aux lecteurs d'écran, signalant aux utilisateurs malvoyants qu'un 
-changement est survenu.
- - B. Script pour la transparence PNG (IE < 7) [if lt IE 7]
-Cible : Ce bloc s'adresse aux utilisateurs de versions d'IE inférieures à 7.
-Fonctionnalité : Les versions d'IE 6 et antérieures ne gèrent pas correctement la transparence des images PNG. Ce script utilise une bibliothèque JavaScript (jQuery) pour 
-corriger ce problème en appliquant un correctif (ifixpng) qui permet de rendre les images PNG transparentes de manière appropriée.
-Exécution : Le script est exécuté lorsque le document est prêt, ce qui signifie que le DOM est entièrement chargé.
-***
-Ces extraits de code représentent des solutions spécifiques pour gérer des problèmes de compatibilité avec les anciennes versions d'Internet Explorer. Bien que ces techniques 
-aient été utiles à une époque où IE dominait le paysage des navigateurs, elles sont devenues moins courantes avec l'évolution des standards web et l'adoption généralisée de 
-navigateurs modernes qui respectent mieux les normes. Aujourd'hui, il est souvent conseillé de se concentrer sur des pratiques de développement responsive et de qualité, 
-plutôt que de passer du temps sur des solutions dédiées aux anciens navigateurs. -->
-
-
-
 <!--[if lt IE 4]><p class="oldIE4" role="alert" aria-live="assertive">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/"> upgrade your browser</a> to improve your experience.</p><![endif]-->
 <!--[if lt IE 5]><p class="oldIE5" role="alert" aria-live="assertive">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/"> upgrade your browser</a> to improve your experience.</p><![endif]-->
 
