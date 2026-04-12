@@ -298,7 +298,7 @@ Sur index h2 n'existe que dans la FAQ. Sur les sous-pages les h2 sont des sous-t
 .global h4 {
   font-size: clamp(1rem, 2vw, 1.4rem); /* Responsive comme h1 */
   font-weight: 600;                    /* Semi-gras */
-  color: rgba(255, 255, 255, 0.90);    /* Blanc quasi pur */
+  color: #1A1C1E;                   /* noir quasi pur */
   text-align: left;
   letter-spacing: 0.06em;              /* Espacement léger */
   text-transform: uppercase;           /* Majuscules */
@@ -310,7 +310,7 @@ Sur index h2 n'existe que dans la FAQ. Sur les sous-pages les h2 sont des sous-t
 .global h3 {
   font-size: clamp(0.9rem, 1.5vw, 1.15rem); /* Légèrement plus petit que h2 */
   font-weight: 600;
-  color: #4dd4f0;                           /* Cyan de la charte */
+  color: #1A1C1E;                   /* noir quasi pur */
   text-align: left;
   margin: 16px 0 4px;
 }
@@ -362,8 +362,8 @@ Les liens (GitHub, LinkedIn, email...) doivent être visibles. */
 /* ── strong dans le contenu ──────────────────────────────────────
 Les <strong> servent à mettre en valeur des noms, titres, labels. */
 .global strong {
-  color: rgba(255, 255, 255, 0.95); /* Presque blanc pur */
-  font-weight: 600;                 /* Semi-gras */
+  color: #1A1C1E;                   /* noir quasi pur */
+  font-weight: normal;
 }
 
 /* ── em / italic ─────────────────────────────────────────────────
@@ -682,6 +682,7 @@ Angles droits (border-radius:0). Hérité de l'index.
 .flow - Probalize.css : espacement automatique entre enfants.
 ══════════════════════════════════════════════════════════════ -->
   <div class="global flow">
+    <div class="article-card">
 
     <h1>Abonnement VIP &amp; Tarifs</h1>
     <p>Bienvenue sur la page des offres de <strong>Convergence Human &amp; Technology</strong>. Retrouvez ici nos différentes formules d'ouvertures à nos logiciels et solutions informatiques, conçues pour les professionnels comme pour les particuliers.</p>
@@ -739,6 +740,7 @@ Angles droits (border-radius:0). Hérité de l'index.
     <h4>Contact</h4>
     <p>Pour toute question relative sur nos offres et tarifs contactez-nous : <strong>convergence-tech@proton.me</strong></p>
 
+  </div><!-- fin .article-card -->
   </div><!-- fin .global -->
 
 </main><!-- fin #main-content -->
