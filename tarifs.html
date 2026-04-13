@@ -398,19 +398,11 @@ responsives (ordre : 1 an → 3 ans → 5 ans), avec un lien cliquable pour l'ad
 ════════════════════════════════════════════════════════════════ */
 
 /* Conteneur des trois offres — grille responsive */
-.offers-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colonnes fixes sur desktop */
-  gap: 24px;
-  margin-top: 32px;
-  margin-bottom: 16px;
-  width: 100%;
-  box-sizing: border-box;
-}
+.offers-grid {display: grid; grid-template-columns: repeat(3, 1fr); /* 3 colonnes fixes sur desktop */ gap: 24px; margin-top: 32px; margin-bottom: 16px; width: 100%; box-sizing: border-box;}
 
 /* Carte individuelle — identique à .skill-card de fabien-conejero */
 .offer-card {
-  background: rgb(89, 169, 223);
+  background: #5e8a9b;
   border: 1px solid rgba(77, 212, 240, 0.15);
   border-left: 3px solid rgba(77, 212, 240, 0.60);
   border-radius: 0;
@@ -429,7 +421,7 @@ responsives (ordre : 1 an → 3 ans → 5 ans), avec un lien cliquable pour l'ad
 
 /* Survol des cartes — identique à .skill-card:hover */
 .offer-card:hover {
-  background: rgb(114, 196, 250);
+  background: #7daec2;
   border-left-color: #4dd4f0;
   box-shadow: 0 0 20px rgba(77, 212, 240, 0.12);
 }
@@ -482,17 +474,10 @@ responsives (ordre : 1 an → 3 ans → 5 ans), avec un lien cliquable pour l'ad
 }
 
 /* Adaptation pour petits écrans : le texte du bouton peut passer à la ligne */
-@media screen and (max-width: 480px) {
-  .offer-button {
-    white-space: normal; /* Autorise le retour à la ligne sur très petits écrans */
-    padding: 10px 12px;
-    font-size: 0.7rem;
-  }
-}
-
+@media screen and (max-width: 480px) {.offer-button {white-space: normal; /* Autorise le retour à la ligne sur très petits écrans */ padding: 10px 12px; font-size: 0.7rem;}}
 .offer-button:hover, 
 .offer-button:focus {
-  background: rgba(77, 212, 240, 0.25);
+  background: rgb(0, 24, 46);
   border-color: #4dd4f0;
   color: #7be8ff;
   box-shadow: 0 0 12px rgba(77, 212, 240, 0.20);
@@ -509,71 +494,26 @@ responsives (ordre : 1 an → 3 ans → 5 ans), avec un lien cliquable pour l'ad
 RESPONSIVE : tablette (768px - 1024px)
 ================================================================ */
 @media screen and (max-width: 1024px) and (min-width: 769px) {
-  .offers-grid {
-    gap: 20px; /* Réduction de l'espace entre cartes */
-  }
-  .offer-card {
-    padding: 20px 16px;
-  }
-  .offer-title {
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-  }
-  .offer-description {
-    font-size: 0.8rem;
-    line-height: 1.5;
-  }
-}
+.offers-grid {gap: 20px; /* Réduction de l'espace entre cartes */}
+.offer-card {padding: 20px 16px;}.offer-title {font-size: 0.85rem;letter-spacing: 0.05em;}.offer-description {font-size: 0.8rem;line-height: 1.5;}}
 
 /* ================================================================
 RESPONSIVE : mobile (≤ 768px) — passage en colonne unique
 ================================================================ */
 @media screen and (max-width: 768px) {
-  .offers-grid {
-    grid-template-columns: 1fr; /* Une seule colonne sur mobile */
-    gap: 28px;                   /* Espace vertical suffisant */
-  }
-  .offer-card {
-    padding: 20px 18px;
-  }
-  .offer-title {
-    font-size: 0.9rem;
-  }
-  .offer-description {
-    font-size: 0.85rem;
-  }
-}
+.offers-grid {grid-template-columns: 1fr; /* Une seule colonne sur mobile */ gap: 28px; /* Espace vertical suffisant */}
+.offer-card {padding: 20px 18px;} .offer-title {font-size: 0.9rem;} .offer-description {font-size: 0.85rem;}}
 
 /* ================================================================
 RESPONSIVE : très petits écrans (≤ 480px)
 ================================================================ */
-@media screen and (max-width: 480px) {
-  .offers-grid {
-    gap: 24px;
-  }
-  .offer-card {
-    padding: 18px 14px;
-  }
-  .offer-title {
-    font-size: 0.85rem;
-    letter-spacing: 0.04em;
-  }
-  .offer-description {
-    font-size: 0.8rem;
-    line-height: 1.5;
-  }
-}
+@media screen and (max-width: 480px) {.offers-grid {gap: 24px;} .offer-card {padding: 18px 14px;} .offer-title {font-size: 0.85rem;letter-spacing: 0.04em;} .offer-description {font-size: 0.8rem;line-height: 1.5;}}
 
 </style>
 
 <meta name="google-site-verification" content="jsM_hxlBkNDburSyR0zaPNGTkc7KiiKV6MF8agHrclo" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HXMKJM1CS5"></script> 
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-HXMKJM1CS5');
-</script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-HXMKJM1CS5');</script>
 
 </head>
 
