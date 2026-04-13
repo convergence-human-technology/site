@@ -180,6 +180,7 @@
 
 -->
 
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -291,13 +292,15 @@
 <meta itemprop="openingHours" content="Sa 00:00-00:00" />
 <meta itemprop="openingHours" content="Su 00:00-00:00" />
 <meta itemprop="openingHours" content="Mo 00:00-00:00" />
- 
+
 <link rel="same-as" href="https://www.wikidata.org/wiki/Q138859130" />
 <link rel="same-as" href="https://www.wikidata.org/wiki/Q138859337" />
 <meta name="fediverse:creator" content="@fc84@mastodon.social" />
 <link rel="me" href="https://mastodon.social/@fc84" />
 <link rel="same-as" href="https://medium.com/@fabien-conejero" />
 <link rel="same-as" href="https://medium.com/@fabien-conejero/fabien-con%C3%A9j%C3%A9ro-1a0efc37ebbd?postPublishedType=repub" />
+
+
 
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://convergence-human-technology.github.io/site/#organization","name":"Convergence Human & Technology","alternateName":["Convergence H&T","CHT"],"url":"https://convergence-human-technology.github.io/site/",
     "description":"Convergence conçoit et commercialise des logiciels PC et solutions informatiques uniques, destinés aux professionnels et aux particuliers (B2B & B2C). Des concepts inédits, toujours en avance sur leur temps.","founder":{"@type":"Person","name":"Fabien Conéjéro",
@@ -319,7 +322,7 @@
     l'adresse : convergence-tech@proton.me"}},{"@type":"Question","name":"Qu'est-ce que l'abonnement VIP Convergence ?","acceptedAnswer":{"@type":"Answer","text":"L'abonnement VIP Convergence donne aux abonnés un accès exclusif aux applications logicielles payantes de Convergence et aux solutions IT premium. Les détails des 
     offres et des tarifs sont disponibles sur la page Abonnement VIP & Tarifs."}}]}</script>
 
- <!--[if lt IE 9]>
+  <!--[if lt IE 9]>
     <script>
       document.createElement('header');   /* Crée la balise header pour IE8 */
       document.createElement('section');  /* Crée la balise section pour IE8 */
@@ -328,7 +331,7 @@
       document.createElement('nav');      /* Crée la balise nav pour IE8 */
       document.createElement('main');     /* Crée la balise main pour IE8 */
     </script>
- <![endif]-->
+  <![endif]-->
 
 <script type="text/javascript">document.documentElement.className=document.documentElement.className.replace('no-js','');(function(){var htmlClass='';var ua=navigator.userAgent;var screenWidth=screen.width;var screenHeight=screen.height;var devicePixelRatio=window.devicePixelRatio||1;
 // ============================================
@@ -408,7 +411,7 @@ Avantages : - Chargement en cache pour toutes les pages du site - Un seul endroi
 <!-- 2. OpenDyslexic - police optionnelle (activée par JS) -->
 <link rel="stylesheet" href="css/02-dyslexic-mode.css" type='text/css' data-infos="typographie OpenDyslexic pour le site - @see : JS (local storage)" />
 <!-- 3. Styles visuels (dégradé, menu, loader, FAQ, etc.) -->
-<link rel="stylesheet" href="shared.css" type='text/css' />
+<link rel="stylesheet" href="file:///C:/Users/Anonymous/Desktop/test-shared.css" type='text/css' />
 <!-- 4. Corrections pour vieux IE (ne s'applique qu'aux classes old-ie) -->
 <link rel="stylesheet" href="old-ie.css" type='text/css' data-infos="typographie Web Safe Fonts : typographies sécurisées pour le Web. Ces polices sont pré-installées sur la quasi-totalité des systèmes d'exploitation (Windows, macOS, iOS, Android)" />
 
@@ -584,46 +587,55 @@ Couvre toute la page pendant le chargement complet du DOM, des images et des scr
   </nav>
 
 
+
+
+
 <!-- ════════════════════════════════════════════════════════════════
-★ SECTION HERO - LOGO CENTRÉ HORIZONTALEMENT ET VERTICALEMENT ★
-   @see : DOCUMENTATION-ALL-IMG-SITE-CONVERGENCE.txt
-════════════════════════════════════════════════════════════════ -->
-<section class="hero-logo" aria-label="Logo Convergence Human and Technology">
-<div class="logo-wrapper" itemprop="name" itemscope itemtype="https://schema.org/brand" typeof="foaf:logo">
-<div id="halo-ring" aria-hidden="true"></div>
+       ★ SECTION HERO — LOGO CENTRÉ HORIZONTALEMENT ET VERTICALEMENT ★
+           @see : DOCUMENTATION-ALL-IMG-SITE-CONVERGENCE.txt
+       ════════════════════════════════════════════════════════════════
+       Cette section occupe 100% de la hauteur de la fenêtre (100vh).
+       Le logo est centré en son milieu grâce au flexbox.
+       Le halo animé (anneau lumineux) entoure le cercle du logo.
+       ════════════════════════════════════════════════════════════════ -->
+  <section class="hero-logo" aria-label="Logo Convergence Human and Technology">
 
-<!-- ── Logo Convergence ─────────────────────────────────────── -->
-<picture class="logo-img" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+    <!-- Wrapper relatif : référence pour le positionnement absolu du halo -->
+    <div class="logo-wrapper" itemprop="name" itemscope itemtype="https://schema.org/brand" typeof="foaf:logo">
+
+      <!-- ── Anneau de halo animé ────────────────────────────────────
+           Positionné en absolu, centré sur le logo.
+           Invisible par défaut (box-shadow:none au repos).
+           JavaScript ajoute la classe .halo-active après 3 secondes
+           (fin du loader) pour déclencher l'animation pulse.
+           Cycle : 10s actif → 50s pause → 10s actif → ...
+      ─────────────────────────────────────────────────────────────── -->
+      <div id="halo-ring" aria-hidden="true"></div>
+
+      <!-- ── Logo Convergence ───────────────────────────────────────
+           Image PNG du logo (logo-convergence.png dans le même dossier).
+           alt = texte alternatif pour l'accessibilité et le SEO.
+           z-index: 2 → au-dessus du halo (z-index: 1)
+      ─────────────────────────────────────────────────────────────── -->
+
+
+
+<picture itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
 <meta itemprop="name" content="Convergence Human & Technology - Logotype officiel">
-<meta itemprop="width" content="620"><meta itemprop="height" content="620">
-<meta itemprop="contentUrl" content="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-620px.png">
+<meta itemprop="width" content="310"><meta itemprop="height" content="310">
+<meta itemprop="contentUrl" content="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence.png">
 <meta itemprop="description" content="Logo représentant une silhouette humaine stylisée entourée de connexions neurales lumineuses formant un cercle. Symbolise la convergence entre l'humain et la technologie. Fond sombre, traits cyan et blancs.">
-
-<source srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-310px.jxl 310w, 
-                https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-620px.jxl 620w,
-                https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-1240px.jxl 1240w" sizes="(min-width: 6000px) and (min-height: 6000px) 620px, 310px" type="image/jxl" media="(prefers-reduced-data: no-preference)">
-<source srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-310px.jxl" type="image/jxl" media="(prefers-reduced-data: reduce)">
-<source srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-310px.avif 310w, 
-                https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-620px.avif 620w,
-                https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-1240px.avif 1240w" sizes="(min-width: 6000px) and (min-height: 6000px) 620px, 310px" type="image/avif">
-<source srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-310px.webp 310w,
-                https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-620px.webp 620w,
-                https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-1240px.webp 1240w" sizes="(min-width: 6000px) and (min-height: 6000px) 620px, 310px" type="image/webp">
-<source srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-310px.png 310w,
-                https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-620px.png 620w,
-                https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-1240px.png 1240w" sizes="(min-width: 6000px) and (min-height: 6000px) 620px, 310px" type="image/png">
-<img src="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-620px.jpg" 
-     srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-310px.jpg 310w,
-             https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-620px.jpg 620w,
-             https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-HT-1240px.jpg 1240w" sizes="(min-width: 6000px) and (min-height: 6000px) 620px, 310px" type="image/jpg" role="img" aria-labelledby="logo-caption" aria-describedby="logo-description"
-     title="logotype Convergence Human & Technology - png - index / FR" alt="Logo Convergence Human and Technology - Silhouette humaine stylisée entourée de connexions neurales lumineuses dans un cercle. Symbole de la convergence entre l'humain et la technologie." width="310" height="310" loading="eager" typeof="foaf:Image" tabindex="0" lang="fr">
+<source srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-1024px.jxl" type="image/jxl" width="310" height="310">
+<source srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-1024px.avif" type="image/avif" width="310" height="310">
+<source srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-1024px.webp" type="image/webp" width="310" height="310">
+<img class="logo-img" src="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-1024px.png" width="310" height="310" loading="eager" type="image/png" role="img" aria-labelledby="logo-caption" aria-describedby="logo-description"
+title="logotype Convergence Human & Technology - png - index / FR" alt="Logo Convergence Human and Technology - Silhouette humaine stylisée entourée de connexions neurales lumineuses dans un cercle. Symbole de la convergence entre l'humain et la technologie." typeof="foaf:Image" tabindex="0" lang="fr" />
 </picture>
 
 <div id="logo-caption" class="visually-hidden">Convergence Human & Technology - Logotype officiel</div>
 <div id="logo-description" class="visually-hidden">Le logo de Convergence Human & Technology représente une silhouette humaine stylisée, entourée de connexions neurales lumineuses formant un anneau. Les couleurs utilisées sont le cyan et le blanc sur fond sombre. 
 Le cercle symbolise l'unité et la complétude. Les liaisons fonctionnelles et structurelles (synapses, réseaux neuronaux, interconnexions cérébrales) entre neurones permettant la transmission de l'information représentent la technologie et l'intelligence artificielle. L'ensemble exprime la convergence harmonieuse entre l'humain et la technologie.
 </div>
-
 
 </div><!-- fin .logo-wrapper -->
 
@@ -632,7 +644,7 @@ Le cercle symbolise l'unité et la complétude. Les liaisons fonctionnelles et s
 
 <!-- ═══════════════════════════════════════════════════════
 TAGLINE - Courte phrase centrée sous le logo
-════════════════════════════════════════════════════════════
+@see : DOCUMENTATION-ALL-IMG-SITE-CONVERGENCE.txt
 .hero-tagline = style défini dans shared.css
 ════════════════════════════════════════════════════════════ -->
 <p class="hero-tagline">Des concepts inédits, toujours en avance sur leur temps</p>
@@ -656,7 +668,7 @@ NOTA : le contenu textuel original (h1, p, div#auth-buttons) est conservé mot p
 
 
 <!-- ═══════════════════════════════════════════════════════
-DIV ALPHA .global - HÉRITÉE DE CONVERGENCE-CERCLE-PARFAIT
+DIV ALPHA .global
 ════════════════════════════════════════════════════════════
 Overlay noir semi-transparent (haut opaque → bas transparent) par-dessus le dégradé radial. Angles droits (border-radius: 0). Contient le contenu textuel original de l'index + la description de l'entreprise en anglais (remplace le texte de démonstration de la page cercle-parfait).
 CLASSE AJOUTÉE : .flow (Probalize.css — Lobotomized Owl Selector)
@@ -922,7 +934,7 @@ var faqBtns=document.querySelectorAll('.faq-question-btn');/* Parcourt chaque bo
 for(var j=0;j<faqBtns.length;j++){faqBtns[j].addEventListener('click',function(){/* Récupère le .faq-item parent (la div englobante) */
 var item=this.parentElement;/* Vérifie si cet item est déjà ouvert */
 var estOuvert=item.classList.contains('open');/* Option : ferme tous les autres items ouverts (accordéon exclusif) */
-/* Commentez les 5 lignes suivantes si vous voulez plusieurs ouverts */
+/* Commentez les 5 lignes suivantes si je veux plusieurs ouverts */
 var tousLesItems=document.querySelectorAll('.faq-item');for(var k=0;k<tousLesItems.length;k++){tousLesItems[k].classList.remove('open');/* Ferme tous */
 tousLesItems[k].querySelector('.faq-question-btn').setAttribute('aria-expanded','false');/* Accessibilité */}
 /* Si l'item cliqué n'était PAS ouvert, on l'ouvre */
