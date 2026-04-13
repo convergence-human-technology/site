@@ -72,8 +72,8 @@
     /* ====================================================================
 
        ╔══════════════════════════════════════════════════════════════════╗
-       ║  TRAVAIL SUR LE DÉGRADÉ : TOUJOURS D'UNE FORME CIRCULAIRE       ║
-       ║  (LE CERCLE PARFAIT) SUR TOUS LES ÉCRANS                        ║
+       ║  TRAVAIL SUR LE DÉGRADÉ : TOUJOURS D'UNE FORME CIRCULAIRE        ║
+       ║  (LE CERCLE PARFAIT) SUR TOUS LES ÉCRANS                         ║
        ╚══════════════════════════════════════════════════════════════════╝
 
        Objectif : rendre le dégradé toujours d'une forme circulaire
@@ -142,9 +142,7 @@
        ==================================================================== */
 
 
-
 :root {--font-accessible: "Verdana", "Tahoma", "Helvetica", "Arial", "Lucida Sans", "Century Gothic", sans-serif;}
-
 
 
 
@@ -152,21 +150,12 @@
        BALISE HTML
        ====================================================================
        - Sert de conteneur racine : doit occuper au moins 100% de la fenêtre
-       - position:relative est indispensable pour que le pseudo-élément
-         ::before (solution cercle parfait) puisse se positionner
-         correctement en arrière-plan avec z-index
+       - position:relative est indispensable pour que le pseudo-élément ::before (solution cercle parfait) puisse se positionner correctement en arrière-plan avec z-index
        ==================================================================== */
     html {
-    
     /* LISSAGE DES POLICES : CRITIQUE POUR DYS */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-     text-rendering: geometricPrecision;
-
-      min-height: 100%;            /* Hauteur minimale = hauteur complète de la fenêtre */
-      position: relative;          /* REQUIS : active le contexte de positionnement
-                                      pour le pseudo-élément ::before ci-dessous */
-    }
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: geometricPrecision;
+      min-height: 100%; /* Hauteur minimale = hauteur complète de la fenêtre */ position: relative; /* REQUIS : active le contexte de positionnement pour le pseudo-élément ::before ci-dessous */}
 
 
     /* ====================================================================
@@ -202,8 +191,7 @@
       /* ------------------------------------------------------------------
          DIMENSIONS
       ------------------------------------------------------------------ */
-      min-height: 100%;            /* Hauteur minimale = fenêtre complète */
-      width: 100%;                 /* Largeur pleine */
+      min-height: 100%; /* Hauteur minimale = fenêtre complète */ width: 100%; /* Largeur pleine */
 
       /* ------------------------------------------------------------------
          FOND — FALLBACK POUR NAVIGATEURS NE SUPPORTANT PAS ::before
@@ -269,8 +257,8 @@
       background-attachment: fixed;
 
       /* Le dégradé couvre toujours tout l'écran quelle que soit la résolution */
-      background-size: cover;
-
+      background-size: cover; 
+    
     } /* fin body */
 
 
@@ -280,46 +268,34 @@
    ==================================================================== */
 
 /* 1. Espacement des mots pour DYS */
-body, p, li, .faq-answer p {
-  word-spacing: 0.16em;
-}
+body, p, li, .faq-answer p {word-spacing: 0.16em;}
 
 /* 2. Aucun texte en italique (sauf exceptions explicites).
 Correct pour l'accessibilité DYS (l'italique fait "vibrer" les lettres)*/
 i, em, cite, dfn {
   font-style: normal;  /* Supprime l'italique par défaut */
   /* Option : ajoutez plutôt un léger changement de couleur ou un soulignement */
-  color: #7be8ff;
-  font-weight: 500;
-}
+  color: #7be8ff; font-weight: 500;}
 
 /* 3. Pas de majuscules longues (sauf pour les titres courts) */
 /* La classe .ttu (Globalize) existe déjà — on s'assure qu'elle ne soit pas */
 /* utilisée sur des blocs de texte longs > 5 mots. */
-.ttu {
-  text-transform: uppercase;
-  /* Limite d'usage : réservée aux titres courts (< 50px) */
-}
+.ttu { text-transform: uppercase; /* Limite d'usage : réservée aux titres courts (< 50px) */}
 
 /* 4. Le gras reste lisible — pas de modification nécessaire */
 /* Le gras actuel est déjà bien géré par font-weight: 700 sur h1, etc. */
 
-/* 5. L'utilisateur contrôle le zoom — DÉJÀ OK dans votre meta viewport */
+/* 5. L'utilisateur contrôle le zoom — DÉJÀ OK dans ma meta viewport */
 /* Vérifiez que index.html contient bien : */
 /* <meta name="viewport" content="width=device-width, initial-scale=1.0"> */
 /* (SANS user-scalable=no ni maximum-scale=1.0) */
 
 
-
-
-
-
-
     /* ====================================================================
 
        ╔══════════════════════════════════════════════════════════════════╗
-       ║  SOLUTION CERCLE PARFAIT — TOUTES TAILLES D'ÉCRAN               ║
-       ║  Mobile · Tablette · PC · TV · TV HD · 4K · 5K · Ultrawide      ║
+       ║  SOLUTION CERCLE PARFAIT — TOUTES TAILLES D'ÉCRAN                ║
+       ║  Mobile · Tablette · PC · TV · TV HD · 4K · 5K · Ultrawide       ║
        ╚══════════════════════════════════════════════════════════════════╝
 
        POURQUOI LE DÉGRADÉ SE DÉFORME-T-IL EN ELLIPSE ?
@@ -647,28 +623,14 @@ i, em, cite, dfn {
        sur une règle précédente ciblant le même élément avec la même
        spécificité. C'est le principe de la "cascade" en CSS.
        ==================================================================== */
-    body {
-      max-width: none !important;  /* Annule max-width:800px — le fond doit être plein écran */
-      margin: 0   !important;      /* Annule margin:50px auto — pas de centrage du body */
-      text-align: left !important; /* Annule text-align:center du body (géré div par div) */
-    }
-
+    body {max-width: none !important; /* Annule max-width:800px — le fond doit être plein écran */ margin: 0   !important; /* Annule margin:50px auto — pas de centrage du body */ text-align: left !important; /* Annule text-align:center du body (géré div par div) */}
 
 
 /* Styles spécifiques aux boutons Auth0 */
-  button {
-    padding: 10px 20px;
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    border: none;
-    font-size: 16px;
-    color: white;
-  }
+  button {padding: 10px 20px; margin: 10px; cursor: pointer; border-radius: 5px; border: none; font-size: 16px; color: white;}
   #btn-login { background: #635DFF; }
   #btn-membres { background: #28a745; }
   #btn-logout { background: #dc3545; }
-
 
 
     /* ====================================================================
@@ -728,12 +690,8 @@ i, em, cite, dfn {
     }
 
     /* Keyframes de la rotation du spinner */
-    @-webkit-keyframes loaderSpin {
-      to { -webkit-transform: rotate(360deg); }  /* Un tour complet, préfixe WebKit */
-    }
-    @keyframes loaderSpin {
-      to { transform: rotate(360deg); }           /* Un tour complet, standard */
-    }
+    @-webkit-keyframes loaderSpin {to { -webkit-transform: rotate(360deg); }  /* Un tour complet, préfixe WebKit */}
+    @keyframes loaderSpin {to { transform: rotate(360deg); } /* Un tour complet, standard */}
 
     /* ── Texte sous le spinner ───────────────────────────────────────── */
     .loader-text {
@@ -745,19 +703,11 @@ i, em, cite, dfn {
       text-transform: uppercase;   /* Tout en majuscules */
       color: rgba(77, 212, 240, 0.55); /* Cyan atténué */
       /* Animation de clignotement doux pour signaler l'activité */
-      -webkit-animation: loaderBlink 1.6s ease-in-out infinite;
-      animation: loaderBlink 1.6s ease-in-out infinite;
-    }
+      -webkit-animation: loaderBlink 1.6s ease-in-out infinite; animation: loaderBlink 1.6s ease-in-out infinite;}
 
     /* Keyframes du clignotement du texte */
-    @-webkit-keyframes loaderBlink {
-      0%, 100% { opacity: 0.55; }  /* Commence et finit atténué */
-      50%       { opacity: 1.00; } /* Milieu : pleine opacité */
-    }
-    @keyframes loaderBlink {
-      0%, 100% { opacity: 0.55; }
-      50%       { opacity: 1.00; }
-    }
+    @-webkit-keyframes loaderBlink {0%, 100% { opacity: 0.55; }  /* Commence et finit atténué */ 50% { opacity: 1.00; } /* Milieu : pleine opacité */}
+    @keyframes loaderBlink {0%, 100% { opacity: 0.55; } 50% { opacity: 1.00; }}
 
 
     /* ====================================================================
@@ -947,27 +897,24 @@ i, em, cite, dfn {
     /* ── Transformation en croix "X" quand le menu est ouvert ────────── */
     .nav-hamburger-btn.open span:nth-child(1) {
       /* Barre 1 : pivote +45° et descend pour rejoindre le centre */
-      -webkit-transform: translateY(7px) rotate(45deg);
-      transform: translateY(7px) rotate(45deg);
-    }
+      -webkit-transform: translateY(7px) rotate(45deg); transform: translateY(7px) rotate(45deg);}
     .nav-hamburger-btn.open span:nth-child(2) {
       opacity: 0;                  /* Barre 2 : disparaît (cache le segment central) */
     }
     .nav-hamburger-btn.open span:nth-child(3) {
       /* Barre 3 : pivote -45° et monte pour rejoindre le centre */
-      -webkit-transform: translateY(-7px) rotate(-45deg);
-      transform: translateY(-7px) rotate(-45deg);
-    }
+      -webkit-transform: translateY(-7px) rotate(-45deg); transform: translateY(-7px) rotate(-45deg);}
 
 
     /* ====================================================================
        SECTION HERO — LOGO CENTRÉ HORIZONTALEMENT ET VERTICALEMENT
+       @see : DOCUMENTATION-ALL-IMG-SITE-CONVERGENCE.txt
        ====================================================================
        Cette section occupe exactement 100% de la hauteur du viewport
        (100vh) et utilise flexbox pour centrer le logo en son milieu.
 
-       padding-top: 62px compense la hauteur de la barre de navigation
-       fixe (62px) pour que le logo soit vraiment centré dans la zone
+       padding-top: 190px compense la hauteur de la barre de navigation
+       fixe (190px) pour que le logo soit vraiment centré dans la zone
        visible restante.
        ==================================================================== */
     .hero-logo {
@@ -980,7 +927,7 @@ i, em, cite, dfn {
       -webkit-justify-content: center;
       justify-content: center;     /* ↕ CENTRAGE VERTICAL */
       min-height: 100vh;           /* Hauteur = pleine fenêtre */
-      padding-top: 62px;           /* Compense la barre de nav fixe de 62px */
+      padding-top: 190px;           /* Compense la barre de nav fixe de 190px */
       box-sizing: border-box;      /* Le padding est inclus dans les 100vh */
     }
 
@@ -1019,7 +966,7 @@ i, em, cite, dfn {
       height: 100%;                /* Occupe toute la hauteur du .logo-wrapper */
       object-fit: contain;         /* L'image garde ses proportions */
       position: relative;          /* Crée un contexte de positionnement */
-      z-index: 2;                  /* AU-DESSUS du halo-ring (z-index: 1) */
+      z-index: 2;                  /* AU-DESSUS du halo-ring (z-index: 2) */
     }
 
     /* ── Anneau de halo ──────────────────────────────────────────────── */
@@ -1151,31 +1098,73 @@ i, em, cite, dfn {
     } /* fin @keyframes haloPulse */
 
 
-    /* ====================================================================
-       DIV ALPHA .global — OVERLAY NOIR SUR LE FOND
-       ====================================================================
-       Cette div est héritée de convergence-degrade-cercle-parfait.html.
-       Elle crée un voile noir semi-transparent (top: 60% → bas: 0%)
-       par-dessus le dégradé, pour améliorer la lisibilité du texte.
 
-       MODIFICATION DEMANDÉE : border-radius: 0 (angles droits, pas arrondis)
-       Le reste est identique à la version cercle-parfait.
-       ==================================================================== */
-    .global {
-      
-  position: relative;
-  margin: 0 auto;
-  max-width: 880px;
-  width: 90%;
-  padding: 40px 20px;
-  box-sizing: border-box;
-  text-align: left;           /* ← UNE SEULE FOIS, PAS DE DOUBLON */
-  border-radius: 0;
 
-      /* ── Overlay noir semi-transparent — dégradé vertical ─────────
-         Améliore la lisibilité du texte sur le fond lumineux.
-         Noir opaque en haut → transparent en bas.
-         Toutes les syntaxes pour compatibilité maximale. */
+/* EXEMPLE DEMO / HELPER / Si Configuration du HALO ANIMATION autour du LOGO
+TRAVAIL EN COURS...
+
+Problème 2 : Halo non adaptatif
+Le spread du box-shadow est codé en dur à 55px dans les @keyframes. Sur un logo de 190px c'est trop gros, sur 420px trop petit.
+La solution : une variable CSS --halo-spread que je fais évoluer par breakpoint.
+Dans :root (déjà présent dans shared.css), ajoute la variable :
+css:root {
+  --halo-spread: 55px;  taille standard 310px }*/
+
+/*
+Dans les media queries existantes (celles qui changent .logo-wrapper), ajoute la variable :
+css@media screen and (max-width: 600px) {
+  /* logo 220px 
+  :root { --halo-spread: 38px; }
+}
+
+@media screen and (max-width: 380px) {
+  /* logo 190px 
+  :root { --halo-spread: 30px; }
+}
+
+@media screen and (max-width: 1400px) {
+  /* logo 260px 
+  :root { --halo-spread: 46px; }
+}
+
+@media screen and (min-width: 2560px) {
+  /* logo 420px 
+  :root { --halo-spread: 75px; }
+}
+Puis dans les deux @keyframes haloPulse (webkit + standard), remplace les 55px par la variable :
+css70% {
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 var(--halo-spread) rgba(77, 212, 240, 0.00);
+}
+100% {
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 0px rgba(77, 212, 240, 0.00);
+}
+(même chose dans @-webkit-keyframes haloPulse avec -webkit-box-shadow)
+
+Pourquoi ça fonctionne
+Le calcul du centrage devient :
+62px (padding-top) + espace libre / 2 = 62px + (100vh - 124px) / 2 = 50vh — centrage mathématiquement parfait, sur tous les écrans, sans aucune valeur manuelle.
+Les variables CSS dans les @keyframes sont lues à chaque frame d'animation dans tous les navigateurs modernes (Chrome 49+, Firefox 31+, Safari 9.1+), donc le spread s'adapte automatiquement à la taille réelle du logo.
+
+*/
+
+
+
+
+
+/* ====================================================================
+DIV ALPHA .global - OVERLAY NOIR SUR LE FOND
+====================================================================
+Cette div crée un voile noir semi-transparent (top: 60% → bas: 0%)
+par-dessus le dégradé, pour améliorer la lisibilité du texte.
+==================================================================== */
+.global {position: relative; margin: 0 auto; max-width: 880px; width: 90%; padding: 40px 20px; box-sizing: border-box; text-align: left; border-radius: 0;
+
+/* ── Overlay noir semi-transparent — dégradé vertical ─────────
+Améliore la lisibilité du texte sur le fond lumineux.
+Noir opaque en haut → transparent en bas.
+Toutes les syntaxes pour compatibilité maximale. */
 
       /* Firefox 3.6–15 (préfixe -moz-) */
       background: -moz-linear-gradient(
@@ -1201,112 +1190,49 @@ i, em, cite, dfn {
       /* IE6-9 : filtre dégradé vertical
          #99000000 = noir en notation ARGB avec alpha ≈ 60% (0x99 ÷ 255 = 60%)
          GradientType=0 = dégradé vertical (haut→bas) */
-      filter: progid:DXImageTransform.Microsoft.gradient(
-        startColorstr='#99000000',
-        endColorstr='#00000000',
-        GradientType=0
-      );
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#99000000', endColorstr='#00000000', GradientType=0);
 
 }
 /* Écrans ≥ 1600px : largeur 1450px */
-@media screen and (min-width: 1600px) {
-  .global {
-    max-width: 1450px;
-    width: 1450px;
-  }
-}
+@media screen and (min-width: 1600px) {.global {max-width: 1450px; width: 1450px;}}
 
-/* La carte blanche : C'est votre div-white-articles optimisée */
+/* La carte blanche : C'est la div-white-articles optimisée */
 .article-card {
-    background-color: #FDFCF8; /* Blanc cassé ivoire - Anti-halation */
-    color: #1A1C1E;            /* Noir profond mais pas 000 - Contraste ~18:1 > AAA */
-    padding: 50px 48px 70px;   /* Aération ++ */
-    border-radius: 2px;       /* Coins arrondis (tendance 2026 - doux pour l'œil) */
+background-color: #FDFCF8; /* Blanc cassé ivoire - Anti-halation */
+color: #1A1C1E;            /* Noir profond mais pas 000 - Contraste ~18:1 > AAA */
+padding: 50px 48px 70px;   /* Aération ++ */
+border-radius: 2px;       /* Coins arrondis (tendance 2026 - doux pour l'œil) */
     
-
-    
-    /* Bordures de confiance (Signaux visuels doux) */
-    border-top: 4px solid #4dd4f0; /* Accent cyan */
-    border-left: 1px solid rgba(0,0,0,0.05);
-    border-right: 1px solid rgba(0,0,0,0.05);
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    
-    transition: all 0.2s ease;
-}
+/* Bordures de confiance (Signaux visuels doux) */
+border-top: 4px solid #4dd4f0; /* Accent cyan */
+border-left: 1px solid rgba(0,0,0,0.05); border-right: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.08); transition: all 0.2s ease;}
 
 /* ============================================
    2. TYPOGRAPHIE AAA POUR DYS & VISUEL
    ============================================ */
 .article-card h1 {
-    color: #1A1C1E; /* Noir profond mais pas 000 - Contraste ~18:1 > AAA */
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
-    font-weight: 700;
-    text-align: left; 
-    margin-bottom: 16px;
-    letter-spacing: -0.02em; /* Légèrement resserré pour les titres */
+color: #1A1C1E; /* Noir profond mais pas #000 - Contraste ~18:1 > AAA */
+font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; text-align: left; margin-bottom: 16px; letter-spacing: -0.02em; /* Légèrement resserré pour les titres */
+/* SOLUTION CONTRE LE CHEVAUCHEMENT DES LIGNES h1 (@see : wrd) */
+line-height: 1.3;              /* Espace vertical suffisant entre les lignes */
+word-break: keep-all;          /* Évite les coupures au milieu des mots */
+overflow-wrap: break-word;     /* Coupe UNIQUEMENT si le mot entier dépasse */
+hyphens: none;                 /* INTERDIT les césures automatiques */}
 
-    /* SOLUTION CONTRE LE CHEVAUCHEMENT DES LIGNES h1 (@see : wrd) */
-    line-height: 1.3;              /* Espace vertical suffisant entre les lignes */
-    word-break: keep-all;          /* Évite les coupures au milieu des mots */
-    overflow-wrap: break-word;     /* Coupe UNIQUEMENT si le mot entier dépasse */
-    hyphens: none;                 /* INTERDIT les césures automatiques */
-}
-
-
-
-
-
-
-
-.article-card p {
-    color: #2C2E31; /* Gris foncé très lisible */
-    font-size: 1.125rem; /* 18px : Goldilocks size pour DYS */
-    line-height: 1.65;   /* Interligne aéré */
-    margin-bottom: 1.5rem;
-    text-align: left;    /* CRUCIAL : Alignement à gauche (pas justifié) */
-    max-width: 75ch;     /* 75 caractères max par ligne */
-    margin-left: 0;
-    margin-right: 0;
-}
+.article-card p { color: #2C2E31; /* Gris foncé très lisible */ font-size: 1.125rem; /* 18px : Goldilocks size pour DYS */ line-height: 1.65;   /* Interligne aéré */ margin-bottom: 1.5rem;
+text-align: left; /* CRUCIAL : Alignement à gauche (pas justifié) */ max-width: 75ch; /* 75 caractères max par ligne */ margin-left: 0; margin-right: 0;}
 
 /* === Gestion du focus pour les liens à l'intérieur === */
-.article-card a {
-    color: #0F5B8C;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
-}
-
+.article-card a {color: #0F5B8C; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px;}
 
 
 /* ============================================
    3. MEDIA QUERIES : Adaptations tablettes/mobile
    ============================================ */
-@media (max-width: 600px) {
-    .article-card h1 {
-        font-size: clamp(1.4rem, 6vw, 1.8rem);
-        line-height: 1.25;         /* Légèrement plus serré sur mobile mais suffisant */
-        letter-spacing: -0.01em;   /* Moins d'espacement sur petit écran */
-    }
-}
-
-
-@media (max-width: 768px) {
-    .article-card {
-        padding: 30px 24px;
-    }
-    .article-card p {
-        font-size: 1rem; /* Retour à 16px sur mobile pour le confort */
-        line-height: 1.6;
-    }
-    
-}
-
-/* Option : Si vous voulez un mode "Nuit" pour le contraste, mais on garde la base claire */
-@media (prefers-color-scheme: dark) {
-    /* Optionnel : si vous gérez un thème dark, mais votre fond est déjà blanc */
-}
-
+@media (max-width: 600px) {.article-card h1 {font-size: clamp(1.4rem, 6vw, 1.8rem); line-height: 1.25; /* Légèrement plus serré sur mobile mais suffisant */ letter-spacing: -0.01em;  /* Moins d'espacement sur petit écran */}}
+@media (max-width: 768px) {.article-card {padding: 30px 24px;} .article-card p {font-size: 1rem; /* Retour à 16px sur mobile pour le confort */ line-height: 1.6;}}
+/* Option : Si je veux un mode "Nuit" pour le contraste, mais on garde la base claire */
+@media (prefers-color-scheme: dark) {/* Optionnel : si gestion future d' un thème dark, mais mon fond est déjà blanc */}
 
 
 /* ====================================================================
@@ -1322,17 +1248,8 @@ i, em, cite, dfn {
 }
 
 .body-high-contrast .global,
-.body-high-contrast .faq-item {
-  background: rgba(249, 246, 240, 0.95) !important;
-  color: #1a1a1a !important;
-}
-
-.body-high-contrast a {
-  color: #1a4a8a !important;  /* Bleu cobalt lisible sur beige */
-}
-
-
-    
+.body-high-contrast .faq-item {background: rgba(249, 246, 240, 0.95) !important; color: #1a1a1a !important;}
+.body-high-contrast a {color: #1a4a8a !important; /* Bleu cobalt lisible sur beige */}
 
 
     /* ====================================================================
@@ -1502,20 +1419,14 @@ i, em, cite, dfn {
     }
 
     /* ── Focus visible clavier — WCAG 2.4.7 (AA) + 2.4.13 (AAA) ─────── */
-    .hero-login-btn:focus-visible {
-      outline: 2px solid #7be8ff;  /* Contour cyan clair */
-      outline-offset: 3px;
-    }
+    .hero-login-btn:focus-visible {outline: 2px solid #7be8ff;  /* Contour cyan clair */ outline-offset: 3px;}
 
     /* ── Bloc des boutons d'authentification (dans main) ────────────── */
     /* Le bouton Se connecter est maintenant aussi dans la section hero.  */
     /* Ce bloc #auth-buttons reste dans main pour le script Auth0 intact. */
     /* Sur desktop on masque btn-login dans main (il est dans le hero)    */
     /* Sur mobile on garde tout visible car le hero peut scroller.        */
-    #auth-buttons {
-      text-align: center;          /* Boutons centrés */
-      margin: 30px 0 10px;         /* Espace autour du bloc */
-    }
+    #auth-buttons {text-align: center; /* Boutons centrés */ margin: 30px 0 10px;  /* Espace autour du bloc */}
 
     /* Masque le btn-login dans main si l'écran est assez grand           */
     /* (l'utilisateur le voit déjà dans la section hero au-dessus)       */
@@ -1525,10 +1436,9 @@ i, em, cite, dfn {
     }
     
 
-
     /* ====================================================================
        ╔══════════════════════════════════════════════════════════════════╗
-       ║  SECTION FAQ — Style lisible (WCAG AAA) + Fond opaque           ║
+       ║  SECTION FAQ — Style lisible (WCAG AAA) + Fond opaque            ║
        ╚══════════════════════════════════════════════════════════════════╝
 
        PROBLÈME CONSTATÉ (images 2 et 4) :
@@ -1570,10 +1480,7 @@ i, em, cite, dfn {
       font-weight: 600;            /* Semi-gras pour la structure visuelle */
       letter-spacing: 0.18em;      /* Grand espacement : style Convergence */
       text-transform: uppercase;   /* Tout en majuscules */
-      color: #4dd4f0;              /* Cyan de la charte — contraste >8:1 sur fond sombre */
-      text-align: left;
-      margin: 0 0 10px;
-    }
+      color: #4dd4f0; /* Cyan de la charte — contraste >8:1 sur fond sombre */ text-align: left; margin: 0 0 10px;}
 
     /* ── Chaque paire question/réponse ───────────────────────────────── */
     .faq-item {
@@ -1601,13 +1508,9 @@ i, em, cite, dfn {
     }
 
     /* ── Bouton question (cliquable) ─────────────────────────────────── */
-    .faq-question-btn {
-      display: -webkit-flex;
-      display: flex;               /* Disposition flex pour aligner texte + flèche */
-      -webkit-justify-content: space-between;
-      justify-content: space-between; /* Texte à gauche, flèche à droite */
-      -webkit-align-items: center;
-      align-items: center;
+    .faq-question-btn {display: -webkit-flex; display: flex; /* Disposition flex pour aligner texte + flèche */
+      -webkit-justify-content: space-between; justify-content: space-between; /* Texte à gauche, flèche à droite */
+      -webkit-align-items: center; align-items: center;
       width: 100%;                 /* Occupe toute la largeur de l'item */
       background: none;            /* Fond transparent (le fond est sur .faq-item) */
       border: none;                /* Pas de bordure sur le bouton */
@@ -1665,13 +1568,8 @@ i, em, cite, dfn {
     }
 
     /* ── Réponse : cachée par défaut (max-height:0), révélée en .open ── */
-    .faq-answer {
-      max-height: 0;               /* Hauteur nulle = invisible et sans espace */
-      overflow: hidden;            /* Masque le contenu dépassant la hauteur */
-      -webkit-transition: max-height 0.4s ease, padding 0.4s ease;
-      transition: max-height 0.4s ease, padding 0.4s ease;
-      padding: 0;                  /* Pas de padding quand fermé */
-    }
+    .faq-answer {max-height: 0; /* Hauteur nulle = invisible et sans espace */ overflow: hidden; /* Masque le contenu dépassant la hauteur */
+      -webkit-transition: max-height 0.4s ease, padding 0.4s ease; transition: max-height 0.4s ease, padding 0.4s ease; padding: 0; /* Pas de padding quand fermé */}
 
     /* ── Réponse ouverte ─────────────────────────────────────────────── */
     .faq-item.open .faq-answer {
@@ -1692,8 +1590,8 @@ i, em, cite, dfn {
 
 
     /* ╔══════════════════════════════════════════════════════════════════════╗
-       ║  INTÉGRATION PROBALIZE.css + GLOBALIZE.css + BASE THEME v.classic   ║
-       ║  Auteur : Fabien Conéjéro / FC84 — www.madjeek.fr                   ║
+       ║  INTÉGRATION PROBALIZE.css + GLOBALIZE.css + BASE THEME v.classic    ║
+       ║  Auteur : Fabien Conéjéro / FC84                                     ║
        ╚══════════════════════════════════════════════════════════════════════╝
 
        ════════════════════════════════════════════════════════════════════════
@@ -1710,10 +1608,6 @@ i, em, cite, dfn {
        français et les conventions internationales sur la propriété
        intellectuelle (Convention de Berne, TRIPS, directive EU 2001/29/CE).
 
-       DROITS ACCORDÉS :
-       - Utilisation personnelle dans vos propres projets : AUTORISÉE
-         sous réserve de conserver cette notice de licence intacte.
-
        DROITS STRICTEMENT INTERDITS sans autorisation écrite préalable :
        - Toute reproduction, copie, distribution ou partage du code source
        - Toute modification, adaptation ou création d'œuvre dérivée
@@ -1725,7 +1619,6 @@ i, em, cite, dfn {
        L.335-2 et suivants du Code de la Propriété Intellectuelle (France).
 
        Contact pour demande d'autorisation : convergence-tech@proton.me
-       Dépôt : https://github.com/madjeek-web/Globalize.css
        ════════════════════════════════════════════════════════════════════════
 
        ════════════════════════════════════════════════════════════════════════
@@ -1741,10 +1634,6 @@ i, em, cite, dfn {
        exclusive de Fabien Conéjéro. Micro-framework CSS propriétaire pour
        la gestion de l'espacement, de la typographie et des grilles.
 
-       DROITS ACCORDÉS :
-       - Utilisation personnelle dans vos propres projets : AUTORISÉE
-         sous réserve de conserver cette notice de licence intacte.
-
        DROITS STRICTEMENT INTERDITS sans autorisation écrite préalable :
        - Toute reproduction, copie, distribution ou partage du code source
        - Toute intégration dans un produit ou framework tiers
@@ -1752,12 +1641,11 @@ i, em, cite, dfn {
        - Toute suppression ou modification de la présente notice de copyright
 
        Contact pour demande d'autorisation : convergence-tech@proton.me
-       Dépôt : https://github.com/madjeek-web/Probalize.css
        ════════════════════════════════════════════════════════════════════════
 
        NOTE D'INTÉGRATION :
        Les éléments ci-dessous sont extraits et adaptés de trois sources :
-       1. base_theme_v_classic_probalize.css (Fabien Conéjéro / madjeek.fr)
+       1. base_theme_v_classic_probalize.css (Fabien Conéjéro / FC84)
        2. Globalize.css (Fabien Conéjéro — licence EULA ci-dessus)
        3. Probalize.css (Fabien Conéjéro — licence EULA ci-dessus)
 
@@ -1796,8 +1684,6 @@ i, em, cite, dfn {
 
        Contact pour toute demande d'autorisation :
        ✉ convergence-tech@proton.me
-       Dépôt officiel Globalize.css : https://github.com/madjeek-web/Globalize.css
-       Dépôt officiel Probalize.css : https://github.com/madjeek-web/Probalize.css
 
        ════════════════════════════════════════════════════════════════════
        GLOBALIZE.css & PROBALIZE.css vs TAILWIND CSS — ANALYSE COMPARÉE
@@ -1890,23 +1776,14 @@ i, em, cite, dfn {
     b, strong {font-weight: normal; }
 
 
-
-
     /* ── code / kbd / samp : monospace normalisé ─────────────────────── */
     /* Chrome applique "monospace, monospace" — correctif pour éviter */
     /* le bug de taille de fonte en combinaison avec héritage de rem   */
-    code,
-    kbd,
-    samp {
-      font-family: monospace, monospace; /* Double "monospace" = correctif délibéré */
-      font-size: 1em;                /* Maintient la taille relative du parent */
-    }
+    code, kbd, samp {font-family: monospace, monospace; /* Double "monospace" = correctif délibéré */ font-size: 1em; /* Maintient la taille relative du parent */}
 
     /* ── small : taille réduite uniforme ────────────────────────────── */
     /* IE ne réduit pas correctement <small> sans cette règle explicite */
-    small {
-      font-size: 80%;                /* 80% de la taille du texte parent */
-    }
+    small {font-size: 80%; /* 80% de la taille du texte parent */}
 
     /* ── sub / sup : positionnement vertical sans impact sur line-height */
     /* Problème : les indices/exposants peuvent élargir l'interligne.    */
@@ -1919,13 +1796,9 @@ i, em, cite, dfn {
       vertical-align: baseline;      /* Référence : alignement sur la ligne de base */
     }
 
-    sub {
-      bottom: -0.25em;               /* Décale vers le bas = indice (ex: H₂O) */
-    }
+    sub {bottom: -0.25em; /* Décale vers le bas = indice (ex: H₂O) */}
 
-    sup {
-      top: -0.5em;                   /* Décale vers le haut = exposant (ex: m²) */
-    }
+    sup {top: -0.5em; /* Décale vers le haut = exposant (ex: m²) */}
 
     /* ── [hidden] : comportement uniforme ────────────────────────────── */
     /* IE 10 n'applique pas display:none sur les éléments [hidden].      */
@@ -2007,22 +1880,16 @@ i, em, cite, dfn {
 
     /* ── details/summary : display block sur les anciens navigateurs ─── */
     /* IE ne reconnaît pas les éléments HTML5 details/summary            */
-    details {
-      display: block;                /* Block : comportement standard HTML5 */
-    }
+    details {display: block; /* Block : comportement standard HTML5 */}
 
-    summary {
-      display: list-item;            /* Affiche le triangle déroulant natif */
-    }
+    summary {display: list-item; /* Affiche le triangle déroulant natif */}
 
     /* ── template : masquage universel ───────────────────────────────── */
     /* IE ne masque pas <template> par défaut */
-    template {
-      display: none;                 /* Template ne doit jamais s'afficher */
-    }
-    /* ════════════════════════════════════════════════════════════════════
-       FIN NORMALIZE.CSS COMPLÉMENTAIRE
-       ════════════════════════════════════════════════════════════════════ */
+    template {display: none; /* Template ne doit jamais s'afficher */}
+/* ════════════════════════════════════════════════════════════════════
+FIN NORMALIZE.CSS COMPLÉMENTAIRE
+════════════════════════════════════════════════════════════════════ */
 
 
     /* ════════════════════════════════════════════════════════════════════
@@ -2136,8 +2003,8 @@ i, em, cite, dfn {
     /* Étape 1 : Reset ciblé (pas de reset global agressif) */
     /* margin:0 et padding:0 sur tous les <p> — base propre pour tous les nav. */
     p {
-      margin: 0;                   /* Supprime la marge par défaut du navigateur */
-      padding: 0;                  /* Supprime le padding par défaut */
+      margin: 0; /* Supprime la marge par défaut du navigateur */
+      padding: 0; /* Supprime le padding par défaut */
     }
 
     /* Étape 2 : Espacement entre paragraphes consécutifs */
@@ -2151,9 +2018,7 @@ i, em, cite, dfn {
 
     /* Étape 3 : Adaptation contextuelle — premier paragraphe d'un article */
     /* article > p:first-child n'a jamais de marge top (pas d'élément au-dessus) */
-    article > p:first-child {
-      margin-top: 0 !important;    /* Force à zéro même si héritage l'ajoute */
-    }
+    article > p:first-child {margin-top: 0 !important; /* Force à zéro même si héritage l'ajoute */}
 
 
     /* ════════════════════════════════════════════════════════════════════
@@ -2264,7 +2129,7 @@ i, em, cite, dfn {
 
     /* Grille CSS auto-responsive — Probalize.css */
     .grid-container {
-      display: grid;               /* Activation du mode grille CSS */
+      display: grid; /* Activation du mode grille CSS */
 
       /* Nombre de colonnes automatique selon la largeur disponible */
       /* minmax(250px, 1fr) = minimum 250px, maximum 1 fraction = égalité */
@@ -2306,13 +2171,10 @@ i, em, cite, dfn {
       *::after {
         /* Réduit toutes les animations à 1ms = quasi instantané = invisible */
         animation-duration: 0.01ms !important;
-
         /* Force les animations à ne jouer qu'une seule fois (pas de boucle) */
         animation-iteration-count: 1 !important;
-
         /* Réduit toutes les transitions à 1ms = pas d'effet de transition */
         transition-duration: 0.01ms !important;
-
         /* Désactive le scroll animé (html { scroll-behavior: smooth }) */
         /* et le remplace par un saut immédiat */
         scroll-behavior: auto !important;
@@ -2344,18 +2206,16 @@ i, em, cite, dfn {
 
     /* Règle universelle sur toutes les images — Probalize.css */
     img {
-      display: block;              /* Élimine l'espace "inline" sous les images (bug courant) */
-      max-width: 100%;             /* Empêche l'image de déborder de son conteneur */
-      height: auto;                /* Maintient les proportions originales */
-      border-style: none;          /* Supprime la bordure sur les images-liens (IE 10 fix) */
+      display: block; /* Élimine l'espace "inline" sous les images (bug courant) */
+      max-width: 100%; /* Empêche l'image de déborder de son conteneur */
+      height: auto; /* Maintient les proportions originales */
+      border-style: none; /* Supprime la bordure sur les images-liens (IE 10 fix) */
     }
 
     /* .flow — le "Lobotomized Owl" de Heydon Pickering (Probalize.css) */
     /* Espacement automatique entre tous les enfants directs d'un .flow  */
     /* Le sélecteur "* + *" signifie "tout élément qui suit un autre"   */
-    .flow > * + * {
-      margin-top: var(--prb-space-sm); /* Ajoute une marge top automatiquement */
-    }
+    .flow > * + * {margin-top: var(--prb-space-sm); /* Ajoute une marge top automatiquement */}
 
 
     /* ════════════════════════════════════════════════════════════════════
@@ -2366,25 +2226,15 @@ i, em, cite, dfn {
     /* Défilement fluide lors des liens ancres (#section, etc.) */
     /* Compatible : Chrome 61+, Firefox 36+, Safari 15.4+, Edge 79+ */
     /* Annulé automatiquement par @media (prefers-reduced-motion) ci-dessus */
-    html {
-      scroll-behavior: smooth;     /* Défilement animé pour les liens ancres internes */
-    }
+    html {scroll-behavior: smooth; /* Défilement animé pour les liens ancres internes */}
 
     /* Liens : suppression du soulignement — style Convergence */
     /* La couleur hérite du texte parent (blanc dans .global) */
-    a {
-      text-decoration: none;       /* Pas de soulignement par défaut */
-    }
+    a {text-decoration: none; /* Pas de soulignement par défaut */}
 
     /* NAV — suppression des puces de liste */
     /* Les <ul> et <li> dans les <nav> n'ont pas besoin de puces */
-    nav ul,
-    nav li {
-      list-style-type: none;       /* Supprime les puces (•) */
-      margin: 0;                   /* Supprime la marge gauche par défaut */
-      padding: 0;
-    }
-
+    nav ul, nav li { list-style-type: none; /* Supprime les puces (•) */ margin: 0; /* Supprime la marge gauche par défaut */ padding: 0;}
 
     /* ════════════════════════════════════════════════════════════════════
        SECTION 10 — MEDIA QUERIES PROBALIZE pour --prb-space-unit
@@ -2469,41 +2319,19 @@ i, em, cite, dfn {
         /* ce qui arrive sur ces largeurs avec le texte "CONVERGENCE       */
         /* HUMAINE & TECHNOLOGIQUE".                                        */
         /* Valeur sans unité = se calcule sur la fonte finale (pas héritée)*/
-        line-height: 1.4;
-
-      } /* fin h1 à ≥ 1550px */
-
-    } /* fin @media min-width: 1550px */
+        line-height: 1.4;} /* fin h1 à ≥ 1550px */  } /* fin @media min-width: 1550px */
 
 
-    /* ── Très grands écrans : TV HD 1080p, 1440p ── */
+    
+/* ── Très grands écrans : TV HD 1080p, 1440p ── */
     @media screen and (min-width: 1600px) {
       /* Sur TV et grands écrans, le clamp() a plafonné à 1.75rem.         */
       /* On autorise un peu plus ici : le contenant est large, le texte    */
       /* peut être plus grand sans risque de débordement.                  */
       h1 { font-size: clamp(1.25rem, 1.6vw, 1.75rem); } /* Légèrement plus grand sur TV */
       .global { padding: 60px 50px 70px; }
-      .logo-wrapper { width: 310px; height: 310px; } /* Logo légèrement plus grand */
+      .logo-wrapper { width: 340px; height: 340px; } /* Logo légèrement plus grand */
     }
-/* HACK MANUEL - Correction centrage logo pour grands écrans */
-@media screen and (min-width: 1600px) {
-  .hero-logo {
-    position: relative !important;
-  }
-  
-  .logo-wrapper {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(calc(-50% + 26px), calc(-50% + 60px)) !important;
-    margin: 0 !important;
-    text-align: center !important;
-  }
-}
-
-
-
-
 
 
     /* ── Écrans 4K (3840×2160) et 5K (5120×2880) ── */
@@ -2517,11 +2345,9 @@ i, em, cite, dfn {
       nav[role="navigation"] > ul { height: 70px; }
     }
 
-    
 
     /* ── Écrans ≥ 740px : 
     @media screen and (min-width: 740px) {    } /* fin @media min-width: 740px */
-
 
     /* ── Ordinateurs et tablettes paysage (jusqu'à 1200px) ── */
     @media screen and (max-width: 1200px) {
@@ -2532,10 +2358,7 @@ i, em, cite, dfn {
 
     /* ── Tablettes portrait et petits laptops (jusqu'à 980px) ── */
     @media screen and (max-width: 980px) {
-      .global {
-        width: 88%;
-        padding: 40px 30px 50px;
-      }
+      .global {width: 88%; padding: 40px 30px 50px;}
       .faq-section { width: 88%; }
       /* h1 : à 980px, 3.2vw = 31.4px → dans les limites du clamp — pas d'override nécessaire */
     }
@@ -2544,15 +2367,10 @@ i, em, cite, dfn {
     @media screen and (max-width: 1400px) {
 
       /* Le bouton hamburger devient visible */
-      .nav-hamburger-btn {
-        display: -webkit-flex;     /* Visible sur mobile */
-        display: flex;
-      }
+      .nav-hamburger-btn {display: -webkit-flex; /* Visible sur mobile */ display: flex;}
 
       /* La barre nav n'a plus de padding horizontal */
-      nav[role="navigation"] {
-        padding: 0;
-      }
+      nav[role="navigation"] {padding: 0;}
 
       /* Le menu se referme (max-height: 0) par défaut */
       nav[role="navigation"] > ul {
@@ -2566,21 +2384,14 @@ i, em, cite, dfn {
         -webkit-align-items: flex-start;
         align-items: flex-start;   /* Liens alignés à gauche */
         background: rgba(1, 12, 30, 0.96); /* Fond quasi opaque sur mobile */
-        border-top: 1px solid rgba(77, 212, 240, 0.10);
-        padding: 0;
-      }
+        border-top: 1px solid rgba(77, 212, 240, 0.10); padding: 0;}
 
       /* Menu ouvert (classe .nav-open ajoutée par JavaScript) */
       nav[role="navigation"] > ul.nav-open {
-        max-height: 380px;         /* Hauteur suffisante pour tous les liens */
-        padding: 8px 0;
-      }
+        max-height: 380px; /* Hauteur suffisante pour tous les liens */ padding: 8px 0;}
 
       /* Chaque item occupe toute la largeur */
-      nav[role="navigation"] > ul > li {
-        width: 100%;
-        height: auto;
-      }
+      nav[role="navigation"] > ul > li {width: 100%; height: auto;}
 
       /* Liens pleine largeur avec padding vertical */
       nav[role="navigation"] > ul > li > a {
@@ -2593,11 +2404,7 @@ i, em, cite, dfn {
 
       /* Lien actif et survol sur mobile : indicateur à gauche */
       nav[role="navigation"] > ul > li > a[aria-current="page"],
-      nav[role="navigation"] > ul > li > a:hover {
-        border-bottom: none;
-        border-left-color: #4dd4f0;
-        background: rgba(77, 212, 240, 0.05);
-      }
+      nav[role="navigation"] > ul > li > a:hover {border-bottom: none; border-left-color: #4dd4f0; background: rgba(77, 212, 240, 0.05);}
 
       /* Logo légèrement réduit sur mobile */
       .logo-wrapper { width: 260px; height: 260px; }
@@ -2626,11 +2433,16 @@ Le lien Connexion (#nav-login-link) dans le menu principal s'affiche en blanc pu
 
 /* ====================================================================
   TAGLINE HERO — PARAGRAPHE COURT SOUS LE LOGO
+  @see : DOCUMENTATION-ALL-IMG-SITE-CONVERGENCE.txt
 ==================================================================== */
-.hero-tagline {position:sticky; top: 80vh; margin-bottom: 200px !important; max-width: 340px; /* Limite la largeur pour la lisibilité */ font-size: 0.78em; font-weight: 300; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(0, 40, 77); 
+.hero-tagline {position:sticky; top: 95vh; margin-bottom: 150px !important;  white-space: nowrap;  /* une seule ligne sur grands écrans */ font-size: 0.78em; font-weight: 300; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(0, 40, 77); 
 text-align: center; line-height: 1.9em; text-shadow: none;}
-/* Si la hauteur de la fenêtre est inférieure à 1000px on supprime ce texte */
-@media (max-height: 1000px) {.hero-tagline {display: none; /* Le texte se place plus bas */ }}
+/* Si la hauteur de la fenêtre est inférieure à 400px on supprime ce texte */
+@media (max-height: 400px) {.hero-tagline {display: none; }}
+/* Petit écran : on autorise le retour à la ligne */
+@media (max-width: 600px) {
+.hero-tagline { white-space: normal; max-width: 85vw; font-size: 0.68em;}}
+
 
 
 /* Pour aller plus loin (niveau "expert AAA")
@@ -2640,8 +2452,6 @@ sans aucune dépendance externe (sauf le bouton DYS optionnel qui charge OpenDys
 
 /* Police système variable si disponible (meilleur rendu DYS) */
 @supports (font-variation-settings: normal) {body {font-family: "Verdana", "Tahoma", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;   font-weight: 450; /* Entre normal et bold : idéal DYS */}}
-
-
 
 
 /* ====================================================================
