@@ -212,9 +212,8 @@ if(ua.indexOf('MSIE 4')!==-1){htmlClass+=' ie4 very-old';}
 <link rel="dns-prefetch" href="//http://xmlns.com/foaf/spec/#term_name" /><link rel="dns-prefetch" href="//www.sitemaps.org/fr/protocol.html" /><link rel="dns-prefetch" href="//connect.facebook.net"><link rel="dns-prefetch" href="//www.facebook.com" />
 <link rel="dns-prefetch" href="//t.co" /><link rel="dns-prefetch" href="//twitter.com" />
 
-
-<meta name="google-site-verification" content="jsM_hxlBkNDburSyR0zaPNGTkc7KiiKV6MF8agHrclo" />
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HXMKJM1CS5"></script> <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-HXMKJM1CS5');</script>
+<script data-ref="loader-menu-hamburger-halo-connexion-nav" type="application/javascript" defer="defer" src="js/loader-menu-hamburger-halo-connexion-nav.js"></script>
+<meta name="google-site-verification" content="jsM_hxlBkNDburSyR0zaPNGTkc7KiiKV6MF8agHrclo" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-HXMKJM1CS5"></script> <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-HXMKJM1CS5');</script>
 </head>
 
 
@@ -491,61 +490,6 @@ Blog & Articles
 <!-- SOUS-FOOTER -->
 <div class="footer-bottom" aria-label="Informations légales et copyright"><p class="footer-copyright" itemprop="copyrightNotice">© 2026 <strong>Convergence Human & Technology</strong> - Tous droits réservés.</p></div>
 </footer>
-
-
-<!-- ════════════════════════════════════════════════════════════════
-★ SCRIPTS NOUVEAUX - LOADER + HAMBURGER + HALO + CONNEXION NAV ★
-════════════════════════════════════════════════════════════════ -->
-<script>
-document.addEventListener('DOMContentLoaded',function(){
-var loaderOverlay=document.getElementById('loader-overlay');
-setTimeout(function(){
-if(loaderOverlay){loaderOverlay.classList.add('hidden');}
-demarrerCycleHalo();},3000);
-var hamburgerBtn=document.getElementById('hamburger-btn');
-var navList=document.getElementById('nav-main-list');
-if(hamburgerBtn&&navList){
-hamburgerBtn.addEventListener('click',function(){
-hamburgerBtn.classList.toggle('open');
-navList.classList.toggle('nav-open');
-var isOpen=navList.classList.contains('nav-open');hamburgerBtn.setAttribute('aria-expanded',isOpen?'true':'false');});
-var navLinks=navList.querySelectorAll('a');for(var i=0;i<navLinks.length;i++){navLinks[i].addEventListener('click',function(){
-hamburgerBtn.classList.remove('open');navList.classList.remove('nav-open');hamburgerBtn.setAttribute('aria-expanded','false');});}
-}
-});
-
-function demarrerCycleHalo(){
-var haloRing=document.getElementById('halo-ring');
-if(!haloRing){return;}
-function lancerUnCycle(){
-haloRing.classList.add('halo-active');
-setTimeout(function(){
-haloRing.classList.remove('halo-active');
-setTimeout(function(){
-lancerUnCycle();},50000);
-},10000);
-}
-lancerUnCycle();}
-document.addEventListener('DOMContentLoaded',function(){
-var faqBtns=document.querySelectorAll('.faq-question-btn');
-for(var j=0;j<faqBtns.length;j++){faqBtns[j].addEventListener('click',function(){
-var item=this.parentElement;
-var estOuvert=item.classList.contains('open');
-var tousLesItems=document.querySelectorAll('.faq-item');for(var k=0;k<tousLesItems.length;k++){tousLesItems[k].classList.remove('open');
-tousLesItems[k].querySelector('.faq-question-btn').setAttribute('aria-expanded','false');}
-if(!estOuvert){item.classList.add('open');
-this.setAttribute('aria-expanded','true');}
-});
-}
-});
-document.addEventListener('DOMContentLoaded',function(){var navLoginLink=document.getElementById('nav-login-link');if(navLoginLink){navLoginLink.addEventListener('click',function(e){e.preventDefault();
-const AUTH0_DOMAIN="convergence-tech.eu.auth0.com";const CLIENT_ID="ONtxpyovHGewrl4669n3Qz8RJYot27AS";const REDIRECT_URI="https://convergence-human-technology.github.io/site/callback.html";const state=Math.random().toString(36).substring(2);sessionStorage.setItem("auth_state",state);
-const url=`https://${AUTH0_DOMAIN}/authorize?response_type=token&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=openid%20profile%20email&state=${state}`;window.location.href=url;});
-var token=sessionStorage.getItem('auth_token');if(token){var liParent=navLoginLink.parentElement;if(liParent)liParent.style.display='none';}}});
-document.addEventListener('DOMContentLoaded',function(){var navLogoutLink=document.getElementById('nav-logout-link');if(navLogoutLink){navLogoutLink.addEventListener('click',
-function(e){e.preventDefault();sessionStorage.clear();window.location.href=`https://convergence-tech.eu.auth0.com/v2/logout?returnTo=${encodeURIComponent(window.location.origin+"/site/index.html")}&client_id=ONtxpyovHGewrl4669n3Qz8RJYot27AS`;});/* Synchronisation état connecté → affiche/masque le lien Déconnexion */
-var token=sessionStorage.getItem('auth_token');var liParent=navLogoutLink.parentElement;if(token){if(liParent)liParent.style.display='flex';}else{if(liParent)liParent.style.display='none';}}});
-</script>
 
 <script nonce="${nonce}" data-ref="double-click-jacking-scenario-FC84 / Version 2 : MARS 2026" type="application/javascript" defer="defer" src="js/double-click-jacking-scenario-FC84.js"></script>
 
