@@ -178,7 +178,7 @@
       ------------------------------------------------------------------ */
       margin: 0;                   /* Suppression de la marge par défaut du navigateur */
       padding: 0;                  /* Suppression du padding par défaut */
-      padding-bottom: 80px;        /* Espace en bas pour que le contenu ne touche pas le bord */
+      padding-bottom: 0;
       overflow-x: hidden;          /* Cache le défilement horizontal indésirable */
       overflow-y: auto;            /* Autorise le défilement vertical */
 
@@ -2478,3 +2478,48 @@ sans aucune dépendance externe (sauf le bouton DYS optionnel qui charge OpenDys
    La classe .body-high-contrast (mode contraste élevé) reste ici
    car elle concerne l'apparence visuelle, pas la typographie.
    ==================================================================== */
+
+
+
+
+
+/* ==================================================================== 
+FOOTER - STYLES RESPONSIVES & ACCESSIBLES (AAA+++)
+==================================================================== 
+INTÉGRATION : À PLACER À LA FIN DE shared.css
+==================================================================== */
+
+.site-footer {background: rgba(1, 12, 30, 0.92); /* MÊME FOND QUE LE MENU PRINCIPAL */ backdrop-filter: blur(8px); /* EFFET VERRE DÉPOLI */ -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(77, 212, 240, 0.15); /* LISÉRE CYAN DISCRET */
+padding: 50px 30px 30px; margin-top: 80px; /* RESPIRATION APRÈS LA FAQ */ font-family: 'Arial', 'Helvetica', sans-serif; font-weight: normal; color: rgba(255, 255, 255, 0.70);  /* BLANC PRESQUE PUR (COMME LE MENU) */}
+
+/* CONTENEUR PRINCIPAL DU FOOTER (GRILLE 3 COLONNES) */
+.footer-container {max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); /* 3 COLONNES ÉGALES */ gap: 40px 30px;}
+/* TITRES DES COLONNES */
+.footer-col-title {font-size: 1.1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.85); margin: 0 0 20px 0; padding-bottom: 8px; border-bottom: 2px solid rgba(77, 212, 240, 0.40); display: inline-block;}
+/* LISTE DES LIENS */
+.footer-links-list {list-style: none; margin: 0; padding: 0;} .footer-links-list li {margin-bottom: 14px;}
+/* LIENS DU FOOTER */
+.footer-link {display: inline-flex; align-items: center; gap: 10px; color: rgba(255, 255, 255, 0.70);  /* MÊME QUE MENU */ text-decoration: none; font-size: 0.92rem; transition: color 0.2s ease, transform 0.2s ease; padding: 4px 0;}
+/* ICÔNES SVG (DÉSACTIVÉES POUR LES LECTEURS D'ÉCRAN) */
+.footer-icon {width: 18px; height: 18px; flex-shrink: 0; opacity: 0.75; transition: opacity 0.2s ease;}
+/* SURVOL & FOCUS (ACCESSIBILITÉ) */
+.footer-link:hover, .footer-link:focus {color: #7be8ff;  /* CYAN CLAIR COMME MENU */ outline: none; transform: translateX(3px);}
+.footer-link:hover .footer-icon, .footer-link:focus .footer-icon {opacity: 1;}
+/* FOCUS VISIBLE (WCAG 2.4.7) */
+.footer-link:focus-visible {outline: 2px solid #4dd4f0; outline-offset: 4px; border-radius: 4px;}
+/* SOUS-FOOTER (COPYRIGHT) */
+.footer-bottom {max-width: 1280px; margin: 40px auto 0; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.10); text-align: center; font-size: 0.75rem; color: rgba(255, 255, 255, 0.55);}
+.footer-copyright {margin: 0 0 10px 0; line-height: 1.6;}
+/* ==================================================================== 
+RESPONSIVE : TABLETTES (≤ 900px)
+==================================================================== */
+@media (max-width: 900px) {.footer-container {grid-template-columns: repeat(2, 1fr); /* 2 COLONNES */ gap: 35px;}}
+/* ==================================================================== 
+RESPONSIVE : MOBILES (≤ 650px)
+==================================================================== */
+@media (max-width: 650px) {.site-footer {padding: 40px 20px 25px; margin-top: 50px;} .footer-container {grid-template-columns: 1fr; /* 1 SEULE COLONNE */ gap: 35px;}
+.footer-col {text-align: left;} .footer-col-title {font-size: 1rem;} .footer-link {font-size: 0.88rem; gap: 12px;} .footer-icon {width: 20px; height: 20px;} .footer-bottom {margin-top: 30px; padding-top: 20px;}}
+/* ==================================================================== 
+ACCESSIBILITÉ : PREFERS-REDUCED-MOTION
+==================================================================== */
+@media (prefers-reduced-motion: reduce) {.footer-link {transition: none; transform: none !important;} .footer-link:hover, .footer-link:focus {transform: none;}}
