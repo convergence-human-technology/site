@@ -112,12 +112,36 @@
 "url":"https://convergence-human-technology.github.io/site/"}}
 </script>
 
-<!--[if lt IE 9]>
-<script>
-/* Support balises HTML5 dans IE8 et inférieurs */
-document.createElement('header'); document.createElement('section'); document.createElement('article'); document.createElement('footer'); document.createElement('nav'); document.createElement('main');
+<!--[if lt IE 9]><script>document.createElement('header'); document.createElement('section'); document.createElement('article'); document.createElement('footer'); document.createElement('nav'); document.createElement('main');</script><![endif]-->
+
+<script type="text/javascript" fetchpriority="high">document.documentElement.className=document.documentElement.className.replace('no-js','');(function(){var htmlClass='';var ua=navigator.userAgent;var screenWidth=screen.width;var screenHeight=screen.height;var devicePixelRatio=window.devicePixelRatio||1;
+// ============================================
+// 1. DÉTECTION D'INTERNET EXPLORER (versions anciennes)
+// ============================================
+var isIE=false;var ieVersion=-1;if(ua.indexOf('MSIE')!==-1){isIE=true;var msieMatch=ua.match(/MSIE (\d+)/);if(msieMatch){ieVersion=parseInt(msieMatch[1],10);}}
+if(ua.indexOf('Trident')!==-1){isIE=true;var tridentMatch=ua.match(/rv:(\d+)/);if(tridentMatch){ieVersion=parseInt(tridentMatch[1],10);}}
+if(isIE){htmlClass+=' ie';htmlClass+=' ie-v'+ieVersion;if(ieVersion<=6){htmlClass+=' old-ie ie6';}else if(ieVersion<=7){htmlClass+=' old-ie ie7';}else if(ieVersion<=8){htmlClass+=' old-ie ie8';}else if(ieVersion<=9){htmlClass+=' ie9';}}
+
+var isOldFF=false;if(ua.indexOf('Firefox')!==-1){var ffMatch=ua.match(/Firefox\/(\d+)/);if(ffMatch&&parseInt(ffMatch[1],10)<10){isOldFF=true;htmlClass+=' old-firefox';}}
+var isOldChrome=false;if(ua.indexOf('Chrome')!==-1){var chromeMatch=ua.match(/Chrome\/(\d+)/);if(chromeMatch&&parseInt(chromeMatch[1],10)<20){isOldChrome=true;htmlClass+=' old-chrome';}}
+var isOldSafari=false;if(ua.indexOf('Safari')!==-1&&ua.indexOf('Chrome')===-1){var safariMatch=ua.match(/Version\/(\d+)/);if(safariMatch&&parseInt(safariMatch[1],10)<5){isOldSafari=true;htmlClass+=' old-safari';}}
+if(isOldFF||isOldChrome||isOldSafari){htmlClass+=' old-browser';}
+
+if(screenWidth<=1024||screenHeight<=768){htmlClass+=' low-res small-screen';}
+if(screenWidth<=800&&screenHeight<=600){htmlClass+=' very-low-res';}
+if(devicePixelRatio>=2){htmlClass+=' retina high-res';}
+var isMobile=/Mobile|Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(ua);if(isMobile){htmlClass+=' mobile';}
+
+if(ua.indexOf('Windows NT 5.1')!==-1){htmlClass+=' win-xp';}else if(ua.indexOf('Windows NT 6.0')!==-1){htmlClass+=' win-vista';}else if(ua.indexOf('Windows NT 5.0')!==-1){htmlClass+=' win-2000';}else if(ua.indexOf('Mac')!==-1){htmlClass+=' mac';}else if(ua.indexOf('Linux')!==-1){htmlClass+=' linux';}
+
+var htmlElem=document.getElementsByTagName('html')[0];if(htmlElem){htmlElem.className+=htmlClass;}
+
+window.hasHtmlClass=function(className){var htmlClasses=document.documentElement.className;return(' '+htmlClasses+' ').indexOf(' '+className+' ')!==-1;};
+
+if(ua.indexOf('MSIE 5')!==-1){htmlClass+=' ie5 very-old';}
+if(ua.indexOf('MSIE 4')!==-1){htmlClass+=' ie4 very-old';}
+})();
 </script>
-<![endif]-->
 
 <!-- ════════════════════════════════════════════════════════════════
      CSS TYPOGRAPHIE - ORDRE (IMPORTANT)
@@ -126,25 +150,18 @@ document.createElement('header'); document.createElement('section'); document.cr
      3. CSS shared (styles visuels)
      4. CSS old-ie (surcharge pour IE6/7/8)
 ════════════════════════════════════════════════════════════════ -->
-
 <!-- 1. Verdana - police principale -->
-<link rel="stylesheet" href="css/01-base.css" />
-
+<link rel="stylesheet" href="css/01-base.css" fetchpriority="high" type='text/css' data-infos="typographie verdana pour le site via @font-face" />
 <!-- 2. OpenDyslexic - police optionnelle (activée par JS) -->
-<link rel="stylesheet" href="css/02-dyslexic-mode.css" />
-
+<link rel="stylesheet" href="css/02-dyslexic-mode.css" type='text/css' data-infos="typographie OpenDyslexic pour le site - @see : JS (local storage)" />
 <!-- 3. Styles visuels (dégradé, menu, loader, etc.) -->
-<link rel="stylesheet" href="shared.css" />
-
+<link rel="stylesheet" href="shared.css" type='text/css' />
 <!-- 4. Corrections pour vieux IE (ne s'applique qu'aux classes old-ie) -->
-<link rel="stylesheet" href="old-ie.css" />
+<link rel="stylesheet" href="old-ie.css" type='text/css' data-infos="typographie Web Safe Fonts : typographies sécurisées pour le Web. Ces polices sont pré-installées sur la quasi-totalité des systèmes d'exploitation (Windows, macOS, iOS, Android)" />
 
-  <!-- ★★★ BLOC STYLE ORIGINAL — CONSERVÉ ★★★
-       Boutons de base + user-card. -->
-  <style>
-    #user-card { background: #f4f4f4; border-radius: 10px; padding: 30px; margin: 20px auto; }
-    button { padding: 10px 20px; background: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
-  </style>
+<!-- ★★★ BLOC STYLE ORIGINAL — CONSERVÉ ★★★
+Boutons de base + user-card. -->
+<style>#user-card { background: #f4f4f4; border-radius: 10px; padding: 30px; margin: 20px auto; } button { padding: 10px 20px; background: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }</style>
 
 <!-- ══════════════════════════════════════════════════════════════
 CSS SPÉCIFIQUE À LA PAGE MEMBRES
@@ -155,163 +172,45 @@ Règles qui complètent shared.css pour cette page :
 - Style spécifique #user-card sur fond sombre
 ══════════════════════════════════════════════════════════════ -->
 <style type="text/css">
-
 /* ── .global : décalage pour nav fixe (pas de hero sur cette page) ── */
 /* margin-top: 80px compense la barre de navigation fixe (62px)        */
 /* + une marge respiratoire de ~18px au-dessus du contenu              */
-.global {
-  margin-top: 80px;    /* Compense la nav fixe + marge respiratoire */
-  margin-bottom: 60px; /* Espace sous la div alpha avant le footer  */
-}
-
+.global {margin-top: 80px; /* Compense la nav fixe + marge respiratoire */ margin-bottom: 60px; /* Espace sous la div alpha avant le footer  */}
 /* ── #user-card : carte membre avec fond sombre cohérent ──────────── */
 /* On surcharge la règle originale (fond gris clair #f4f4f4) pour      */
 /* l'adapter au fond dégradé bleu nuit de la charte Convergence.       */
-#user-card {
-  background: rgba(1, 12, 30, 0.75);  /* Bleu nuit semi-transparent */
-  border: 1px solid rgba(77, 212, 240, 0.25); /* Liseré cyan discret */
-  color: rgba(255, 255, 255, 0.88);  /* Texte blanc lisible */
-  border-radius: 10px;               /* Coins arrondis */
-  padding: 30px;
-  margin: 20px auto;
-}
-
+#user-card {background: rgba(1, 12, 30, 0.75);  /* Bleu nuit semi-transparent */ border: 1px solid rgba(77, 212, 240, 0.25); /* Liseré cyan discret */ color: rgba(255, 255, 255, 0.88);  /* Texte blanc lisible */ border-radius: 10px; /* Coins arrondis */ padding: 30px; margin: 20px auto;}
 /* ── Bouton déconnexion : style Convergence ──────────────────────── */
 /* Le bouton #btn-logout garde sa couleur rouge (dangereux = rouge)    */
 /* mais on ajoute une transition au survol pour la cohérence visuelle. */
-#btn-logout {
-  -webkit-transition: box-shadow 0.3s ease, -webkit-transform 0.2s ease;
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
-}
-#btn-logout:hover {
-  box-shadow: 0 0 16px rgba(220, 53, 69, 0.55); /* Halo rouge au survol */
-  -webkit-transform: translateY(-2px);          /* Légère élévation */
-  transform: translateY(-2px);
-}
-
+#btn-logout {-webkit-transition: box-shadow 0.3s ease, -webkit-transform 0.2s ease; transition: box-shadow 0.3s ease, transform 0.2s ease;}
+#btn-logout:hover {box-shadow: 0 0 16px rgba(220, 53, 69, 0.55); /* Halo rouge au survol */ -webkit-transform: translateY(-2px); /* Légère élévation */ transform: translateY(-2px);}
 /* ── h1 Espace Membres — désactivation de text-transform ───────── */
 /* On désactive text-transform:uppercase hérité pour garder la casse normale */
-.global h1 {
-  text-transform: none;
-}
-
+.global h1 {text-transform: none;}
 /* ── Titres h2 dans .global ──────────────────────────────────────── */
-.global h2 {
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.90);
-  text-align: left;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin: 0 0 6px 0;
-  padding-top: 20px;
-}
-
+.global h2 {font-size: clamp(1rem, 2vw, 1.4rem); font-weight: 600; color: rgba(255, 255, 255, 0.90); text-align: left; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 6px 0; padding-top: 20px;}
 /* ── Liens dans .global ─────────────────────────────────────────── */
-.global a:not(.email-link) {
-  color: #4dd4f0; /* Cyan */
-  text-decoration: none;
-}
-.global a:not(.email-link):hover, 
-.global a:not(.email-link):focus {
-  text-decoration: underline;
-  color: #7be8ff;
-}
-
+.global a:not(.email-link) {color: #4dd4f0; /* Cyan */ text-decoration: none;}
+.global a:not(.email-link):hover, .global a:not(.email-link):focus {text-decoration: underline; color: #7be8ff;}
 /* ── Responsive mobile (<600px) ─────────────────────────────────── */
-@media screen and (max-width: 600px) {
-  .global {
-    margin-top: 70px;           /* Légèrement moins sur mobile */
-    padding: 24px 16px 32px;
-  }
-}
+@media screen and (max-width: 600px) {.global {margin-top: 70px; /* Légèrement moins sur mobile */ padding: 24px 16px 32px;}}
 /* ── Réinitialisation pour les écrans < 755px ──────────────────── */
-@media screen and (min-width: 755px) {
-  .global {
-    margin-top: 250px;   /* Alternative sans position: relative */
-  }
-}
-
+@media screen and (min-width: 755px) {.global {margin-top: 250px; /* Alternative sans position: relative */}}
 /* Styles pour les nouvelles cartes membres */
-.members-card {
-  background: rgba(1, 12, 30, 0.75);
-  border: 1px solid rgba(77, 212, 240, 0.15);
-  border-left: 3px solid rgba(77, 212, 240, 0.60);
-  border-radius: 0;
-  padding: 20px;
-  margin-bottom: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.card-image-area {
-  text-align: center;
-  width: 100%;
-}
-
-.members-card-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.card-content-area p {
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 1em;
-  line-height: 1.6;
-  text-align: left;
-  margin-bottom: 15px;
-}
-
+.members-card {background: rgba(1, 12, 30, 0.75); border: 1px solid rgba(77, 212, 240, 0.15); border-left: 3px solid rgba(77, 212, 240, 0.60); border-radius: 0; padding: 20px; margin-bottom: 30px; display: flex; flex-direction: column; gap: 20px; width: 100%; box-sizing: border-box;}
+.card-image-area {text-align: center; width: 100%;}
+.members-card-img {max-width: 100%; height: auto; display: block; margin: 0 auto;}
+.card-content-area p {color: rgba(255, 255, 255, 0.78); font-size: 1em; line-height: 1.6; text-align: left; margin-bottom: 15px;}
 /* Styles pour le nouveau bouton (comme page tarifs) */
-.offer-button {
-  display: inline-block;
-  text-align: center;
-  padding: 10px 16px;
-  background: rgba(77, 212, 240, 0.10);
-  border: 1px solid rgba(77, 212, 240, 0.40);
-  color: #4dd4f0;
-  font-family: var(--font-accessible, 'Verdana', 'Helvetica Neue', Arial, sans-serif);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  border-radius: 0;
-  cursor: pointer;
-  width: auto;
-  box-sizing: border-box;
-}
-
-.offer-button:hover {
-  background: rgba(77, 212, 240, 0.25);
-  border-color: #4dd4f0;
-  color: #7be8ff;
-  box-shadow: 0 0 12px rgba(77, 212, 240, 0.20);
-}
-
+.offer-button {display: inline-block; text-align: center; padding: 10px 16px; background: rgba(77, 212, 240, 0.10); border: 1px solid rgba(77, 212, 240, 0.40); color: #4dd4f0; font-family: var(--font-accessible, 'Verdana', 'Helvetica Neue', Arial, sans-serif); 
+font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: all 0.25s ease; border-radius: 0; cursor: pointer; width: auto; box-sizing: border-box;}
+.offer-button:hover {background: rgba(77, 212, 240, 0.25); border-color: #4dd4f0; color: #7be8ff; box-shadow: 0 0 12px rgba(77, 212, 240, 0.20);}
 /* Responsive pour l'espacement entre les cartes */
-@media screen and (max-width: 768px) {
-  .members-card {
-    margin-bottom: 25px;
-  }
-}
-
+@media screen and (max-width: 768px) {.members-card {margin-bottom: 25px;}}
 </style>
 
-<meta name="google-site-verification" content="jsM_hxlBkNDburSyR0zaPNGTkc7KiiKV6MF8agHrclo" />
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HXMKJM1CS5"></script> 
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-HXMKJM1CS5');
-</script>
+<meta name="google-site-verification" content="jsM_hxlBkNDburSyR0zaPNGTkc7KiiKV6MF8agHrclo" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-HXMKJM1CS5"></script> <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-HXMKJM1CS5');</script>
 
 </head>
 
@@ -458,6 +357,97 @@ Règles qui complètent shared.css pour cette page :
     </div><!-- fin .global -->
 
   </main><!-- fin #main-content -->
+
+<!-- ==== Footer ==== -->
+<footer class="site-footer" role="contentinfo" aria-labelledby="footer-heading" itemscope itemtype="https://schema.org/WPFooter">
+<meta itemprop="copyrightYear" content="2026" />
+<meta itemprop="copyrightHolder" content="Convergence Human & Technology" />
+<meta itemprop="url" content="https://convergence-human-technology.github.io/site/" />
+<div class="footer-container">
+<h2 id="footer-heading" style="display: none;">Navigation pied de page - Convergence Human & Technology</h2>
+<div class="footer-col" itemscope itemtype="https://schema.org/Organization">
+<meta itemprop="name" content="Convergence Human & Technology" /><meta itemprop="url" content="https://convergence-human-technology.github.io/site/" /><meta itemprop="email" content="convergence-tech@proton.me" />
+<h3 class="footer-col-title" aria-label="réseaux sociaux">Social Networks</h3>
+<ul class="footer-links-list" role="list">
+<li role="listitem">
+<a href="https://github.com/Convergence-Human-And-Technology" rel="noopener noreferrer nofollow" target="_blank" class="footer-link" aria-label="Dépôt GitHub (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaaaaa' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+GitHub
+</a>
+</li>
+<li role="listitem">
+<a href="https://mastodon.social/@fc84" rel="me noopener noreferrer nofollow" target="_blank" role="link" hreflang="fr" title="Mastodon - membres fr" class="footer-link" aria-label="Profil Mastodon (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23aaaaaa'%3E%3Cpath d='M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38 1.123-.252 2.23-.63 3.14-1.308.132-.11.235-.26.232-.452l-.015-1.883c0-.18-.113-.343-.275-.413-.162-.07-.353-.02-.46.12-.1.132-.236.25-.38.354-1.44.972-3.155 1.313-4.88 1.15-.46-.043-.915-.123-1.36-.24-.96-.25-1.745-.632-2.195-1.074-.47-.463-.787-1.127-.92-1.996a17.27 17.27 0 0 1-.035-1.925c3.553.766 7.027.817 10.638.163.504-.09 1.01-.2 1.514-.33 1.81-.466 3.122-1.9 3.51-3.693.44-2.02.363-4.144.363-6.234 0-.156 0-.312-.01-.468zm-5.074 9.18h-2.316V8.528c0-1.164-.492-1.756-1.474-1.756-.763 0-1.29.49-1.576 1.468h-1.458c-.286-.977-.813-1.468-1.576-1.468-.982 0-1.474.592-1.474 1.756v6.035H6.004V8.403c0-2.302 1.138-3.41 3.414-3.41 1.322 0 2.33.51 3.03 1.524.11.158.196.326.262.502.066-.176.152-.344.262-.502.7-.998 1.708-1.524 3.03-1.524 2.276 0 3.414 1.108 3.414 3.41v5.964z'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+Mastodon
+</a>
+</li>
+<li role="listitem">
+<a href="#" rel="noopener noreferrer nofollow" target="_blank" class="footer-link" aria-label="Medium (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23aaaaaa'%3E%3Cpath d='M13.54 12a6.8 6.8 0 1 1-6.77-6.82A6.77 6.77 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42S14.2 15.54 14.2 12s1.51-6.42 3.38-6.42S20.96 8.46 20.96 12zm1.79 0c0 3.16-.45 5.71-1 5.71s-1-2.55-1-5.71.45-5.71 1-5.71 1 2.55 1 5.71z'/%3E%3C/svg%3E" 
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+Medium
+</a>
+</li>
+</ul>
+</div>
+<div class="footer-col">
+<h3 class="footer-col-title" aria-label="Politiques et confidentialité">Liens</h3>
+<ul class="footer-links-list" role="list">
+<li role="listitem">
+<a href="https://www.linkedin.com/company/convergence-organization" rel="noopener noreferrer nofollow" target="_blank" hreflang="fr" title="LinkedIn - membres fr" class="footer-link" aria-label="LinkedIn (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23aaaaaa'%3E%3Cpath d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.771-.773 1.771-1.729V1.729C24 .774 23.204 0 22.225 0z'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+LinkedIn
+</a>
+</li>
+<li role="listitem">
+<a href="https://www.facebook.com/people/Convergence-Human-And-Technology/61578483081894/" rel="noopener noreferrer nofollow" target="_blank" hreflang="fr" title="LinkedIn - membres fr" class="footer-link" aria-label="Facebook (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23aaaaaa'%3E%3Cpath d='M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+Facebook
+</a>
+</li>
+<li role="listitem">
+<a href="#" rel="noopener noreferrer nofollow" target="_blank" hreflang="fr" title="Twitter - membres fr" class="footer-link" aria-label="X / Twitter (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23aaaaaa'%3E%3Cpath d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+Twitter
+</a>
+</li>
+</ul>
+</div>
+<div class="footer-col">
+<h3 class="footer-col-title" aria-label="Ressources et services techniques">Ressources</h3>
+<ul class="footer-links-list" role="list">
+<li role="listitem">
+<a href="#" rel="noopener noreferrer nofollow" target="_blank" class="footer-link" aria-label="... (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaaaaa' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/%3E%3Cpath d='M8 8h8'/%3E%3Cpath d='M8 12h8'/%3E%3Cpath d='M8 16h5'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+...
+</a>
+</li>
+<li role="listitem">
+<a href="#" rel="me noopener noreferrer nofollow" target="_blank" class="footer-link" aria-label="... (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaaaaa' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/%3E%3Cpath d='M8 8h8'/%3E%3Cpath d='M8 12h8'/%3E%3Cpath d='M8 16h5'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+...
+</a>
+</li>
+<li role="listitem">
+<a href="#" rel="noopener noreferrer nofollow" target="_blank" class="footer-link" aria-label="Blog & Articles (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaaaaa' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/%3E%3Cpath d='M8 8h8'/%3E%3Cpath d='M8 12h8'/%3E%3Cpath d='M8 16h5'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+Blog & Articles
+</a>
+</li>
+</ul>
+</div>
+</div>
+<!-- SOUS-FOOTER -->
+<div class="footer-bottom" aria-label="Informations légales et copyright"><p class="footer-copyright" itemprop="copyrightNotice">© 2026 <strong>Convergence Human & Technology</strong> - Tous droits réservés.</p></div>
+</footer>
 
 
   <!-- ════════════════════════════════════════════════════════════════
