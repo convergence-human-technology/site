@@ -215,21 +215,20 @@ font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: up
 </head>
 
 <body>
-  <!-- ═════════════════════════════════════════
-  ★ LOADER — ÉCRAN DE CHARGEMENT (3 SECONDES) ★
-  ══════════════════════════════════════════════
-  Couvre la page pendant le chargement.
-  Masqué par JavaScript après 3 secondes.
-       ═════════════════════════════════════ -->
-  <div id="loader-overlay" role="status" aria-live="polite" aria-label="Chargement en cours">
-    <!-- Anneau tournant — indicateur visuel de chargement -->
-    <div class="loader-spinner" aria-hidden="true"></div>
-    <!-- .ttu = Globalize.css : text-transform:uppercase -->
-    <div class="loader-text ttu">Chargement</div>
-  </div><!-- fin #loader-overlay -->
+<!-- ═════════════════════════════════════════
+★ LOADER — ÉCRAN DE CHARGEMENT (3 SECONDES) ★
+══════════════════════════════════════════════
+Couvre la page pendant le chargement. Masqué par JavaScript après 3 secondes.
+═════════════════════════════════════ -->
+<div id="loader-overlay" role="status" aria-live="polite" aria-label="Chargement en cours">
+<!-- Anneau tournant — indicateur visuel de chargement -->
+<div class="loader-spinner" aria-hidden="true"></div>
+<!-- .ttu = Globalize.css : text-transform:uppercase -->
+<div class="loader-text ttu">Chargement</div>
+</div><!-- fin #loader-overlay -->
 
-  <!-- ★ SKIP LINK — accessibilité clavier / lecteurs d'écran ★ -->
-  <a href="#main-content" class="skip-link" accesskey="s">Aller au contenu principal</a>
+<!-- ★ SKIP LINK — accessibilité clavier / lecteurs d'écran ★ -->
+<a href="#main-content" class="skip-link" accesskey="s">Aller au contenu principal</a>
 
 <!-- ★ MÉTADONNÉES D'ACCESSIBILITÉ CACHÉES ★ -->
 <div hidden itemscope itemtype="https://schema.org/WebPageElement" data-dev-note="Métadonnées accessibilité - lecteurs d'écran et moteurs de recherche">
@@ -238,18 +237,16 @@ font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: up
 </div>
 
 
-  <!-- ════════════════════════════════════════════════════════════════
-       ★ BOUTON HAMBURGER — MENU MOBILE ★
-       ════════════════════════════════════════════════════════════════
-       Placé hors du <nav> pour ne pas modifier la structure originale.
-       JavaScript (ci-dessous) gère l'ouverture/fermeture.
-       3 <span> = 3 barres → animation en croix quand ouvert.
-       ════════════════════════════════════════════════════════════════ -->
-  <button class="nav-hamburger-btn" id="hamburger-btn" type="button" aria-label="Ouvrir ou fermer le menu de navigation" aria-expanded="false" aria-controls="nav-main-list">
-    <span aria-hidden="true"></span><!-- Barre haut -->
-    <span aria-hidden="true"></span><!-- Barre milieu -->
-    <span aria-hidden="true"></span><!-- Barre bas -->
-  </button>
+<!-- ════════════════════════════════════════════════════════════════
+★ BOUTON HAMBURGER — MENU MOBILE ★
+════════════════════════════════════════════════════════════════
+Placé hors du <nav> pour ne pas modifier la structure originale. JavaScript (ci-dessous) gère l'ouverture/fermeture. 3 <span> = 3 barres → animation en croix quand ouvert.
+════════════════════════════════════════════════════════════════ -->
+<button class="nav-hamburger-btn" id="hamburger-btn" type="button" aria-label="Ouvrir ou fermer le menu de navigation" aria-expanded="false" aria-controls="nav-main-list">
+<span aria-hidden="true"></span><!-- Barre haut -->
+<span aria-hidden="true"></span><!-- Barre milieu -->
+<span aria-hidden="true"></span><!-- Barre bas -->
+</button>
 
 
   <!-- ★ NAVIGATION PRINCIPALE — structure originale conservée ★ -->
@@ -309,54 +306,44 @@ font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: up
   <!-- ★ CONTENU PRINCIPAL ★ -->
   <main id="main-content" role="main" aria-label="Contenu principal">
 
-    <!-- ══════════════════════════════════════════════════════════════
-         .global - Overlay semi-transparent sur le dégradé radial.
-         Angles droits (border-radius:0). Hérité de l'index.
-         .flow - Probalize.css : espacement automatique entre enfants.
-         ══════════════════════════════════════════════════════════════ -->
-    <div class="global flow">
+<!-- ══════════════════════════════════════════════════════════════
+.global - Overlay semi-transparent sur le dégradé radial.
+Angles droits (border-radius:0). Hérité de l'index.
+.flow - Probalize.css : espacement automatique entre enfants.
+══════════════════════════════════════════════════════════════ -->
+<div class="global flow">
+<h1>Espace Membres</h1>
+<!-- NOUVELLES CARTES (x2) -->
+<div class="members-card">
+<div class="card-image-area">
+<!-- Image 1 -->
+<img src="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/Aether-Suite-cover-05t.png" alt="Aether Suite : 9 applications Android open source par Convergence Human and Technology" 
+class="members-card-img" width="100%" height="auto" loading="eager" /><!-- loading="eager" : chargement immédiat (au-dessus de la ligne de flottaison) -->
+</div>
+<div class="card-content-area">
+<p>Aether Suite</p>
+<p>Création 2026 par Convergence Human and Technology : 9 applications Android open source pour remplacer toutes les applications par défaut de votre téléphone. Pas de publicité. Aucun suivi. Aucun compte nécessaire. Vos données restent toujours sur votre téléphone.</p>
+</div>
+</div>
+<div class="members-card">
+<div class="card-image-area">
+<!-- Image 2 -->
+<img src="https://github.com/charlotte-otoole/the-mirror/raw/main/the-mirror-convergence-cover-1.jpg" alt="the mirror by : Convergence Human And Technology" class="members-card-img" width="100%" height="auto" loading="eager" />
+</div>
+<div class="card-content-area">
+<p>Le Miroir</p>
+<p>Solution logicielle révolutionnaire qui transforme la façon dont vous interagissez avec votre espace de travail numérique. Une technologie développée par Convergence. Disponible en SaaS.
+SaaS est l'acronyme de Software as a Service (Logiciel en tant que Service). Concrètement, au lieu d'acheter, d'installer et de maintenir vous-même des logiciels sur vos ordinateurs ou serveurs, vous y accédez simplement par Internet, via un navigateur web. 
+Les avantages pour vous : - Sans installation : rien à installer, rien à configurer techniquement. - Accessible partout : depuis votre bureau, votre atelier ou votre domicile. - Toujours à jour : nous gérons les mises à jour et la sécurité. - Paiement flexible : généralement un abonnement mensuel ou annuel, sans gros investissement initial.
+</p>
+</div>
+</div>
 
-      <h1>Espace Membres</h1>
+<div id="user-card">Chargement...</div>
 
-      <!-- NOUVELLES CARTES (x2) -->
-      <div class="members-card">
-        <div class="card-image-area">
-          <!-- Image 1 -->
-          <img src="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/Aether-Suite-cover-05t.png" 
-               alt="Aether Suite : 9 applications Android open source par Convergence Human and Technology" 
-               class="members-card-img" 
-               width="100%" 
-               height="auto" 
-               loading="eager" />
-          <!-- loading="eager" : chargement immédiat (au-dessus de la ligne de flottaison) -->
-        </div>
-        <div class="card-content-area">
-          <p>Aether Suite</p>
-          <p>Création 2026 par Convergence Human and Technology : 9 applications Android open source pour remplacer toutes les applications par défaut de votre téléphone. Pas de publicité. Aucun suivi. Aucun compte nécessaire. Vos données restent toujours sur votre téléphone.</p>
-        </div>
-      </div>
+</div><!-- fin .global -->
 
-      <div class="members-card">
-        <div class="card-image-area">
-          <!-- Image 2 -->
-          <img src="https://github.com/charlotte-otoole/the-mirror/raw/main/the-mirror-convergence-cover-1.jpg" 
-               alt="the mirror by : Convergence Human And Technology" 
-               class="members-card-img" 
-               width="100%" 
-               height="auto" 
-               loading="eager" />
-        </div>
-        <div class="card-content-area">
-          <p>Le Miroir</p>
-          <p>Solution logicielle révolutionnaire qui transforme la façon dont vous interagissez avec votre espace de travail numérique. Une technologie développée par Convergence. Disponible en SaaS.</p>
-        </div>
-      </div>
-
-      <div id="user-card">Chargement...</div>
-
-    </div><!-- fin .global -->
-
-  </main><!-- fin #main-content -->
+</main><!-- fin #main-content -->
 
 <!-- ==== Footer ==== -->
 <footer class="site-footer" role="contentinfo" aria-labelledby="footer-heading" itemscope itemtype="https://schema.org/WPFooter">
