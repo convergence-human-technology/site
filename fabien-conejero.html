@@ -265,120 +265,51 @@ La structure @graph regroupe quatre entités :
 3. ProfilePage → La page de profil elle-même (métadonnées de la page)
 4. WebSite → Le site dans son ensemble
 Les relations entre ces entités sont explicitées via les propriétés worksFor, founder, isPartOf, mainEntity, publisher, etc. -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://convergence-human-technology.github.io/site/fabien-conejero.html#person",
-        "name": "Fabien Conéjéro",
-        "alternateName": ["Convergence Human & Technology", "FC84"],
-        "url": "https://convergence-human-technology.github.io/site/fabien-conejero.html",
-        "jobTitle": "Fondateur & CEO | Expert en IA Physique",
-        "description": "Fabien Conéjéro est le fondateur de Convergence Human & Technology, éditeur de logiciels PC uniques et solutions informatiques B2B & B2C. Spécialiste en développement logiciel, intelligence artificielle physique (Embodied AI) et intégration API.",
-        "email": "convergence-tech@proton.me",
-        "knowsAbout": [
-          "Développement logiciel PC",
-          "Intelligence Artificielle",
-          "IA Physique",
-          "Embodied AI",
-          "Intégration API",
-          "Développement d'applications desktop",
-          "Applied AI Research",
-          "Systèmes d'IA exécutive",
-          "Solutions B2B & B2C"
-        ],
-        "worksFor": {
-          "@type": "Organization",
-          "@id": "https://convergence-human-technology.github.io/site/#organization",
-          "name": "Convergence Human & Technology"
-        },
-        "nationality": "French",
-        "sameAs": [
-          "https://github.com/Convergence-Human-And-Technology",
-          "https://www.linkedin.com/company/convergence-organization",
-          "https://www.facebook.com/people/Convergence-Human-And-Technology/61578483081894"
-        ]
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://convergence-human-technology.github.io/site/#organization",
-        "name": "Convergence Human & Technology",
-        "url": "https://convergence-human-technology.github.io/site/",
-        "description": "Convergence conçoit et commercialise des logiciels PC et solutions informatiques uniques, destinés aux professionnels et aux particuliers (B2B & B2C). Des concepts inédits, toujours en avance sur leur temps.",
-        "founder": {
-          "@id": "https://convergence-human-technology.github.io/site/fabien-conejero.html#person"
-        },
-        "foundingDate": "2026",
-        "email": "convergence-tech@proton.me",
-        "areaServed": "Worldwide",
-        "knowsAbout": [
-          "Logiciels PC",
-          "Applications desktop",
-          "Solutions IT B2B",
-          "Solutions IT B2C",
-          "Intelligence Artificielle",
-          "IA Physique",
-          "Développement logiciel"
-        ],
-        "copyrightYear": "2026",
-        "copyrightHolder": {
-          "@id": "https://convergence-human-technology.github.io/site/#organization"
-        }
-      },
-      {
-        "@type": "ProfilePage",
-        "@id": "https://convergence-human-technology.github.io/site/fabien-conejero.html#webpage",
-        "url": "https://convergence-human-technology.github.io/site/fabien-conejero.html",
-        "name": "Fabien Conéjéro - Fondateur Convergence H&T | IA Physique · Software",
-        "description": "Profil de Fabien Conéjéro, fondateur de Convergence Human & Technology, expert en IA Physique.",
-        "inLanguage": "fr-FR",
-        "isPartOf": {
-          "@id": "https://convergence-human-technology.github.io/site/#website"
-        },
-        "mainEntity": {
-          "@id": "https://convergence-human-technology.github.io/site/fabien-conejero.html#person"
-        },
-        "about": {
-          "@id": "https://convergence-human-technology.github.io/site/fabien-conejero.html#person"
-        },
-        "datePublished": "2026-03-18",
-        "dateModified": "2026-03-28",
-        "author": {
-          "@id": "https://convergence-human-technology.github.io/site/fabien-conejero.html#person"
-        },
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Accueil",
-              "item": "https://convergence-human-technology.github.io/site/index.html"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Fabien Conéjéro",
-              "item": "https://convergence-human-technology.github.io/site/fabien-conejero.html"
-            }
-          ]
-        }
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://convergence-human-technology.github.io/site/#website",
-        "url": "https://convergence-human-technology.github.io/site/",
-        "name": "Convergence Human & Technology",
-        "inLanguage": "fr-FR",
-        "publisher": {
-          "@id": "https://convergence-human-technology.github.io/site/#organization"
-        }
-      }
-    ]
-  }
-  </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://convergence-human-technology.github.io/site/fabien-conejero.html#person","name":"Fabien Conéjéro","alternateName":["Convergence Human & Technology","FC84"],"url":"https://convergence-human-technology.github.io/site/fabien-conejero.html",
+"jobTitle":"Fondateur & CEO | Expert en IA Physique","description":"Fabien Conéjéro est le fondateur de Convergence Human & Technology, éditeur de logiciels PC uniques et solutions informatiques B2B & B2C. Spécialiste en développement logiciel, intelligence artificielle physique (Embodied AI) et intégration API.",
+"email":"convergence-tech@proton.me","knowsAbout":["Développement logiciel PC","Intelligence Artificielle","IA Physique","Embodied AI","Intégration API","Développement d'applications desktop","Applied AI Research","Systèmes d'IA exécutive","Solutions B2B & B2C"],"worksFor":{"@type":"Organization",
+"@id":"https://convergence-human-technology.github.io/site/#organization","name":"Convergence Human & Technology"},"nationality":"French","sameAs":["https://github.com/Convergence-Human-And-Technology","https://www.linkedin.com/company/convergence-organization","https://www.facebook.com/people/Convergence-Human-And-Technology/61578483081894"]},
+{"@type":"Organization","@id":"https://convergence-human-technology.github.io/site/#organization","name":"Convergence Human & Technology","url":"https://convergence-human-technology.github.io/site/",
+"description":"Convergence conçoit et commercialise des logiciels PC et solutions informatiques uniques, destinés aux professionnels et aux particuliers (B2B & B2C). Des concepts inédits, toujours en avance sur leur temps.","founder":{"@id":"https://convergence-human-technology.github.io/site/fabien-conejero.html#person"},
+"foundingDate":"2026","email":"convergence-tech@proton.me","areaServed":"Worldwide","knowsAbout":["Logiciels PC","Applications desktop","Solutions IT B2B","Solutions IT B2C","Intelligence Artificielle","IA Physique","Développement logiciel"],"copyrightYear":"2026","copyrightHolder":{"@id":"https://convergence-human-technology.github.io/site/#organization"}},
+{"@type":"ProfilePage","@id":"https://convergence-human-technology.github.io/site/fabien-conejero.html#webpage","url":"https://convergence-human-technology.github.io/site/fabien-conejero.html",
+"name":"Fabien Conéjéro - Fondateur Convergence H&T | IA Physique · Software","description":"Profil de Fabien Conéjéro, fondateur de Convergence Human & Technology, expert en IA Physique.","inLanguage":"fr-FR","isPartOf":{"@id":"https://convergence-human-technology.github.io/site/#website"},
+"mainEntity":{"@id":"https://convergence-human-technology.github.io/site/fabien-conejero.html#person"},"about":{"@id":"https://convergence-human-technology.github.io/site/fabien-conejero.html#person"},"datePublished":"2026-03-18","dateModified":"2026-03-28","author":{"@id":"https://convergence-human-technology.github.io/site/fabien-conejero.html#person"},
+"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://convergence-human-technology.github.io/site/index.html"},{"@type":"ListItem","position":2,"name":"Fabien Conéjéro","item":"https://convergence-human-technology.github.io/site/fabien-conejero.html"}]}},
+{"@type":"WebSite","@id":"https://convergence-human-technology.github.io/site/#website","url":"https://convergence-human-technology.github.io/site/","name":"Convergence Human & Technology","inLanguage":"fr-FR","publisher":{"@id":"https://convergence-human-technology.github.io/site/#organization"}}]}
+</script>
+
+<!--[if lt IE 9]><script>document.createElement('header'); document.createElement('section'); document.createElement('article'); document.createElement('footer'); document.createElement('nav'); document.createElement('main');</script><![endif]-->
+
+<script type="text/javascript" fetchpriority="high">document.documentElement.className=document.documentElement.className.replace('no-js','');(function(){var htmlClass='';var ua=navigator.userAgent;var screenWidth=screen.width;var screenHeight=screen.height;var devicePixelRatio=window.devicePixelRatio||1;
+// ============================================
+// 1. DÉTECTION D'INTERNET EXPLORER (versions anciennes)
+// ============================================
+var isIE=false;var ieVersion=-1;if(ua.indexOf('MSIE')!==-1){isIE=true;var msieMatch=ua.match(/MSIE (\d+)/);if(msieMatch){ieVersion=parseInt(msieMatch[1],10);}}
+if(ua.indexOf('Trident')!==-1){isIE=true;var tridentMatch=ua.match(/rv:(\d+)/);if(tridentMatch){ieVersion=parseInt(tridentMatch[1],10);}}
+if(isIE){htmlClass+=' ie';htmlClass+=' ie-v'+ieVersion;if(ieVersion<=6){htmlClass+=' old-ie ie6';}else if(ieVersion<=7){htmlClass+=' old-ie ie7';}else if(ieVersion<=8){htmlClass+=' old-ie ie8';}else if(ieVersion<=9){htmlClass+=' ie9';}}
+
+var isOldFF=false;if(ua.indexOf('Firefox')!==-1){var ffMatch=ua.match(/Firefox\/(\d+)/);if(ffMatch&&parseInt(ffMatch[1],10)<10){isOldFF=true;htmlClass+=' old-firefox';}}
+var isOldChrome=false;if(ua.indexOf('Chrome')!==-1){var chromeMatch=ua.match(/Chrome\/(\d+)/);if(chromeMatch&&parseInt(chromeMatch[1],10)<20){isOldChrome=true;htmlClass+=' old-chrome';}}
+var isOldSafari=false;if(ua.indexOf('Safari')!==-1&&ua.indexOf('Chrome')===-1){var safariMatch=ua.match(/Version\/(\d+)/);if(safariMatch&&parseInt(safariMatch[1],10)<5){isOldSafari=true;htmlClass+=' old-safari';}}
+if(isOldFF||isOldChrome||isOldSafari){htmlClass+=' old-browser';}
+
+if(screenWidth<=1024||screenHeight<=768){htmlClass+=' low-res small-screen';}
+if(screenWidth<=800&&screenHeight<=600){htmlClass+=' very-low-res';}
+if(devicePixelRatio>=2){htmlClass+=' retina high-res';}
+var isMobile=/Mobile|Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(ua);if(isMobile){htmlClass+=' mobile';}
+
+if(ua.indexOf('Windows NT 5.1')!==-1){htmlClass+=' win-xp';}else if(ua.indexOf('Windows NT 6.0')!==-1){htmlClass+=' win-vista';}else if(ua.indexOf('Windows NT 5.0')!==-1){htmlClass+=' win-2000';}else if(ua.indexOf('Mac')!==-1){htmlClass+=' mac';}else if(ua.indexOf('Linux')!==-1){htmlClass+=' linux';}
+
+var htmlElem=document.getElementsByTagName('html')[0];if(htmlElem){htmlElem.className+=htmlClass;}
+
+window.hasHtmlClass=function(className){var htmlClasses=document.documentElement.className;return(' '+htmlClasses+' ').indexOf(' '+className+' ')!==-1;};
+
+if(ua.indexOf('MSIE 5')!==-1){htmlClass+=' ie5 very-old';}
+if(ua.indexOf('MSIE 4')!==-1){htmlClass+=' ie4 very-old';}
+})();
+</script>
 
 
 <!-- ★★★ DNS PREFETCH - PERFORMANCE ★★★ -->
@@ -404,16 +335,13 @@ Sans ces polices, fallback sur Helvetica Neue / Arial
 ════════════════════════════════════════════════════════════════ -->
 
 <!-- 1. Verdana - police principale -->
-<link rel="stylesheet" href="css/01-base.css" />
-
+<link rel="stylesheet" href="css/01-base.css" fetchpriority="high" type='text/css' data-infos="typographie verdana pour le site via @font-face" />
 <!-- 2. OpenDyslexic - police optionnelle (activée par JS) -->
-<link rel="stylesheet" href="css/02-dyslexic-mode.css" />
-
+<link rel="stylesheet" href="css/02-dyslexic-mode.css" type='text/css' data-infos="typographie OpenDyslexic pour le site - @see : JS (local storage)" />
 <!-- 3. Styles visuels améliorés (shared-ultimate.css) -->
 <link rel="stylesheet" href="shared-ultimate.css" />
-
 <!-- 4. Corrections pour vieux IE (ne s'applique qu'aux classes old-ie) -->
-<link rel="stylesheet" href="old-ie.css" />
+<link rel="stylesheet" href="old-ie.css" type='text/css' data-infos="typographie Web Safe Fonts : typographies sécurisées pour le Web. Ces polices sont pré-installées sur la quasi-totalité des systèmes d'exploitation (Windows, macOS, iOS, Android)" />
 
 <!-- ★★★ STYLES SPÉCIFIQUES À CETTE PAGE ★★★ -->
 <style type="text/css">
@@ -430,285 +358,107 @@ Si Google Fonts est indisponible ou bloqué, ces fallbacks garantissent un rendu
 SURCHARGE TYPOGRAPHIE - POLICES DE LA PAGE PROFIL
 ═══════════════════════════════════════════════════════════
 On surcharge body et h1 pour appliquer les polices importées. Ces règles viennent APRÈS shared-ultimate.css dans la cascade → elles prennent le dessus sans !important. */
-body {
-  font-family: var(--font-body); /* Corps de texte : DM Sans */
-}
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display); /* Titres : Space Grotesk */
-}
+body {font-family: var(--font-body); /* Corps de texte : DM Sans */}
+h1, h2, h3, h4, h5, h6 {font-family: var(--font-display); /* Titres : Space Grotesk */}
 
 /* ════════════════════════════════════════════════════════
 PADDING-TOP DU .global SPÉCIFIQUE À CETTE PAGE
 ═══════════════════════════════════════════════════════════
 Sur les sous-pages (contact, fabien-conejero) le .global est le premier élément de contenu - il faut compenser la barre nav fixe. */
-.global {
-  margin-top: 80px;   /* Espace au-dessus : compense nav fixe 62px + marge */
-  margin-bottom: 60px;   /* Espace en dessous */
-}
+.global {margin-top: 80px; /* Espace au-dessus : compense nav fixe 62px + marge */ margin-bottom: 60px;   /* Espace en dessous */}
 
 /* ════════════════════════════════════════════════════════
 SECTION HERO PROFIL - NOM + TITRE
 ═══════════════════════════════════════════════════════════
 La section hero du profil est différente du hero index. Elle n'est pas plein écran - elle s'intègre dans le flux avec un padding-top pour compenser la nav fixe. */
-.profile-hero {
-  display: flex; /* Flexbox : centre horizontalement et verticalement */
-  flex-direction: column; /* Éléments empilés verticalement */
-  align-items: center; /* ← Centrage horizontal */
-  justify-content: center; /* ↕ Centrage vertical */
-  padding-top: 100px; /* Espace au-dessus du contenu visible (nav = 62px) */
-  padding-bottom: 20px; /* Espace en dessous du hero */
-  text-align: center; /* Texte centré */
-}
+.profile-hero {display: flex; /* Flexbox : centre horizontalement et verticalement */ flex-direction: column; /* Éléments empilés verticalement */ align-items: center; /* ← Centrage horizontal */ justify-content: center; /* ↕ Centrage vertical */
+padding-top: 100px; /* Espace au-dessus du contenu visible (nav = 62px) */ padding-bottom: 20px; /* Espace en dessous du hero */ text-align: center; /* Texte centré */}
 
 /* ── Nom principal ──────────────────────────────────────────────── */
 /* Surcharge du h1 global pour le profil : plus grand, centré */
-.profile-name {
-  font-family: var(--font-display); /* Space Grotesk pour le nom */
-  font-size: clamp(1.6rem, 4vw, 2.8rem); /* Fluide : petit écran → grand écran */
-  font-weight: 700; /* Gras */
-  color: #ffffff; /* Blanc pur */
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin: 0 0 6px 0; /* Espace sous le nom */
-  text-shadow: 0 2px 20px rgba(77, 212, 240, 0.3); /* Légère lueur cyan */
-  line-height: 1.2; /* Interligne compact pour titre */
-}
+.profile-name {font-family: var(--font-display); /* Space Grotesk pour le nom */ font-size: clamp(1.6rem, 4vw, 2.8rem); /* Fluide : petit écran → grand écran */ font-weight: 700; /* Gras */ color: #ffffff; /* Blanc pur */ letter-spacing: 0.04em;
+text-transform: uppercase; margin: 0 0 6px 0; /* Espace sous le nom */ text-shadow: 0 2px 20px rgba(77, 212, 240, 0.3); /* Légère lueur cyan */ line-height: 1.2; /* Interligne compact pour titre */}
 /* ── Alias / sous-titre ─────────────────────────────────────────── */
-.profile-alias {
-  font-size: 0.78rem; /* Petite taille discrète */
-  font-weight: 400; /* Normal */
-  color: rgba(77, 212, 240, 0.70); /* Cyan à 70% */
-  letter-spacing: 0.30em; /* Large espacement : style Convergence */
-  text-transform: uppercase;
-  margin-bottom: 14px; /* Espace sous l'alias */
-}
+.profile-alias {font-size: 0.78rem; /* Petite taille discrète */ font-weight: 400; /* Normal */ color: rgba(77, 212, 240, 0.70); /* Cyan à 70% */ letter-spacing: 0.30em; /* Large espacement : style Convergence */ text-transform: uppercase; margin-bottom: 14px; /* Espace sous l'alias */}
 /* ── Titre de poste ─────────────────────────────────────────────── */
-.profile-jobtitle {
-  font-size: 0.90rem; /* Légèrement plus grand que l'alias */
-  font-weight: 400; /* Normal */
-  color: rgba(255, 255, 255, 0.72); /* Blanc semi-transparent */
-  letter-spacing: 0.06em; /* Espacement discret */
-  text-transform: uppercase;
-  margin-bottom: 28px; /* Espace avant les liens de contact */
-  max-width: 520px; /* Limite la largeur */
-  line-height: 1.7; /* Interligne pour les deux lignes */
-}
+.profile-jobtitle {font-size: 0.90rem; /* Légèrement plus grand que l'alias */ font-weight: 400; /* Normal */ color: rgba(255, 255, 255, 0.72); /* Blanc semi-transparent */ letter-spacing: 0.06em; /* Espacement discret */ text-transform: uppercase; margin-bottom: 28px; /* Espace avant les liens de contact */ 
+max-width: 520px; /* Limite la largeur */ line-height: 1.7; /* Interligne pour les deux lignes */}
 
 /* ═══════════════════════════════════════════════════════
 GRILLE DE COMPÉTENCES - CARDS
 ══════════════════════════════════════════════════════════
 Affiche mes domaines d'expertise sous forme de cartes dans une grille responsive. auto-fit + minmax : colonnes automatiques sans media query. */
-.skills-grid {
-  display: grid; /* Grille CSS */
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive auto */
-  gap: 16px; /* Espace entre les cartes */
-  margin-top: 24px; /* Espace au-dessus de la grille */
-  margin-bottom: 8px; /* Espace en dessous */
-}
+.skills-grid {display: grid; /* Grille CSS */ grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive auto */ gap: 16px; /* Espace entre les cartes */ margin-top: 24px; /* Espace au-dessus de la grille */ margin-bottom: 8px; /* Espace en dessous */}
 /* ── Carte compétence individuelle ──────────────────────────────── */
-.skill-card {
-  background: rgba(1, 12, 30, 0.75); /* Fond bleu nuit semi-transparent */
-  border: 1px solid rgba(77, 212, 240, 0.15); /* Bordure cyan très discrète */
-  border-left: 3px solid rgba(77, 212, 240, 0.60); /* Accent gauche cyan - identité visuelle */
-  border-radius: 0; /* Angles droits */
-  padding: 20px 18px; /* Espace intérieur */
-  text-align: left; /* Texte aligné à gauche dans la carte */
-  transition: border-left-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; /* Transition douce au survol */
-}
+.skill-card {background: rgba(1, 12, 30, 0.75); /* Fond bleu nuit semi-transparent */ border: 1px solid rgba(77, 212, 240, 0.15); /* Bordure cyan très discrète */ border-left: 3px solid rgba(77, 212, 240, 0.60); /* Accent gauche cyan - identité visuelle */ border-radius: 0; /* Angles droits */ padding: 20px 18px; /* Espace intérieur */ 
+text-align: left; /* Texte aligné à gauche dans la carte */ transition: border-left-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; /* Transition douce au survol */}
 /* ── Survol des cartes ──────────────────────────────────────────── */
-.skill-card:hover {
-  background: rgba(1, 12, 30, 0.92); /* Fond plus sombre au survol */
-  border-left-color: #4dd4f0; /* Accent gauche cyan vif */
-  box-shadow: 0 0 20px rgba(77, 212, 240, 0.12); /* Légère lueur externe */
-}
+.skill-card:hover {background: rgba(1, 12, 30, 0.92); /* Fond plus sombre au survol */ border-left-color: #4dd4f0; /* Accent gauche cyan vif */ box-shadow: 0 0 20px rgba(77, 212, 240, 0.12); /* Légère lueur externe */}
 /* ── Titre de la carte ──────────────────────────────────────────── */
-.skill-card-title {
-  font-family: var(--font-display); /* Space Grotesk */
-  font-size: 0.88rem; /* Taille discrète */
-  font-weight: 600; /* Semi-gras */
-  color: #4dd4f0; /* Cyan */
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 6px; /* Espace sous le titre */
-}
+.skill-card-title {font-family: var(--font-display); /* Space Grotesk */ font-size: 0.88rem; /* Taille discrète */ font-weight: 600; /* Semi-gras */ color: #4dd4f0; /* Cyan */ text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; /* Espace sous le titre */}
 /* ── Description de la carte ────────────────────────────────────── */
-.skill-card-desc {
-  font-size: 0.84rem; /* Légèrement plus petit que le corps */
-  color: rgba(255, 255, 255, 0.68); /* Blanc atténué */
-  line-height: 1.6; /* Interligne pour lisibilité */
-  margin: 0; /* Reset marge (Probalize.css gère sinon) */
-}
+.skill-card-desc {font-size: 0.84rem; /* Légèrement plus petit que le corps */ color: rgba(255, 255, 255, 0.68); /* Blanc atténué */ line-height: 1.6; /* Interligne pour lisibilité */ margin: 0; /* Reset marge (Probalize.css gère sinon) */}
 
 /* ═════════════════════════════════════════════════════════════
 ★ NOUVEAU 2026 : STYLES POUR LES CARTES DE DOMAINES (remplacement table)
 ════════════════════════════════════════════════════════════════
 Ces styles remplacent l'ancienne balise 表 non sémantique. Ils utilisent une approche flexible et accessible avec ARIA. La structure est en liste pour une meilleure sémantique et accessibilité. */
-.domains-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 16px;
-  margin-bottom: 8px;
-}
-.domain-item {
-  background: rgba(77, 212, 240, 0.05);
-  border-left: 2px solid #4dd4f0;
-  padding: 12px 16px;
-}
-.domain-title {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #4dd4f0;
-  margin-bottom: 6px;
-  letter-spacing: 0.03em;
-}
-.domain-desc {
-  font-size: 0.84rem;
-  color: rgba(255, 255, 255, 0.75);
-  line-height: 1.5;
-  margin: 0;
-}
+.domains-list {display: flex; flex-direction: column; gap: 16px; margin-top: 16px; margin-bottom: 8px;}
+.domain-item {background: rgba(77, 212, 240, 0.05); border-left: 2px solid #4dd4f0; padding: 12px 16px;}
+.domain-title {font-family: var(--font-display); font-weight: 600; font-size: 0.9rem; color: #4dd4f0; margin-bottom: 6px; letter-spacing: 0.03em;}
+.domain-desc {font-size: 0.84rem; color: rgba(255, 255, 255, 0.75); line-height: 1.5; margin: 0;}
 
 /* ═════════════════════════════════════════════════════════════
 SECTION À PROPOS - TEXTE DE PRÉSENTATION
 ════════════════════════════════════════════════════════════════
 Style hérité du .global de shared-ultimate.css Quelques ajustements spécifiques au profil. */
-.about-section {
-  margin-top: 36px; /* Espace entre les cards et la section about */
-}
+.about-section {margin-top: 36px; /* Espace entre les cards et la section about */}
 
 /* ═════════════════════════════════════════════════════════════
 SECTION LIENS / RÉSEAUX - BOUTONS ICÔNES
 ════════════════════════════════════════════════════════════════
 Rangée de boutons-liens vers mes profils externes. */
-.profile-links {
-  display: flex; /* Flexbox : aligne les boutons */
-  flex-wrap: wrap; /* Retour à la ligne sur petits écrans */
-  gap: 12px; /* Espace entre les boutons */
-  justify-content: center; /* Centré */
-  margin-top: 24px; /* Espace au-dessus */
-}
+.profile-links {display: flex; /* Flexbox : aligne les boutons */ flex-wrap: wrap; /* Retour à la ligne sur petits écrans */ gap: 12px; /* Espace entre les boutons */ justify-content: center; /* Centré */ margin-top: 24px; /* Espace au-dessus */}
 /* ── Bouton lien réseau social ou professionnel ──────────────────── */
-.profile-link-btn {
-  display: flex; /* Aligne icône + texte */
-  align-items: center; /* Centrage vertical */
-  gap: 8px; /* Espace icône / texte */
-  padding: 10px 20px; /* Espace intérieur */
-  background: rgba(1, 12, 30, 0.80); /* Fond bleu nuit */
-  border: 1px solid rgba(77, 212, 240, 0.30); /* Bordure cyan */
-  border-radius: 0; /* Angles droits */
-  color: rgba(255, 255, 255, 0.82); /* Blanc */
-  font-size: 0.82rem; /* Taille petite */
-  font-weight: 500; /* Semi-gras */
-  font-family: var(--font-display); /* Space Grotesk */
-  text-decoration: none; /* Pas de soulignement */
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease; /* Transition globale douce */
-}
+.profile-link-btn {display: flex; /* Aligne icône + texte */ align-items: center; /* Centrage vertical */ gap: 8px; /* Espace icône / texte */ padding: 10px 20px; /* Espace intérieur */ background: rgba(1, 12, 30, 0.80); /* Fond bleu nuit */ border: 1px solid rgba(77, 212, 240, 0.30); /* Bordure cyan */ border-radius: 0; /* Angles droits */
+color: rgba(255, 255, 255, 0.82); /* Blanc */ font-size: 0.82rem; /* Taille petite */ font-weight: 500; /* Semi-gras */ font-family: var(--font-display); /* Space Grotesk */ text-decoration: none; /* Pas de soulignement */ letter-spacing: 0.06em;
+text-transform: uppercase; transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease; /* Transition globale douce */}
 .profile-link-btn:hover, 
-.profile-link-btn:focus {
-  color: #7be8ff; /* Cyan clair au survol */
-  border-color: rgba(77, 212, 240, 0.65); /* Bordure plus visible */
-  background: rgba(77, 212, 240, 0.06); /* Léger teinté cyan */
-  box-shadow: 0 0 14px rgba(77, 212, 240, 0.20); /* Lueur externe */
-}
+.profile-link-btn:focus {color: #7be8ff; /* Cyan clair au survol */ border-color: rgba(77, 212, 240, 0.65); /* Bordure plus visible */ background: rgba(77, 212, 240, 0.06); /* Léger teinté cyan */ box-shadow: 0 0 14px rgba(77, 212, 240, 0.20); /* Lueur externe */}
 /* Focus visible clavier - WCAG 2.4.7 (AA) */
-.profile-link-btn:focus-visible {
-  outline: 2px solid #4dd4f0; /* Contour cyan visible */
-  outline-offset: 3px; /* Espace entre le contour et le bouton */
-}
+.profile-link-btn:focus-visible {outline: 2px solid #4dd4f0; /* Contour cyan visible */ outline-offset: 3px; /* Espace entre le contour et le bouton */}
 
 /* ════════════════════════════════════════
 TITRES H2 ET H3 DANS .global - SOUS-PAGES
 ═══════════════════════════════════════════
 Identique à contact.html pour la cohérence du thème. */
-.global h2 {
-  font-family: var(--font-display); /* Space Grotesk */
-  font-size: clamp(1rem, 2vw, 1.4rem); /* Fluide responsive */
-  font-weight: 600; /* Semi-gras */
-  color: rgba(255, 255, 255, 0.90); /* Blanc quasi pur */
-  text-align: center; /* Centré */
-  letter-spacing: 0.06em; /* Espacement léger */
-  text-transform: uppercase;
-  margin: 0 0 6px 0; /* Espace sous le titre */
-  padding-top: 24px; /* Espace avant chaque section */
-}
-.global h3 {
-  font-family: var(--font-display); /* Space Grotesk */
-  font-size: clamp(0.9rem, 1.5vw, 1.15rem); /* Fluide légèrement plus petit que h2 */
-  font-weight: 600; /* Semi-gras */
-  color: #4dd4f0; /* Cyan de la charte */
-  text-align: center; /* Centré */
-  margin: 18px 0 4px; /* Marges verticales */
-}
+.global h2 {font-family: var(--font-display); /* Space Grotesk */ font-size: clamp(1rem, 2vw, 1.4rem); /* Fluide responsive */ font-weight: 600; /* Semi-gras */ color: rgba(255, 255, 255, 0.90); /* Blanc quasi pur */ text-align: center; /* Centré */ letter-spacing: 0.06em; /* Espacement léger */
+text-transform: uppercase; margin: 0 0 6px 0; /* Espace sous le titre */ padding-top: 24px; /* Espace avant chaque section */}
+.global h3 {font-family: var(--font-display); /* Space Grotesk */ font-size: clamp(0.9rem, 1.5vw, 1.15rem); /* Fluide légèrement plus petit que h2 */ font-weight: 600; /* Semi-gras */ color: #4dd4f0; /* Cyan de la charte */ text-align: center; /* Centré */ margin: 18px 0 4px; /* Marges verticales */}
 /* ── Séparateur <hr> dans .global ─────────────────────────────── */
-.global hr {
-  border: none; /* Supprime bordure par défaut */
-  border-top: 1px solid rgba(77, 212, 240, 0.18); /* Liseré cyan très discret */
-  margin: 24px auto; /* Centré, espace vertical */
-  width: 80%; /* Pas pleine largeur */
-}
+.global hr {border: none; /* Supprime bordure par défaut */ border-top: 1px solid rgba(77, 212, 240, 0.18); /* Liseré cyan très discret */ margin: 24px auto; /* Centré, espace vertical */ width: 80%; /* Pas pleine largeur */}
 /* ── Texte fort dans .global ────────────────────────────────────── */
-.global strong {
-  color: rgba(255, 255, 255, 0.95); /* Presque blanc pur */
-  font-weight: 600; /* Semi-gras */
-}
+.global strong {color: rgba(255, 255, 255, 0.95); /* Presque blanc pur */ font-weight: 600; /* Semi-gras */}
 /* ── Liens dans .global ─────────────────────────────────────────── */
-.global a:not(.email-link):not(.profile-link-btn):not(.profile-contact-item) {
-  color: #4dd4f0; /* Cyan de la charte */
-  text-decoration: none; /* Pas de soulignement */
-  word-break: break-all; /* URLs longues reviennent à la ligne */
-}
-.global a:not(.email-link):not(.profile-link-btn):not(.profile-contact-item):hover, 
-.global a:not(.email-link):not(.profile-link-btn):not(.profile-contact-item):focus {
-  text-decoration: underline; /* Soulignement au survol */
-  color: #7be8ff; /* Cyan plus clair */
-}
+.global a:not(.email-link):not(.profile-link-btn):not(.profile-contact-item) {color: #4dd4f0; /* Cyan de la charte */ text-decoration: none; /* Pas de soulignement */ word-break: break-all; /* URLs longues reviennent à la ligne */}
+.global a:not(.email-link):not(.profile-link-btn):not(.profile-contact-item):hover, .global a:not(.email-link):not(.profile-link-btn):not(.profile-contact-item):focus {text-decoration: underline; /* Soulignement au survol */ color: #7be8ff; /* Cyan plus clair */}
 
 /* ════════════════════════════════════════════════════════════════
 RESPONSIVE - AJUSTEMENTS MOBILES SPÉCIFIQUES À CETTE PAGE
 ════════════════════════════════════════════════════════════════ */
 /* ── Mobile portrait (< 600px) ─────────────────────────────────── */
 @media screen and (max-width: 600px) {
-  /* Le padding-top du hero est réduit sur mobile */
-  .profile-hero {
-    padding-top: 80px; /* Réduit par rapport au 100px desktop */
-  }
-  /* La grille de compétences passe en 1 colonne sur très petit écran */
-  .skills-grid {
-    grid-template-columns: 1fr; /* Une seule colonne */
-  }
-  /* Les boutons de liens passent en colonne sur mobile */
-  .profile-links {
-    flex-direction: column; /* Empilés verticalement */
-    align-items: center; /* Centrés */
-  }
-  .global {
-    margin-top: 70px; /* Légèrement moins de marge top */
-    padding: 24px 16px 32px; /* Moins de padding intérieur */
-  }
-}
-
+/* Le padding-top du hero est réduit sur mobile */
+.profile-hero {padding-top: 80px; /* Réduit par rapport au 100px desktop */}
+/* La grille de compétences passe en 1 colonne sur très petit écran */
+.skills-grid {grid-template-columns: 1fr; /* Une seule colonne */}
+/* Les boutons de liens passent en colonne sur mobile */
+.profile-links {flex-direction: column; /* Empilés verticalement */ align-items: center; /* Centrés */} .global {margin-top: 70px; /* Légèrement moins de marge top */ padding: 24px 16px 32px; /* Moins de padding intérieur */}}
 </style>
 
-<!--[if lt IE 9]>
-<script>
-  /* Support des balises HTML5 sémantiques dans IE8 et inférieurs */
-document.createElement('header'); document.createElement('section'); document.createElement('article'); document.createElement('footer'); document.createElement('nav'); document.createElement('main'); document.createElement('aside');
-</script>
-<![endif]-->
 
-<meta name="google-site-verification" content="jsM_hxlBkNDburSyR0zaPNGTkc7KiiKV6MF8agHrclo" />
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HXMKJM1CS5"></script> 
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-HXMKJM1CS5');
-</script>
-
+<meta name="google-site-verification" content="jsM_hxlBkNDburSyR0zaPNGTkc7KiiKV6MF8agHrclo" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-HXMKJM1CS5"></script> <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-HXMKJM1CS5');</script>
+<script data-ref="loader-menu-hamburger-connexion-deconnexion" type="application/javascript" defer="defer" src="js/loader-menu-hamburger-connexion-deconnexion.js"></script>
 </head>
 
 <body>
@@ -962,143 +712,6 @@ CONTACT ET COLLABORATION
 </div><!-- fin .global -->
 
 </main><!-- fin #main-content -->
-
-
-<!-- ═════════════════════════════
-★ SCRIPTS — LOADER + HAMBURGER + CONNEXION ★
-════════════════════════════════════════════════════════════════
-Ce bloc gère : 
-- 1. LOADER : masque l'écran de chargement après 3 secondes
-- 2. HAMBURGER : ouvre/ferme le menu de navigation sur mobile
-- 3. CONNEXION : liens Connexion et Déconnexion Auth0
-
-Pas de halo sur cette page (pas de logo).
-Pas de FAQ accordéon (pas de FAQ sur cette page).
-════════════════════════════════════════════════════════════════ -->
-  <script>
-
-    /* ================================================================
-       1. LOADER — Masquage après 3 secondes
-       ================================================================
-       DOMContentLoaded attend que tout le HTML soit parsé.
-       Après 3000ms, la classe .hidden est ajoutée sur #loader-overlay.
-       CSS gère le fondu via transition opacity + visibility.
-       ================================================================ */
-    document.addEventListener('DOMContentLoaded', function() {
-
-      /* Récupère l'overlay de chargement */
-      var loaderOverlay = document.getElementById('loader-overlay');
-
-      /* Déclenche le masquage après 3 secondes (3000 ms) */
-      setTimeout(function() {
-        if (loaderOverlay) {
-          loaderOverlay.classList.add('hidden'); /* → opacity:0, visibility:hidden */
-        }
-      }, 3000); /* ← Modifier ici pour changer la durée du loader */
-
-
-      /* ================================================================
-         2. HAMBURGER MENU — Ouverture/Fermeture sur mobile
-         ================================================================
-         Au clic sur #hamburger-btn :
-         - Classe .open sur le bouton → animation barres → croix
-         - Classe .nav-open sur #nav-main-list → max-height 0 → 380px
-         - aria-expanded mis à jour pour l'accessibilité
-         ================================================================ */
-      var hamburgerBtn = document.getElementById('hamburger-btn');
-      var navList      = document.getElementById('nav-main-list');
-
-      if (hamburgerBtn && navList) {
-
-        hamburgerBtn.addEventListener('click', function() {
-          hamburgerBtn.classList.toggle('open');     /* Anime le bouton en croix */
-          navList.classList.toggle('nav-open');      /* Ouvre/ferme le menu */
-          var isOpen = navList.classList.contains('nav-open');
-          hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-
-        /* Ferme le menu quand un lien est cliqué (navigation mobile) */
-        var navLinks = navList.querySelectorAll('a');
-        for (var i = 0; i < navLinks.length; i++) {
-          navLinks[i].addEventListener('click', function() {
-            hamburgerBtn.classList.remove('open');
-            navList.classList.remove('nav-open');
-            hamburgerBtn.setAttribute('aria-expanded', 'false');
-          });
-        }
-
-      } /* fin if hamburgerBtn && navList */
-
-    }); /* fin DOMContentLoaded */
-    
-    /* ================================================================
-       3. LIEN CONNEXION DANS LE MENU — version autonome
-       ================================================================
-       Ce script gère le lien Connexion dans le menu sans dépendre
-       du bouton #btn-login (qui n'existe pas sur cette page).
-       ================================================================ */
-    document.addEventListener('DOMContentLoaded', function() {
-
-      var navLoginLink = document.getElementById('nav-login-link');
-
-      if (navLoginLink) {
-
-        navLoginLink.addEventListener('click', function(e) {
-          e.preventDefault();
-
-          /* Code Auth0 de connexion */
-          const AUTH0_DOMAIN = "convergence-tech.eu.auth0.com";
-          const CLIENT_ID = "ONtxpyovHGewrl4669n3Qz8RJYot27AS";
-          const REDIRECT_URI = "https://convergence-human-technology.github.io/site/callback.html";
-
-          const state = Math.random().toString(36).substring(2);
-          sessionStorage.setItem("auth_state", state);
-          const url = `https://${AUTH0_DOMAIN}/authorize?response_type=token&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=openid%20profile%20email&state=${state}`;
-          window.location.href = url;
-        });
-
-        /* Masque le lien Connexion si l'utilisateur est déjà connecté */
-        var token = sessionStorage.getItem('auth_token');
-        if (token) {
-          var liParent = navLoginLink.parentElement;
-          if (liParent) liParent.style.display = 'none';
-        }
-
-      }
-
-    });
-
-    /* ================================================================
-       4. LIEN DÉCONNEXION DANS LE MENU — version autonome
-       ================================================================
-       Ce script gère le lien Déconnexion dans le menu.
-       ================================================================ */
-    document.addEventListener('DOMContentLoaded', function() {
-
-      var navLogoutLink = document.getElementById('nav-logout-link');
-
-      if (navLogoutLink) {
-
-        navLogoutLink.addEventListener('click', function(e) {
-          e.preventDefault();
-          sessionStorage.clear();
-          window.location.href = `https://convergence-tech.eu.auth0.com/v2/logout?returnTo=${encodeURIComponent(window.location.origin + "/site/index.html")}&client_id=ONtxpyovHGewrl4669n3Qz8RJYot27AS`;
-        });
-
-        /* Synchronisation état connecté → affiche/masque le lien Déconnexion */
-        var token = sessionStorage.getItem('auth_token');
-        var liParent = navLogoutLink.parentElement;
-        if (token) {
-          if (liParent) liParent.style.display = 'flex';
-        } else {
-          if (liParent) liParent.style.display = 'none';
-        }
-
-      }
-
-    });
-
-  </script>
 
 </body>
 </html>
