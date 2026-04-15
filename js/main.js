@@ -1,6 +1,12 @@
 /* ════════════════════════════════════════════════════════════════
    ★ SCRIPTS — LOADER + HAMBURGER + CONNEXION + NAV + HALO ★
    ════════════════════════════════════════════════════════════════
+   
+   Ce fichier : main.js remplace : loader-menu-hamburger-halo-connexion-nav.js 
+   et remplace aussi : loader-menu-hamburger-connexion-deconnexion.js
+   car il les regroupe en un seul fichier.
+
+
   ✔ Pages concernées par ce script :
     index.html - tarifs.html - contact.html - mentions.html - fabien.html
     et autres pages publiques.
