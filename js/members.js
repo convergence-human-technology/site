@@ -1,30 +1,48 @@
 /* ════════════════════════════════════════════════════════════════
    ★★★ SCRIPT ESPACE MEMBRES - AUTH0 ★★★
    ════════════════════════════════════════════════════════════════
-  
-  Ce fichier est uniquement pour la page : membres.html
-  Ce fichier : members.js remplace :
+
+   Ce fichier est uniquement pour la page : membres.html
+
+   Ce fichier : members.js remplace :
   autho-espace-membres-loader-menu-hambuger-verif-deconnexion-gestion-abonnement.js
 
   Avec ce script :
   Ajouter dans le HTML (IMPORTANT UX) : class="auth-loading" sur le body.
   <body class="auth-loading">
 
-
-   OBJECTIF :
-   Gérer entièrement l’espace membres sécurisé côté front.
+   ✔ Gestion complète authentification côté front
+   ✔ UX propre (aucun flash visuel)
+   ✔ Sécurité adaptée GitHub Pages (sans backend)
+   ✔ Gestion états : loading / valid / expired
+   ✔ Compatible <script defer>
 
    ✔ Vérifie la présence du token (authentification)
-   ✔ Vérifie que le token est valide (format JWT)
+
+   ✔ Vérifie que le token a une structure valide (format JWT)
+
    ✔ Vérifie que le token n’est pas expiré
+     (après chargement pour éviter bug de connexion)
+
    ✔ Redirige si non authentifié (sécurité)
+
    ✔ Récupère les infos utilisateur via Auth0 (/userinfo)
+
    ✔ Vérifie le statut abonnement (claim "paid")
+
    ✔ Affiche contenu différent selon utilisateur (gratuit / payant)
+
    ✔ Gère le bouton Déconnexion
+
    ✔ Empêche le "flash" visuel avant vérification (UX propre)
 
-   IMPORTANT :
+   ✔ Gère les états :
+     - loading (chargement)
+     - connecté
+     - session expirée
+     - erreur authentification
+
+   MPORTANT :
    Ce script protège la page privée (membres.html)
 
    ✔ Compatible avec <script defer> : <script src="js/members.js" defer></script>
@@ -34,20 +52,33 @@
 
    TESTS À FAIRE :
 
-  ✔ connecté → page OK
-  ✔ pas connecté → redirection index
-  ✔ token expiré → redirection
-  ✔ logout → retour index
+   ✔ connecté → accès normal à la page membres
 
-  _______
+   ✔ pas connecté → redirection vers index.html
 
-  Nous avons ici :
+   ✔ token expiré → affichage message + bouton de reconnexion
+     (pas de redirection brutale → UX améliorée)
 
-  ✔ protection réelle côté client
-  ✔ gestion propre Auth0
-  ✔ UX propre (pas de flash)
-  ✔ code maintenable
-  ✔ niveau quasi production pour site statique
+   ✔ token invalide → nettoyage session + message erreur
+
+   ✔ logout → retour index + session nettoyée
+
+   _______
+
+   NOUS AVONS ICI :
+
+   ✔ protection côté client (adaptée site statique)
+
+   ✔ gestion Auth0 propre (login / logout / userinfo)
+
+   ✔ UX propre :
+     - pas de flash visuel
+     - gestion des états (loading / connecté / expiré / erreur)
+
+   ✔ code maintenable et structuré
+
+   ✔ niveau quasi production pour site statique (GitHub Pages)
+
    ════════════════════════════════════════════════════════════════ */
 
 
@@ -58,76 +89,74 @@ const AUTH0_DOMAIN = "convergence-tech.eu.auth0.com";
 const CLIENT_ID = "ONtxpyovHGewrl4669n3Qz8RJYot27AS";
 const BASE_URL = "https://convergence-human-technology.github.io/site";
 
-/* Claim personnalisé Auth0 pour savoir si utilisateur est payant */
 const PAID_CLAIM = "https://convergence-tech.eu.auth0.com/paid";
 
 
 /* ================================================================
-   2. 🔐 SÉCURITÉ AUTH — VÉRIFICATION DU TOKEN
+   2. OUTILS AUTH (JWT)
    ================================================================ */
 
-/* Vérifie si un token existe ET s’il a une structure JWT valide */
-function isAuthenticated() {
-  const token = sessionStorage.getItem("auth_token");
-
-  /* Un JWT doit contenir 3 parties séparées par des points */
+/* Vérifie structure JWT simple */
+function hasValidJWTStructure(token) {
   return token && token.split('.').length === 3;
 }
 
-
-/* Vérifie si le token est expiré */
+/* Vérifie expiration */
 function isTokenExpired(token) {
   try {
-    /* Décodage de la partie payload du JWT */
     const payload = JSON.parse(atob(token.split('.')[1]));
-
-    /* Temps actuel en secondes */
     const now = Math.floor(Date.now() / 1000);
 
-    /* Si expiration dépassée → token invalide */
     return payload.exp < now;
 
   } catch (e) {
-    /* En cas d'erreur → on considère le token invalide */
     return true;
   }
 }
 
 
 /* ================================================================
-   3. PROTECTION IMMÉDIATE DE LA PAGE
+   3. ÉTAT INITIAL (TRÈS IMPORTANT)
    ================================================================ */
+
+/*
+   ICI on ne fait PAS de vérification agressive
+
+   Pourquoi :
+   → au retour Auth0, le token vient juste d’être créé
+   → il peut ne pas être encore exploitable immédiatement
+
+   ✔ On vérifie seulement présence + structure
+*/
 
 const token = sessionStorage.getItem("auth_token");
 
-/* Si :
-   - pas de token
-   - token invalide
-   - token expiré
-
-   → on nettoie et on redirige vers page publique
-*/
-if (!token || !isAuthenticated() || isTokenExpired(token)) {
+if (!hasValidJWTStructure(token)) {
 
   sessionStorage.clear();
 
-  /* window.location.replace :
-     empêche retour arrière vers page protégée */
   window.location.replace(BASE_URL + "/index.html");
 }
 
 
 /* ================================================================
-   4. INITIALISATION APRÈS CHARGEMENT DU DOM
+   4. INITIALISATION APRÈS DOM READY
    ================================================================ */
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* Cache la page tant que l'auth n'est pas validée (anti flash UX) */
+  /* ================================================================
+     4.1 MODE LOADING (ANTI FLASH UX)
+     ================================================================ */
+
+  /*
+     La page est cachée tant que l’auth n’est pas validée
+     → évite affichage contenu privé avant vérification
+  */
   document.body.style.visibility = "hidden";
 
 
   /* ================================================================
-     5. RÉCUPÉRATION DES ÉLÉMENTS HTML
+     5. RÉCUPÉRATION DES ÉLÉMENTS
      ================================================================ */
   var container = document.getElementById("user-card");
 
@@ -136,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   /* ================================================================
-     6. GESTION AFFICHAGE BOUTON DÉCONNEXION
+     6. GESTION BOUTON DÉCONNEXION
      ================================================================ */
   function showLogout() {
     if (navLogoutItem) navLogoutItem.style.display = 'flex';
@@ -146,12 +175,43 @@ document.addEventListener('DOMContentLoaded', function () {
     if (navLogoutItem) navLogoutItem.style.display = 'none';
   }
 
-  /* Si token présent → afficher bouton logout */
-  if (token) showLogout();
+  showLogout();
 
 
   /* ================================================================
-     7. APPEL API AUTH0 — /userinfo
+     7. VÉRIFICATION EXPIRATION (APRÈS CHARGEMENT)
+     ================================================================ */
+
+  /*
+     ✔ IMPORTANT : on vérifie ici (et pas avant)
+
+     → évite bug login
+     → permet UX propre
+  */
+  if (isTokenExpired(token)) {
+
+    sessionStorage.clear();
+
+    /* UX PROPRE :
+       pas de redirection brutale immédiate */
+
+    if (container) {
+      container.innerHTML = `
+        <h2>Session expirée</h2>
+        <p>Votre session a expiré. Veuillez vous reconnecter.</p>
+        <a href="${BASE_URL}/index.html" class="offer-button">
+          Se reconnecter
+        </a>
+      `;
+    }
+
+    document.body.style.visibility = "visible";
+    return;
+  }
+
+
+  /* ================================================================
+     8. APPEL AUTH0 — /userinfo
      ================================================================ */
 
   fetch(`https://${AUTH0_DOMAIN}/userinfo`, {
@@ -160,30 +220,31 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })
   .then(function (response) {
+
+    /* Si erreur (token invalide côté Auth0) */
+    if (!response.ok) {
+      throw new Error("Token invalide");
+    }
+
     return response.json();
   })
   .then(function (user) {
 
-    /* Vérifie si utilisateur a abonnement payant */
     var paid = user[PAID_CLAIM];
 
     if (!container) return;
 
 
     /* ================================================================
-       8. AFFICHAGE CONDITIONNEL SELON ABONNEMENT
+       9. AFFICHAGE UTILISATEUR
        ================================================================ */
 
     if (!paid) {
 
-      /* ============================================================
-         UTILISATEUR NON PAYANT
-         ============================================================ */
       container.innerHTML = `
         <h2>Découvrez nos produits</h2>
         <p>
-          Vous souhaitez découvrir nos logiciels en intégralité et accéder aux démos ?
-          Devenez membre VIP et profitez d'un accès complet.
+          Accédez à toutes nos fonctionnalités en devenant membre VIP.
         </p>
         <a href="${BASE_URL}/tarifs.html" class="offer-button">
           Découvrir nos offres
@@ -192,20 +253,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     } else {
 
-      /* ============================================================
-         UTILISATEUR PAYANT
-         ============================================================ */
       container.innerHTML = `
         <img src="${user.picture}" width="80" style="border-radius:50%">
         <h2>Bonjour <strong>${user.name}</strong></h2>
         <p>📧 ${user.email}</p>
-        <p>✅ Vous avez accès à l'espace membres.</p>
+        <p>✅ Accès membre actif</p>
       `;
     }
 
 
     /* ================================================================
-       9. AFFICHAGE FINAL (APRÈS VALIDATION AUTH)
+       10. AFFICHAGE FINAL
        ================================================================ */
 
     document.body.style.visibility = "visible";
@@ -214,9 +272,17 @@ document.addEventListener('DOMContentLoaded', function () {
   })
   .catch(function () {
 
-    /* En cas d’erreur API */
+    /* Token invalide / erreur réseau */
+    sessionStorage.clear();
+
     if (container) {
-      container.innerHTML = "<p>Erreur de chargement des données utilisateur.</p>";
+      container.innerHTML = `
+        <h2>Erreur d'authentification</h2>
+        <p>Veuillez vous reconnecter.</p>
+        <a href="${BASE_URL}/index.html" class="offer-button">
+          Retour à l'accueil
+        </a>
+      `;
     }
 
     document.body.style.visibility = "visible";
@@ -224,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   /* ================================================================
-     10. GESTION DE LA DÉCONNEXION
+     11. DÉCONNEXION
      ================================================================ */
 
   if (navLogoutLink) {
@@ -232,12 +298,10 @@ document.addEventListener('DOMContentLoaded', function () {
     navLogoutLink.addEventListener('click', function (e) {
       e.preventDefault();
 
-      /* Nettoyage session */
       sessionStorage.clear();
 
       hideLogout();
 
-      /* Redirection logout Auth0 */
       window.location.href =
         `https://${AUTH0_DOMAIN}/v2/logout?returnTo=${encodeURIComponent(BASE_URL + "/index.html")}&client_id=${CLIENT_ID}`;
     });
