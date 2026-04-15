@@ -210,12 +210,12 @@ font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: up
 @media screen and (max-width: 768px) {.members-card {margin-bottom: 25px;}}
 </style>
 
-<script data-ref="autho-espace-membres-loader-menu-hambuger-verif-deconnexion-gestion-abonnement" type="application/javascript" defer="defer" src="js/autho-espace-membres-loader-menu-hambuger-verif-deconnexion-gestion-abonnement.js"></script>
+<script type="application/javascript" defer="defer" src="js/members.js"></script>
 <meta name="google-site-verification" content="jsM_hxlBkNDburSyR0zaPNGTkc7KiiKV6MF8agHrclo" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-HXMKJM1CS5"></script> <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-HXMKJM1CS5');</script>
 
 </head>
 
-<body>
+<body class="auth-loading">
 <!-- ═════════════════════════════════════════
 ★ LOADER — ÉCRAN DE CHARGEMENT (3 SECONDES) ★
 ══════════════════════════════════════════════
@@ -436,156 +436,6 @@ Blog & Articles
 <!-- SOUS-FOOTER -->
 <div class="footer-bottom" aria-label="Informations légales et copyright"><p class="footer-copyright" itemprop="copyrightNotice">© 2026 <strong>Convergence Human & Technology</strong> - Tous droits réservés.</p></div>
 </footer>
-
-
-  <!--   a supprimer 
-<script>
-/* ════════════════════════════════════════════════════════════════
-★★★ SCRIPT AUTH0 — ESPACE MEMBRES (VERSION 2026) ★★★
-════════════════════════════════════════════════════════════════
-Ce script gère l'espace membres :
-- Vérifie la présence du token en sessionStorage
-- Redirige vers index.html si non authentifié
-- Appelle /userinfo pour récupérer le profil utilisateur
-- Vérifie le claim "paid" pour l'accès au contenu (gratuit vs payant)
-- Gère l'affichage du lien "Déconnexion" dans le menu de navigation
-- PAS de lien Connexion sur cette page (inutile car page privée)
-________________________
-
-✔ Loader +	✔ Menu Hamburger + ✔ Vérif token	+
-✔ Redirection si non connecté + ✔ Fetch /userinfo + ✔ Gestion abonnement
-════════════════════════════════════════════════════════════════ */
-
-
-    const AUTH0_DOMAIN = "convergence-tech.eu.auth0.com";
-    const CLIENT_ID = "ONtxpyovHGewrl4669n3Qz8RJYot27AS";
-    const BASE_URL = "https://convergence-human-technology.github.io/site";
-    const PAID_CLAIM = "https://convergence-tech.eu.auth0.com/paid";
-
-    const token = sessionStorage.getItem("auth_token");
-    const navLogoutItem = document.getElementById('nav-logout-item');
-
-    // Gestion de l'affichage du bouton Déconnexion dans le menu
-    const showLogoutInNav = () => {
-        if(navLogoutItem) navLogoutItem.style.display = 'flex';
-    };
-    const hideLogoutInNav = () => {
-        if(navLogoutItem) navLogoutItem.style.display = 'none';
-    };
-
-    if (!token) {
-        // Pas de token → redirection vers l'accueil (page publique)
-        window.location.replace(BASE_URL + "/index.html");
-    } else {
-        // Token présent → utilisateur connecté → afficher Déconnexion
-        showLogoutInNav();
-        fetch(`https://${AUTH0_DOMAIN}/userinfo`, {
-            headers: { Authorization: `Bearer ${token}` }
-        })
-        .then(r => r.json())
-        .then(user => {
-            const paid = user[PAID_CLAIM];
-            const container = document.getElementById("user-card");
-            if (!paid) {
-                container.innerHTML = `
-                    <h2>Découvrez nos produits</h2>
-                    <p>Vous souhaitez découvrir nos logiciels en intégralité et accéder aux démos pour pouvoir les tester ? Devenez membre VIP et profitez d'un accès exclusif à tout l'univers Convergence.</p>
-                    <a href="${BASE_URL}/tarifs.html" class="offer-button" style="margin-top:10px;">Découvrir nos offres</a>
-                `;
-            } else {
-                container.innerHTML = `
-                    <img src="${user.picture}" width="80" style="border-radius:50%"><br>
-                    <h2>Bonjour <strong>${user.name}</strong> !</h2>
-                    <p>📧 ${user.email}</p>
-                    <p>✅ Vous avez accès à l'espace membres.</p>
-                `;
-            }
-        })
-        .catch(() => {
-            document.getElementById("user-card").innerHTML = "<p>Erreur de chargement.</p>";
-        });
-    }
-
-    // Gestion de la déconnexion via le lien dans le menu (uniquement)
-    const navLogoutLink = document.getElementById('nav-logout-link');
-    if (navLogoutLink) {
-        navLogoutLink.onclick = (e) => {
-            e.preventDefault();
-            sessionStorage.clear();
-            hideLogoutInNav();
-            window.location.href = `https://${AUTH0_DOMAIN}/v2/logout?returnTo=${encodeURIComponent(BASE_URL + "/index.html")}&client_id=${CLIENT_ID}`;
-        };
-    }
-</script>
-
-
-   ════════════════════════════════════════════════════════════════
-       ★ SCRIPTS — LOADER + HAMBURGER ★
-       ════════════════════════════════════════════════════════════════
-       1. LOADER    : masque l'écran de chargement après 3 secondes
-       2. HAMBURGER : ouvre/ferme le menu de navigation sur mobile
-       ════════════════════════════════════════════════════════════════ 
-  <script>
-
-    /* ================================================================
-       1. LOADER — Masquage après 3 secondes
-       ================================================================
-       DOMContentLoaded attend que le DOM soit entièrement parsé.
-       Après 3000ms (3 secondes), on ajoute la classe .hidden sur
-       #loader-overlay. CSS gère le fondu via opacity + visibility.
-       ================================================================ */
-    document.addEventListener('DOMContentLoaded', function() {
-
-      /* Récupère l'overlay de chargement par son id */
-      var loaderOverlay = document.getElementById('loader-overlay');
-
-      /* Timer de 3 secondes avant de masquer le loader */
-      setTimeout(function() {
-        if (loaderOverlay) {
-          /* .hidden → opacity:0 + visibility:hidden via CSS transition */
-          loaderOverlay.classList.add('hidden');
-        }
-      }, 3000); /* ← Modifier pour changer la durée du loader (ms) */
-
-
-      /* ================================================================
-         2. HAMBURGER MENU — Ouverture/Fermeture sur mobile
-         ================================================================
-         Au clic sur #hamburger-btn :
-         - .open sur le bouton → anime les 3 barres en croix "X"
-         - .nav-open sur #nav-main-list → max-height 0 → 380px (ouvert)
-         - aria-expanded mis à jour pour l'accessibilité clavier
-         ================================================================ */
-      var hamburgerBtn = document.getElementById('hamburger-btn');
-      var navList      = document.getElementById('nav-main-list');
-
-      if (hamburgerBtn && navList) {
-
-        /* Écoute le clic sur le bouton hamburger */
-        hamburgerBtn.addEventListener('click', function() {
-          hamburgerBtn.classList.toggle('open');    /* Anime → croix */
-          navList.classList.toggle('nav-open');     /* Ouvre le menu */
-          var isOpen = navList.classList.contains('nav-open');
-          /* Met à jour aria-expanded : annonce l'état aux lecteurs d'écran */
-          hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-
-        /* Ferme le menu quand un lien de nav est cliqué (mobile) */
-        var navLinks = navList.querySelectorAll('a');
-        for (var i = 0; i < navLinks.length; i++) {
-          navLinks[i].addEventListener('click', function() {
-            hamburgerBtn.classList.remove('open');   /* Remet les barres */
-            navList.classList.remove('nav-open');    /* Ferme le menu */
-            hamburgerBtn.setAttribute('aria-expanded', 'false');
-          });
-        }
-
-      } /* fin if hamburgerBtn && navList */
-
-    }); /* fin DOMContentLoaded */
-
-  </script>  -->
-
 
 </body>
 </html>
