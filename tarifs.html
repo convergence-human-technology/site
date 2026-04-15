@@ -136,6 +136,14 @@ Ces balises aident les LLMs (ChatGPT, Perplexity, etc.) à comprendre que cette 
 <meta name="ai:fact_checking"      content="human_verified_2026" />
 <meta name="ai:content_tier"       content="commercial_information" />
 
+<meta itemprop="name" content="Convergence Human & Technology" />
+<meta itemprop="alternateName" content="Convergence H&T">
+<meta itemprop="openingHours" content="Tu 08:00-21:00, We 08:00-21:00, Th 10:00-19:00" />
+<meta itemprop="openingHours" content="Fr 00:00-00:00" />
+<meta itemprop="openingHours" content="Sa 00:00-00:00" />
+<meta itemprop="openingHours" content="Su 00:00-00:00" />
+<meta itemprop="openingHours" content="Mo 00:00-00:00" />
+
 
 
 <!-- ─── GEO / E-E-A-T : Ancrage Wikidata et DBpedia (Web des Données) ───────────────────────────────
@@ -248,12 +256,36 @@ Accès à l'ensemble des pages de présentation et de démonstration de nos prod
 "termsOfService":"https://convergence-human-technology.github.io/site/mentions-legales.html"}}]}]}
 </script>
 
-<!--[if lt IE 9]>
-<script>
-/* Support balises HTML5 dans IE8 et inférieurs */
-document.createElement('header'); document.createElement('section'); document.createElement('article'); document.createElement('footer'); document.createElement('nav'); document.createElement('main');
+<!--[if lt IE 9]><script>document.createElement('header'); document.createElement('section'); document.createElement('article'); document.createElement('footer'); document.createElement('nav'); document.createElement('main');</script><![endif]-->
+
+<script type="text/javascript" fetchpriority="high">document.documentElement.className=document.documentElement.className.replace('no-js','');(function(){var htmlClass='';var ua=navigator.userAgent;var screenWidth=screen.width;var screenHeight=screen.height;var devicePixelRatio=window.devicePixelRatio||1;
+// ============================================
+// 1. DÉTECTION D'INTERNET EXPLORER (versions anciennes)
+// ============================================
+var isIE=false;var ieVersion=-1;if(ua.indexOf('MSIE')!==-1){isIE=true;var msieMatch=ua.match(/MSIE (\d+)/);if(msieMatch){ieVersion=parseInt(msieMatch[1],10);}}
+if(ua.indexOf('Trident')!==-1){isIE=true;var tridentMatch=ua.match(/rv:(\d+)/);if(tridentMatch){ieVersion=parseInt(tridentMatch[1],10);}}
+if(isIE){htmlClass+=' ie';htmlClass+=' ie-v'+ieVersion;if(ieVersion<=6){htmlClass+=' old-ie ie6';}else if(ieVersion<=7){htmlClass+=' old-ie ie7';}else if(ieVersion<=8){htmlClass+=' old-ie ie8';}else if(ieVersion<=9){htmlClass+=' ie9';}}
+
+var isOldFF=false;if(ua.indexOf('Firefox')!==-1){var ffMatch=ua.match(/Firefox\/(\d+)/);if(ffMatch&&parseInt(ffMatch[1],10)<10){isOldFF=true;htmlClass+=' old-firefox';}}
+var isOldChrome=false;if(ua.indexOf('Chrome')!==-1){var chromeMatch=ua.match(/Chrome\/(\d+)/);if(chromeMatch&&parseInt(chromeMatch[1],10)<20){isOldChrome=true;htmlClass+=' old-chrome';}}
+var isOldSafari=false;if(ua.indexOf('Safari')!==-1&&ua.indexOf('Chrome')===-1){var safariMatch=ua.match(/Version\/(\d+)/);if(safariMatch&&parseInt(safariMatch[1],10)<5){isOldSafari=true;htmlClass+=' old-safari';}}
+if(isOldFF||isOldChrome||isOldSafari){htmlClass+=' old-browser';}
+
+if(screenWidth<=1024||screenHeight<=768){htmlClass+=' low-res small-screen';}
+if(screenWidth<=800&&screenHeight<=600){htmlClass+=' very-low-res';}
+if(devicePixelRatio>=2){htmlClass+=' retina high-res';}
+var isMobile=/Mobile|Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(ua);if(isMobile){htmlClass+=' mobile';}
+
+if(ua.indexOf('Windows NT 5.1')!==-1){htmlClass+=' win-xp';}else if(ua.indexOf('Windows NT 6.0')!==-1){htmlClass+=' win-vista';}else if(ua.indexOf('Windows NT 5.0')!==-1){htmlClass+=' win-2000';}else if(ua.indexOf('Mac')!==-1){htmlClass+=' mac';}else if(ua.indexOf('Linux')!==-1){htmlClass+=' linux';}
+
+var htmlElem=document.getElementsByTagName('html')[0];if(htmlElem){htmlElem.className+=htmlClass;}
+
+window.hasHtmlClass=function(className){var htmlClasses=document.documentElement.className;return(' '+htmlClasses+' ').indexOf(' '+className+' ')!==-1;};
+
+if(ua.indexOf('MSIE 5')!==-1){htmlClass+=' ie5 very-old';}
+if(ua.indexOf('MSIE 4')!==-1){htmlClass+=' ie4 very-old';}
+})();
 </script>
-<![endif]-->
 
 <!-- ════════════════════════════════════════════════════════════════
      CSS TYPOGRAPHIE - ORDRE (IMPORTANT)
@@ -264,130 +296,57 @@ document.createElement('header'); document.createElement('section'); document.cr
 ════════════════════════════════════════════════════════════════ -->
 
 <!-- 1. Verdana - police principale -->
-<link rel="stylesheet" href="css/01-base.css" />
-
+<link rel="stylesheet" href="css/01-base.css" fetchpriority="high" type='text/css' data-infos="typographie verdana pour le site via @font-face" />
 <!-- 2. OpenDyslexic - police optionnelle (activée par JS) -->
-<link rel="stylesheet" href="css/02-dyslexic-mode.css" />
-
+<link rel="stylesheet" href="css/02-dyslexic-mode.css" type='text/css' data-infos="typographie OpenDyslexic pour le site - @see : JS (local storage)" />
 <!-- 3. Styles visuels (dégradé, menu, loader, etc.) -->
-<link rel="stylesheet" href="shared.css" />
-
+<link rel="stylesheet" href="shared.css" type='text/css' />
 <!-- 4. Corrections pour vieux IE (ne s'applique qu'aux classes old-ie) -->
-<link rel="stylesheet" href="old-ie.css" />
+<link rel="stylesheet" href="old-ie.css" type='text/css' data-infos="typographie Web Safe Fonts : typographies sécurisées pour le Web. Ces polices sont pré-installées sur la quasi-totalité des systèmes d'exploitation (Windows, macOS, iOS, Android)" />
 
 <style type="text/css">
-
 /* ════════════════════════════════════════════════════════════════
 STYLES SPÉCIFIQUES AUX SOUS-PAGES (contact, tarifs, mentions)
 ════════════════════════════════════════════════════════════════
 Ces règles s'appliquent au contenu textuel des pages secondaires. Elles complètent les styles partagés de index.html.
 ════════════════════════════════════════════════════════════════ */
-
 /* ── Padding-top du .global sur sous-pages ───────────────────────
 Sur index : .global est précédé de la section hero (100vh). Sur les sous-pages : .global est le premier élément après la nav.
 On ajoute un padding-top supplémentaire pour compenser la barre 
 de navigation fixe (62px) et laisser de l'air au-dessus du contenu. */
-.global {
-  margin-top: 80px;   /* Espace au-dessus : compense nav fixe (62px) + marge */
-  margin-bottom: 60px; /* Espace en bas de la div alpha */
-}
-
+.global {margin-top: 80px;   /* Espace au-dessus : compense nav fixe (62px) + marge */ margin-bottom: 60px; /* Espace en bas de la div alpha */}
 /* ── Titres h2 et h4 dans le contenu ────────────────────────────────────
 Sur index h2 n'existe que dans la FAQ. Sur les sous-pages les h2 sont des sous-titres de contenu. */
-.global h2, 
-.global h4 {
-  font-size: clamp(1rem, 2vw, 1.4rem); /* Responsive comme h1 */
-  font-weight: 600;                    /* Semi-gras */
-  color: #1A1C1E;                   /* noir quasi pur */
-  text-align: left;
-  letter-spacing: 0.06em;              /* Espacement léger */
-  text-transform: uppercase;           /* Majuscules */
-  margin: 0 0 6px 0;
-  padding-top: 20px;                   /* Espace avant chaque section */
-}
-
+.global h2, .global h4 {font-size: clamp(1rem, 2vw, 1.4rem); /* Responsive comme h1 */ font-weight: 600; /* Semi-gras */ color: #1A1C1E; /* noir quasi pur */ text-align: left; letter-spacing: 0.06em; /* Espacement léger */ text-transform: uppercase; margin: 0 0 6px 0; padding-top: 20px; /* Espace avant chaque section */}
 /* ── Titres h3 ─────────────────────────────────────────────────── */
-.global h3 {
-  font-size: clamp(0.9rem, 1.5vw, 1.15rem); /* Légèrement plus petit que h2 */
-  font-weight: 600;
-  color: #1A1C1E;                   /* noir quasi pur */
-  text-align: left;
-  margin: 16px 0 4px;
-}
-
+.global h3 {font-size: clamp(0.9rem, 1.5vw, 1.15rem); /* Légèrement plus petit que h2 */ font-weight: 600; color: #1A1C1E; /* noir quasi pur */ text-align: left; margin: 16px 0 4px;}
 /* ── Listes ul/ol dans le contenu ────────────────────────────────
 Les listes des sous-pages (ul/ol dans .global) doivent être
 centrées et lisibles sur le fond semi-transparent. */
-.global ul, 
-.global ol {
-  display: inline-block;      /* Permet le centrage via text-align:center parent */
-  text-align: left;           /* Texte des items aligné à gauche */
-  padding-left: 1.5em;        /* Indentation standard des puces */
-  margin: 8px auto 16px;      /* Centré, espace bas */
-  color: rgba(255, 255, 255, 0.78); /* Blanc semi-transparent */
-  font-size: 0.97em;
-  line-height: 1.9em;         /* Interligne généreux */
-}
-
+.global ul, .global ol {display: inline-block; /* Permet le centrage via text-align:center parent */ text-align: left; /* Texte des items aligné à gauche */ padding-left: 1.5em; /* Indentation standard des puces */ margin: 8px auto 16px; /* Centré, espace bas */ color: rgba(255, 255, 255, 0.78); /* Blanc semi-transparent */
+font-size: 0.97em; line-height: 1.9em; /* Interligne généreux */}
 /* ── Items de liste ──────────────────────────────────────────────
 Chaque li reçoit un espace bas pour respirer. */
-.global li {
-  margin-bottom: 4px;         /* Léger espace entre chaque item */
-}
-
+.global li {margin-bottom: 4px; /* Léger espace entre chaque item */}
 /* ── Séparateur <hr> dans le contenu ─────────────────────────────
 Les <hr> séparent les sections dans contact/tarifs/mentions.
 On les rend discrets et dans la charte. */
-.global hr {
-  border: none;               /* Supprime la bordure par défaut */
-  border-top: 1px solid rgba(77, 212, 240, 0.20); /* Liseré cyan très discret */
-  margin: 24px auto;          /* Centré, espace vertical */
-  width: 80%;                 /* Pas pleine largeur */
-}
-
+.global hr {border: none; /* Supprime la bordure par défaut */ border-top: 1px solid rgba(77, 212, 240, 0.20); /* Liseré cyan très discret */ margin: 24px auto; /* Centré, espace vertical */ width: 80%; /* Pas pleine largeur */}
 /* ── Liens dans le contenu ───────────────────────────────────────
 Les liens (GitHub, LinkedIn, email...) doivent être visibles. */
-.global a:not(.email-link) {
-  color: #4dd4f0;             /* Cyan de la charte */
-  text-decoration: none;      /* Pas de soulignement par défaut */
-  word-break: break-all;      /* Les URLs longues reviennent à la ligne */
-}
-
-.global a:not(.email-link):hover, 
-.global a:not(.email-link):focus {
-  text-decoration: underline; /* Soulignement au survol */
-  color: #7be8ff;             /* Cyan plus clair */
-}
-
+.global a:not(.email-link) {color: #4dd4f0; /* Cyan de la charte */ text-decoration: none; /* Pas de soulignement par défaut */ word-break: break-all; /* Les URLs longues reviennent à la ligne */}
+.global a:not(.email-link):hover, .global a:not(.email-link):focus {text-decoration: underline; /* Soulignement au survol */ color: #7be8ff; /* Cyan plus clair */}
 /* ── strong dans le contenu ──────────────────────────────────────
 Les <strong> servent à mettre en valeur des noms, titres, labels. */
-.global strong {
-  color: #1A1C1E;                   /* noir quasi pur */
-  font-weight: normal;
-}
-
+.global strong {color: #1A1C1E; /* noir quasi pur */ font-weight: normal;}
 /* ── em / italic ─────────────────────────────────────────────────
 Les <em> (tarifs "sur demande") restent lisibles. */
-.global em {
-  color: rgba(255, 255, 255, 0.65); /* Légèrement atténué */
-  font-style: italic;
-}
-
+.global em {color: rgba(255, 255, 255, 0.65); /* Légèrement atténué */ font-style: italic;}
 /* ── Ajustement responsive .global sur sous-pages ────────────────
 Sur mobile (<600px) : moins de padding pour les sous-pages */
-@media screen and (max-width: 600px) {
-  .global {
-    margin-top: 70px;           /* Légèrement moins de marge top sur mobile */
-    padding: 24px 16px 32px;    /* Moins d'espace intérieur */
-  }
-}
-
+@media screen and (max-width: 600px) {.global {margin-top: 70px; /* Légèrement moins de marge top sur mobile */ padding: 24px 16px 32px; /* Moins d'espace intérieur */}}
 /* ── Réinitialisation pour les écrans < 755px ──────────────────── */
-@media screen and (min-width: 755px) {
-  .global {
-    margin-top: 250px;   /* Alternative sans position: relative */
-  }
-}
+@media screen and (min-width: 755px) {.global {margin-top: 250px; /* Alternative sans position: relative */}}
 
 
 /* ════════════════════════════════════════════════════════════════
@@ -396,124 +355,42 @@ CARTES OFFRES — STYLE IDENTIQUE À fabien-conejero.html
 Ces styles reproduisent exactement l'apparence des cartes de compétences de la page profil (Software Development, IA Physique, API & Intégrations). Les trois offres sont présentées en colonnes
 responsives (ordre : 1 an → 3 ans → 5 ans), avec un lien cliquable pour l'adhésion. ★ CORRECTION 2026 : Résolution des problèmes de chevauchement sur mobile, tablette et grands écrans.
 ════════════════════════════════════════════════════════════════ */
-
 /* Conteneur des trois offres — grille responsive */
 .offers-grid {display: grid; grid-template-columns: repeat(3, 1fr); /* 3 colonnes fixes sur desktop */ gap: 24px; margin-top: 32px; margin-bottom: 16px; width: 100%; box-sizing: border-box;}
-
 /* Carte individuelle — identique à .skill-card de fabien-conejero */
-.offer-card {
-  background: #5e8a9b;
-  border: 1px solid rgba(77, 212, 240, 0.15);
-  border-left: 3px solid rgba(77, 212, 240, 0.60);
-  border-radius: 0;
-  padding: 24px 20px;
-  text-align: left;
-  transition: border-left-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-  height: auto;                    /* Hauteur automatique, pas fixe */
-  min-height: 100%;                /* Hauteur minimale pour l'alignement */
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  box-sizing: border-box;
-  overflow-wrap: break-word;       /* Force la coupure des mots longs */
-  word-break: break-word;          /* Casse les mots trop longs */
-}
-
+.offer-card {background: #5e8a9b; border: 1px solid rgba(77, 212, 240, 0.15); border-left: 3px solid rgba(77, 212, 240, 0.60); border-radius: 0; padding: 24px 20px; text-align: left; transition: border-left-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+height: auto; /* Hauteur automatique, pas fixe */ min-height: 100%; /* Hauteur minimale pour l'alignement */ display: flex; flex-direction: column; width: 100%; box-sizing: border-box; overflow-wrap: break-word; /* Force la coupure des mots longs */ word-break: break-word; /* Casse les mots trop longs */}
 /* Survol des cartes — identique à .skill-card:hover */
-.offer-card:hover {
-  background: #7daec2;
-  border-left-color: #4dd4f0;
-  box-shadow: 0 0 20px rgba(77, 212, 240, 0.12);
-}
-
+.offer-card:hover {background: #7daec2; border-left-color: #4dd4f0; box-shadow: 0 0 20px rgba(77, 212, 240, 0.12);}
 /* Titre de l'offre — identique à .skill-card-title */
-.offer-title {
-  font-family: var(--font-accessible, 'Verdana', 'Helvetica Neue', Arial, sans-serif);
-  font-size: clamp(0.85rem, 3vw, 0.95rem); /* Taille fluide */
-  font-weight: 600;
-  color: #4dd4f0;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 12px;
-  border-bottom: 1px solid rgba(77, 212, 240, 0.25);
-  padding-bottom: 10px;
-  line-height: 1.3;
-}
-
+.offer-title {font-family: var(--font-accessible, 'Verdana', 'Helvetica Neue', Arial, sans-serif); font-size: clamp(0.85rem, 3vw, 0.95rem); /* Taille fluide */ font-weight: 600; color: #4dd4f0; text-transform: uppercase;
+letter-spacing: 0.06em; margin-bottom: 12px; border-bottom: 1px solid rgba(77, 212, 240, 0.25); padding-bottom: 10px; line-height: 1.3;}
 /* Description de l'offre — identique à .skill-card-desc */
-.offer-description {
-  font-size: clamp(0.8rem, 2.5vw, 0.88rem); /* Taille fluide */
-  color: rgb(2, 31, 75);
-  line-height: 1.55;
-  margin-bottom: 20px;
-  flex-grow: 1;
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
-
+.offer-description { font-size: clamp(0.8rem, 2.5vw, 0.88rem); /* Taille fluide */ color: rgb(2, 31, 75); line-height: 1.55; margin-bottom: 20px; flex-grow: 1; overflow-wrap: break-word; word-break: break-word;}
 /* Lien de paiement — bouton élégant dans la charte */
-.offer-button {
-  display: inline-block;
-  text-align: center;
-  padding: 10px 16px;
-  background: rgb(0, 41, 80);
-  border: 1px solid rgba(77, 212, 240, 0.40);
-  color: #4dd4f0;
-  font-family: var(--font-accessible, 'Verdana', 'Helvetica Neue', Arial, sans-serif);
-  font-size: clamp(0.7rem, 2.2vw, 0.75rem);
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  border-radius: 0;
-  cursor: pointer;
-  width: 100%;
-  box-sizing: border-box;
-  white-space: nowrap; /* Empêche le texte du bouton de passer à la ligne */
-}
-
+.offer-button {display: inline-block; text-align: center; padding: 10px 16px; background: rgb(0, 41, 80); border: 1px solid rgba(77, 212, 240, 0.40); color: #4dd4f0; font-family: var(--font-accessible, 'Verdana', 'Helvetica Neue', Arial, sans-serif);
+font-size: clamp(0.7rem, 2.2vw, 0.75rem); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: all 0.25s ease; border-radius: 0; cursor: pointer; width: 100%; box-sizing: border-box; white-space: nowrap; /* Empêche le texte du bouton de passer à la ligne */}
 /* Adaptation pour petits écrans : le texte du bouton peut passer à la ligne */
 @media screen and (max-width: 480px) {.offer-button {white-space: normal; /* Autorise le retour à la ligne sur très petits écrans */ padding: 10px 12px; font-size: 0.7rem;}}
-.offer-button:hover, 
-.offer-button:focus {
-  background: rgb(0, 24, 46);
-  border-color: #4dd4f0;
-  color: #7be8ff;
-  box-shadow: 0 0 12px rgba(77, 212, 240, 0.20);
-  text-decoration: none;
-}
-
+.offer-button:hover, .offer-button:focus {background: rgb(0, 24, 46); border-color: #4dd4f0; color: #7be8ff; box-shadow: 0 0 12px rgba(77, 212, 240, 0.20); text-decoration: none;}
 /* Focus visible clavier — WCAG 2.4.7 (AA) */
-.offer-button:focus-visible {
-  outline: 2px solid #4dd4f0;
-  outline-offset: 3px;
-}
-
+.offer-button:focus-visible {outline: 2px solid #4dd4f0; outline-offset: 3px;}
 /* ================================================================
 RESPONSIVE : tablette (768px - 1024px)
 ================================================================ */
-@media screen and (max-width: 1024px) and (min-width: 769px) {
-.offers-grid {gap: 20px; /* Réduction de l'espace entre cartes */}
-.offer-card {padding: 20px 16px;}.offer-title {font-size: 0.85rem;letter-spacing: 0.05em;}.offer-description {font-size: 0.8rem;line-height: 1.5;}}
-
+@media screen and (max-width: 1024px) and (min-width: 769px) {.offers-grid {gap: 20px; /* Réduction de l'espace entre cartes */} .offer-card {padding: 20px 16px;}.offer-title {font-size: 0.85rem;letter-spacing: 0.05em;}.offer-description {font-size: 0.8rem;line-height: 1.5;}}
 /* ================================================================
 RESPONSIVE : mobile (≤ 768px) — passage en colonne unique
 ================================================================ */
-@media screen and (max-width: 768px) {
-.offers-grid {grid-template-columns: 1fr; /* Une seule colonne sur mobile */ gap: 28px; /* Espace vertical suffisant */}
-.offer-card {padding: 20px 18px;} .offer-title {font-size: 0.9rem;} .offer-description {font-size: 0.85rem;}}
-
+@media screen and (max-width: 768px) {.offers-grid {grid-template-columns: 1fr; /* Une seule colonne sur mobile */ gap: 28px; /* Espace vertical suffisant */} .offer-card {padding: 20px 18px;} .offer-title {font-size: 0.9rem;} .offer-description {font-size: 0.85rem;}}
 /* ================================================================
 RESPONSIVE : très petits écrans (≤ 480px)
 ================================================================ */
 @media screen and (max-width: 480px) {.offers-grid {gap: 24px;} .offer-card {padding: 18px 14px;} .offer-title {font-size: 0.85rem;letter-spacing: 0.04em;} .offer-description {font-size: 0.8rem;line-height: 1.5;}}
-
 </style>
 
 <meta name="google-site-verification" content="jsM_hxlBkNDburSyR0zaPNGTkc7KiiKV6MF8agHrclo" />
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HXMKJM1CS5"></script> 
-<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-HXMKJM1CS5');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HXMKJM1CS5"></script> <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-HXMKJM1CS5');</script>
 
 </head>
 
@@ -536,13 +413,8 @@ Couvre toute la page pendant le chargement du DOM. Masqué par JavaScript après
 
 <!-- ★ MÉTADONNÉES D'ACCESSIBILITÉ CACHÉES ★ -->
 <div hidden itemscope itemtype="https://schema.org/WebPageElement" data-dev-note="Métadonnées accessibilité - lecteurs d'écran et moteurs de recherche">
-  <meta itemprop="accessibilityFeature" content="highContrastDisplay" />
-  <meta itemprop="accessibilityFeature" content="largePrint" />
-  <meta itemprop="accessibilityFeature" content="keyboardNavigation" />
-  <meta itemprop="accessibilityFeature" content="screenReaderSupport" />
-  <meta itemprop="accessibilityControl" content="fullKeyboardControl" />
-  <meta itemprop="accessibilityHazard" content="noFlashingHazard" />
-  <meta itemprop="accessibilityAPI" content="ARIA" />
+<meta itemprop="accessibilityFeature" content="highContrastDisplay" /><meta itemprop="accessibilityFeature" content="largePrint" /><meta itemprop="accessibilityFeature" content="keyboardNavigation" /><meta itemprop="accessibilityFeature" content="screenReaderSupport" />
+<meta itemprop="accessibilityControl" content="fullKeyboardControl" /><meta itemprop="accessibilityHazard" content="noFlashingHazard" /><meta itemprop="accessibilityAPI" content="ARIA" />
 </div>
 
 <!-- ════════════════════════════════════════════════════════════════
@@ -684,6 +556,98 @@ Angles droits (border-radius:0). Hérité de l'index.
   </div><!-- fin .global -->
 
 </main><!-- fin #main-content -->
+
+
+<!-- ==== Footer ==== -->
+<footer class="site-footer" role="contentinfo" aria-labelledby="footer-heading" itemscope itemtype="https://schema.org/WPFooter">
+<meta itemprop="copyrightYear" content="2026" />
+<meta itemprop="copyrightHolder" content="Convergence Human & Technology" />
+<meta itemprop="url" content="https://convergence-human-technology.github.io/site/" />
+<div class="footer-container">
+<h2 id="footer-heading" class="visually-hidden">Navigation pied de page - Convergence Human & Technology</h2>
+<div class="footer-col" itemscope itemtype="https://schema.org/Organization">
+<meta itemprop="name" content="Convergence Human & Technology" /><meta itemprop="url" content="https://convergence-human-technology.github.io/site/" /><meta itemprop="email" content="convergence-tech@proton.me" />
+<h3 class="footer-col-title" aria-label="réseaux sociaux">Social Networks</h3>
+<ul class="footer-links-list" role="list">
+<li role="listitem">
+<a href="https://github.com/Convergence-Human-And-Technology" rel="noopener noreferrer nofollow" target="_blank" class="footer-link" aria-label="Dépôt GitHub (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaaaaa' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+GitHub
+</a>
+</li>
+<li role="listitem">
+<a href="https://mastodon.social/@fc84" rel="me noopener noreferrer nofollow" target="_blank" role="link" hreflang="fr" title="Mastodon - tarifs fr" class="footer-link" aria-label="Profil Mastodon (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23aaaaaa'%3E%3Cpath d='M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38 1.123-.252 2.23-.63 3.14-1.308.132-.11.235-.26.232-.452l-.015-1.883c0-.18-.113-.343-.275-.413-.162-.07-.353-.02-.46.12-.1.132-.236.25-.38.354-1.44.972-3.155 1.313-4.88 1.15-.46-.043-.915-.123-1.36-.24-.96-.25-1.745-.632-2.195-1.074-.47-.463-.787-1.127-.92-1.996a17.27 17.27 0 0 1-.035-1.925c3.553.766 7.027.817 10.638.163.504-.09 1.01-.2 1.514-.33 1.81-.466 3.122-1.9 3.51-3.693.44-2.02.363-4.144.363-6.234 0-.156 0-.312-.01-.468zm-5.074 9.18h-2.316V8.528c0-1.164-.492-1.756-1.474-1.756-.763 0-1.29.49-1.576 1.468h-1.458c-.286-.977-.813-1.468-1.576-1.468-.982 0-1.474.592-1.474 1.756v6.035H6.004V8.403c0-2.302 1.138-3.41 3.414-3.41 1.322 0 2.33.51 3.03 1.524.11.158.196.326.262.502.066-.176.152-.344.262-.502.7-.998 1.708-1.524 3.03-1.524 2.276 0 3.414 1.108 3.414 3.41v5.964z'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+Mastodon
+</a>
+</li>
+<li role="listitem">
+<a href="#" rel="noopener noreferrer nofollow" target="_blank" class="footer-link" aria-label="Medium (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23aaaaaa'%3E%3Cpath d='M13.54 12a6.8 6.8 0 1 1-6.77-6.82A6.77 6.77 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42S14.2 15.54 14.2 12s1.51-6.42 3.38-6.42S20.96 8.46 20.96 12zm1.79 0c0 3.16-.45 5.71-1 5.71s-1-2.55-1-5.71.45-5.71 1-5.71 1 2.55 1 5.71z'/%3E%3C/svg%3E" 
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+Medium
+</a>
+</li>
+</ul>
+</div>
+<div class="footer-col">
+<h3 class="footer-col-title" aria-label="Politiques et confidentialité">Liens</h3>
+<ul class="footer-links-list" role="list">
+<li role="listitem">
+<a href="https://www.linkedin.com/company/convergence-organization" rel="noopener noreferrer nofollow" target="_blank" hreflang="fr" title="LinkedIn - tarifs fr" class="footer-link" aria-label="LinkedIn (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23aaaaaa'%3E%3Cpath d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.771-.773 1.771-1.729V1.729C24 .774 23.204 0 22.225 0z'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+LinkedIn
+</a>
+</li>
+<li role="listitem">
+<a href="https://www.facebook.com/people/Convergence-Human-And-Technology/61578483081894/" rel="noopener noreferrer nofollow" target="_blank" hreflang="fr" title="LinkedIn - tarifs fr" class="footer-link" aria-label="Facebook (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23aaaaaa'%3E%3Cpath d='M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+Facebook
+</a>
+</li>
+<li role="listitem">
+<a href="#" rel="noopener noreferrer nofollow" target="_blank" hreflang="fr" title="Twitter - tarifs fr" class="footer-link" aria-label="X / Twitter (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23aaaaaa'%3E%3Cpath d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+Twitter
+</a>
+</li>
+</ul>
+</div>
+<div class="footer-col">
+<h3 class="footer-col-title" aria-label="Ressources et services techniques">Ressources</h3>
+<ul class="footer-links-list" role="list">
+<li role="listitem">
+<a href="#" rel="noopener noreferrer nofollow" target="_blank" class="footer-link" aria-label="... (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaaaaa' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/%3E%3Cpath d='M8 8h8'/%3E%3Cpath d='M8 12h8'/%3E%3Cpath d='M8 16h5'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+...
+</a>
+</li>
+<li role="listitem">
+<a href="#" rel="me noopener noreferrer nofollow" target="_blank" class="footer-link" aria-label="... (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaaaaa' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/%3E%3Cpath d='M8 8h8'/%3E%3Cpath d='M8 12h8'/%3E%3Cpath d='M8 16h5'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+...
+</a>
+</li>
+<li role="listitem">
+<a href="#" rel="noopener noreferrer nofollow" target="_blank" class="footer-link" aria-label="Blog & Articles (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaaaaa' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/%3E%3Cpath d='M8 8h8'/%3E%3Cpath d='M8 12h8'/%3E%3Cpath d='M8 16h5'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+Blog & Articles
+</a>
+</li>
+</ul>
+</div>
+</div>
+<!-- SOUS-FOOTER -->
+<div class="footer-bottom" aria-label="Informations légales et copyright"><p class="footer-copyright" itemprop="copyrightNotice">© 2026 <strong>Convergence Human & Technology</strong> - Tous droits réservés.</p></div>
+</footer>
 
 
 <!-- ════════════════════════════════════════════════════════════════
