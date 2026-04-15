@@ -162,7 +162,7 @@
 
 <!--[if lt IE 9]><script>document.createElement('header'); document.createElement('section'); document.createElement('article'); document.createElement('footer'); document.createElement('nav'); document.createElement('main');</script><![endif]-->
 
-<script type="text/javascript">document.documentElement.className=document.documentElement.className.replace('no-js','');(function(){var htmlClass='';var ua=navigator.userAgent;var screenWidth=screen.width;var screenHeight=screen.height;var devicePixelRatio=window.devicePixelRatio||1;
+<script type="text/javascript" fetchpriority="high">document.documentElement.className=document.documentElement.className.replace('no-js','');(function(){var htmlClass='';var ua=navigator.userAgent;var screenWidth=screen.width;var screenHeight=screen.height;var devicePixelRatio=window.devicePixelRatio||1;
 // ============================================
 // 1. DÉTECTION D'INTERNET EXPLORER (versions anciennes)
 // ============================================
@@ -192,7 +192,7 @@ if(ua.indexOf('MSIE 4')!==-1){htmlClass+=' ie4 very-old';}
 </script>
 
 
-<link rel="stylesheet" href="css/01-base.css" type='text/css' data-infos="typographie verdana pour le site via @font-face" />
+<link rel="stylesheet" href="css/01-base.css" fetchpriority="high" type='text/css' data-infos="typographie verdana pour le site via @font-face" />
 <link rel="stylesheet" href="css/02-dyslexic-mode.css" type='text/css' data-infos="typographie OpenDyslexic pour le site - @see : JS (local storage)" />
 <link rel="stylesheet" href="shared.css" type='text/css' />
 <link rel="stylesheet" href="old-ie.css" type='text/css' data-infos="typographie Web Safe Fonts : typographies sécurisées pour le Web. Ces polices sont pré-installées sur la quasi-totalité des systèmes d'exploitation (Windows, macOS, iOS, Android)" />
@@ -297,7 +297,7 @@ if(ua.indexOf('MSIE 4')!==-1){htmlClass+=' ie4 very-old';}
 <source srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-1024px.jxl" type="image/jxl" width="310" height="310">
 <source srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-1024px.avif" type="image/avif" width="310" height="310">
 <source srcset="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-1024px.webp" type="image/webp" width="310" height="310">
-<img class="logo-img" src="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-1024px.png" width="310" height="310" loading="eager" type="image/png" role="img" aria-labelledby="logo-caption" aria-describedby="logo-description"
+<img class="logo-img" src="https://raw.githubusercontent.com/convergence-human-technology/site/main/img/logo-convergence-1024px.png" width="310" height="310" fetchpriority="high" loading="eager" type="image/png" role="img" aria-labelledby="logo-caption" aria-describedby="logo-description"
 title="logotype Convergence Human & Technology - png - index / FR" alt="Logo Convergence Human and Technology - Silhouette humaine stylisée entourée de connexions neurales lumineuses dans un cercle. Symbole de la convergence entre l'humain et la technologie." typeof="foaf:Image" tabindex="0" lang="fr" />
 </picture>
 
@@ -403,6 +403,97 @@ title="Mode DYS (OpenDyslexic) - Améliore la lisibilité sur la page index du s
 </div>
 </div>
 </section>
+
+<!-- ==== Footer ==== -->
+<footer class="site-footer" role="contentinfo" aria-labelledby="footer-heading" itemscope itemtype="https://schema.org/WPFooter">
+<meta itemprop="copyrightYear" content="2026" />
+<meta itemprop="copyrightHolder" content="Convergence Human & Technology" />
+<meta itemprop="url" content="https://convergence-human-technology.github.io/site/" />
+<div class="footer-container">
+<h2 id="footer-heading" class="visually-hidden">Navigation pied de page - Convergence Human & Technology</h2>
+<div class="footer-col" itemscope itemtype="https://schema.org/Organization">
+<meta itemprop="name" content="Convergence Human & Technology" /><meta itemprop="url" content="https://convergence-human-technology.github.io/site/" /><meta itemprop="email" content="convergence-tech@proton.me" />
+<h3 class="footer-col-title" aria-label="réseaux sociaux">Social Networks</h3>
+<ul class="footer-links-list" role="list">
+<li role="listitem">
+<a href="https://github.com/Convergence-Human-And-Technology" rel="noopener noreferrer nofollow" target="_blank" class="footer-link" aria-label="Dépôt GitHub (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaaaaa' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+GitHub
+</a>
+</li>
+<li role="listitem">
+<a href="https://mastodon.social/@fc84" rel="me noopener noreferrer nofollow" target="_blank" role="link" hreflang="fr" title="Mastodon - index fr" class="footer-link" aria-label="Profil Mastodon (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23aaaaaa'%3E%3Cpath d='M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38 1.123-.252 2.23-.63 3.14-1.308.132-.11.235-.26.232-.452l-.015-1.883c0-.18-.113-.343-.275-.413-.162-.07-.353-.02-.46.12-.1.132-.236.25-.38.354-1.44.972-3.155 1.313-4.88 1.15-.46-.043-.915-.123-1.36-.24-.96-.25-1.745-.632-2.195-1.074-.47-.463-.787-1.127-.92-1.996a17.27 17.27 0 0 1-.035-1.925c3.553.766 7.027.817 10.638.163.504-.09 1.01-.2 1.514-.33 1.81-.466 3.122-1.9 3.51-3.693.44-2.02.363-4.144.363-6.234 0-.156 0-.312-.01-.468zm-5.074 9.18h-2.316V8.528c0-1.164-.492-1.756-1.474-1.756-.763 0-1.29.49-1.576 1.468h-1.458c-.286-.977-.813-1.468-1.576-1.468-.982 0-1.474.592-1.474 1.756v6.035H6.004V8.403c0-2.302 1.138-3.41 3.414-3.41 1.322 0 2.33.51 3.03 1.524.11.158.196.326.262.502.066-.176.152-.344.262-.502.7-.998 1.708-1.524 3.03-1.524 2.276 0 3.414 1.108 3.414 3.41v5.964z'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+Mastodon
+</a>
+</li>
+<li role="listitem">
+<a href="#" rel="noopener noreferrer nofollow" target="_blank" class="footer-link" aria-label="Medium (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23aaaaaa'%3E%3Cpath d='M13.54 12a6.8 6.8 0 1 1-6.77-6.82A6.77 6.77 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42S14.2 15.54 14.2 12s1.51-6.42 3.38-6.42S20.96 8.46 20.96 12zm1.79 0c0 3.16-.45 5.71-1 5.71s-1-2.55-1-5.71.45-5.71 1-5.71 1 2.55 1 5.71z'/%3E%3C/svg%3E" 
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+Medium
+</a>
+</li>
+</ul>
+</div>
+<div class="footer-col">
+<h3 class="footer-col-title" aria-label="Politiques et confidentialité">Liens</h3>
+<ul class="footer-links-list" role="list">
+<li role="listitem">
+<a href="https://www.linkedin.com/company/convergence-organization" rel="noopener noreferrer nofollow" target="_blank" hreflang="fr" title="LinkedIn - index fr" class="footer-link" aria-label="LinkedIn (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23aaaaaa'%3E%3Cpath d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.771-.773 1.771-1.729V1.729C24 .774 23.204 0 22.225 0z'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+LinkedIn
+</a>
+</li>
+<li role="listitem">
+<a href="https://www.facebook.com/people/Convergence-Human-And-Technology/61578483081894/" rel="noopener noreferrer nofollow" target="_blank" hreflang="fr" title="LinkedIn - index fr" class="footer-link" aria-label="Facebook (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23aaaaaa'%3E%3Cpath d='M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+Facebook
+</a>
+</li>
+<li role="listitem">
+<a href="#" rel="noopener noreferrer nofollow" target="_blank" hreflang="fr" title="Twitter - index fr" class="footer-link" aria-label="X / Twitter (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23aaaaaa'%3E%3Cpath d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+Twitter
+</a>
+</li>
+</ul>
+</div>
+<div class="footer-col">
+<h3 class="footer-col-title" aria-label="Ressources et services techniques">Ressources</h3>
+<ul class="footer-links-list" role="list">
+<li role="listitem">
+<a href="#" rel="noopener noreferrer nofollow" target="_blank" class="footer-link" aria-label="... (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaaaaa' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/%3E%3Cpath d='M8 8h8'/%3E%3Cpath d='M8 12h8'/%3E%3Cpath d='M8 16h5'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+...
+</a>
+</li>
+<li role="listitem">
+<a href="#" rel="me noopener noreferrer nofollow" target="_blank" class="footer-link" aria-label="... (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaaaaa' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/%3E%3Cpath d='M8 8h8'/%3E%3Cpath d='M8 12h8'/%3E%3Cpath d='M8 16h5'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+...
+</a>
+</li>
+<li role="listitem">
+<a href="#" rel="noopener noreferrer nofollow" target="_blank" class="footer-link" aria-label="Blog & Articles (s'ouvre dans un nouvel onglet)">
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaaaaa' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/%3E%3Cpath d='M8 8h8'/%3E%3Cpath d='M8 12h8'/%3E%3Cpath d='M8 16h5'/%3E%3C/svg%3E"
+alt="" class="footer-icon" aria-hidden="true" width="16" height="16" loading="lazy">
+Blog & Articles
+</a>
+</li>
+</ul>
+</div>
+</div>
+<!-- SOUS-FOOTER -->
+<div class="footer-bottom" aria-label="Informations légales et copyright"><p class="footer-copyright" itemprop="copyrightNotice">© 2026 <strong>Convergence Human & Technology</strong> - Tous droits réservés.</p></div>
+</footer>
 
 
 <!-- ════════════════════════════════════════════════════════════════
