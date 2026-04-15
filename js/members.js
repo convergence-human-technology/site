@@ -1,6 +1,11 @@
 /* ════════════════════════════════════════════════════════════════
    ★★★ SCRIPT ESPACE MEMBRES - AUTH0 ★★★
    ════════════════════════════════════════════════════════════════
+  
+  Ce fichier est uniquement pour la page : membres.html
+  Ce fichier : members.js remplace :
+  autho-espace-membres-loader-menu-hambuger-verif-deconnexion-gestion-abonnement.js
+
   Avec ce script :
   Ajouter dans le HTML (IMPORTANT UX) : class="auth-loading" sur le body.
   <body class="auth-loading">
