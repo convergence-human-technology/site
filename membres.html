@@ -210,6 +210,7 @@ font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: up
 @media screen and (max-width: 768px) {.members-card {margin-bottom: 25px;}}
 </style>
 
+<script data-ref="autho-espace-membres-loader-menu-hambuger-verif-deconnexion-gestion-abonnement" type="application/javascript" defer="defer" src="js/autho-espace-membres-loader-menu-hambuger-verif-deconnexion-gestion-abonnement.js"></script>
 <meta name="google-site-verification" content="jsM_hxlBkNDburSyR0zaPNGTkc7KiiKV6MF8agHrclo" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-HXMKJM1CS5"></script> <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-HXMKJM1CS5');</script>
 
 </head>
@@ -437,18 +438,25 @@ Blog & Articles
 </footer>
 
 
-  <!-- ════════════════════════════════════════════════════════════════
-       ★★★ SCRIPT AUTH0 — ESPACE MEMBRES (VERSION 2026) ★★★
-       ════════════════════════════════════════════════════════════════
-       Ce script gère l'espace membres :
-       - Vérifie la présence du token en sessionStorage
-       - Redirige vers index.html si non authentifié
-       - Appelle /userinfo pour récupérer le profil utilisateur
-       - Vérifie le claim "paid" pour l'accès au contenu (gratuit vs payant)
-       - Gère l'affichage du lien "Déconnexion" dans le menu de navigation
-       - PAS de lien Connexion sur cette page (inutile car page privée)
-       ════════════════════════════════════════════════════════════════ -->
-  <script>
+  <!--   a supprimer 
+<script>
+/* ════════════════════════════════════════════════════════════════
+★★★ SCRIPT AUTH0 — ESPACE MEMBRES (VERSION 2026) ★★★
+════════════════════════════════════════════════════════════════
+Ce script gère l'espace membres :
+- Vérifie la présence du token en sessionStorage
+- Redirige vers index.html si non authentifié
+- Appelle /userinfo pour récupérer le profil utilisateur
+- Vérifie le claim "paid" pour l'accès au contenu (gratuit vs payant)
+- Gère l'affichage du lien "Déconnexion" dans le menu de navigation
+- PAS de lien Connexion sur cette page (inutile car page privée)
+________________________
+
+✔ Loader +	✔ Menu Hamburger + ✔ Vérif token	+
+✔ Redirection si non connecté + ✔ Fetch /userinfo + ✔ Gestion abonnement
+════════════════════════════════════════════════════════════════ */
+
+
     const AUTH0_DOMAIN = "convergence-tech.eu.auth0.com";
     const CLIENT_ID = "ONtxpyovHGewrl4669n3Qz8RJYot27AS";
     const BASE_URL = "https://convergence-human-technology.github.io/site";
@@ -511,12 +519,12 @@ Blog & Articles
 </script>
 
 
-  <!-- ════════════════════════════════════════════════════════════════
+   ════════════════════════════════════════════════════════════════
        ★ SCRIPTS — LOADER + HAMBURGER ★
        ════════════════════════════════════════════════════════════════
        1. LOADER    : masque l'écran de chargement après 3 secondes
        2. HAMBURGER : ouvre/ferme le menu de navigation sur mobile
-       ════════════════════════════════════════════════════════════════ -->
+       ════════════════════════════════════════════════════════════════ 
   <script>
 
     /* ================================================================
@@ -576,7 +584,7 @@ Blog & Articles
 
     }); /* fin DOMContentLoaded */
 
-  </script>
+  </script>  -->
 
 
 </body>
