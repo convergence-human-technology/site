@@ -359,8 +359,8 @@ Le cercle symbolise l'unité et la complétude. Les liaisons fonctionnelles et s
 </div>
 
 <div style="text-align: center; margin-top: 30px;" role="region" aria-label="Accessibilité : Aide à la lecture">
-<button id="dys-mode-btn" class="hero-login-btn" type="button" role="switch" aria-checked="false" tabindex="0" hreflang="fr" 
-style="background: #4dd4f0; color: #010c1e; padding: 12px 24px; font-size: 0.9em; cursor: pointer; border: 2px solid #010c1e; border-radius: 4px; font-weight: bold; transition: all 0.2s ease-in-out;" aria-label="Activer la police OpenDyslexic pour tout le site" 
+<button id="dys-mode-btn" class="hero-login-btn" type="button" role="switch" aria-checked="false" tabindex="0"
+style="background: #4dd4f0; color: #010c1e; padding: 12px 24px; font-size: 0.9em; cursor: pointer; border: 2px solid #010c1e; border-radius: 4px; font-weight: bold; transition: all 0.2s ease-in-out;" aria-label="Activer la police OpenDyslexic pour tout le site"
 title="Mode DYS (OpenDyslexic) - Améliore la lisibilité sur la page index du site" onfocus="this.style.boxShadow='0 0 0 4px rgba(77, 212, 240, 0.5)'; this.style.outline='2px solid #010c1e';" onblur="this.style.boxShadow='none'; this.style.outline='none';"><span aria-hidden="true">📖</span><span id="dys-label"> Mode DYS (OpenDyslexic)</span>
 </button>
 </div>
@@ -524,6 +524,7 @@ Blog & Articles
   function activerModeDys(){
     document.body.classList.add('mode-dyslexie','body-high-contrast');
     btn.setAttribute('aria-checked','true');
+    btn.setAttribute('aria-label','Désactiver la police OpenDyslexic');
     if(label) label.textContent = ' ✓ Mode DYS activé';
     localStorage.setItem('dys-mode','active');
   }
@@ -531,6 +532,7 @@ Blog & Articles
   function desactiverModeDys(){
     document.body.classList.remove('mode-dyslexie','body-high-contrast');
     btn.setAttribute('aria-checked','false');
+    btn.setAttribute('aria-label','Activer la police OpenDyslexic pour tout le site');
     if(label) label.textContent = ' Mode DYS (OpenDyslexic)';
     localStorage.setItem('dys-mode','inactive');
   }
