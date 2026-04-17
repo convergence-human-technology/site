@@ -258,14 +258,14 @@ if(ua.indexOf('MSIE 4')!==-1){htmlClass+=' ie4 very-old';}
 
 .fixed-sidebar {
   position: fixed;
-  left: 16px;           /* ne touche pas le bord gauche */
+  right: 20px;           /* ne touche pas le bord gauche */
   top: 80px;            /* padding top : laisse de l'espace sous le menu */
-  width: 260px;         /* largeur configurable, modifiez ici */
+  width: 400px;         /* largeur configurable, modifiez ici */
   background-color: rgba(15, 25, 45, 0.95);
   backdrop-filter: blur(8px);  /* effet verre filtre (optionnel) */
-  border-radius: 16px;
+  border-radius: 0px;
   padding: 20px 16px;
-  z-index: 1000;
+  z-index: 3;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(77, 212, 240, 0.3);
   transition: all 0.2s ease;
@@ -274,7 +274,7 @@ if(ua.indexOf('MSIE 4')!==-1){htmlClass+=' ie4 very-old';}
 /* Conteneurs vierges à l'intérieur */
 .sidebar-block {
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+  border-radius: 0px;
   padding: 16px;
   margin-bottom: 16px;
   min-height: 80px;     /* hauteur minimale pour voir la zone */
