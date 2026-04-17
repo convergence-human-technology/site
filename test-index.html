@@ -294,6 +294,14 @@ if(ua.indexOf('MSIE 4')!==-1){htmlClass+=' ie4 very-old';}
   }
 }
 
+/* Optionnel : réduire la largeur sur écrans moyens */
+@media (max-width: 2875px)  {
+  .fixed-sidebar {
+    width: 450px;
+    right: 10px;
+  }
+}
+
 /* Ajustement pour les très petits écrans : masquer l'aside */
 @media (max-width: 2200px) {
   .fixed-sidebar {
