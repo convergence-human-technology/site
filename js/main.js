@@ -320,13 +320,21 @@ function initHalo() {
    7. FAQ - Accordion ouverture / fermeture
    ================================================================
    Au clic sur un .faq-question-btn :
-   - bascule la classe .faq-open sur le .faq-item parent
+   - bascule la classe .open sur le .faq-item parent
    - met à jour aria-expanded pour l'accessibilité
    - ferme les autres items ouverts (comportement accordion)
 
    ✔ Aucune dépendance externe (pas de jQuery)
    ✔ Compatible clavier et lecteurs d'écran
    ✔ Un seul item ouvert à la fois
+
+   NE PAS MODIFIER :
+   Le CSS de shared.css écoute la classe .open 
+   Règles concernées dans shared.css :
+     .faq-item.open .faq-answer  → affiche la réponse (max-height: 500px)
+     .faq-item.open .faq-arrow   → retourne la flèche (rotate 180deg)
+   Toute modification du nom de classe ici doit être répercutée dans shared.css
+   sous peine de casser silencieusement l'accordion (aucune erreur console).
    ================================================================ */
 function initFaq() {
 
@@ -346,17 +354,19 @@ function initFaq() {
       /* parentElement remonte au .faq-item qui contient le bouton ET la réponse */
       var item = this.parentElement;
 
-      /* Mémorise l'état AVANT de tout fermer — nécessaire pour le toggle correct */
-      /* Si l'item était déjà ouvert, isOpen = true → on ne le rouvrira pas */
-      var isOpen = item.classList.contains('faq-open');
+      /* Mémorise l'état AVANT de tout fermer — nécessaire pour le toggle correct.
+         On lit ici si l'item cliqué est ouvert ou fermé AVANT de réinitialiser tous les items.
+         Si on lisait après la boucle de fermeture, isOpen serait toujours false. */
+      var isOpen = item.classList.contains('open'); /* ← classe 'open' attendue par shared.css */
 
       /* ── FERME TOUS LES ITEMS ───────────────────────────────── */
       /* Comportement accordion : un seul item ouvert à la fois.
          On itère sur tous les boutons pour réinitialiser leur état. */
       for (var j = 0; j < faqBtns.length; j++) {
 
-        /* Retire la classe .faq-open du .faq-item parent de chaque bouton */
-        faqBtns[j].parentElement.classList.remove('faq-open');
+        /* Retire la classe .open du .faq-item parent de chaque bouton.
+           C'est cette classe que shared.css surveille pour masquer/afficher .faq-answer */
+        faqBtns[j].parentElement.classList.remove('open');
 
         /* Remet aria-expanded à false sur chaque bouton — informe les lecteurs d'écran */
         faqBtns[j].setAttribute('aria-expanded', 'false');
@@ -364,10 +374,11 @@ function initFaq() {
 
       /* ── OUVRE L'ITEM CLIQUÉ (SI IL ÉTAIT FERMÉ) ───────────── */
       /* Si isOpen était false, l'item était fermé → on l'ouvre maintenant.
-         Si isOpen était true, l'item était déjà ouvert → on le laisse fermé (bascule). */
+         Si isOpen était true, l'item était déjà ouvert → on le laisse fermé (bascule).
+         Ce comportement évite qu'un item rouvert immédiatement après fermeture. */
       if (!isOpen) {
-        item.classList.add('faq-open');             /* → le CSS affiche la réponse */
-        this.setAttribute('aria-expanded', 'true'); /* → informe les lecteurs d'écran */
+        item.classList.add('open');                 /* → shared.css déclenche max-height + rotation flèche */
+        this.setAttribute('aria-expanded', 'true'); /* → informe les lecteurs d'écran que le panneau est ouvert */
       }
 
     }); /* fin addEventListener click */
