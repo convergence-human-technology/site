@@ -260,7 +260,7 @@ if(ua.indexOf('MSIE 4')!==-1){htmlClass+=' ie4 very-old';}
   position: fixed;
   right: 20px;           /* ne touche pas le bord gauche */
   top: 80px;            /* padding top : laisse de l'espace sous le menu */
-  width: 800px;         /* largeur configurable, modifiez ici */
+  width: 30%;         /* largeur configurable, modifiez ici */
   background-color: rgba(15, 25, 45, 0.95);
   backdrop-filter: blur(8px);  /* effet verre filtre (optionnel) */
   border-radius: 0px;
@@ -287,17 +287,9 @@ if(ua.indexOf('MSIE 4')!==-1){htmlClass+=' ie4 very-old';}
 }
 
 /* Ajustement pour les très petits écrans : masquer l'aside */
-@media (max-width: 768px) {
+@media (max-width: 2200px) {
   .fixed-sidebar {
     display: none;
-  }
-}
-
-/* Optionnel : réduire la largeur sur écrans moyens */
-@media (max-width: 1024px) and (min-width: 769px) {
-  .fixed-sidebar {
-    width: 220px;
-    left: 12px;
   }
 }
 </style>
