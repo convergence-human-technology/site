@@ -242,7 +242,7 @@ if(ua.indexOf('MSIE 4')!==-1){htmlClass+=' ie4 very-old';}
 /* Classe visually-hidden : cache visuellement mais garde dans le DOM pour les robots et lecteurs d'écran */
 .visually-hidden {position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;}
 /* .picture-full-width Classe spécifique pour cette image uniquement */
-.picture-full-width {display: block;width: 100%; margin: 0 auto;}
+.picture-full-width {display: block;width: 100%; margin: 0 0 20px 0;  /* haut | droite | bas | gauche */}
 .picture-full-width img {width: 100%;height: auto; display: block;}
 /* logo */
 .logo-img:focus-visible, .logo-img img:focus-visible {outline: 3px solid #4dd4f0; outline-offset: 4px; border-radius: 8px;}
