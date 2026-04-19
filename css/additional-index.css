@@ -1,0 +1,30 @@
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+.picture-full-width{display:block;width:100%;margin:0 0 20px 0}
+.picture-full-width img{width:100%;height:auto;display:block}
+
+.logo-img:focus-visible,.logo-img img:focus-visible{outline:3px solid #4dd4f0;outline-offset:4px;border-radius:8px}
+.logo-img:focus-visible{transition:outline .1s ease}
+@media (prefers-reduced-motion:reduce){.logo-img:focus-visible{transition:none}}
+@media (prefers-reduced-data:reduce){.logo-img img{max-width:310px;height:auto}}
+
+.fixed-sidebar{position:fixed;right:20px;top:110px;width:750px;border-radius:0;padding:40px 60px;z-index:3;transition:all .2s ease}
+.sidebar-block{position:relative;max-width:710px;height:200px;margin-bottom:16px;padding:16px;background-color:transparent;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;transform:skew(-20deg);overflow:visible}
+.sidebar-block::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-size:cover;background-position:center;background-repeat:no-repeat;z-index:-1}
+.text-box{position:absolute;width:180px;min-height:120px;top:50%;background-color:#fff;padding:15px;transform:translateY(-50%) skew(20deg)}
+.text-box.right{right:50px}
+.text-box.left{left:50px}
+.text-box p{margin:0;color:#020202;text-align:justify;word-spacing:normal;word-break:normal;word-wrap:break-word;overflow-wrap:break-word;hyphens:auto;line-height:1.5;font-size:14px}
+.sidebar-block:last-child{margin-bottom:0}
+.sidebar-block:nth-child(1){background-image:url('https://convergence-human-technology.github.io/site/img/singularity-convergence-HT.jpg');content-visibility:visible}
+.sidebar-block:nth-child(2){background-image:url('https://convergence-human-technology.github.io/site/img/industrie-convergence-HT.jpg');content-visibility:visible}
+.sidebar-block:nth-child(3){background-image:url('https://convergence-human-technology.github.io/site/img/pixel-convergence-HT.jpg');content-visibility:visible}
+.sidebar-block:nth-child(4){background-image:url('https://convergence-human-technology.github.io/site/img/utility-convergence-HT.jpg');content-visibility:visible}
+.preload-images{position:absolute;width:0;height:0;overflow:hidden;z-index:-9999}
+.preload-images::after{content:'';background-image:url('https://convergence-human-technology.github.io/site/img/singularity-convergence-HT.jpg'),url('https://convergence-human-technology.github.io/site/img/industrie-convergence-HT.jpg'),url('https://convergence-human-technology.github.io/site/img/pixel-convergence-HT.jpg'),url('https://convergence-human-technology.github.io/site/img/utility-convergence-HT.jpg');position:absolute;width:0;height:0;opacity:0}
+@media (max-width:3250px){.fixed-sidebar{width:700px;right:5px}.text-box{width:160px;min-height:110px;padding:12px}}
+@media (max-width:3130px){.fixed-sidebar{width:600px;right:4px}.text-box{width:150px;min-height:100px;padding:10px}.text-box p{font-size:13px}}
+@media (max-width:2935px){.fixed-sidebar{width:480px;right:4px}.sidebar-block{height:180px}.text-box{width:140px;min-height:90px;padding:10px}}
+@media (max-width:2900px){.fixed-sidebar{width:400px;right:3px}.sidebar-block{height:160px}.text-box{width:130px;min-height:80px;padding:8px}.text-box p{font-size:12px;line-height:1.4}}
+@media (max-width:2700px){.fixed-sidebar{width:400px;right:3px}}
+@media (max-width:2540px){.fixed-sidebar{display:none}}
